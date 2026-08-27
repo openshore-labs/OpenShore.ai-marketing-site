@@ -1,0 +1,169 @@
+---
+layout: base.njk
+permalink: /
+pageTitle: "OpenShore: Your machine, your models, your keys"
+pageDescription: "OpenShore is a coding companion that runs on your own hardware. Chat and build with a stack of local models on iPhone and desktop, synced over your own private network, private by construction, with cloud one deliberate tap away on your own keys. Free for personal use; company seats from $20 a year."
+---
+
+<div
+  id="oscode-billing"
+  data-supabase-url="{{ oscode.checkout.supabaseUrl }}"
+  data-anon-key="{{ oscode.checkout.publishableKey }}"
+  hidden
+></div>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "OpenShore",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "iOS, Linux",
+    "url": "{{ site.url }}/",
+    "description": "{{ oscode.lede }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.legalName }}",
+      "url": "{{ site.parentUrl }}"
+    },
+    "offers": [
+      { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Personal", "price": "20", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Micro", "price": "20", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Small", "price": "100", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Growth", "price": "250", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Scale", "price": "500", "priceCurrency": "USD" }
+    ]
+  }
+</script>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <div id="oscode-auth" class="oscode-auth"></div>
+  </div>
+  <h1 class="identity">{{ oscode.headline }}<span class="identity-coda identity-byline">{{ oscode.coda | replace(oscode.codaAccent, '<span class="coda-accent">' + oscode.codaAccent + '</span>') | safe }}</span></h1>
+  <div class="horizon" role="presentation"></div>
+  <div class="hero-actions">
+    <a class="block-cta hero-cta" href="#pricing">See the plans <span aria-hidden="true">&rarr;</span></a>
+    <a class="hero-cta-ghost" href="#how-heading">How it works</a>
+  </div>
+</header>
+
+<section class="block">
+  <p class="lede intro-lede">{{ oscode.lede }}</p>
+  <p class="prose intro-summary">{{ oscode.summary }}</p>
+</section>
+
+<section class="block" aria-labelledby="pillars-heading">
+  <h2 id="pillars-heading" class="eyebrow">{{ oscode.pillarsLabel }}</h2>
+  <ul class="pillars">
+    {% for p in oscode.pillars %}
+    <li class="pillar">
+      <p class="pillar-name">{{ p.name }}</p>
+      <p class="pillar-promise">{{ p.promise }}</p>
+      <p class="pillar-covers">{{ p.covers }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="block" aria-labelledby="how-heading">
+  <h2 id="how-heading" class="eyebrow">{{ oscode.howLabel }}</h2>
+  <ol class="components">
+    {% for step in oscode.how %}
+    <li class="component">
+      <span class="component-name">{{ step.name }}</span>
+      <span class="component-body">{{ step.body }}</span>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="block" aria-labelledby="pricing-heading" id="pricing">
+  <h2 id="pricing-heading" class="eyebrow">{{ oscode.pricingLabel }}</h2>
+  <p class="lede">{{ oscode.pricingIntro }}</p>
+  <div class="offers">
+    {% for plan in oscode.plans %}
+    <article class="offer{% if plan.flagship %} offer--flagship{% endif %}" id="plan-{{ plan.id }}">
+      <div class="offer-summary">
+        <span class="offer-head">
+          <span class="offer-segment">{{ plan.segment }}</span>
+          <span class="offer-name">{{ plan.name }}{% if plan.flagship %} <span class="offer-flag">Most popular</span>{% endif %}</span>
+        </span>
+        <span class="offer-price">{{ plan.price }}</span>
+      </div>
+      <div class="offer-detail">
+        <div class="offer-detail-inner">
+          <p class="offer-promise">{{ plan.promise }}</p>
+          <div class="offer-slot offer-deliver">
+            <p class="offer-slot-label">What's included</p>
+            <ul class="track-includes">
+              {% for item in plan.includes %}<li>{{ item }}</li>{% endfor %}
+            </ul>
+          </div>
+          {% if plan.id == 'free' %}
+          <a class="block-cta" href="mailto:{{ site.emails.oscode }}?subject={{ (plan.name + ' · OpenShore') | urlencode }}">{{ plan.cta }} <span aria-hidden="true">&rarr;</span></a>
+          {% elif plan.buyable or plan.segment == 'For teams' %}
+          <button type="button" class="block-cta" data-tier="{{ plan.id }}">{{ plan.cta }} <span aria-hidden="true">&rarr;</span></button>
+          {% endif %}
+          {% if plan.finePrint %}<p class="offer-fine">{{ plan.finePrint }}</p>{% endif %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  <ul class="offer-reassure">
+    {% for r in oscode.reassurance %}
+    <li><strong>{{ r.label }}</strong> {{ r.body }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="block" aria-labelledby="close-heading" id="early-access">
+  <h2 id="close-heading" class="eyebrow">Early access</h2>
+  <p class="lede lede--close">{{ oscode.close }}</p>
+  <div class="contact">
+    <p class="contact-line">
+      <span class="contact-label">Email</span>
+      <a href="mailto:{{ site.emails.oscode }}?subject={{ oscode.earlyAccessSubject | urlencode }}&amp;body={{ oscode.earlyAccessBody | urlencode }}">{{ site.emails.oscode }}</a>
+    </p>
+  </div>
+</section>
+
+<footer class="colophon">
+  <p><a href="{{ site.parentUrl }}">&larr; {{ site.parentName }}</a></p>
+  <p>&copy; {{ site.year }} {{ site.legalName }}. OpenShore is a product of {{ site.legalName }}.</p>
+</footer>
+
+<a
+  class="consult-fab"
+  href="mailto:{{ site.emails.oscode }}?subject={{ oscode.earlyAccessSubject | urlencode }}&amp;body={{ oscode.earlyAccessBody | urlencode }}"
+  aria-label="Email for OpenShore early access"
+>
+  <svg class="consult-fab-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <path d="m3 7 9 6 9-6" />
+  </svg>
+  <span class="consult-fab-label">{{ oscode.fabLabel }}</span>
+</a>
+
+<dialog id="oscode-login" class="oscode-login" aria-labelledby="oscode-login-title">
+  <button type="button" class="oscode-login-close" aria-label="Close">&times;</button>
+  <h2 id="oscode-login-title" class="oscode-login-title">Log in</h2>
+  <p class="oscode-login-sub">Sign in with the same account you use in the OpenShore app. Personal use needs no account.</p>
+  <form>
+    <label class="oscode-field">
+      <span>Email</span>
+      <input id="oscode-email" type="email" autocomplete="email" autocapitalize="none" placeholder="you@company.com" />
+    </label>
+    <label class="oscode-field">
+      <span>Password</span>
+      <input id="oscode-password" type="password" autocomplete="current-password" placeholder="Password" />
+    </label>
+    <p class="oscode-login-error" role="alert"></p>
+    <button type="submit" class="block-cta oscode-login-submit">Log in</button>
+    <button type="button" class="oscode-login-toggle">New here? Create an account</button>
+  </form>
+</dialog>
+
+<script src="/openshore-app.js?v={{ rev.appJs }}" defer></script>

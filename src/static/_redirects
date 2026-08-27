@@ -1,0 +1,13 @@
+# Cloudflare Pages redirects. This file is copied verbatim to the site root by
+# the Eleventy passthrough (src/static -> "."), so it lands at _site/_redirects
+# where Pages reads it.
+#
+# The Stripe checkout/portal edge functions in openshore.code.ai
+# (supabase/functions/stripe-checkout) default their success/cancel/portal
+# return URLs to https://openshore.ai/os-code/ (?checkout=success on success),
+# a holdover from when this page lived at openshore.ai/os-code/ on the
+# Open-Shore-LLC-Homepage site. Now that OpenShore is the whole site at the
+# root, keep that path alive as a redirect rather than editing and redeploying
+# a live payments function; Cloudflare Pages forwards the query string, so
+# ?checkout=success still reaches the page.
+/os-code/  /  301

@@ -1,0 +1,1286 @@
+{
+  "version": 1,
+  "updated": "2026-08-26",
+  "models": [
+    {
+      "id": "qwen2.5-coder-7b",
+      "name": "Qwen 2.5 Coder 7B",
+      "tagline": "Great at code for its size. The best small starting point.",
+      "categories": [
+        "coding",
+        "reasoning"
+      ],
+      "orchestratorCapable": true,
+      "source": {
+        "kind": "ollama",
+        "ref": "qwen2.5-coder:7b",
+        "pullCommand": "ollama pull qwen2.5-coder:7b",
+        "popularityRef": "Qwen/Qwen2.5-Coder-7B-Instruct-GGUF"
+      },
+      "sizeGB": 4.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "note": "Commercial use is fine. Attribution required.",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1,
+        "note": "The default starter: strong tool calling, honest edits, runs on 8 GB."
+      },
+      "blessed": true,
+      "benchmarks": {
+        "HumanEval": "88.4",
+        "BFCL": "strong native tool calling",
+        "LiveCodeBench": "competitive at 7B"
+      },
+      "ratings": {
+        "perCapability": {
+          "coding": 4.5,
+          "reasoning": 3.5
+        },
+        "osCodeFit": 4,
+        "provenance": {
+          "coding": [
+            "HumanEval",
+            "MBPP",
+            "BFCL"
+          ],
+          "reasoning": [
+            "MMLU"
+          ]
+        }
+      },
+      "popularity": {
+        "downloads": 244641,
+        "likes": 393,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-09-18T11:40:39.000Z",
+      "updatedAt": "2024-11-12T07:59:32.000Z",
+      "recommended": {
+        "isRecommended": true,
+        "note": "We picked this as your starting orchestrator. It is small, fast, and it follows tools well."
+      }
+    },
+    {
+      "id": "qwen2.5-coder-14b",
+      "name": "Qwen 2.5 Coder 14B",
+      "tagline": "Great at code, with more headroom for planning. The sweet spot on 16 GB.",
+      "categories": [
+        "coding",
+        "reasoning"
+      ],
+      "orchestratorCapable": true,
+      "source": {
+        "kind": "ollama",
+        "ref": "qwen2.5-coder:14b",
+        "pullCommand": "ollama pull qwen2.5-coder:14b",
+        "popularityRef": "Qwen/Qwen2.5-Coder-14B-Instruct-GGUF"
+      },
+      "sizeGB": 9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "note": "Commercial use is fine. Attribution required.",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 2,
+        "note": "The recommended orchestrator when the machine has 16 GB of VRAM."
+      },
+      "blessed": true,
+      "benchmarks": {
+        "HumanEval": "89.6",
+        "BFCL": "strong native tool calling"
+      },
+      "ratings": {
+        "perCapability": {
+          "coding": 4.5,
+          "reasoning": 4
+        },
+        "osCodeFit": 4,
+        "provenance": {
+          "coding": [
+            "HumanEval",
+            "MBPP",
+            "BFCL"
+          ],
+          "reasoning": [
+            "MMLU"
+          ]
+        }
+      },
+      "popularity": {
+        "downloads": 91143,
+        "likes": 190,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-11-09T12:45:52.000Z",
+      "updatedAt": "2024-11-12T09:54:27.000Z",
+      "recommended": {
+        "isRecommended": true,
+        "note": "The one to grow into on a 16 GB machine. More planning headroom, same honest edits."
+      }
+    },
+    {
+      "id": "qwen2.5-coder-32b",
+      "name": "Qwen 2.5 Coder 32B",
+      "tagline": "Big-rig coding brain. Close to cloud quality on hard edits.",
+      "categories": [
+        "coding",
+        "reasoning"
+      ],
+      "orchestratorCapable": true,
+      "source": {
+        "kind": "ollama",
+        "ref": "qwen2.5-coder:32b",
+        "pullCommand": "ollama pull qwen2.5-coder:32b",
+        "popularityRef": "Qwen/Qwen2.5-Coder-32B-Instruct-GGUF"
+      },
+      "sizeGB": 20,
+      "quantization": "Q4_K_M",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "note": "Commercial use is fine. Attribution required.",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 3,
+        "note": "Needs 24 GB of VRAM. The strongest local orchestrator in the catalog."
+      },
+      "blessed": true,
+      "benchmarks": {
+        "HumanEval": "92.7",
+        "SWE-bench (assisted)": "strongest local option here"
+      },
+      "ratings": {
+        "perCapability": {
+          "coding": 5,
+          "reasoning": 4
+        },
+        "osCodeFit": 5,
+        "provenance": {
+          "coding": [
+            "HumanEval",
+            "MBPP",
+            "BFCL"
+          ],
+          "reasoning": [
+            "MMLU"
+          ]
+        }
+      },
+      "popularity": {
+        "downloads": 72863,
+        "likes": 222,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-11-09T12:45:18.000Z",
+      "updatedAt": "2025-01-12T02:08:48.000Z",
+      "recommended": {
+        "isRecommended": false
+      }
+    },
+    {
+      "id": "llama3.1-8b",
+      "name": "Llama 3.1 8B",
+      "tagline": "A solid all-rounder that writes clean prose and follows instructions.",
+      "categories": [
+        "reasoning",
+        "writing"
+      ],
+      "orchestratorCapable": true,
+      "source": {
+        "kind": "ollama",
+        "ref": "llama3.1:8b",
+        "pullCommand": "ollama pull llama3.1:8b",
+        "popularityRef": "bartowski/Meta-Llama-3.1-8B-Instruct-GGUF"
+      },
+      "sizeGB": 4.9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 131072,
+      "license": {
+        "id": "Llama-3.1-Community",
+        "name": "Llama 3.1 Community License",
+        "url": "https://www.llama.com/llama3_1/license/",
+        "note": "Commercial use is fine. Special terms apply above 700 million monthly users.",
+        "commercial": "gated"
+      },
+      "curation": {
+        "rank": 4,
+        "note": "Prefer Qwen Coder for code work; pick this for prose-heavy or general tasks."
+      },
+      "blessed": false,
+      "benchmarks": {
+        "MMLU": "69.4",
+        "context": "128k tokens"
+      },
+      "ratings": {
+        "perCapability": {
+          "reasoning": 3.5,
+          "writing": 4.5
+        },
+        "osCodeFit": 4,
+        "provenance": {
+          "reasoning": [
+            "MMLU"
+          ],
+          "writing": [
+            "MT-Bench"
+          ]
+        }
+      },
+      "popularity": {
+        "downloads": 294871,
+        "likes": 394,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-07-23T15:36:34.000Z",
+      "updatedAt": "2024-12-01T04:12:27.000Z",
+      "recommended": {
+        "isRecommended": false
+      }
+    },
+    {
+      "id": "deepseek-r1-14b",
+      "name": "DeepSeek R1 14B",
+      "tagline": "Thinks things through, out loud. Strong on tricky logic.",
+      "categories": [
+        "reasoning",
+        "analysis"
+      ],
+      "orchestratorCapable": true,
+      "source": {
+        "kind": "ollama",
+        "ref": "deepseek-r1:14b",
+        "pullCommand": "ollama pull deepseek-r1:14b",
+        "popularityRef": "bartowski/DeepSeek-R1-Distill-Qwen-14B-GGUF"
+      },
+      "sizeGB": 9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 131072,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 5,
+        "note": "Slower per answer (it reasons at length); pair with a fast specialist."
+      },
+      "blessed": false,
+      "benchmarks": {
+        "GPQA": "strong for size",
+        "MATH-500": "93.9"
+      },
+      "ratings": {
+        "perCapability": {
+          "reasoning": 4,
+          "analysis": 5
+        },
+        "osCodeFit": 4,
+        "provenance": {
+          "reasoning": [
+            "MMLU",
+            "GPQA"
+          ],
+          "analysis": [
+            "MATH-500",
+            "GSM8K"
+          ]
+        }
+      },
+      "popularity": {
+        "downloads": 40077,
+        "likes": 249,
+        "source": "huggingface"
+      },
+      "createdAt": "2025-01-20T14:53:41.000Z",
+      "updatedAt": "2025-03-10T16:49:14.000Z"
+    },
+    {
+      "id": "llava-7b",
+      "name": "LLaVA 7B",
+      "tagline": "Can read screenshots, charts, and photos of whiteboards.",
+      "categories": [
+        "vision"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "llava:7b",
+        "pullCommand": "ollama pull llava:7b"
+      },
+      "sizeGB": 4.7,
+      "quantization": "Q4_0",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 6,
+        "note": "The vision specialist: attach a screenshot and ask what is on it."
+      },
+      "blessed": true,
+      "benchmarks": {
+        "MMMU": "capable",
+        "ChartQA": "reads most charts"
+      },
+      "ratings": {
+        "perCapability": {
+          "vision": 3.5
+        },
+        "osCodeFit": 2,
+        "provenance": {
+          "vision": [
+            "MMMU",
+            "ChartQA"
+          ]
+        }
+      }
+    },
+    {
+      "id": "moondream",
+      "name": "Moondream 2",
+      "tagline": "A tiny screenshot reader for machines with little room to spare.",
+      "categories": [
+        "vision",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "moondream",
+        "pullCommand": "ollama pull moondream",
+        "popularityRef": "vikhyatk/moondream2"
+      },
+      "sizeGB": 1.7,
+      "quantization": "Q4",
+      "contextTokens": 2048,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 7,
+        "note": "Not as sharp as LLaVA, but it fits almost anywhere."
+      },
+      "blessed": false,
+      "ratings": {
+        "perCapability": {
+          "vision": 3,
+          "fast": 4
+        },
+        "osCodeFit": 2,
+        "provenance": {
+          "vision": [
+            "MMMU",
+            "ChartQA"
+          ],
+          "fast": [
+            "tokens per second"
+          ]
+        }
+      },
+      "popularity": {
+        "downloads": 1972379,
+        "likes": 1433,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-03-04T18:03:06.000Z",
+      "updatedAt": "2025-09-23T01:22:59.000Z"
+    },
+    {
+      "id": "nomic-embed-text",
+      "name": "Nomic Embed Text",
+      "tagline": "Finds the right files. Powers repo search, tiny and always resident.",
+      "categories": [
+        "embedding"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "nomic-embed-text",
+        "pullCommand": "ollama pull nomic-embed-text",
+        "popularityRef": "nomic-ai/nomic-embed-text-v1.5-GGUF"
+      },
+      "sizeGB": 0.3,
+      "quantization": "F16",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "note": "Commercial use is fine. Attribution required.",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 3,
+        "note": "The embedder: enable it and searchRepo starts finding code by meaning."
+      },
+      "blessed": true,
+      "benchmarks": {
+        "MTEB": "strong open embedder"
+      },
+      "popularity": {
+        "downloads": 124516,
+        "likes": 131,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-02-14T21:55:09.000Z",
+      "updatedAt": "2025-04-28T20:14:53.000Z",
+      "recommended": {
+        "isRecommended": true,
+        "note": "Turn this on and repo search starts finding code by meaning. Tiny and always resident."
+      }
+    },
+    {
+      "id": "qwen2.5-coder-1.5b",
+      "name": "Qwen 2.5 Coder 1.5B",
+      "tagline": "Fast for small edits and instant answers.",
+      "categories": [
+        "fast",
+        "coding"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "qwen2.5-coder:1.5b",
+        "pullCommand": "ollama pull qwen2.5-coder:1.5b",
+        "popularityRef": "Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF"
+      },
+      "sizeGB": 1,
+      "quantization": "Q4_K_M",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 9,
+        "note": "The latency helper: trivial renames and quick lookups without waking the big model."
+      },
+      "blessed": false,
+      "ratings": {
+        "perCapability": {
+          "fast": 4.5,
+          "coding": 3
+        },
+        "osCodeFit": 2,
+        "provenance": {
+          "fast": [
+            "tokens per second"
+          ],
+          "coding": [
+            "HumanEval"
+          ]
+        }
+      },
+      "popularity": {
+        "downloads": 100183,
+        "likes": 99,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-09-18T13:58:16.000Z",
+      "updatedAt": "2024-11-12T02:56:34.000Z"
+    },
+    {
+      "id": "qwen2.5-1.5b-phone",
+      "name": "Qwen 2.5 1.5B (pocket)",
+      "tagline": "A capable pocket model that runs fully on your iPhone. No desktop, no cloud.",
+      "categories": [
+        "reasoning",
+        "fast"
+      ],
+      "orchestratorCapable": true,
+      "source": {
+        "kind": "huggingface",
+        "ref": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+        "pullCommand": "downloads in-app on iOS"
+      },
+      "sizeGB": 1.1,
+      "quantization": "Q4_K_M",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "note": "Commercial use is fine. Attribution required.",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 4,
+        "note": "The iPhone starter: quick, coherent, and fully private on the phone."
+      },
+      "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf",
+        "sizeGB": 1.1,
+        "minRamGB": 4
+      },
+      "ratings": {
+        "perCapability": {
+          "reasoning": 3.5,
+          "fast": 4.5
+        },
+        "osCodeFit": 3,
+        "provenance": {
+          "reasoning": [
+            "MMLU"
+          ],
+          "fast": [
+            "tokens per second"
+          ]
+        }
+      },
+      "popularity": {
+        "downloads": 186249,
+        "likes": 146,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-09-17T13:57:52.000Z",
+      "updatedAt": "2024-09-20T06:31:38.000Z",
+      "recommended": {
+        "isRecommended": true,
+        "note": "The iPhone starter. Quick, coherent, and fully private on the phone."
+      }
+    },
+    {
+      "id": "llama3.2-1b-phone",
+      "name": "Llama 3.2 1B (pocket)",
+      "tagline": "Meta's tiny chat model, tuned for phones. Fast answers on the go.",
+      "categories": [
+        "fast",
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "huggingface",
+        "ref": "bartowski/Llama-3.2-1B-Instruct-GGUF",
+        "pullCommand": "downloads in-app on iOS"
+      },
+      "sizeGB": 0.8,
+      "quantization": "Q4_K_M",
+      "contextTokens": 131072,
+      "license": {
+        "id": "Llama-3.2-Community",
+        "name": "Llama 3.2 Community License",
+        "url": "https://www.llama.com/llama3_2/license/",
+        "commercial": "gated"
+      },
+      "curation": {
+        "rank": 11,
+        "note": "Smallest and fastest; pick Qwen 1.5B when you want sharper answers."
+      },
+      "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+        "sizeGB": 0.8,
+        "minRamGB": 3
+      },
+      "ratings": {
+        "perCapability": {
+          "fast": 4.5,
+          "reasoning": 2.5
+        },
+        "osCodeFit": 2,
+        "provenance": {
+          "fast": [
+            "tokens per second"
+          ],
+          "reasoning": [
+            "MMLU"
+          ]
+        }
+      },
+      "popularity": {
+        "downloads": 147431,
+        "likes": 176,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-09-25T18:35:25.000Z",
+      "updatedAt": "2024-10-08T14:00:29.000Z"
+    },
+    {
+      "id": "smollm2-1.7b-phone",
+      "name": "SmolLM2 1.7B (pocket)",
+      "tagline": "Hugging Face's small model that punches above its size on the phone.",
+      "categories": [
+        "reasoning",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "huggingface",
+        "ref": "HuggingFaceTB/SmolLM2-1.7B-Instruct-GGUF",
+        "pullCommand": "downloads in-app on iOS"
+      },
+      "sizeGB": 1.1,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 12,
+        "note": "A friendly conversationalist; smaller context than Qwen."
+      },
+      "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct-GGUF/resolve/main/smollm2-1.7b-instruct-q4_k_m.gguf",
+        "sizeGB": 1.1,
+        "minRamGB": 4
+      },
+      "ratings": {
+        "perCapability": {
+          "reasoning": 3,
+          "fast": 4.5
+        },
+        "osCodeFit": 2,
+        "provenance": {
+          "reasoning": [
+            "MMLU"
+          ],
+          "fast": [
+            "tokens per second"
+          ]
+        }
+      },
+      "popularity": {
+        "downloads": 11031,
+        "likes": 52,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-10-31T20:35:06.000Z",
+      "updatedAt": "2024-11-05T14:19:42.000Z"
+    },
+    {
+      "id": "qwen2.5-coder-3b",
+      "name": "Qwen 2.5 Coder 3B",
+      "tagline": "A tiny coder that still writes usable edits. Good on very light machines.",
+      "categories": [
+        "coding",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "qwen2.5-coder:3b",
+        "pullCommand": "ollama pull qwen2.5-coder:3b",
+        "popularityRef": "Qwen/Qwen2.5-Coder-3B-Instruct-GGUF"
+      },
+      "sizeGB": 1.9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 13,
+        "note": "A middle step between the 1.5B helper and the 7B starter."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 55425,
+        "likes": 111,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-11-09T12:46:15.000Z",
+      "updatedAt": "2024-11-11T13:42:52.000Z"
+    },
+    {
+      "id": "qwen2.5-7b",
+      "name": "Qwen 2.5 7B",
+      "tagline": "A strong general model for chat, reasoning, and clean writing.",
+      "categories": [
+        "reasoning",
+        "writing"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "qwen2.5:7b",
+        "pullCommand": "ollama pull qwen2.5:7b",
+        "popularityRef": "Qwen/Qwen2.5-7B-Instruct-GGUF"
+      },
+      "sizeGB": 4.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 14,
+        "note": "The general-purpose sibling of Qwen Coder. Pick Coder for code work."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 91449,
+        "likes": 174,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-09-17T13:58:24.000Z",
+      "updatedAt": "2024-09-20T06:38:28.000Z"
+    },
+    {
+      "id": "qwen2.5-14b",
+      "name": "Qwen 2.5 14B",
+      "tagline": "More headroom for planning and analysis on a 16 GB machine.",
+      "categories": [
+        "reasoning",
+        "analysis"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "qwen2.5:14b",
+        "pullCommand": "ollama pull qwen2.5:14b",
+        "popularityRef": "Qwen/Qwen2.5-14B-Instruct-GGUF"
+      },
+      "sizeGB": 9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 15,
+        "note": "A capable all-rounder for reasoning-heavy, non-code tasks."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 20500,
+        "likes": 64,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-09-17T13:58:37.000Z",
+      "updatedAt": "2024-09-20T06:43:49.000Z"
+    },
+    {
+      "id": "qwen2.5-32b",
+      "name": "Qwen 2.5 32B",
+      "tagline": "A big general brain for hard reasoning and mixed code and prose.",
+      "categories": [
+        "reasoning",
+        "coding"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "qwen2.5:32b",
+        "pullCommand": "ollama pull qwen2.5:32b",
+        "popularityRef": "Qwen/Qwen2.5-32B-Instruct-GGUF"
+      },
+      "sizeGB": 20,
+      "quantization": "Q4_K_M",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 16,
+        "note": "Needs 24 GB of VRAM. A general counterpart to Qwen Coder 32B."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 5614,
+        "likes": 45,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-09-17T13:58:49.000Z",
+      "updatedAt": "2024-09-20T06:52:34.000Z"
+    },
+    {
+      "id": "mistral-7b",
+      "name": "Mistral 7B Instruct",
+      "tagline": "A fast, friendly all-rounder that writes well and follows instructions.",
+      "categories": [
+        "reasoning",
+        "writing"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "mistral:7b",
+        "pullCommand": "ollama pull mistral:7b",
+        "popularityRef": "bartowski/Mistral-7B-Instruct-v0.3-GGUF"
+      },
+      "sizeGB": 4.4,
+      "quantization": "Q4_K_M",
+      "contextTokens": 32768,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 17,
+        "note": "A long-standing open favorite. Lighter on code than Qwen Coder."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 26273,
+        "likes": 47,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-05-22T18:52:35.000Z",
+      "updatedAt": "2024-05-22T19:09:41.000Z"
+    },
+    {
+      "id": "mistral-nemo-12b",
+      "name": "Mistral Nemo 12B",
+      "tagline": "A 12B all-rounder with a long context window for big documents.",
+      "categories": [
+        "reasoning",
+        "writing"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "mistral-nemo:12b",
+        "pullCommand": "ollama pull mistral-nemo:12b",
+        "popularityRef": "bartowski/Mistral-Nemo-Instruct-2407-GGUF"
+      },
+      "sizeGB": 7.1,
+      "quantization": "Q4_K_M",
+      "contextTokens": 131072,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 18,
+        "note": "Reach for the long context when a task spans many files or pages."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 21330,
+        "likes": 124,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-07-18T15:18:30.000Z",
+      "updatedAt": "2024-11-05T00:16:41.000Z"
+    },
+    {
+      "id": "phi4-14b",
+      "name": "Phi 4 14B",
+      "tagline": "Microsoft's compact model that reasons and codes above its weight.",
+      "categories": [
+        "reasoning",
+        "coding"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "phi4",
+        "pullCommand": "ollama pull phi4",
+        "popularityRef": "bartowski/phi-4-GGUF"
+      },
+      "sizeGB": 9.1,
+      "quantization": "Q4_K_M",
+      "contextTokens": 16384,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 19,
+        "note": "Strong reasoning for its size. Shorter context than the Qwen line."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 11145,
+        "likes": 64,
+        "source": "huggingface"
+      },
+      "createdAt": "2025-01-08T15:30:31.000Z",
+      "updatedAt": "2025-01-11T04:10:35.000Z"
+    },
+    {
+      "id": "phi3.5-mini",
+      "name": "Phi 3.5 Mini",
+      "tagline": "A small, quick model with a long context for its size.",
+      "categories": [
+        "reasoning",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "phi3.5",
+        "pullCommand": "ollama pull phi3.5",
+        "popularityRef": "bartowski/Phi-3.5-mini-instruct-GGUF"
+      },
+      "sizeGB": 2.4,
+      "quantization": "Q4_K_M",
+      "contextTokens": 131072,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 20,
+        "note": "A light reasoner that fits small machines and long inputs."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 110957,
+        "likes": 88,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-08-20T19:56:23.000Z",
+      "updatedAt": "2024-09-15T07:35:15.000Z"
+    },
+    {
+      "id": "gemma2-9b",
+      "name": "Gemma 2 9B",
+      "tagline": "Google's open model with a warm, articulate writing voice.",
+      "categories": [
+        "reasoning",
+        "writing"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "gemma2:9b",
+        "pullCommand": "ollama pull gemma2:9b",
+        "popularityRef": "bartowski/gemma-2-9b-it-GGUF"
+      },
+      "sizeGB": 5.8,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Gemma",
+        "name": "Gemma Terms of Use",
+        "url": "https://ai.google.dev/gemma/terms",
+        "commercial": "gated"
+      },
+      "curation": {
+        "rank": 21,
+        "note": "A pleasant writer. Shorter context than Qwen or Mistral Nemo."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 31834,
+        "likes": 232,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-06-27T15:42:48.000Z",
+      "updatedAt": "2024-07-15T18:57:00.000Z"
+    },
+    {
+      "id": "gemma2-2b",
+      "name": "Gemma 2 2B",
+      "tagline": "A tiny, tidy writer for quick drafts and short replies.",
+      "categories": [
+        "writing",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "gemma2:2b",
+        "pullCommand": "ollama pull gemma2:2b",
+        "popularityRef": "bartowski/gemma-2-2b-it-GGUF"
+      },
+      "sizeGB": 1.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Gemma",
+        "name": "Gemma Terms of Use",
+        "url": "https://ai.google.dev/gemma/terms",
+        "commercial": "gated"
+      },
+      "curation": {
+        "rank": 22,
+        "note": "Fits almost anywhere. Reach for a bigger model on hard tasks."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 74779,
+        "likes": 100,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-07-31T16:45:13.000Z",
+      "updatedAt": "2024-08-05T19:14:36.000Z"
+    },
+    {
+      "id": "llama3.2-3b",
+      "name": "Llama 3.2 3B",
+      "tagline": "Meta's small all-rounder with a long context window.",
+      "categories": [
+        "reasoning",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "llama3.2:3b",
+        "pullCommand": "ollama pull llama3.2:3b",
+        "popularityRef": "bartowski/Llama-3.2-3B-Instruct-GGUF"
+      },
+      "sizeGB": 2,
+      "quantization": "Q4_K_M",
+      "contextTokens": 131072,
+      "license": {
+        "id": "Llama-3.2-Community",
+        "name": "Llama 3.2 Community License",
+        "url": "https://www.llama.com/llama3_2/license/",
+        "commercial": "gated"
+      },
+      "curation": {
+        "rank": 23,
+        "note": "A capable small model when you want Meta's lineage and long context."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 128003,
+        "likes": 231,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-09-25T18:35:33.000Z",
+      "updatedAt": "2024-10-08T14:01:10.000Z"
+    },
+    {
+      "id": "deepseek-r1-7b",
+      "name": "DeepSeek R1 Distill 7B",
+      "tagline": "A small reasoner that thinks through tricky logic step by step.",
+      "categories": [
+        "reasoning",
+        "analysis"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "deepseek-r1:7b",
+        "pullCommand": "ollama pull deepseek-r1:7b",
+        "popularityRef": "bartowski/DeepSeek-R1-Distill-Qwen-7B-GGUF"
+      },
+      "sizeGB": 4.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 131072,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 24,
+        "note": "The lighter R1 for machines that cannot fit the 14B distill."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 70667,
+        "likes": 144,
+        "source": "huggingface"
+      },
+      "createdAt": "2025-01-20T14:53:04.000Z",
+      "updatedAt": "2025-03-07T19:13:17.000Z"
+    },
+    {
+      "id": "yi-coder-9b",
+      "name": "Yi Coder 9B",
+      "tagline": "A dedicated coding model with a long context for large repos.",
+      "categories": [
+        "coding"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "yi-coder:9b",
+        "pullCommand": "ollama pull yi-coder:9b",
+        "popularityRef": "bartowski/Yi-Coder-9B-Chat-GGUF"
+      },
+      "sizeGB": 5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 131072,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 25,
+        "note": "An alternative coder to Qwen when you want a longer context."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 4772,
+        "likes": 19,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-09-04T15:42:43.000Z",
+      "updatedAt": "2024-09-05T01:25:43.000Z"
+    },
+    {
+      "id": "granite3.1-8b",
+      "name": "Granite 3.1 8B",
+      "tagline": "IBM's open, enterprise-minded model for code and reasoning.",
+      "categories": [
+        "reasoning",
+        "coding"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "granite3.1-dense:8b",
+        "pullCommand": "ollama pull granite3.1-dense:8b",
+        "popularityRef": "bartowski/granite-3.1-8b-instruct-GGUF"
+      },
+      "sizeGB": 4.9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 131072,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 26,
+        "note": "A clean Apache option with a long context for mixed work."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 4771,
+        "likes": 12,
+        "source": "huggingface"
+      },
+      "createdAt": "2024-12-18T14:58:49.000Z",
+      "updatedAt": "2024-12-23T15:40:30.000Z"
+    },
+    {
+      "id": "deepseek-r1-llama-8b",
+      "name": "DeepSeek R1 Distill Llama 8B",
+      "tagline": "The R1 reasoner distilled onto a Llama base, strong on math.",
+      "categories": [
+        "reasoning",
+        "analysis"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "deepseek-r1:8b",
+        "pullCommand": "ollama pull deepseek-r1:8b",
+        "popularityRef": "bartowski/DeepSeek-R1-Distill-Llama-8B-GGUF"
+      },
+      "sizeGB": 4.9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 131072,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 27,
+        "note": "A Llama-based R1 distill. Pick the Qwen distill for a different lineage."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 11460,
+        "likes": 53,
+        "source": "huggingface"
+      },
+      "createdAt": "2025-01-20T14:52:51.000Z",
+      "updatedAt": "2025-01-22T15:19:31.000Z"
+    }
+  ],
+  "presets": [
+    {
+      "id": "starter",
+      "name": "A good start",
+      "tagline": "One strong coding model that does everything. Perfect first stack.",
+      "minVramGB": 0,
+      "stack": {
+        "orchestrator": "qwen2.5-coder-7b",
+        "specialists": {}
+      }
+    },
+    {
+      "id": "coding",
+      "name": "A good coding setup",
+      "tagline": "A stronger brain plus repo search that finds code by meaning.",
+      "minVramGB": 12,
+      "stack": {
+        "orchestrator": "qwen2.5-coder-14b",
+        "specialists": {
+          "embedding": "nomic-embed-text",
+          "fast": "qwen2.5-coder-1.5b"
+        }
+      }
+    },
+    {
+      "id": "coding-vision",
+      "name": "Coding plus screenshots",
+      "tagline": "The coding setup, and it can read screenshots you drop in.",
+      "minVramGB": 16,
+      "stack": {
+        "orchestrator": "qwen2.5-coder-14b",
+        "specialists": {
+          "vision": "llava-7b",
+          "embedding": "nomic-embed-text",
+          "fast": "qwen2.5-coder-1.5b"
+        }
+      }
+    },
+    {
+      "id": "big-rig",
+      "name": "Everything, big rig",
+      "tagline": "The strongest local brain plus every specialist. Needs 24 GB.",
+      "minVramGB": 24,
+      "stack": {
+        "orchestrator": "qwen2.5-coder-32b",
+        "specialists": {
+          "vision": "llava-7b",
+          "embedding": "nomic-embed-text",
+          "fast": "qwen2.5-coder-1.5b"
+        }
+      }
+    }
+  ]
+}

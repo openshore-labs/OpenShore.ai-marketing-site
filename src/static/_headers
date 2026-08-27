@@ -1,0 +1,12 @@
+# Cloudflare Pages response headers. This file is copied verbatim to the site
+# root by the Eleventy passthrough (src/static -> "."), so it lands at
+# _site/_headers where Pages reads it.
+#
+# catalog.json is served at a stable URL and is the baseline the catalog
+# regression gate (openshore.code.ai's Publish model catalog workflow) curls.
+# A short max-age plus must-revalidate keeps a license correction from being
+# served stale for days after a publish, while still letting the edge cache it
+# briefly. After a catalog publish, purge the URL in Cloudflare so the
+# correction propagates immediately.
+/os-code/catalog.json
+  Cache-Control: public, max-age=300, must-revalidate

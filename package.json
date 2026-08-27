@@ -1,0 +1,17 @@
+{
+  "name": "openshore-ai-marketing-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Marketing site for OpenShore, deployed at openshore.ai",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "eleventy && npm run check:copy",
+    "check:copy": "node scripts/check-copy.mjs",
+    "serve": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
