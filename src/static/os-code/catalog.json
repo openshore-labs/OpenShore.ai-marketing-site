@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-27",
+  "updated": "2026-09-02",
   "models": [
     {
       "id": "qwen2.5-coder-7b",
@@ -55,8 +55,8 @@
         }
       },
       "popularity": {
-        "downloads": 246220,
-        "likes": 393,
+        "downloads": 244535,
+        "likes": 415,
         "source": "huggingface"
       },
       "createdAt": "2024-09-18T11:40:39.000Z",
@@ -118,8 +118,8 @@
         }
       },
       "popularity": {
-        "downloads": 91474,
-        "likes": 191,
+        "downloads": 97434,
+        "likes": 197,
         "source": "huggingface"
       },
       "createdAt": "2024-11-09T12:45:52.000Z",
@@ -181,7 +181,7 @@
         }
       },
       "popularity": {
-        "downloads": 72720,
+        "downloads": 64951,
         "likes": 222,
         "source": "huggingface"
       },
@@ -241,8 +241,8 @@
         }
       },
       "popularity": {
-        "downloads": 293468,
-        "likes": 394,
+        "downloads": 284909,
+        "likes": 399,
         "source": "huggingface"
       },
       "createdAt": "2024-07-23T15:36:34.000Z",
@@ -302,7 +302,7 @@
         }
       },
       "popularity": {
-        "downloads": 40919,
+        "downloads": 42107,
         "likes": 249,
         "source": "huggingface"
       },
@@ -399,8 +399,8 @@
         }
       },
       "popularity": {
-        "downloads": 1934857,
-        "likes": 1434,
+        "downloads": 1643398,
+        "likes": 1435,
         "source": "huggingface"
       },
       "createdAt": "2024-03-04T18:03:06.000Z",
@@ -439,7 +439,7 @@
         "MTEB": "strong open embedder"
       },
       "popularity": {
-        "downloads": 123107,
+        "downloads": 105902,
         "likes": 131,
         "source": "huggingface"
       },
@@ -495,8 +495,8 @@
         }
       },
       "popularity": {
-        "downloads": 102048,
-        "likes": 99,
+        "downloads": 105182,
+        "likes": 103,
         "source": "huggingface"
       },
       "createdAt": "2024-09-18T13:58:16.000Z",
@@ -552,8 +552,8 @@
         }
       },
       "popularity": {
-        "downloads": 186051,
-        "likes": 146,
+        "downloads": 184709,
+        "likes": 147,
         "source": "huggingface"
       },
       "createdAt": "2024-09-17T13:57:52.000Z",
@@ -612,7 +612,7 @@
         }
       },
       "popularity": {
-        "downloads": 149362,
+        "downloads": 147312,
         "likes": 176,
         "source": "huggingface"
       },
@@ -668,7 +668,7 @@
         }
       },
       "popularity": {
-        "downloads": 10791,
+        "downloads": 9969,
         "likes": 52,
         "source": "huggingface"
       },
@@ -705,8 +705,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 55633,
-        "likes": 112,
+        "downloads": 54177,
+        "likes": 115,
         "source": "huggingface"
       },
       "createdAt": "2024-11-09T12:46:15.000Z",
@@ -742,7 +742,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 92802,
+        "downloads": 97708,
         "likes": 174,
         "source": "huggingface"
       },
@@ -779,8 +779,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 19975,
-        "likes": 64,
+        "downloads": 19079,
+        "likes": 65,
         "source": "huggingface"
       },
       "createdAt": "2024-09-17T13:58:37.000Z",
@@ -816,8 +816,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 5556,
-        "likes": 45,
+        "downloads": 4926,
+        "likes": 47,
         "source": "huggingface"
       },
       "createdAt": "2024-09-17T13:58:49.000Z",
@@ -853,7 +853,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 27166,
+        "downloads": 26209,
         "likes": 47,
         "source": "huggingface"
       },
@@ -890,8 +890,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 21665,
-        "likes": 124,
+        "downloads": 18330,
+        "likes": 125,
         "source": "huggingface"
       },
       "createdAt": "2024-07-18T15:18:30.000Z",
@@ -927,7 +927,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 10987,
+        "downloads": 11420,
         "likes": 64,
         "source": "huggingface"
       },
@@ -964,8 +964,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 107746,
-        "likes": 89,
+        "downloads": 78536,
+        "likes": 90,
         "source": "huggingface"
       },
       "createdAt": "2024-08-20T19:56:23.000Z",
@@ -1001,8 +1001,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 32379,
-        "likes": 232,
+        "downloads": 33588,
+        "likes": 233,
         "source": "huggingface"
       },
       "createdAt": "2024-06-27T15:42:48.000Z",
@@ -1038,8 +1038,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 74459,
-        "likes": 101,
+        "downloads": 72822,
+        "likes": 102,
         "source": "huggingface"
       },
       "createdAt": "2024-07-31T16:45:13.000Z",
@@ -1075,7 +1075,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 127311,
+        "downloads": 113216,
         "likes": 231,
         "source": "huggingface"
       },
@@ -1112,8 +1112,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 69738,
-        "likes": 144,
+        "downloads": 65117,
+        "likes": 145,
         "source": "huggingface"
       },
       "createdAt": "2025-01-20T14:53:04.000Z",
@@ -1148,7 +1148,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 4586,
+        "downloads": 3603,
         "likes": 19,
         "source": "huggingface"
       },
@@ -1185,7 +1185,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 4830,
+        "downloads": 4515,
         "likes": 12,
         "source": "huggingface"
       },
@@ -1222,19 +1222,913 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 11475,
+        "downloads": 10274,
         "likes": 53,
         "source": "huggingface"
       },
       "createdAt": "2025-01-20T14:52:51.000Z",
       "updatedAt": "2025-01-22T15:19:31.000Z"
+    },
+    {
+      "id": "hf-unsloth-qwen3-8-27b",
+      "name": "Qwen3.8 27B",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/unsloth/Qwen3.8-27B-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/unsloth/Qwen3.8-27B-GGUF:Q4_K_M",
+        "popularityRef": "unsloth/Qwen3.8-27B-GGUF"
+      },
+      "sizeGB": 16.5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1000,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "unsloth/Qwen3.8-27B-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-obliteratus-qwen3-8-27b-obliterated",
+      "name": "Qwen3.8 27B OBLITERATED",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED:Q4_K_M",
+        "popularityRef": "OBLITERATUS/Qwen3.8-27B-OBLITERATED"
+      },
+      "sizeGB": 16.8,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1001,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "OBLITERATUS/Qwen3.8-27B-OBLITERATED",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-peculiar-ragdoll-tiel-coder-35b-a3b",
+      "name": "Tiel Coder 35B A3B",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "coding",
+        "vision"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF:Q4_K_S",
+        "pullCommand": "ollama pull hf.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF:Q4_K_S",
+        "popularityRef": "peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF"
+      },
+      "sizeGB": 20.9,
+      "quantization": "Q4_K_S",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1002,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-ornith-ai-ornith-1-5-9b",
+      "name": "Ornith 1.5 9B",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/ornith-ai/Ornith-1.5-9B-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/ornith-ai/Ornith-1.5-9B-GGUF:Q4_K_M",
+        "popularityRef": "ornith-ai/Ornith-1.5-9B-GGUF"
+      },
+      "sizeGB": 5.8,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1003,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "ornith-ai/Ornith-1.5-9B-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-peculiar-ragdoll-tiel-coder-35b-a3b-gguf-mtp",
+      "name": "Tiel Coder 35B A3B GGUF MTP",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "coding",
+        "vision"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF-MTP:Q4_K_S",
+        "pullCommand": "ollama pull hf.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF-MTP:Q4_K_S",
+        "popularityRef": "peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF-MTP"
+      },
+      "sizeGB": 21.8,
+      "quantization": "Q4_K_S",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1004,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF-MTP",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-peculiar-ragdoll-dirk-qwen3-8-27b",
+      "name": "Dirk Qwen3.8 27B",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "vision"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/peculiar-ragdoll/Dirk-Qwen3.8-27B-GGUF:Q4_K_S",
+        "pullCommand": "ollama pull hf.co/peculiar-ragdoll/Dirk-Qwen3.8-27B-GGUF:Q4_K_S",
+        "popularityRef": "peculiar-ragdoll/Dirk-Qwen3.8-27B-GGUF"
+      },
+      "sizeGB": 15.4,
+      "quantization": "Q4_K_S",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1005,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "peculiar-ragdoll/Dirk-Qwen3.8-27B-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-ornith-ai-ornith-1-5-35b-a3b",
+      "name": "Ornith 1.5 35B A3B",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/ornith-ai/Ornith-1.5-35B-A3B-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/ornith-ai/Ornith-1.5-35B-A3B-GGUF:Q4_K_M",
+        "popularityRef": "ornith-ai/Ornith-1.5-35B-A3B-GGUF"
+      },
+      "sizeGB": 21.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1006,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "ornith-ai/Ornith-1.5-35B-A3B-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-obliteratus-ornith-1-5-9b-obliterated",
+      "name": "Ornith 1.5 9B OBLITERATED",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/OBLITERATUS/Ornith-1.5-9B-OBLITERATED:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/OBLITERATUS/Ornith-1.5-9B-OBLITERATED:Q4_K_M",
+        "popularityRef": "OBLITERATUS/Ornith-1.5-9B-OBLITERATED"
+      },
+      "sizeGB": 5.8,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1007,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "OBLITERATUS/Ornith-1.5-9B-OBLITERATED",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-davidau-qwen3-8-27b-cold-fusion-gain-v1-1-nm-dau-neo-max-mtp",
+      "name": "Qwen3.8 27B Cold Fusion GAIN V1.1 NM DAU NEO MAX MTP",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "coding",
+        "vision",
+        "analysis"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/DavidAU/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-NM-DAU-NEO-MAX-MTP-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/DavidAU/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-NM-DAU-NEO-MAX-MTP-GGUF:Q4_K_M",
+        "popularityRef": "DavidAU/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-NM-DAU-NEO-MAX-MTP-GGUF"
+      },
+      "sizeGB": 18.5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1008,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "DavidAU/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-NM-DAU-NEO-MAX-MTP-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-outsourc-e-qwen3-8-27b-unleashed",
+      "name": "Qwen3.8 27B Unleashed",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/outsourc-e/Qwen3.8-27B-Unleashed-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/outsourc-e/Qwen3.8-27B-Unleashed-GGUF:Q4_K_M",
+        "popularityRef": "outsourc-e/Qwen3.8-27B-Unleashed-GGUF"
+      },
+      "sizeGB": 16.5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1009,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "outsourc-e/Qwen3.8-27B-Unleashed-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-empero-ai-qwen3-8-9b-distill",
+      "name": "Qwen3.8 9B Distill",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning",
+        "analysis"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/empero-ai/Qwen3.8-9B-Distill-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/empero-ai/Qwen3.8-9B-Distill-GGUF:Q4_K_M",
+        "popularityRef": "empero-ai/Qwen3.8-9B-Distill-GGUF"
+      },
+      "sizeGB": 5.8,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1010,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "empero-ai/Qwen3.8-9B-Distill-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-empero-ai-qwythos-9b-claude-mythos-5-1m",
+      "name": "Qwythos 9B Claude Mythos 5 1M",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "vision",
+        "analysis"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF:Q4_K_M",
+        "popularityRef": "empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF"
+      },
+      "sizeGB": 5.9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1011,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-end000-spark-x2-5-4b-q8-0",
+      "name": "Spark X2.5 4B Q8 0",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/end000/Spark-X2.5-4B-Q8_0-GGUF:Q8_0",
+        "pullCommand": "ollama pull hf.co/end000/Spark-X2.5-4B-Q8_0-GGUF:Q8_0",
+        "popularityRef": "end000/Spark-X2.5-4B-Q8_0-GGUF"
+      },
+      "sizeGB": 4.4,
+      "quantization": "Q8_0",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1012,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "end000/Spark-X2.5-4B-Q8_0-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-mradermacher-amd-olmo-1b-it-i1",
+      "name": "AMD OLMo 1B IT i1",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/mradermacher/AMD-OLMo-1B-IT-i1-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/mradermacher/AMD-OLMo-1B-IT-i1-GGUF:Q4_K_M",
+        "popularityRef": "mradermacher/AMD-OLMo-1B-IT-i1-GGUF"
+      },
+      "sizeGB": 0.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1013,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/mradermacher/AMD-OLMo-1B-IT-i1-GGUF/resolve/main/AMD-OLMo-1B-IT.i1-Q4_K_M.gguf",
+        "sizeGB": 0.7,
+        "minRamGB": 3
+      },
+      "discovery": {
+        "source": "huggingface",
+        "repo": "mradermacher/AMD-OLMo-1B-IT-i1-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-mradermacher-qwen3-8-27b-cold-fusion-gain-v1-1-heretic-noesis-bf16-i1",
+      "name": "Qwen3.8 27B Cold Fusion GAIN V1.1 heretic NOESIS BF16 i1",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/mradermacher/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-heretic-NOESIS-BF16-i1-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/mradermacher/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-heretic-NOESIS-BF16-i1-GGUF:Q4_K_M",
+        "popularityRef": "mradermacher/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-heretic-NOESIS-BF16-i1-GGUF"
+      },
+      "sizeGB": 16.5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1014,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "mradermacher/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-heretic-NOESIS-BF16-i1-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-mradermacher-saeverbalizer-27b-i1",
+      "name": "SAEVerbalizer 27B i1",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "coding"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/mradermacher/SAEVerbalizer-27B-i1-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/mradermacher/SAEVerbalizer-27B-i1-GGUF:Q4_K_M",
+        "popularityRef": "mradermacher/SAEVerbalizer-27B-i1-GGUF"
+      },
+      "sizeGB": 16.5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Gemma",
+        "name": "Gemma Terms of Use",
+        "url": "https://ai.google.dev/gemma/terms",
+        "commercial": "gated"
+      },
+      "curation": {
+        "rank": 1015,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "mradermacher/SAEVerbalizer-27B-i1-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-arkavo-oida-mallinckrodt-qwen3-8-27b",
+      "name": "oida mallinckrodt qwen3.8 27b",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/Arkavo/oida-mallinckrodt-qwen3.8-27b:Q8_0",
+        "pullCommand": "ollama pull hf.co/Arkavo/oida-mallinckrodt-qwen3.8-27b:Q8_0",
+        "popularityRef": "Arkavo/oida-mallinckrodt-qwen3.8-27b"
+      },
+      "sizeGB": 28.6,
+      "quantization": "Q8_0",
+      "contextTokens": 8192,
+      "license": {
+        "id": "CC-BY-NC-4.0",
+        "name": "Creative Commons Attribution NonCommercial 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "commercial": "non-commercial"
+      },
+      "curation": {
+        "rank": 1016,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "Arkavo/oida-mallinckrodt-qwen3.8-27b",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-sergei10a-mongolian-stt-asr-nemotron-v13m",
+      "name": "mongolian stt asr nemotron v13m",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/sergei10a/mongolian-stt-asr-nemotron-v13m:Q8_0",
+        "pullCommand": "ollama pull hf.co/sergei10a/mongolian-stt-asr-nemotron-v13m:Q8_0",
+        "popularityRef": "sergei10a/mongolian-stt-asr-nemotron-v13m"
+      },
+      "sizeGB": 0.9,
+      "quantization": "Q8_0",
+      "contextTokens": 8192,
+      "license": {
+        "id": "CC-BY-NC-4.0",
+        "name": "Creative Commons Attribution NonCommercial 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "commercial": "non-commercial"
+      },
+      "curation": {
+        "rank": 1017,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/sergei10a/mongolian-stt-asr-nemotron-v13m/resolve/main/nemotron-mn-v13m-q8_0.gguf",
+        "sizeGB": 0.9,
+        "minRamGB": 3
+      },
+      "discovery": {
+        "source": "huggingface",
+        "repo": "sergei10a/mongolian-stt-asr-nemotron-v13m",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-mradermacher-qwen3-8-27b-cold-fusion-gain-v1-1-heretic-noesis-bf16",
+      "name": "Qwen3.8 27B Cold Fusion GAIN V1.1 heretic NOESIS BF16",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/mradermacher/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-heretic-NOESIS-BF16-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/mradermacher/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-heretic-NOESIS-BF16-GGUF:Q4_K_M",
+        "popularityRef": "mradermacher/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-heretic-NOESIS-BF16-GGUF"
+      },
+      "sizeGB": 16.5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1018,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "mradermacher/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-heretic-NOESIS-BF16-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-interlinkarts-qwen3-5-9b",
+      "name": "Qwen3.5 9B",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "vision"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/Interlinkarts/Qwen3.5-9B-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/Interlinkarts/Qwen3.5-9B-GGUF:Q4_K_M",
+        "popularityRef": "Interlinkarts/Qwen3.5-9B-GGUF"
+      },
+      "sizeGB": 5.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1019,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "Interlinkarts/Qwen3.5-9B-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-mradermacher-infodensity-deepseek-r1-distill-qwen-1-5b-i1",
+      "name": "InfoDensity DeepSeek R1 Distill Qwen 1.5B i1",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning",
+        "analysis",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/mradermacher/InfoDensity-DeepSeek-R1-Distill-Qwen-1.5B-i1-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/mradermacher/InfoDensity-DeepSeek-R1-Distill-Qwen-1.5B-i1-GGUF:Q4_K_M",
+        "popularityRef": "mradermacher/InfoDensity-DeepSeek-R1-Distill-Qwen-1.5B-i1-GGUF"
+      },
+      "sizeGB": 1.1,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1020,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/mradermacher/InfoDensity-DeepSeek-R1-Distill-Qwen-1.5B-i1-GGUF/resolve/main/InfoDensity-DeepSeek-R1-Distill-Qwen-1.5B.i1-Q4_K_M.gguf",
+        "sizeGB": 1.1,
+        "minRamGB": 4
+      },
+      "discovery": {
+        "source": "huggingface",
+        "repo": "mradermacher/InfoDensity-DeepSeek-R1-Distill-Qwen-1.5B-i1-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-mradermacher-openspatial-qwen3-vl-8b-i1",
+      "name": "OpenSpatial Qwen3 VL 8B i1",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "vision",
+        "analysis"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/mradermacher/OpenSpatial-Qwen3-VL-8B-i1-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/mradermacher/OpenSpatial-Qwen3-VL-8B-i1-GGUF:Q4_K_M",
+        "popularityRef": "mradermacher/OpenSpatial-Qwen3-VL-8B-i1-GGUF"
+      },
+      "sizeGB": 5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1021,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "mradermacher/OpenSpatial-Qwen3-VL-8B-i1-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-textilelabs-loom-weave-2",
+      "name": "Loom Weave 2",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/textilelabs/Loom-Weave-2:Q8_0",
+        "pullCommand": "ollama pull hf.co/textilelabs/Loom-Weave-2:Q8_0",
+        "popularityRef": "textilelabs/Loom-Weave-2"
+      },
+      "sizeGB": 0.1,
+      "quantization": "Q8_0",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1022,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/textilelabs/Loom-Weave-2/resolve/main/loom-weave-2-q8_0.gguf",
+        "sizeGB": 0.1,
+        "minRamGB": 3
+      },
+      "discovery": {
+        "source": "huggingface",
+        "repo": "textilelabs/Loom-Weave-2",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-mradermacher-openspatial-qwen3-vl-8b",
+      "name": "OpenSpatial Qwen3 VL 8B",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "vision",
+        "analysis"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/mradermacher/OpenSpatial-Qwen3-VL-8B-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/mradermacher/OpenSpatial-Qwen3-VL-8B-GGUF:Q4_K_M",
+        "popularityRef": "mradermacher/OpenSpatial-Qwen3-VL-8B-GGUF"
+      },
+      "sizeGB": 5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1023,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "mradermacher/OpenSpatial-Qwen3-VL-8B-GGUF",
+        "foundAt": "2026-09-02"
+      }
+    },
+    {
+      "id": "hf-mradermacher-openspatial-qwen2-5-vl-7b-i1",
+      "name": "OpenSpatial Qwen2.5 VL 7B i1",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "vision",
+        "analysis"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/mradermacher/OpenSpatial-Qwen2.5-VL-7B-i1-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/mradermacher/OpenSpatial-Qwen2.5-VL-7B-i1-GGUF:Q4_K_M",
+        "popularityRef": "mradermacher/OpenSpatial-Qwen2.5-VL-7B-i1-GGUF"
+      },
+      "sizeGB": 4.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1024,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "mradermacher/OpenSpatial-Qwen2.5-VL-7B-i1-GGUF",
+        "foundAt": "2026-09-02"
+      }
     }
   ],
   "presets": [
     {
+      "id": "pocket",
+      "name": "Pocket",
+      "tagline": "Chat anywhere, offline, on your iPhone. Private by construction.",
+      "minVramGB": 0,
+      "stack": {
+        "orchestrator": "qwen2.5-1.5b-phone",
+        "specialists": {}
+      }
+    },
+    {
       "id": "starter",
-      "name": "A good start",
-      "tagline": "One strong coding model that does everything. Perfect first stack.",
+      "name": "Starter",
+      "tagline": "One strong coding model that does everything. The right first stack.",
       "minVramGB": 0,
       "stack": {
         "orchestrator": "qwen2.5-coder-7b",
@@ -1243,8 +2137,8 @@
     },
     {
       "id": "coding",
-      "name": "A good coding setup",
-      "tagline": "A stronger brain plus repo search that finds code by meaning.",
+      "name": "Coding",
+      "tagline": "A stronger brain, repo search by meaning, and a fast hand for small edits.",
       "minVramGB": 12,
       "stack": {
         "orchestrator": "qwen2.5-coder-14b",
@@ -1255,28 +2149,14 @@
       }
     },
     {
-      "id": "coding-vision",
-      "name": "Coding plus screenshots",
-      "tagline": "The coding setup, and it can read screenshots you drop in.",
-      "minVramGB": 16,
-      "stack": {
-        "orchestrator": "qwen2.5-coder-14b",
-        "specialists": {
-          "vision": "llava-7b",
-          "embedding": "nomic-embed-text",
-          "fast": "qwen2.5-coder-1.5b"
-        }
-      }
-    },
-    {
-      "id": "big-rig",
-      "name": "Everything, big rig",
-      "tagline": "The strongest local brain plus every specialist. Needs 24 GB.",
+      "id": "performance",
+      "name": "Performance",
+      "tagline": "The strongest local brain plus every specialist. For a big rig.",
       "minVramGB": 24,
       "stack": {
         "orchestrator": "qwen2.5-coder-32b",
         "specialists": {
-          "vision": "llava-7b",
+          "vision": "moondream",
           "embedding": "nomic-embed-text",
           "fast": "qwen2.5-coder-1.5b"
         }
