@@ -88,9 +88,19 @@ export default {
     },
   ],
 
-  pricingLabel: "Free to chat. $20 to build.",
+  // BETA (2026-09-02, founder): every pay gate in the app is off, so the agent
+  // and the Marketplace are free for everyone right now. Personal returns as a
+  // $20 a year App Store subscription (Apple IAP only, no web purchase) when
+  // the beta ends. Copy below is the CMO's; the beta note is the single place
+  // that explains it so no card has to. Revert pricingLabel/pricingIntro, the
+  // Personal card, and the two notes together when the gate comes back.
+  pricingLabel: "Free to chat. Free to build, for now.",
   pricingIntro:
-    "OpenShore runs on your machine, on your models, on your keys. We never see your code. Start free with chat. Unlock the agent when you are ready to build.",
+    "OpenShore runs on your machine, on your models, on your keys. We never see your code. Right now the agent and the Marketplace are free too. Grab it while beta's open.",
+  betaNote:
+    "Beta note: the coding agent and Marketplace are free for everyone in the app. Personal returns to $20 a year, in app, on the App Store, once beta ends.",
+  teamNote:
+    "Team seats buy shared admin and one company stack, not access. Every person already has the agent free during beta.",
 
   // Mirrors app/src/lib/plans.js. Free is chat only; Personal is one person at
   // $20 a year (buyable on the web via Stripe, or on iPhone via Apple IAP);
@@ -118,7 +128,10 @@ export default {
       id: "personal",
       segment: "For one person",
       name: "Personal",
-      price: "$20 / year",
+      // Beta: nothing charges anyone today, so the price says what is true
+      // today; the future $20 lives in finePrint. Restore "$20 / year" and
+      // "Most popular" when the gate returns.
+      price: "Free",
       promise: "The whole app for one person. Chat becomes a coding agent.",
       includes: [
         "Everything in Free",
@@ -126,12 +139,16 @@ export default {
         "Real diffs and tool approvals you control",
         "The full model Marketplace, rated to your hardware",
       ],
-      cta: "Get Personal",
+      cta: "Get early access",
       flagship: true,
-      // Individual web purchase via Stripe (no org). See openshore-app.js.
-      buyable: true,
+      flagLabel: "Full access",
+      // Personal is an Apple subscription only (founder, 2026-08-31): there is
+      // no web purchase, so no Stripe button renders. The CTA routes to the
+      // same early-access mailto as Free. openshore-app.js still carries the
+      // old personal checkout branch; with no button it is unreachable.
+      buyable: false,
       finePrint:
-        "On iPhone, Personal is available in the app through the App Store, same $20 a year.",
+        "Free for everyone during the beta. After beta, Personal is $20 a year, bought only in the app through the App Store.",
       checkoutUrl: null,
     },
     {

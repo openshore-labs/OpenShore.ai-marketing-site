@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /
 pageTitle: "OpenShore: Your machine, your models, your keys"
-pageDescription: "OpenShore is a coding companion that runs on your own hardware. Chat and build with a stack of local models on iPhone and desktop, synced over your own private network, private by construction, with cloud one deliberate tap away on your own keys. Free for personal use; company seats from $20 a year."
+pageDescription: "OpenShore is a coding companion that runs on your own hardware. Chat and build with a stack of local models on iPhone and desktop, synced over your own private network, private by construction, with cloud one deliberate tap away on your own keys. Free during beta, including the coding agent."
 ---
 
 <div
@@ -82,13 +82,14 @@ pageDescription: "OpenShore is a coding companion that runs on your own hardware
 <section class="block" aria-labelledby="pricing-heading" id="pricing">
   <h2 id="pricing-heading" class="eyebrow">{{ oscode.pricingLabel }}</h2>
   <p class="lede">{{ oscode.pricingIntro }}</p>
+  {% if oscode.betaNote %}<p class="offer-fine">{{ oscode.betaNote }}</p>{% endif %}
   <div class="offers">
     {% for plan in oscode.plans %}
     <article class="offer{% if plan.flagship %} offer--flagship{% endif %}" id="plan-{{ plan.id }}">
       <div class="offer-summary">
         <span class="offer-head">
           <span class="offer-segment">{{ plan.segment }}</span>
-          <span class="offer-name">{{ plan.name }}{% if plan.flagship %} <span class="offer-flag">Most popular</span>{% endif %}</span>
+          <span class="offer-name">{{ plan.name }}{% if plan.flagship %} <span class="offer-flag">{{ plan.flagLabel or 'Most popular' }}</span>{% endif %}</span>
         </span>
         <span class="offer-price">{{ plan.price }}</span>
       </div>
@@ -101,7 +102,7 @@ pageDescription: "OpenShore is a coding companion that runs on your own hardware
               {% for item in plan.includes %}<li>{{ item }}</li>{% endfor %}
             </ul>
           </div>
-          {% if plan.id == 'free' %}
+          {% if plan.id == 'free' or plan.id == 'personal' %}
           <a class="block-cta" href="mailto:{{ site.emails.oscode }}?subject={{ (plan.name + ' · OpenShore') | urlencode }}">{{ plan.cta }} <span aria-hidden="true">&rarr;</span></a>
           {% elif plan.buyable or plan.segment == 'For teams' %}
           <button type="button" class="block-cta" data-tier="{{ plan.id }}">{{ plan.cta }} <span aria-hidden="true">&rarr;</span></button>
@@ -112,6 +113,7 @@ pageDescription: "OpenShore is a coding companion that runs on your own hardware
     </article>
     {% endfor %}
   </div>
+  {% if oscode.teamNote %}<p class="offer-fine">{{ oscode.teamNote }}</p>{% endif %}
   <ul class="offer-reassure">
     {% for r in oscode.reassurance %}
     <li><strong>{{ r.label }}</strong> {{ r.body }}</li>
