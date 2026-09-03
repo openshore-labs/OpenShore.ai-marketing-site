@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-02",
+  "updated": "2026-09-03",
   "models": [
     {
       "id": "qwen2.5-coder-7b",
@@ -55,8 +55,8 @@
         }
       },
       "popularity": {
-        "downloads": 244535,
-        "likes": 415,
+        "downloads": 242083,
+        "likes": 417,
         "source": "huggingface"
       },
       "createdAt": "2024-09-18T11:40:39.000Z",
@@ -118,7 +118,7 @@
         }
       },
       "popularity": {
-        "downloads": 97434,
+        "downloads": 95460,
         "likes": 197,
         "source": "huggingface"
       },
@@ -181,7 +181,7 @@
         }
       },
       "popularity": {
-        "downloads": 64951,
+        "downloads": 73887,
         "likes": 222,
         "source": "huggingface"
       },
@@ -241,7 +241,7 @@
         }
       },
       "popularity": {
-        "downloads": 284909,
+        "downloads": 284126,
         "likes": 399,
         "source": "huggingface"
       },
@@ -302,7 +302,7 @@
         }
       },
       "popularity": {
-        "downloads": 42107,
+        "downloads": 41159,
         "likes": 249,
         "source": "huggingface"
       },
@@ -399,7 +399,7 @@
         }
       },
       "popularity": {
-        "downloads": 1643398,
+        "downloads": 1605038,
         "likes": 1435,
         "source": "huggingface"
       },
@@ -439,7 +439,7 @@
         "MTEB": "strong open embedder"
       },
       "popularity": {
-        "downloads": 105902,
+        "downloads": 104331,
         "likes": 131,
         "source": "huggingface"
       },
@@ -495,7 +495,7 @@
         }
       },
       "popularity": {
-        "downloads": 105182,
+        "downloads": 104647,
         "likes": 103,
         "source": "huggingface"
       },
@@ -552,7 +552,7 @@
         }
       },
       "popularity": {
-        "downloads": 184709,
+        "downloads": 182432,
         "likes": 147,
         "source": "huggingface"
       },
@@ -612,7 +612,7 @@
         }
       },
       "popularity": {
-        "downloads": 147312,
+        "downloads": 143513,
         "likes": 176,
         "source": "huggingface"
       },
@@ -668,7 +668,7 @@
         }
       },
       "popularity": {
-        "downloads": 9969,
+        "downloads": 9769,
         "likes": 52,
         "source": "huggingface"
       },
@@ -705,7 +705,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 54177,
+        "downloads": 53425,
         "likes": 115,
         "source": "huggingface"
       },
@@ -742,7 +742,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 97708,
+        "downloads": 97503,
         "likes": 174,
         "source": "huggingface"
       },
@@ -779,7 +779,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 19079,
+        "downloads": 17785,
         "likes": 65,
         "source": "huggingface"
       },
@@ -816,7 +816,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 4926,
+        "downloads": 5020,
         "likes": 47,
         "source": "huggingface"
       },
@@ -853,7 +853,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 26209,
+        "downloads": 25937,
         "likes": 47,
         "source": "huggingface"
       },
@@ -890,7 +890,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 18330,
+        "downloads": 17555,
         "likes": 125,
         "source": "huggingface"
       },
@@ -927,7 +927,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 11420,
+        "downloads": 10585,
         "likes": 64,
         "source": "huggingface"
       },
@@ -964,7 +964,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 78536,
+        "downloads": 65761,
         "likes": 90,
         "source": "huggingface"
       },
@@ -1001,7 +1001,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 33588,
+        "downloads": 30723,
         "likes": 233,
         "source": "huggingface"
       },
@@ -1038,7 +1038,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 72822,
+        "downloads": 74040,
         "likes": 102,
         "source": "huggingface"
       },
@@ -1075,7 +1075,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 113216,
+        "downloads": 111495,
         "likes": 231,
         "source": "huggingface"
       },
@@ -1112,7 +1112,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 65117,
+        "downloads": 67112,
         "likes": 145,
         "source": "huggingface"
       },
@@ -1148,7 +1148,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 3603,
+        "downloads": 3604,
         "likes": 19,
         "source": "huggingface"
       },
@@ -1185,7 +1185,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 4515,
+        "downloads": 4691,
         "likes": 12,
         "source": "huggingface"
       },
@@ -1222,7 +1222,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 10274,
+        "downloads": 10168,
         "likes": 53,
         "source": "huggingface"
       },
@@ -1260,7 +1260,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen3.8-27B-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1300,7 +1300,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-3B-Reasoning-2512-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1334,7 +1334,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.2-30b-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1373,7 +1373,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "nomic-ai/nomic-embed-text-v2-moe-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1408,7 +1408,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-8B-Reasoning-2512-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1442,7 +1442,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.2-8b-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1476,7 +1476,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "nomic-ai/nomic-embed-code-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1515,7 +1515,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-omni-small-text-matching-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1549,7 +1549,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "google/gemma-4-12B-it-qat-q4_0-gguf",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1584,7 +1584,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-14B-Reasoning-2512-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1623,7 +1623,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.2-3b-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1662,7 +1662,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-omni-small-clustering-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1701,7 +1701,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-3B-Instruct-2512-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1740,7 +1740,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-omni-small-classification-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1774,7 +1774,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-8B-Instruct-2512-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1813,7 +1813,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-vision-4.1-4b-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1852,7 +1852,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-omni-small-retrieval-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1886,7 +1886,75 @@
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/AFM-4.5B-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
+      }
+    },
+    {
+      "id": "hf-mistralai-ministral-3-14b-instruct-2512",
+      "name": "Ministral 3 14B Instruct 2512",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/mistralai/Ministral-3-14B-Instruct-2512-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/mistralai/Ministral-3-14B-Instruct-2512-GGUF:Q4_K_M",
+        "popularityRef": "mistralai/Ministral-3-14B-Instruct-2512-GGUF"
+      },
+      "sizeGB": 8.2,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1018,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "mistralai/Ministral-3-14B-Instruct-2512-GGUF",
+        "foundAt": "2026-09-03"
+      }
+    },
+    {
+      "id": "hf-microsoft-phi-4",
+      "name": "phi 4",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/microsoft/phi-4-gguf:Q4_K_S",
+        "pullCommand": "ollama pull hf.co/microsoft/phi-4-gguf:Q4_K_S",
+        "popularityRef": "microsoft/phi-4-gguf"
+      },
+      "sizeGB": 8.4,
+      "quantization": "Q4_K_S",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1019,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "microsoft/phi-4-gguf",
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -1914,7 +1982,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1018,
+        "rank": 1020,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -1926,109 +1994,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ggml-org/GLM-4.5V-GGUF",
-        "foundAt": "2026-09-02"
-      }
-    },
-    {
-      "id": "hf-mistralai-ministral-3-14b-instruct-2512",
-      "name": "Ministral 3 14B Instruct 2512",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/mistralai/Ministral-3-14B-Instruct-2512-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/mistralai/Ministral-3-14B-Instruct-2512-GGUF:Q4_K_M",
-        "popularityRef": "mistralai/Ministral-3-14B-Instruct-2512-GGUF"
-      },
-      "sizeGB": 8.2,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1019,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "mistralai/Ministral-3-14B-Instruct-2512-GGUF",
-        "foundAt": "2026-09-02"
-      }
-    },
-    {
-      "id": "hf-microsoft-phi-4",
-      "name": "phi 4",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/microsoft/phi-4-gguf:Q4_K_S",
-        "pullCommand": "ollama pull hf.co/microsoft/phi-4-gguf:Q4_K_S",
-        "popularityRef": "microsoft/phi-4-gguf"
-      },
-      "sizeGB": 8.4,
-      "quantization": "Q4_K_S",
-      "contextTokens": 8192,
-      "license": {
-        "id": "MIT",
-        "name": "MIT License",
-        "url": "https://opensource.org/license/mit",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1020,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "microsoft/phi-4-gguf",
-        "foundAt": "2026-09-02"
-      }
-    },
-    {
-      "id": "hf-ggml-org-glm-4-5-air",
-      "name": "GLM 4.5 Air",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/ggml-org/GLM-4.5-Air-GGUF:Q8_0",
-        "pullCommand": "ollama pull hf.co/ggml-org/GLM-4.5-Air-GGUF:Q8_0",
-        "popularityRef": "ggml-org/GLM-4.5-Air-GGUF"
-      },
-      "sizeGB": 5.2,
-      "quantization": "Q8_0",
-      "contextTokens": 8192,
-      "license": {
-        "id": "MIT",
-        "name": "MIT License",
-        "url": "https://opensource.org/license/mit",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1021,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "ggml-org/GLM-4.5-Air-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2055,14 +2021,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1022,
+        "rank": 1021,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Magistral-Small-2509-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2089,14 +2055,48 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1023,
+        "rank": 1022,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "allenai/OLMo-2-1124-7B-Instruct-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
+      }
+    },
+    {
+      "id": "hf-ggml-org-glm-4-5-air",
+      "name": "GLM 4.5 Air",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/ggml-org/GLM-4.5-Air-GGUF:Q8_0",
+        "pullCommand": "ollama pull hf.co/ggml-org/GLM-4.5-Air-GGUF:Q8_0",
+        "popularityRef": "ggml-org/GLM-4.5-Air-GGUF"
+      },
+      "sizeGB": 5.2,
+      "quantization": "Q8_0",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1023,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "ggml-org/GLM-4.5-Air-GGUF",
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2130,7 +2130,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "allenai/OLMo-2-1124-13B-Instruct-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2164,7 +2164,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Caller-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2199,7 +2199,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Homunculus-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2238,7 +2238,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-text-small-text-matching",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2272,7 +2272,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Arcee-Blitz-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2306,7 +2306,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Devstral-Small-2507_gguf",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2340,7 +2340,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-34b-code-instruct-8k-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2374,7 +2374,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "allenai/OLMoE-1B-7B-0924-Instruct-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2413,7 +2413,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-text-small-classification",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2447,7 +2447,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Arcee-Maestro-7B-Preview-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2481,7 +2481,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-34b-code-base-8k-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2520,7 +2520,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-text-small-clustering",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     },
     {
@@ -2554,7 +2554,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Virtuoso-Medium-v2-GGUF",
-        "foundAt": "2026-09-02"
+        "foundAt": "2026-09-03"
       }
     }
   ],
