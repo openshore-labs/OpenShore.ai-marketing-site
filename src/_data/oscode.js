@@ -237,7 +237,7 @@ export default {
       },
       {
         name: "Gated behind consent",
-        body: "Recreating the face or voice of a real, identifiable person, allowed only when you state you are authorized for that specific person. The assertion is recorded, and what comes out carries provenance metadata saying it was AI-generated.",
+        body: "Synthesizing the face or voice of a real, identifiable person, as an image, a video, or a voice, allowed only when you state you are authorized for that specific person. Writing about a person in text is not gated. The assertion is recorded, and what comes out carries provenance metadata saying it was AI-generated.",
       },
       {
         name: "Left alone",

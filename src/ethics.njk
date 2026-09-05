@@ -29,6 +29,18 @@ pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every
   </ul>
 </section>
 
+<section class="block" aria-labelledby="words-heading">
+  <h2 id="words-heading" class="eyebrow">Words are free. Faces and voices need permission.</h2>
+  <p class="prose">
+    The consent gate is on synthesized media, an image, a video, or a voice, not
+    on what you write. Satire, parody, and criticism in text never touch it, and
+    the layer proves that in code: it cannot fire on a request that is not asking
+    to synthesize media. "It's satire" does not clear a photorealistic video of a
+    real person's face, though, because a synthesized face is taken as real until
+    proven otherwise, and that asymmetry is the whole reason the gate exists.
+  </p>
+</section>
+
 <section class="block" aria-labelledby="how-it-works-heading">
   <h2 id="how-it-works-heading" class="eyebrow">How it actually works</h2>
   <p class="prose">
@@ -62,10 +74,10 @@ pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every
   </p>
   <p class="prose">
     IP addresses are not logged in ordinary use. Nothing is recorded when you
-    sync, when you sign in, or when you send a request that is not blocked. When
-    a signed-in request is blocked, that block record carries the address it came
-    from, and an authorization assertion carries the address it was made from.
-    Those are the only moments an address is collected. An address ban is never
+    sync, when you sign in, when you send a request that is not blocked, or when
+    you assert an authorization. The one moment an address is collected is when a
+    signed-in request is blocked: that block record, and only that record,
+    carries the address it came from. An address ban is never
     automatic: a person reviews each one and sets an expiry, because households,
     offices, cafes, campuses, and mobile carriers put large numbers of unrelated
     people behind a single address.
