@@ -1,0 +1,198 @@
+---
+layout: base.njk
+permalink: /terms/
+pageTitle: "OpenShore Terms of Use"
+pageDescription: "The rules for using OpenShore: prohibited uses, what happens when they are broken, how enforcement and IP review work, what we record when something is blocked, and the limits we will not pretend away."
+---
+
+{# The public copy of docs/terms-of-use.md in the openshore.code.ai repo. The
+   two are the same document and must be changed together: a term that reads one
+   way in the product and another way on the site is not a term. #}
+
+<header class="masthead masthead--sub">
+  <h1 class="identity">Terms of Use</h1>
+  <div class="horizon" role="presentation"></div>
+  <p class="lede">Plain language throughout, because terms nobody reads protect nobody.</p>
+  <p class="offer-fine">Last updated 5 September 2026.</p>
+</header>
+
+<section class="block" aria-labelledby="what-heading">
+  <h2 id="what-heading" class="eyebrow">1. What OpenShore is</h2>
+  <p class="prose">
+    OpenShore is a tool for building software with models you choose. You can run
+    models on your own hardware, or connect a cloud provider on your own account
+    and your own key. Your work stays yours.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="prohibited-heading">
+  <h2 id="prohibited-heading" class="eyebrow">2. Prohibited uses</h2>
+  <p class="prose">
+    You may not use OpenShore to generate, describe, plan, refine, or assist
+    with:
+  </p>
+  <ul class="pillars">
+    <li class="pillar">
+      <p class="pillar-name">Child sexual abuse material</p>
+      <p class="pillar-covers">
+        Sexual content involving minors, in any form, including drawn, written,
+        and synthetic depictions.
+      </p>
+    </li>
+    <li class="pillar">
+      <p class="pillar-name">Non-consensual intimate imagery</p>
+      <p class="pillar-covers">
+        Undressing or "nudifying" an image of a real, identifiable person,
+        placing a real person's face into sexual material, and any other
+        sexualization of an identifiable person who has not consented.
+      </p>
+    </li>
+    <li class="pillar">
+      <p class="pillar-name">Weapons capable of mass casualties</p>
+      <p class="pillar-covers">
+        Actionable assistance with synthesizing or deploying biological,
+        chemical, nuclear, or high-yield explosive weapons, or with materially
+        increasing the harm such a weapon would cause.
+      </p>
+    </li>
+    <li class="pillar">
+      <p class="pillar-name">Cloning a real person without authorization</p>
+      <p class="pillar-covers">
+        Recreating the likeness or voice of a real, identifiable person is
+        permitted only when you are authorized for that specific person: they
+        are you, they gave you permission, or they licensed the likeness to you.
+        You assert that authorization in the product, and the assertion is
+        recorded against your account.
+      </p>
+    </li>
+  </ul>
+  <p class="prose">
+    The first three have no exception and no consent option. The fourth is gated
+    behind your authorization, not forbidden.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="permitted-heading">
+  <h2 id="permitted-heading" class="eyebrow">3. What is not prohibited</h2>
+  <p class="prose">
+    To be clear about the boundary, because a vague rule chills legitimate work.
+    Legal adult content between adults, dark and violent fiction, horror, and
+    edgy humor are permitted. Satire, parody, and criticism of public figures are
+    permitted. Security research, red teaming, exploit analysis, and
+    vulnerability work for defensive purposes are permitted. Controversial,
+    unpopular, and dissenting opinions are permitted.
+  </p>
+  <p class="prose">OpenShore does not add refusals or commentary to any of this.</p>
+</section>
+
+<section class="block" aria-labelledby="consequences-heading">
+  <h2 id="consequences-heading" class="eyebrow">4. Consequences of misuse</h2>
+  <p class="prose">
+    Misuse under section 2 results in immediate and permanent removal from the
+    platform, and will be reported to the appropriate authorities where the law
+    requires or permits it. In the United States, child sexual abuse material is
+    reported to the National Center for Missing and Exploited Children.
+  </p>
+  <p class="prose">
+    We take this seriously and we want to be direct about why. Deepfakes,
+    non-consensual intimate imagery, and synthetic child sexual abuse material
+    are spreading because the tools to make them became easy to get. This product
+    exists in part to be one of the tools that does not help, and enforcement is
+    how that promise is kept rather than merely stated.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="scope-heading">
+  <h2 id="scope-heading" class="eyebrow">5. Enforcement scope</h2>
+  <p class="prose">We may terminate accounts used for prohibited purposes.</p>
+  <p class="prose">
+    We may also ban IP addresses associated with prohibited use, subject to human
+    review. IP address bans are never automatic. An address is proposed for a ban
+    only after an account is terminated, and a person reviews and decides each
+    one, with an expiry, because addresses are routinely shared by households,
+    offices, public networks, and mobile carriers, and a wrong ban falls on
+    people who did nothing.
+  </p>
+  <p class="prose">
+    The IP addresses used for this are the ones already collected to operate the
+    phone-to-computer sync and account features. Nothing new is collected to
+    enable enforcement, and an address is retained in an enforcement context only
+    when a request was blocked.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="records-heading">
+  <h2 id="records-heading" class="eyebrow">6. What we record when something is blocked</h2>
+  <p class="prose">
+    We record the category, the tier, the time, which model path served it, and a
+    one-way SHA-256 hash of the request.
+  </p>
+  <p class="prose">
+    We do not store the prompt, the answer, or any excerpt of either. A hash is
+    enough to recognize a repeat and to identify the same content in a lawful
+    report, and retaining harmful material in order to police harmful material is
+    its own harm.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="limits-heading">
+  <h2 id="limits-heading" class="eyebrow">7. Honest limits</h2>
+  <p class="prose">
+    OpenShore enforces these boundaries as shipped, and does not help you remove
+    them. There is no setting, configuration file, or environment variable in the
+    product that turns the guardrail off.
+  </p>
+  <p class="prose">
+    We cannot control models you run independently on your own hardware. Open
+    model weights on your own machine are outside the reach of any application,
+    including this one. We do not claim otherwise, and we do not claim that
+    misuse is impossible. What we guarantee is narrower and real: this app, as
+    shipped, does not assist the uses in section 2 and does not help you strip
+    these protections out.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="standards-heading">
+  <h2 id="standards-heading" class="eyebrow">8. Standards alignment</h2>
+  <p class="prose">
+    OpenShore aligns its risk practices with the NIST AI Risk Management
+    Framework and ISO/IEC 42001, and attaches content provenance using the C2PA
+    assertion vocabulary.
+  </p>
+  <p class="prose">
+    This is a self-attestation of alignment. No third party has certified,
+    endorsed, or audited this product against those frameworks, and we will not
+    say otherwise. Provenance records written by this product are unsigned,
+    because signing requires a certificate from a C2PA-recognized authority that
+    OpenShore does not currently hold.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="yours-heading">
+  <h2 id="yours-heading" class="eyebrow">9. Your content and your models</h2>
+  <p class="prose">
+    Your prompts, code, and generated work are yours. Local model work stays on
+    your machine. Cloud model work goes to the provider you connected, on your
+    account, under that provider's terms. A cloud provider's own policies apply
+    in addition to these terms, never instead of them.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="changes-heading">
+  <h2 id="changes-heading" class="eyebrow">10. Changes and contact</h2>
+  <p class="prose">
+    We will update these terms as the product changes. Material changes to
+    section 2 or section 5 will be surfaced in the app.
+  </p>
+  <div class="contact">
+    <p class="contact-line">
+      <span class="contact-label">Questions, appeals, reports</span>
+      <a href="mailto:{{ site.emails.oscode }}?subject={{ 'OpenShore Terms of Use' | urlencode }}">{{ site.emails.oscode }}</a>
+    </p>
+  </div>
+</section>
+
+<footer class="colophon">
+  <p><a href="/">&larr; OpenShore</a> &middot; <a href="/ethics/">Ethical boundaries</a></p>
+  <p>&copy; {{ site.year }} {{ site.legalName }}. OpenShore is a product of {{ site.legalName }}.</p>
+</footer>

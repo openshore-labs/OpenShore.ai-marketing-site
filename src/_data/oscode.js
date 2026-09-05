@@ -208,6 +208,48 @@ export default {
     { label: "One year, one price.", body: "Cancel anytime, keep working through the term." },
   ],
 
+  // The ethical boundaries. This copy is the marketing-side mirror of the trust
+  // statement that ships in the app (os-code/src/core/ethics/trustStatement.ts,
+  // shown in Settings). The two must say the same thing: a promise that reads
+  // differently in the product and on the site is not a promise. When one
+  // changes, change both in the same piece of work.
+  //
+  // Every claim here is one the code can back. "Enforced by default" and "will
+  // not help you remove them" describe what the app does. "Aligns with" names
+  // public frameworks and is a self-attestation: no third party has certified
+  // or endorsed this product, and nothing here says one has. The honest limit
+  // about open weights is not a hedge bolted on the end, it is the truth that
+  // makes the rest of the claim credible.
+  trust: {
+    label: "Ethical boundaries",
+    headline: "Enforced by default. No switch, no exceptions, no lectures.",
+    statement: [
+      "This app enforces its ethical boundaries by default and will not help you remove them.",
+      "It aligns with recognized frameworks: the NIST AI Risk Management Framework, ISO/IEC 42001, and C2PA content provenance.",
+      "We block child sexual abuse material, non-consensual intimate imagery, and weapons uplift outright, and we gate the cloning of real people behind consent.",
+      "We're honest about the limit: once open model weights are on your own machine, they are beyond any app's control.",
+      "What we guarantee is that this app, as shipped, does not assist misuse and does not help you strip these protections out.",
+    ],
+    tiers: [
+      {
+        name: "Refused outright",
+        body: "Child sexual abuse material. Sexual or nude imagery of a real, identifiable person. Concrete help building or deploying biological, chemical, nuclear, or high-yield explosive weapons. There is no consent option for any of these.",
+      },
+      {
+        name: "Gated behind consent",
+        body: "Recreating the face or voice of a real, identifiable person, allowed only when you state you are authorized for that specific person. The assertion is recorded, and what comes out carries provenance metadata saying it was AI-generated.",
+      },
+      {
+        name: "Left alone",
+        body: "Legal adult content, dark and violent fiction, horror, edgy humor, satire and political parody, security research and red teaming, and unpopular opinions. No added refusal, no commentary. Over-blocking your legitimate work is a defect we treat as seriously as letting real harm through.",
+      },
+    ],
+    honestLimit:
+      "We will not tell you misuse is impossible. Open model weights on your own hardware are beyond the reach of any application, including ours. The guarantee we can make is narrower and real: this app, as shipped, does not help.",
+    privacy:
+      "The screening runs on your device. Nothing is sent anywhere to check a prompt, so a local model stays local even though it is screened. A block records a category, a time, and a one-way hash. Your prompt is never stored and never sent.",
+  },
+
   close:
     "OpenShore is getting ready for launch. Join the early access list and we will tell you the moment it is on the App Store, and set your company up with seats when you are ready.",
 

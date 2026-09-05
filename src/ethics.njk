@@ -1,0 +1,103 @@
+---
+layout: base.njk
+permalink: /ethics/
+pageTitle: "OpenShore ethical boundaries: enforced by default"
+pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every model call, local and cloud, with no setting that turns them off. What is blocked, what is gated behind consent, what is deliberately left alone, and the limits we will not pretend away."
+---
+
+<header class="masthead masthead--sub">
+  <h1 class="identity">{{ oscode.trust.label }}</h1>
+  <div class="horizon" role="presentation"></div>
+  <p class="lede">{{ oscode.trust.headline }}</p>
+</header>
+
+<section class="block">
+  {% for line in oscode.trust.statement %}
+  <p class="prose">{{ line }}</p>
+  {% endfor %}
+</section>
+
+<section class="block" aria-labelledby="tiers-heading">
+  <h2 id="tiers-heading" class="eyebrow">Where the lines are</h2>
+  <ul class="pillars">
+    {% for t in oscode.trust.tiers %}
+    <li class="pillar">
+      <p class="pillar-name">{{ t.name }}</p>
+      <p class="pillar-covers">{{ t.body }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="block" aria-labelledby="how-it-works-heading">
+  <h2 id="how-it-works-heading" class="eyebrow">How it actually works</h2>
+  <p class="prose">
+    The layer wraps every model call, on both sides. Your prompt is screened
+    before a model sees it, and the answer is screened before you see it. It runs
+    the same way for a model on your own hardware and for a cloud provider on
+    your own key. A cloud provider's own policy sits on top of ours, never
+    instead of it.
+  </p>
+  <p class="prose">
+    There is no setting, configuration file, or environment variable that turns
+    it off. That is not a promise about our intentions, it is a property the
+    build checks: a test fails if a switch ever appears in the source.
+  </p>
+  <p class="prose">
+    If a check errors or times out, the request is blocked rather than passed
+    through. A degraded guardrail is never an absent one. When that happens it is
+    recorded as our fault, not yours, and it never counts toward enforcement.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="privacy-heading">
+  <h2 id="privacy-heading" class="eyebrow">What we keep</h2>
+  <p class="prose">{{ oscode.trust.privacy }}</p>
+  <p class="prose">
+    We do not store the prompt, the answer, or any excerpt of either. A block
+    records a category, a tier, a timestamp, a one-way hash of the request, and
+    whether it ran locally or in the cloud. That is enough to recognize a repeat
+    and to identify the same content in a lawful report. Keeping harmful
+    material in order to police harmful material is its own harm.
+  </p>
+  <p class="prose">
+    IP addresses are recorded only when something is blocked, using the address
+    data already collected to run sync and accounts. Nothing new is collected for
+    enforcement. An address ban is never automatic: a person reviews each one and
+    sets an expiry, because households, offices, cafes, campuses, and mobile
+    carriers put large numbers of unrelated people behind a single address.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="limits-heading">
+  <h2 id="limits-heading" class="eyebrow">The limits, stated plainly</h2>
+  <p class="prose">{{ oscode.trust.honestLimit }}</p>
+  <p class="prose">
+    We align our practices with the NIST AI Risk Management Framework, ISO/IEC
+    42001, and C2PA content provenance. That is a self-attestation. No third
+    party has certified, endorsed, or audited this product against those
+    frameworks, and we will not imply one has. Provenance we attach to generated
+    media uses the C2PA assertion vocabulary but is unsigned, because signing
+    requires a certificate from a C2PA-recognized authority that we do not
+    currently hold. The record says so in its own text.
+  </p>
+</section>
+
+<section class="block" aria-labelledby="terms-heading">
+  <h2 id="terms-heading" class="eyebrow">The rules in full</h2>
+  <p class="prose">
+    The prohibited uses, the consequences, and how enforcement works are written
+    out in the <a href="/terms/">Terms of Use</a>.
+  </p>
+  <div class="contact">
+    <p class="contact-line">
+      <span class="contact-label">Report misuse</span>
+      <a href="mailto:{{ site.emails.oscode }}?subject={{ 'Report misuse of OpenShore' | urlencode }}">{{ site.emails.oscode }}</a>
+    </p>
+  </div>
+</section>
+
+<footer class="colophon">
+  <p><a href="/">&larr; OpenShore</a></p>
+  <p>&copy; {{ site.year }} {{ site.legalName }}. OpenShore is a product of {{ site.legalName }}.</p>
+</footer>

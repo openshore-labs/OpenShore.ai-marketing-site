@@ -146,6 +146,16 @@ body {
   color: var(--paper);
   text-wrap: balance;
 }
+/* A subpage keeps the hero's shore glow but not its billboard type: the
+   landing page's identity line is the product's one shout, and repeating it at
+   full size on Terms of Use would flatten the difference. */
+.masthead--sub .identity {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  letter-spacing: -0.035em;
+}
+.masthead--sub .lede {
+  margin-top: 1.1rem;
+}
 .identity-coda {
   display: block;
   margin-top: 1.1rem;

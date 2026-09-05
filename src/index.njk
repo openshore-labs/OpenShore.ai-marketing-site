@@ -121,6 +121,27 @@ pageDescription: "OpenShore is a coding companion that runs on your own hardware
   </ul>
 </section>
 
+{# The ethical boundaries. Mirrors the trust statement shown in the app's
+   Settings, from one source of copy in _data/oscode.js. #}
+<section class="block" aria-labelledby="trust-heading" id="ethics">
+  <h2 id="trust-heading" class="eyebrow">{{ oscode.trust.label }}</h2>
+  <p class="lede">{{ oscode.trust.headline }}</p>
+  <ul class="pillars">
+    {% for t in oscode.trust.tiers %}
+    <li class="pillar">
+      <p class="pillar-name">{{ t.name }}</p>
+      <p class="pillar-covers">{{ t.body }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="prose">{{ oscode.trust.honestLimit }}</p>
+  <p class="prose">{{ oscode.trust.privacy }}</p>
+  <p class="offer-fine">
+    <a href="/ethics/">Read the full statement</a> or the
+    <a href="/terms/">Terms of Use</a>.
+  </p>
+</section>
+
 <section class="block" aria-labelledby="close-heading" id="early-access">
   <h2 id="close-heading" class="eyebrow">Early access</h2>
   <p class="lede lede--close">{{ oscode.close }}</p>
