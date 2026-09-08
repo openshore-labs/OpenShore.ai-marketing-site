@@ -11,6 +11,17 @@ pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every
   <p class="lede">{{ oscode.trust.headline }}</p>
 </header>
 
+{# The founder's stance leads: the why, above the mirrored statement (the
+   what), which stays verbatim to the app's trustStatement.ts. #}
+<section class="block" aria-labelledby="stance-heading">
+  <h2 id="stance-heading" class="eyebrow">{{ oscode.trust.stanceLabel }}</h2>
+  <div class="stance">
+    {% for line in oscode.trust.stance %}
+    <p class="prose">{{ line }}</p>
+    {% endfor %}
+  </div>
+</section>
+
 <section class="block">
   {% for line in oscode.trust.statement %}
   <p class="prose">{{ line }}</p>

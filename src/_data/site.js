@@ -11,7 +11,7 @@ export default {
   url: "https://openshore.ai",
 
   metaDescription:
-    "OpenShore is a coding companion that runs on your own hardware. Chat and build with a stack of local models on iPhone and desktop, synced over your own private network, private by construction, with cloud one deliberate tap away on your own keys. Free for personal use; company seats from $20 a year.",
+    "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, synced over your own private network, private by construction, with cloud one deliberate tap away on your own keys. Free for personal use; company seats from $20 a year.",
 
   // The parent company's site, credited from the OpenShore header and footer.
   parentUrl: "https://openshorellc.com",

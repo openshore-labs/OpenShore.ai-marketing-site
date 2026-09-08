@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /
 pageTitle: "OpenShore: Your machine, your models, your keys"
-pageDescription: "OpenShore is a coding companion that runs on your own hardware. Chat and build with a stack of local models on iPhone and desktop, synced over your own private network, private by construction, with cloud one deliberate tap away on your own keys. Free during beta, including the coding agent."
+pageDescription: "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, synced over your own private network, private by construction, with cloud one deliberate tap away on your own keys. Free during beta, including the coding agent."
 ---
 
 <div
@@ -18,7 +18,7 @@ pageDescription: "OpenShore is a coding companion that runs on your own hardware
     "@type": "SoftwareApplication",
     "name": "OpenShore",
     "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "iOS, Linux",
+    "operatingSystem": "Linux, macOS, Windows, iOS, iPadOS",
     "url": "{{ site.url }}/",
     "description": "{{ oscode.lede }}",
     "publisher": {
@@ -54,6 +54,18 @@ pageDescription: "OpenShore is a coding companion that runs on your own hardware
   <p class="prose intro-summary">{{ oscode.summary }}</p>
 </section>
 
+{# The mission, in the founder's words. The four promises render as the quiet
+   label-plus-line list (the pricing trust row's shape), not cards. #}
+<section class="block" aria-labelledby="mission-heading">
+  <h2 id="mission-heading" class="eyebrow">{{ oscode.missionLabel }}</h2>
+  <p class="lede">{{ oscode.mission }}</p>
+  <ul class="why-list">
+    {% for w in oscode.why %}
+    <li><strong>{{ w.label }}</strong> {{ w.body }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
 <section class="block" aria-labelledby="pillars-heading">
   <h2 id="pillars-heading" class="eyebrow">{{ oscode.pillarsLabel }}</h2>
   <ul class="pillars">
@@ -77,6 +89,18 @@ pageDescription: "OpenShore is a coding companion that runs on your own hardware
     </li>
     {% endfor %}
   </ol>
+</section>
+
+{# Everything inside: the full feature set, one line each, in the same quiet
+   list shape as the mission so it scans rather than shouts. #}
+<section class="block" aria-labelledby="pieces-heading" id="everything">
+  <h2 id="pieces-heading" class="eyebrow">{{ oscode.piecesLabel }}</h2>
+  <p class="lede">{{ oscode.piecesIntro }}</p>
+  <ul class="why-list">
+    {% for piece in oscode.pieces %}
+    <li><strong>{{ piece.label }}</strong> {{ piece.body }}</li>
+    {% endfor %}
+  </ul>
 </section>
 
 <section class="block" aria-labelledby="pricing-heading" id="pricing">
@@ -125,7 +149,13 @@ pageDescription: "OpenShore is a coding companion that runs on your own hardware
    Settings, from one source of copy in _data/oscode.js. #}
 <section class="block" aria-labelledby="trust-heading" id="ethics">
   <h2 id="trust-heading" class="eyebrow">{{ oscode.trust.label }}</h2>
-  <p class="lede">{{ oscode.trust.headline }}</p>
+  <p class="lede">{{ oscode.trust.stanceLabel }}</p>
+  <div class="stance">
+    {% for line in oscode.trust.stance %}
+    <p class="prose">{{ line }}</p>
+    {% endfor %}
+  </div>
+  <p class="prose"><strong>{{ oscode.trust.headline }}</strong></p>
   <ul class="pillars">
     {% for t in oscode.trust.tiers %}
     <li class="pillar">
