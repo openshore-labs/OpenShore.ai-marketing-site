@@ -31,9 +31,37 @@ export default {
   },
 
   lede:
-    "OpenShore is a coding companion that runs on your own hardware. Chat and build with a stack of local models on your iPhone and your desktop, kept in sync over your own private network. Cloud stays one deliberate tap away, always on your own account.",
+    "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Chat and build on your desktop, on Linux, macOS, and Windows, and on your iPhone and iPad, kept in sync over your own private network. Cloud stays one deliberate tap away, always on your own account.",
   summary:
-    "It is built the way software should be: local first, private by construction, and yours. Your models run where you put them. Your keys never leave your devices. Everything you make is encrypted at rest and answers only to you.",
+    "It is built the way software should be: local first, private by construction, and yours. One model in your stack plans the work and hands each part to the specialist best suited to it. Your keys never leave your devices. Everything you make is encrypted at rest and answers only to you.",
+
+  // The mission, in the founder's words (2026-09-08). Lower the barrier to
+  // open source models, and give the people and companies who would default to
+  // a mainstream cloud a private, local alternative. The four promises under it
+  // render as the quiet label-plus-line list (same shape as the pricing trust
+  // row), not as cards, so the mission reads as conviction rather than a
+  // feature grid.
+  missionLabel: "Why OpenShore exists",
+  mission:
+    "Open source models are good enough to do real work. What has been missing is a way in that does not ask you to be an expert, and a reason to choose local over the cloud you already know. OpenShore lowers the barrier to open models and gives individuals and companies a private, local alternative that gives up nothing.",
+  why: [
+    {
+      label: "Open models, made simple.",
+      body: "The setup and the rough edges of running your own models, handled for you.",
+    },
+    {
+      label: "Private by default.",
+      body: "Your prompts, your code, and your keys stay on your hardware. No telemetry, ever.",
+    },
+    {
+      label: "Lower cost, lighter footprint.",
+      body: "Your own models instead of a metered cloud bill, and a smaller energy draw for the same work.",
+    },
+    {
+      label: "Built for teams.",
+      body: "Companies configure their people's experience and grow and build together.",
+    },
+  ],
 
   pillarsLabel: "What makes it different",
   pillars: [
@@ -41,31 +69,37 @@ export default {
       name: "Local first",
       promise: "Your models run on your hardware, not someone else's cloud.",
       covers:
-        "A pocket model on the iPhone, your big models on the desktop, reached over your own Tailscale network. On a plane with no signal, it still works.",
+        "A pocket model on your phone, your big models on your desktop, reached over your own Tailscale network. On a plane with no signal, it still works.",
     },
     {
-      name: "Your stack",
-      promise: "One Reasoning LLM runs the show and routes every task.",
+      name: "Your stack draws a play",
+      promise: "One Reasoning LLM plans the work and routes every step.",
       covers:
-        "Set the model that plans and reasons, then place specialists by category. It sends each task to the right model and covers anything you have not placed itself.",
+        "Set the model that plans and reasons, place specialists by category, and it hands each step to the right model, briefs you as it goes, and re-plans when a result changes the picture.",
     },
     {
-      name: "Projects and Crew",
-      promise: "Your work stays organized, and your agents are your own.",
+      name: "The Marketplace",
+      promise: "A catalog, not a weight host. Models download straight from the source.",
       covers:
-        "Group work into projects that keep their context together across chats. Build a crew of agents, each with a name, a persona, and a rule for how and when it is called.",
+        "Browse by family and size, with honest ratings and license flags shown plainly. OpenShore never rehosts weights or proxies your inference.",
     },
     {
-      name: "Launch",
-      promise: "Take a finished build to the App Store or Google Play from inside the app.",
+      name: "Repositories and Vault",
+      promise: "Your code and your notes, in files you own.",
       covers:
-        "The model walks you through every account and setting, then reads the build result directly, so a failure comes back to you as a fix, not a wall of logs.",
+        "Connect a repo where it lives, on your disk, iCloud Drive, or Google Drive. The Vault is a markdown knowledge base that Obsidian opens as is.",
+    },
+    {
+      name: "Crew and routines",
+      promise: "Named agents that work on a schedule, on your own computer.",
+      covers:
+        "Give a crew member a task, a workspace, and a clock. It runs while your computer is on and leaves a dated note in your Vault, with the transcript one tap away.",
     },
     {
       name: "Private by construction",
       promise: "Sealed on your device, answering only to you.",
       covers:
-        "Everything is encrypted at rest with AES-256. Cloud providers see only the calls you choose to make, on your own keys. No telemetry, no analytics, no phone-home, ever.",
+        "Everything is encrypted at rest. Cloud providers see only the calls you choose to make, on your own keys. No telemetry, no analytics, no phone-home, ever.",
     },
   ],
 
@@ -74,17 +108,75 @@ export default {
     {
       name: "Bring your models",
       body:
-        "Download a pocket model to the iPhone, or point OpenShore at the big models already on your desktop. Add a cloud model on your own key when you want one.",
+        "Download a pocket model to your phone, or point OpenShore at the models already on your desktop. Add a cloud model on your own key when you want one.",
     },
     {
       name: "Build your stack",
       body:
-        "Pick the Reasoning LLM that runs the show, place specialists by category, and add the crew of agents that work the way you do.",
+        "Pick the Reasoning LLM that runs the show and place specialists by category: coding, writing, analysis, image reading, and fast.",
+    },
+    {
+      name: "Ask, and it draws a play",
+      body:
+        "Your prompt is framed, turned into an ordered set of handoffs, and briefed back to you before it runs. Each step goes to the model that owns it, and the answer streams in.",
     },
     {
       name: "Ship it",
       body:
-        "Build and launch to the app stores without leaving the app. The model guides the setup and reads every build result until you have a release.",
+        "Edit your repo with real diffs and approvals you control, then build and launch to the app stores without leaving the app.",
+    },
+  ],
+
+  // Everything inside: the full feature set at a glance, one line each. Rendered
+  // as the quiet label-plus-line list so it scans, and stays honest about state
+  // (Android rides the same Capacitor foundation; it is not a store build yet).
+  piecesLabel: "Everything inside",
+  piecesIntro:
+    "The whole product, one line each. Every piece runs on your models by default and asks before it spends.",
+  pieces: [
+    {
+      label: "A real coding agent.",
+      body: "Reads your repo, edits with diffs you approve, runs commands with your say so, and searches the web with citations.",
+    },
+    {
+      label: "Voice mode.",
+      body: "A spoken conversation over the chat, native and offline, in a voice you pick.",
+    },
+    {
+      label: "Video and image attachments.",
+      body: "Attach a screen recording or a photo. A clip is read frame by frame by an image reading model.",
+    },
+    {
+      label: "On-device models.",
+      body: "Harbor Light is built in and works offline. Harbor and bigger pocket models download when you want more.",
+    },
+    {
+      label: "Bring your own model.",
+      body: "Connect any OpenAI compatible endpoint you run yourself, on your own server.",
+    },
+    {
+      label: "Cloud on your key.",
+      body: "Claude, OpenAI, Gemini, and Kimi, connected on your own account. Spend always asks first.",
+    },
+    {
+      label: "Projects and memory.",
+      body: "Work stays organized in projects, and the agent keeps its notes inside your repo, committed with the code.",
+    },
+    {
+      label: "Stack Health.",
+      body: "See what your stack is doing, what it saved you, and its estimated footprint, refreshed daily.",
+    },
+    {
+      label: "Premium by default.",
+      body: "Everything the agent builds is held to a real UX bar, and everything it writes reads like a careful human wrote it.",
+    },
+    {
+      label: "Launch.",
+      body: "Take a finished build to the App Store or Google Play from inside the app, with the model reading each build result.",
+    },
+    {
+      label: "Runs everywhere.",
+      body: "Desktop for Linux, macOS, and Windows. iPhone and iPad, with Android built on the same foundation.",
     },
   ],
 
@@ -223,6 +315,17 @@ export default {
   trust: {
     label: "Ethical boundaries",
     headline: "Enforced by default. No switch, no exceptions, no lectures.",
+    // The founder's stance (2026-09-08), rendered above the mirrored statement
+    // and tiers. It is the why; the statement and tiers below stay verbatim to
+    // the app's trustStatement.ts and are the what. The deepfake line is a
+    // product direction: authorized, provenance-marked likeness stays gated
+    // behind consent (the tier below), while passing a fake or real person off
+    // as real is not something OpenShore is built to do.
+    stanceLabel: "AI for humans, by humans",
+    stance: [
+      "OpenShore ships with an ethical floor that is on for everyone and cannot be turned down. That floor is the foundation, and the door only opens one way: individuals and companies can raise the bar and set stricter boundaries for their own people, never loosen it.",
+      "One line we will not cross: OpenShore is not a tool for making deepfakes or synthetic humans. Photo or video built to pass a fake or real person off as real is off the table. It is not what the world or a business needs to build, and the harm to society is not a trade worth making.",
+    ],
     statement: [
       "This app enforces its ethical boundaries by default and will not help you remove them.",
       "It aligns with recognized frameworks: the NIST AI Risk Management Framework, ISO/IEC 42001, and C2PA content provenance.",
@@ -251,7 +354,7 @@ export default {
   },
 
   close:
-    "OpenShore is getting ready for launch. Join the early access list and we will tell you the moment it is on the App Store, and set your company up with seats when you are ready.",
+    "OpenShore is in private beta and getting ready for launch. Join the early access list and we will tell you the moment it is on the App Store, and set your company up with seats when you are ready.",
 
   earlyAccessSubject: "OpenShore early access",
   earlyAccessBody:

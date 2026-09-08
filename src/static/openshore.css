@@ -235,6 +235,15 @@ body {
 .prose {
   color: var(--mist);
 }
+/* The ethics stance: two short paragraphs that need air between them. The
+   base .prose carries no margin so a statement can stack tight; scope the
+   spacing to the stance rather than restyling every paragraph. */
+.stance .prose + .prose {
+  margin-top: 0.85rem;
+}
+.stance + .prose {
+  margin-top: 1rem;
+}
 
 /* ---- Pillars: glass cards that lift --------------------------------- */
 .pillars {
@@ -305,8 +314,15 @@ body {
 .component {
   position: relative;
   counter-increment: step;
+  /* The base sheet lays a step out as a label | body row (11rem + 1fr), which
+     inside one of these narrow grid cells squeezes the body into a sliver.
+     Stack the name over the body instead. */
+  display: block;
   padding-top: 3.4rem;
   border: none;
+}
+.component:last-child {
+  border-bottom: none;
 }
 .component::before {
   content: counter(step, decimal-leading-zero);
@@ -321,6 +337,8 @@ body {
   -webkit-text-stroke: 1.5px var(--wave);
 }
 .component-name {
+  display: block;
+  margin-bottom: 0.35rem;
   font-family: var(--sans);
   font-weight: 800;
   font-size: 1.2rem;
@@ -328,6 +346,7 @@ body {
   color: var(--paper);
 }
 .component-body {
+  display: block;
   color: var(--mist);
 }
 
@@ -455,8 +474,12 @@ body {
   color: var(--faint);
 }
 
-/* Trust row under the pricing rack: three quiet promises. */
-.offer-reassure {
+/* Trust row under the pricing rack: three quiet promises. The same quiet
+   label-plus-line shape carries the mission's promises and the "Everything
+   inside" feature list (.why-list), so conviction and inventory both read as
+   lists, not as more cards. */
+.offer-reassure,
+.why-list {
   list-style: none;
   margin: 22px 0 0;
   padding: 0;
@@ -464,16 +487,24 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
 }
-.offer-reassure li {
+.offer-reassure li,
+.why-list li {
   font-family: var(--sans);
   font-size: 0.9rem;
   line-height: 1.45;
   color: var(--mist);
 }
-.offer-reassure strong {
+.offer-reassure strong,
+.why-list strong {
   display: block;
   color: var(--paper);
   font-weight: 700;
+}
+/* The feature list is longer than three; give its rows a hairline so eleven
+   entries scan as a grid rather than a wall. */
+.why-list li {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
 }
 
 /* ---- Pill CTAs ------------------------------------------------------ */
