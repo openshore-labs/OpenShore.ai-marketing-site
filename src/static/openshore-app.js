@@ -282,11 +282,10 @@
     if (!authEl) return;
     authEl.innerHTML = '';
     if (!session) {
-      const btn = document.createElement('button');
-      btn.className = 'oscode-auth-btn';
-      btn.textContent = 'Log in';
-      btn.addEventListener('click', () => openDialog());
-      authEl.append(btn);
+      // No standing "Log in" button. Signing in is prompted only when someone
+      // starts a plan checkout (startCheckout opens the dialog and resumes the
+      // purchase after sign-in), so the landing header stays clean. When logged
+      // out the auth slot is empty and the header's top row collapses (CSS).
       return;
     }
     const wrap = document.createElement('div');

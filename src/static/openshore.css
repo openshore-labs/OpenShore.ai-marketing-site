@@ -130,6 +130,13 @@ body {
   min-height: 2.2rem;
   margin-bottom: clamp(1.4rem, 4vw, 2.25rem);
 }
+/* The auth slot is empty until someone is signed in (openshore-app.js only
+   fills it when logged in; signing in is otherwise prompted at checkout). While
+   it is empty, collapse the whole top row so the hero starts at the top with no
+   stray gap where the old "Log in" button used to sit. */
+.masthead-top:has(> .oscode-auth:empty) {
+  display: none;
+}
 /* The wave, scaled to a scene: a low shore glow behind the headline. */
 .masthead::before {
   content: "";
@@ -1164,34 +1171,17 @@ button.block-cta {
     font-size: 0.68rem;
   }
 
-  /* Tab strip: even gaps, a touch smaller, and trailing room so the last tab
-     can clear the fade. The right edge fades out to say "there is more", and
-     proximity snap lets a swipe settle on a tab without fighting free scroll. */
+  /* Tab strip: a plain static horizontal scroll. Smaller type and tighter gaps
+     so as many tabs as possible show at once; no snap, no auto-scroll, no fade,
+     so the row never moves on its own. It just sits there and scrolls if the
+     labels run past the edge. */
   .sitenav--oscode .sitenav-tabs {
-    gap: 22px;
-    padding-inline-end: 44px;
-    scroll-padding-inline: 24px;
-    scroll-snap-type: x proximity;
-    /* The fade follows the scroll position (tabs.js toggles the classes):
-       at rest only the right edge fades; once scrolled the left edge fades
-       too; at the end the right edge clears so the last tab is never dimmed. */
-    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 44px), transparent);
-    mask-image: linear-gradient(to right, #000 calc(100% - 44px), transparent);
+    gap: 13px;
   }
-  .sitenav--oscode .sitenav-tabs.is-scrolled {
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 44px, #000 calc(100% - 44px), transparent);
-    mask-image: linear-gradient(to right, transparent, #000 44px, #000 calc(100% - 44px), transparent);
-  }
-  .sitenav--oscode .sitenav-tabs.is-scrolled.is-end {
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 44px);
-    mask-image: linear-gradient(to right, transparent, #000 44px);
-  }
-  .sitenav--oscode .sitenav-tabs.is-end:not(.is-scrolled) {
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-  .sitenav--oscode .sitenav-tabs > li {
-    scroll-snap-align: start;
+  .sitenav--oscode .sitenav-tab {
+    font-size: 0.72rem;
+    letter-spacing: 0;
+    padding-bottom: 11px;
   }
 
   /* Hero pair: two equal pills that fill the row, so neither wraps alone and
@@ -1203,11 +1193,6 @@ button.block-cta {
     min-width: 140px;
     gap: 0.35em;
     padding-inline: 18px;
-  }
-  .sitenav--oscode .sitenav-tab {
-    font-size: 0.88rem;
-    letter-spacing: 0;
-    padding-bottom: 11px;
   }
 
   /* Diagrams scroll inside their frame on a phone; fade the right edge so the
