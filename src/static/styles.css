@@ -155,6 +155,13 @@ a:focus-visible {
      the row is short and thumb-swipeable. */
   flex-wrap: nowrap;
   overflow-x: auto;
+  /* Lock the strip to horizontal motion only. touch-action: pan-x tells the
+     browser a drag here pans sideways and nothing else, so the row never
+     drifts up or down under a finger; overflow-y: hidden removes any vertical
+     give; overscroll-behavior keeps the swipe from bleeding into the page. */
+  overflow-y: hidden;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
   scrollbar-width: none; /* Firefox */
   -webkit-overflow-scrolling: touch;
 }
