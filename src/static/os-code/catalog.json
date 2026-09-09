@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-08",
+  "updated": "2026-09-09",
   "models": [
     {
       "id": "qwen2.5-coder-7b",
@@ -56,7 +56,7 @@
       },
       "popularity": {
         "downloads": 256578,
-        "likes": 432,
+        "likes": 435,
         "source": "huggingface"
       },
       "createdAt": "2024-09-18T11:40:39.000Z",
@@ -747,7 +747,7 @@
       "blessed": false,
       "popularity": {
         "downloads": 62024,
-        "likes": 117,
+        "likes": 118,
         "source": "huggingface"
       },
       "createdAt": "2024-11-09T12:46:15.000Z",
@@ -1301,7 +1301,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen3.8-27B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1341,7 +1341,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "openbmb/MiniCPM5-2B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1375,41 +1375,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-unsloth-qwen-image-edit-2511",
-      "name": "Qwen Image Edit 2511",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/unsloth/Qwen-Image-Edit-2511-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/unsloth/Qwen-Image-Edit-2511-GGUF:Q4_K_M",
-        "popularityRef": "unsloth/Qwen-Image-Edit-2511-GGUF"
-      },
-      "sizeGB": 13.2,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1003,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "unsloth/Qwen-Image-Edit-2511-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1436,31 +1402,31 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1004,
+        "rank": 1003,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/gemma-4-26B-A4B-it-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-unsloth-qwen3-6-35b-a3b-mtp",
-      "name": "Qwen3.6 35B A3B MTP",
+      "id": "hf-unsloth-qwen-image-edit-2511",
+      "name": "Qwen Image Edit 2511",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
-        "vision"
+        "reasoning"
       ],
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/unsloth/Qwen3.6-35B-A3B-MTP-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/unsloth/Qwen3.6-35B-A3B-MTP-GGUF:Q4_K_M",
-        "popularityRef": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF"
+        "ref": "hf.co/unsloth/Qwen-Image-Edit-2511-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/unsloth/Qwen-Image-Edit-2511-GGUF:Q4_K_M",
+        "popularityRef": "unsloth/Qwen-Image-Edit-2511-GGUF"
       },
-      "sizeGB": 22.7,
+      "sizeGB": 13.2,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -1470,14 +1436,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1005,
+        "rank": 1004,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
-        "repo": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "unsloth/Qwen-Image-Edit-2511-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1504,37 +1470,71 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1006,
+        "rank": 1005,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen3.5-9B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-inclusionai-ling-3-0-tiny",
-      "name": "Ling 3.0 tiny",
+      "id": "hf-unsloth-qwen3-6-35b-a3b-mtp",
+      "name": "Qwen3.6 35B A3B MTP",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
-        "reasoning"
+        "vision"
       ],
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/inclusionAI/Ling-3.0-tiny-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/inclusionAI/Ling-3.0-tiny-GGUF:Q4_K_M",
-        "popularityRef": "inclusionAI/Ling-3.0-tiny-GGUF"
+        "ref": "hf.co/unsloth/Qwen3.6-35B-A3B-MTP-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/unsloth/Qwen3.6-35B-A3B-MTP-GGUF:Q4_K_M",
+        "popularityRef": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF"
       },
-      "sizeGB": 4.8,
+      "sizeGB": 22.7,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
-        "id": "MIT",
-        "name": "MIT License",
-        "url": "https://opensource.org/license/mit",
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1006,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-qwen-qwen2-5-coder-7b-instruct",
+      "name": "Qwen2.5 Coder 7B Instruct",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "coding"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF:Q4_K_M",
+        "popularityRef": "Qwen/Qwen2.5-Coder-7B-Instruct-GGUF"
+      },
+      "sizeGB": 4.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
         "commercial": "ok"
       },
       "curation": {
@@ -1544,8 +1544,8 @@
       "blessed": false,
       "discovery": {
         "source": "huggingface",
-        "repo": "inclusionAI/Ling-3.0-tiny-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "Qwen/Qwen2.5-Coder-7B-Instruct-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1579,41 +1579,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-qwen-qwen2-5-coder-7b-instruct",
-      "name": "Qwen2.5 Coder 7B Instruct",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "coding"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF:Q4_K_M",
-        "popularityRef": "Qwen/Qwen2.5-Coder-7B-Instruct-GGUF"
-      },
-      "sizeGB": 4.7,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1009,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "Qwen/Qwen2.5-Coder-7B-Instruct-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1640,48 +1606,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1010,
+        "rank": 1009,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/gemma-4-12b-it-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-unsloth-gemma-4-e4b-it",
-      "name": "gemma 4 E4B it",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "vision"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/unsloth/gemma-4-E4B-it-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/unsloth/gemma-4-E4B-it-GGUF:Q4_K_M",
-        "popularityRef": "unsloth/gemma-4-E4B-it-GGUF"
-      },
-      "sizeGB": 5,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1011,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "unsloth/gemma-4-E4B-it-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1708,14 +1640,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1012,
+        "rank": 1010,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen3.6-35B-A3B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1742,48 +1674,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1013,
+        "rank": 1011,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen3.5-4B-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-ibm-granite-granite-4-2-8b",
-      "name": "granite 4.2 8b",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/ibm-granite/granite-4.2-8b-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.2-8b-GGUF:Q4_K_M",
-        "popularityRef": "ibm-granite/granite-4.2-8b-GGUF"
-      },
-      "sizeGB": 5.3,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1014,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "ibm-granite/granite-4.2-8b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1810,14 +1708,82 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1015,
+        "rank": 1012,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "Qwen/Qwen3-8B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-ibm-granite-granite-4-2-8b",
+      "name": "granite 4.2 8b",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/ibm-granite/granite-4.2-8b-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.2-8b-GGUF:Q4_K_M",
+        "popularityRef": "ibm-granite/granite-4.2-8b-GGUF"
+      },
+      "sizeGB": 5.3,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1013,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "ibm-granite/granite-4.2-8b-GGUF",
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-inclusionai-ling-3-0-tiny",
+      "name": "Ling 3.0 tiny",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/inclusionAI/Ling-3.0-tiny-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/inclusionAI/Ling-3.0-tiny-GGUF:Q4_K_M",
+        "popularityRef": "inclusionAI/Ling-3.0-tiny-GGUF"
+      },
+      "sizeGB": 4.8,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1014,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "inclusionAI/Ling-3.0-tiny-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1845,7 +1811,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1016,
+        "rank": 1015,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -1857,41 +1823,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen3.5-0.8B-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-unsloth-diffusiongemma-26b-a4b-it",
-      "name": "diffusiongemma 26B A4B it",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "vision"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q4_K_M",
-        "popularityRef": "unsloth/diffusiongemma-26B-A4B-it-GGUF"
-      },
-      "sizeGB": 16.8,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1017,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "unsloth/diffusiongemma-26B-A4B-it-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1918,7 +1850,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1018,
+        "rank": 1016,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -1930,7 +1862,41 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.2-3b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-unsloth-gemma-4-e4b-it",
+      "name": "gemma 4 E4B it",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "vision"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/unsloth/gemma-4-E4B-it-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/unsloth/gemma-4-E4B-it-GGUF:Q4_K_M",
+        "popularityRef": "unsloth/gemma-4-E4B-it-GGUF"
+      },
+      "sizeGB": 5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1017,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "unsloth/gemma-4-E4B-it-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -1958,7 +1924,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1019,
+        "rank": 1018,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -1970,41 +1936,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-qwen-qwen2-5-coder-14b-instruct",
-      "name": "Qwen2.5 Coder 14B Instruct",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "coding"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF:Q4_K_M",
-        "popularityRef": "Qwen/Qwen2.5-Coder-14B-Instruct-GGUF"
-      },
-      "sizeGB": 9,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1020,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "Qwen/Qwen2.5-Coder-14B-Instruct-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2032,14 +1964,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1021,
+        "rank": 1019,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/DeepSeek-R1-Distill-Qwen-32B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2067,7 +1999,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1022,
+        "rank": 1020,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -2079,7 +2011,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "Qwen/Qwen3-1.7B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2106,14 +2038,48 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1023,
+        "rank": 1021,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen2.5-VL-7B-Instruct-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-unsloth-gpt-oss-20b",
+      "name": "gpt oss 20b",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/unsloth/gpt-oss-20b-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/unsloth/gpt-oss-20b-GGUF:Q4_K_M",
+        "popularityRef": "unsloth/gpt-oss-20b-GGUF"
+      },
+      "sizeGB": 11.6,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1022,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "unsloth/gpt-oss-20b-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2140,14 +2106,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1024,
+        "rank": 1023,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen-Image-2512-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2174,32 +2140,67 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1025,
+        "rank": 1024,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/gemma-4-31B-it-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-google-gemma-4-12b-it-qat-q4-0",
-      "name": "gemma 4 12B it qat q4 0",
+      "id": "hf-unsloth-qwen3-6-27b",
+      "name": "Qwen3.6 27B",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
-        "reasoning"
+        "vision"
       ],
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/google/gemma-4-12B-it-qat-q4_0-gguf:Q4_0",
-        "pullCommand": "ollama pull hf.co/google/gemma-4-12B-it-qat-q4_0-gguf:Q4_0",
-        "popularityRef": "google/gemma-4-12B-it-qat-q4_0-gguf"
+        "ref": "hf.co/unsloth/Qwen3.6-27B-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/unsloth/Qwen3.6-27B-GGUF:Q4_K_M",
+        "popularityRef": "unsloth/Qwen3.6-27B-GGUF"
       },
-      "sizeGB": 7,
-      "quantization": "Q4_0",
+      "sizeGB": 16.8,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1025,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "unsloth/Qwen3.6-27B-GGUF",
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-openbmb-minicpm-v-4-6",
+      "name": "MiniCPM V 4.6",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "vision",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/openbmb/MiniCPM-V-4.6-gguf:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/openbmb/MiniCPM-V-4.6-gguf:Q4_K_M",
+        "popularityRef": "openbmb/MiniCPM-V-4.6-gguf"
+      },
+      "sizeGB": 0.5,
+      "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
         "id": "Apache-2.0",
@@ -2212,10 +2213,49 @@
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/openbmb/MiniCPM-V-4.6-gguf/resolve/main/MiniCPM-V-4_6-Q4_K_M.gguf",
+        "sizeGB": 0.5,
+        "minRamGB": 3
+      },
       "discovery": {
         "source": "huggingface",
-        "repo": "google/gemma-4-12B-it-qat-q4_0-gguf",
-        "foundAt": "2026-09-08"
+        "repo": "openbmb/MiniCPM-V-4.6-gguf",
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-unsloth-qwen3-5-4b-mtp",
+      "name": "Qwen3.5 4B MTP",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "vision"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/unsloth/Qwen3.5-4B-MTP-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/unsloth/Qwen3.5-4B-MTP-GGUF:Q4_K_M",
+        "popularityRef": "unsloth/Qwen3.5-4B-MTP-GGUF"
+      },
+      "sizeGB": 2.8,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1027,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "unsloth/Qwen3.5-4B-MTP-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2242,31 +2282,31 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1027,
+        "rank": 1028,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.2-30b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-inclusionai-armorocr",
-      "name": "ArmorOCR",
+      "id": "hf-qwen-qwen2-5-coder-14b-instruct",
+      "name": "Qwen2.5 Coder 14B Instruct",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
-        "vision"
+        "coding"
       ],
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/inclusionAI/ArmorOCR-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/inclusionAI/ArmorOCR-GGUF:Q4_K_M",
-        "popularityRef": "inclusionAI/ArmorOCR-GGUF"
+        "ref": "hf.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF:Q4_K_M",
+        "popularityRef": "Qwen/Qwen2.5-Coder-14B-Instruct-GGUF"
       },
-      "sizeGB": 5,
+      "sizeGB": 9,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -2276,14 +2316,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1028,
+        "rank": 1029,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
-        "repo": "inclusionAI/ArmorOCR-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "Qwen/Qwen2.5-Coder-14B-Instruct-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2311,48 +2351,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1029,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "unsloth/DeepSeek-R1-Distill-Qwen-14B-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-unsloth-gpt-oss-20b",
-      "name": "gpt oss 20b",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/unsloth/gpt-oss-20b-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/unsloth/gpt-oss-20b-GGUF:Q4_K_M",
-        "popularityRef": "unsloth/gpt-oss-20b-GGUF"
-      },
-      "sizeGB": 11.6,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
         "rank": 1030,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
-        "repo": "unsloth/gpt-oss-20b-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "unsloth/DeepSeek-R1-Distill-Qwen-14B-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2391,41 +2397,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen3-4B-Instruct-2507-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-unsloth-qwen3-vl-30b-a3b-instruct",
-      "name": "Qwen3 VL 30B A3B Instruct",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "vision"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/unsloth/Qwen3-VL-30B-A3B-Instruct-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/unsloth/Qwen3-VL-30B-A3B-Instruct-GGUF:Q4_K_M",
-        "popularityRef": "unsloth/Qwen3-VL-30B-A3B-Instruct-GGUF"
-      },
-      "sizeGB": 18.6,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1032,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "unsloth/Qwen3-VL-30B-A3B-Instruct-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2453,7 +2425,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1033,
+        "rank": 1032,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -2465,7 +2437,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "Qwen/Qwen3-VL-2B-Instruct-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2493,32 +2465,65 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1034,
+        "rank": 1033,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "NousResearch/Hermes-4.3-36B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-bartowski-qwen-qwen3-5-0-8b",
-      "name": "Qwen Qwen3.5 0.8B",
+      "id": "hf-unsloth-gemma-4-e2b-it",
+      "name": "gemma 4 E2B it",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
-        "vision",
-        "fast"
+        "vision"
       ],
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/bartowski/Qwen_Qwen3.5-0.8B-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/bartowski/Qwen_Qwen3.5-0.8B-GGUF:Q4_K_M",
-        "popularityRef": "bartowski/Qwen_Qwen3.5-0.8B-GGUF"
+        "ref": "hf.co/unsloth/gemma-4-E2B-it-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/unsloth/gemma-4-E2B-it-GGUF:Q4_K_M",
+        "popularityRef": "unsloth/gemma-4-E2B-it-GGUF"
       },
-      "sizeGB": 0.6,
+      "sizeGB": 3.1,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1034,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "unsloth/gemma-4-E2B-it-GGUF",
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-unsloth-diffusiongemma-26b-a4b-it",
+      "name": "diffusiongemma 26B A4B it",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "vision"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q4_K_M",
+        "popularityRef": "unsloth/diffusiongemma-26B-A4B-it-GGUF"
+      },
+      "sizeGB": 16.8,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -2532,129 +2537,10 @@
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
-      "onDevice": {
-        "url": "https://huggingface.co/bartowski/Qwen_Qwen3.5-0.8B-GGUF/resolve/main/Qwen_Qwen3.5-0.8B-Q4_K_M.gguf",
-        "sizeGB": 0.6,
-        "minRamGB": 3
-      },
       "discovery": {
         "source": "huggingface",
-        "repo": "bartowski/Qwen_Qwen3.5-0.8B-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-openbmb-minicpm-v-4-6",
-      "name": "MiniCPM V 4.6",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "vision",
-        "fast"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/openbmb/MiniCPM-V-4.6-gguf:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/openbmb/MiniCPM-V-4.6-gguf:Q4_K_M",
-        "popularityRef": "openbmb/MiniCPM-V-4.6-gguf"
-      },
-      "sizeGB": 0.5,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1036,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "onDevice": {
-        "url": "https://huggingface.co/openbmb/MiniCPM-V-4.6-gguf/resolve/main/MiniCPM-V-4_6-Q4_K_M.gguf",
-        "sizeGB": 0.5,
-        "minRamGB": 3
-      },
-      "discovery": {
-        "source": "huggingface",
-        "repo": "openbmb/MiniCPM-V-4.6-gguf",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-unsloth-qwen3-5-4b-mtp",
-      "name": "Qwen3.5 4B MTP",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "vision"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/unsloth/Qwen3.5-4B-MTP-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/unsloth/Qwen3.5-4B-MTP-GGUF:Q4_K_M",
-        "popularityRef": "unsloth/Qwen3.5-4B-MTP-GGUF"
-      },
-      "sizeGB": 2.8,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1037,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "unsloth/Qwen3.5-4B-MTP-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-openbmb-minicpm5-1b",
-      "name": "MiniCPM5 1B",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning",
-        "fast"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/openbmb/MiniCPM5-1B-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/openbmb/MiniCPM5-1B-GGUF:Q4_K_M",
-        "popularityRef": "openbmb/MiniCPM5-1B-GGUF"
-      },
-      "sizeGB": 0.7,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1038,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "onDevice": {
-        "url": "https://huggingface.co/openbmb/MiniCPM5-1B-GGUF/resolve/main/MiniCPM5-1B-Q4_K_M.gguf",
-        "sizeGB": 0.7,
-        "minRamGB": 3
-      },
-      "discovery": {
-        "source": "huggingface",
-        "repo": "openbmb/MiniCPM5-1B-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "unsloth/diffusiongemma-26B-A4B-it-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2681,14 +2567,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1039,
+        "rank": 1036,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "unsloth/Qwen-AgentWorld-35B-A3B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2716,7 +2602,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1040,
+        "rank": 1037,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -2728,7 +2614,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-3B-Reasoning-2512-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2755,7 +2641,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1041,
+        "rank": 1038,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -2767,7 +2653,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "nomic-ai/nomic-embed-text-v2-moe-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2794,14 +2680,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1042,
+        "rank": 1039,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "internlm/CapRL-Qwen3VL-4B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2828,14 +2714,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1043,
+        "rank": 1040,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "openbmb/MiniCPM-o-2_6-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2864,7 +2750,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1044,
+        "rank": 1041,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -2876,7 +2762,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ai21labs/AI21-Jamba-Reasoning-3B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2904,14 +2790,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1045,
+        "rank": 1042,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "stepfun-ai/Step-3.7-Flash-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2939,7 +2825,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1046,
+        "rank": 1043,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -2951,7 +2837,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "h2oai/h2o-danube3-500m-chat-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -2978,14 +2864,48 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1047,
+        "rank": 1044,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "baichuan-inc/Baichuan-M3-235B-Q4_K_M-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-google-gemma-4-12b-it-qat-q4-0",
+      "name": "gemma 4 12B it qat q4 0",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/google/gemma-4-12B-it-qat-q4_0-gguf:Q4_0",
+        "pullCommand": "ollama pull hf.co/google/gemma-4-12B-it-qat-q4_0-gguf:Q4_0",
+        "popularityRef": "google/gemma-4-12B-it-qat-q4_0-gguf"
+      },
+      "sizeGB": 7,
+      "quantization": "Q4_0",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1045,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "google/gemma-4-12B-it-qat-q4_0-gguf",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3013,14 +2933,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1048,
+        "rank": 1046,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-8B-Reasoning-2512-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3047,7 +2967,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1049,
+        "rank": 1047,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3059,7 +2979,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-vision-4.1-4b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3086,14 +3006,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1050,
+        "rank": 1048,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "nomic-ai/nomic-embed-code-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3120,7 +3040,7 @@
         "commercial": "non-commercial"
       },
       "curation": {
-        "rank": 1051,
+        "rank": 1049,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3132,7 +3052,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-omni-small-text-matching-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3160,7 +3080,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1052,
+        "rank": 1050,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3172,7 +3092,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "internlm/CapRL-Qwen3VL-2B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3199,7 +3119,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1053,
+        "rank": 1051,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3211,7 +3131,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "openbmb/MiniCPM-V-4-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3238,7 +3158,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1054,
+        "rank": 1052,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3250,7 +3170,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "h2oai/h2o-danube3-4b-chat-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3277,14 +3197,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1055,
+        "rank": 1053,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "baichuan-inc/Baichuan-M2-32B-Q4_K_M-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3312,14 +3232,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1056,
+        "rank": 1054,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-14B-Reasoning-2512-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3346,7 +3266,7 @@
         "commercial": "non-commercial"
       },
       "curation": {
-        "rank": 1057,
+        "rank": 1055,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3358,7 +3278,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-omni-small-clustering-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3385,14 +3305,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1058,
+        "rank": 1056,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "stepfun-ai/Step-3.5-Flash-GGUF-Q4_K_S",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3420,7 +3340,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1059,
+        "rank": 1057,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3432,7 +3352,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "h2oai/h2o-danube2-1.8b-chat-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3459,7 +3379,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1060,
+        "rank": 1058,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3471,7 +3391,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-3B-Instruct-2512-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3498,7 +3418,7 @@
         "commercial": "non-commercial"
       },
       "curation": {
-        "rank": 1061,
+        "rank": 1059,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3510,7 +3430,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-omni-small-classification-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3537,14 +3457,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1062,
+        "rank": 1060,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "openbmb/MiniCPM-o-4_5-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3571,14 +3491,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1063,
+        "rank": 1061,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "sarvamai/sarvam-m-q8-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3605,48 +3525,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1064,
+        "rank": 1062,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-8B-Instruct-2512-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-microsoft-phi-4",
-      "name": "phi 4",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/microsoft/phi-4-gguf:Q4_K_S",
-        "pullCommand": "ollama pull hf.co/microsoft/phi-4-gguf:Q4_K_S",
-        "popularityRef": "microsoft/phi-4-gguf"
-      },
-      "sizeGB": 8.4,
-      "quantization": "Q4_K_S",
-      "contextTokens": 8192,
-      "license": {
-        "id": "MIT",
-        "name": "MIT License",
-        "url": "https://opensource.org/license/mit",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1065,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "microsoft/phi-4-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3673,7 +3559,7 @@
         "commercial": "non-commercial"
       },
       "curation": {
-        "rank": 1066,
+        "rank": 1063,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3685,7 +3571,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-omni-small-retrieval-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3712,14 +3598,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1067,
+        "rank": 1064,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/AFM-4.5B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3746,14 +3632,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1068,
+        "rank": 1065,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "internlm/internlm3-8b-instruct-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3782,7 +3668,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1069,
+        "rank": 1066,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3794,7 +3680,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "openbmb/MiniCPM-V-4.6-Thinking-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3822,7 +3708,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1070,
+        "rank": 1067,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3834,7 +3720,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ggml-org/GLM-4.5V-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3861,14 +3747,48 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1071,
+        "rank": 1068,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Ministral-3-14B-Instruct-2512-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-microsoft-phi-4",
+      "name": "phi 4",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/microsoft/phi-4-gguf:Q4_K_S",
+        "pullCommand": "ollama pull hf.co/microsoft/phi-4-gguf:Q4_K_S",
+        "popularityRef": "microsoft/phi-4-gguf"
+      },
+      "sizeGB": 8.4,
+      "quantization": "Q4_K_S",
+      "contextTokens": 8192,
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1069,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "microsoft/phi-4-gguf",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3896,7 +3816,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1072,
+        "rank": 1070,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -3908,7 +3828,47 @@
       "discovery": {
         "source": "huggingface",
         "repo": "internlm/internlm2_5-1_8b-chat-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-openbmb-minicpm5-1b",
+      "name": "MiniCPM5 1B",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/openbmb/MiniCPM5-1B-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/openbmb/MiniCPM5-1B-GGUF:Q4_K_M",
+        "popularityRef": "openbmb/MiniCPM5-1B-GGUF"
+      },
+      "sizeGB": 0.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1071,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/openbmb/MiniCPM5-1B-GGUF/resolve/main/MiniCPM5-1B-Q4_K_M.gguf",
+        "sizeGB": 0.7,
+        "minRamGB": 3
+      },
+      "discovery": {
+        "source": "huggingface",
+        "repo": "openbmb/MiniCPM5-1B-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3935,14 +3895,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1073,
+        "rank": 1072,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ggml-org/GLM-4.5-Air-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -3969,14 +3929,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1074,
+        "rank": 1073,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Magistral-Small-2509-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4003,14 +3963,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1075,
+        "rank": 1074,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "allenai/OLMo-2-1124-7B-Instruct-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4037,14 +3997,14 @@
         "commercial": "gated"
       },
       "curation": {
-        "rank": 1076,
+        "rank": 1075,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Arcee-SuperNova-v1-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4071,14 +4031,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1077,
+        "rank": 1076,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "internlm/internlm2_5-20b-chat-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4105,14 +4065,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1078,
+        "rank": 1077,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-34b-code-instruct-8k-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4139,14 +4099,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1079,
+        "rank": 1078,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "allenai/OLMo-2-1124-13B-Instruct-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4173,14 +4133,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1080,
+        "rank": 1079,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Caller-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4207,14 +4167,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1081,
+        "rank": 1080,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "internlm/internlm2_5-7b-chat-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4241,14 +4201,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1082,
+        "rank": 1081,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-34b-code-base-8k-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4276,14 +4236,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1083,
+        "rank": 1082,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Homunculus-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4310,14 +4270,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1084,
+        "rank": 1083,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "internlm/internlm2_5-7b-chat-1m-gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4344,14 +4304,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1085,
+        "rank": 1084,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-20b-code-instruct-8k-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4378,7 +4338,7 @@
         "commercial": "non-commercial"
       },
       "curation": {
-        "rank": 1086,
+        "rank": 1085,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -4390,7 +4350,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-text-small-text-matching",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4417,48 +4377,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1087,
+        "rank": 1086,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Arcee-Blitz-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-openbmb-agentcpm-report",
-      "name": "AgentCPM Report",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/openbmb/AgentCPM-Report-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/openbmb/AgentCPM-Report-GGUF:Q4_K_M",
-        "popularityRef": "openbmb/AgentCPM-Report-GGUF"
-      },
-      "sizeGB": 5,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1088,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "openbmb/AgentCPM-Report-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4485,14 +4411,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1089,
+        "rank": 1087,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "mistralai/Devstral-Small-2507_gguf",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4519,14 +4445,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1090,
+        "rank": 1088,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-20b-code-base-8k-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4553,14 +4479,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1091,
+        "rank": 1089,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "allenai/OLMoE-1B-7B-0924-Instruct-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4587,7 +4513,7 @@
         "commercial": "non-commercial"
       },
       "curation": {
-        "rank": 1092,
+        "rank": 1090,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -4599,7 +4525,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-text-small-classification",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4626,19 +4552,19 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1093,
+        "rank": 1091,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Arcee-Maestro-7B-Preview-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-openbmb-agentcpm-explore",
-      "name": "AgentCPM Explore",
+      "id": "hf-openbmb-agentcpm-report",
+      "name": "AgentCPM Report",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
         "reasoning"
@@ -4646,11 +4572,11 @@
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/openbmb/AgentCPM-Explore-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/openbmb/AgentCPM-Explore-GGUF:Q4_K_M",
-        "popularityRef": "openbmb/AgentCPM-Explore-GGUF"
+        "ref": "hf.co/openbmb/AgentCPM-Report-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/openbmb/AgentCPM-Report-GGUF:Q4_K_M",
+        "popularityRef": "openbmb/AgentCPM-Report-GGUF"
       },
-      "sizeGB": 2.7,
+      "sizeGB": 5,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -4660,14 +4586,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1094,
+        "rank": 1092,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
-        "repo": "openbmb/AgentCPM-Explore-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "openbmb/AgentCPM-Report-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4694,14 +4620,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1095,
+        "rank": 1093,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-8b-code-instruct-4k-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4728,7 +4654,7 @@
         "commercial": "non-commercial"
       },
       "curation": {
-        "rank": 1096,
+        "rank": 1094,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -4740,7 +4666,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-text-small-clustering",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4767,19 +4693,19 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1097,
+        "rank": 1095,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Virtuoso-Medium-v2-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-openbmb-minicpm4-1-8b",
-      "name": "MiniCPM4.1 8B",
+      "id": "hf-openbmb-agentcpm-explore",
+      "name": "AgentCPM Explore",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
         "reasoning"
@@ -4787,11 +4713,11 @@
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/openbmb/MiniCPM4.1-8B-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/openbmb/MiniCPM4.1-8B-GGUF:Q4_K_M",
-        "popularityRef": "openbmb/MiniCPM4.1-8B-GGUF"
+        "ref": "hf.co/openbmb/AgentCPM-Explore-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/openbmb/AgentCPM-Explore-GGUF:Q4_K_M",
+        "popularityRef": "openbmb/AgentCPM-Explore-GGUF"
       },
-      "sizeGB": 5,
+      "sizeGB": 2.7,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -4801,14 +4727,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1098,
+        "rank": 1096,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
-        "repo": "openbmb/MiniCPM4.1-8B-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "openbmb/AgentCPM-Explore-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4835,14 +4761,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1099,
+        "rank": 1097,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-8b-code-base-4k-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4869,7 +4795,7 @@
         "commercial": "non-commercial"
       },
       "curation": {
-        "rank": 1100,
+        "rank": 1098,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -4881,7 +4807,114 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-embeddings-v5-text-small-retrieval",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-openbmb-minicpm4-1-8b",
+      "name": "MiniCPM4.1 8B",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/openbmb/MiniCPM4.1-8B-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/openbmb/MiniCPM4.1-8B-GGUF:Q4_K_M",
+        "popularityRef": "openbmb/MiniCPM4.1-8B-GGUF"
+      },
+      "sizeGB": 5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1099,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "openbmb/MiniCPM4.1-8B-GGUF",
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-ibm-granite-granite-3b-code-instruct-2k",
+      "name": "granite 3b code instruct 2k",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "coding"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/ibm-granite/granite-3b-code-instruct-2k-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/ibm-granite/granite-3b-code-instruct-2k-GGUF:Q4_K_M",
+        "popularityRef": "ibm-granite/granite-3b-code-instruct-2k-GGUF"
+      },
+      "sizeGB": 2.1,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1100,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/ibm-granite/granite-3b-code-instruct-2k-GGUF/resolve/main/granite-3b-code-instruct.Q4_K_M.gguf",
+        "sizeGB": 2.1,
+        "minRamGB": 6
+      },
+      "discovery": {
+        "source": "huggingface",
+        "repo": "ibm-granite/granite-3b-code-instruct-2k-GGUF",
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-arcee-ai-virtuoso-small",
+      "name": "Virtuoso Small",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/arcee-ai/Virtuoso-Small-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/arcee-ai/Virtuoso-Small-GGUF:Q4_K_M",
+        "popularityRef": "arcee-ai/Virtuoso-Small-GGUF"
+      },
+      "sizeGB": 9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1101,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "arcee-ai/Virtuoso-Small-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -4909,7 +4942,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1101,
+        "rank": 1102,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -4921,12 +4954,12 @@
       "discovery": {
         "source": "huggingface",
         "repo": "openbmb/BitCPM4-1B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-lmstudio-community-gemma-4-e2b-it",
-      "name": "gemma 4 E2B it",
+      "id": "hf-lmstudio-community-gemma-4-31b-it-qat",
+      "name": "gemma 4 31B it QAT",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
         "reasoning"
@@ -4934,46 +4967,12 @@
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/lmstudio-community/gemma-4-E2B-it-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/lmstudio-community/gemma-4-E2B-it-GGUF:Q4_K_M",
-        "popularityRef": "lmstudio-community/gemma-4-E2B-it-GGUF"
+        "ref": "hf.co/lmstudio-community/gemma-4-31B-it-QAT-GGUF:Q4_0",
+        "pullCommand": "ollama pull hf.co/lmstudio-community/gemma-4-31B-it-QAT-GGUF:Q4_0",
+        "popularityRef": "lmstudio-community/gemma-4-31B-it-QAT-GGUF"
       },
-      "sizeGB": 3.4,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1102,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "lmstudio-community/gemma-4-E2B-it-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-ibm-granite-granite-3b-code-instruct-2k",
-      "name": "granite 3b code instruct 2k",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "coding"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/ibm-granite/granite-3b-code-instruct-2k-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/ibm-granite/granite-3b-code-instruct-2k-GGUF:Q4_K_M",
-        "popularityRef": "ibm-granite/granite-3b-code-instruct-2k-GGUF"
-      },
-      "sizeGB": 2.1,
-      "quantization": "Q4_K_M",
+      "sizeGB": 17.7,
+      "quantization": "Q4_0",
       "contextTokens": 8192,
       "license": {
         "id": "Apache-2.0",
@@ -4986,32 +4985,27 @@
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
-      "onDevice": {
-        "url": "https://huggingface.co/ibm-granite/granite-3b-code-instruct-2k-GGUF/resolve/main/granite-3b-code-instruct.Q4_K_M.gguf",
-        "sizeGB": 2.1,
-        "minRamGB": 6
-      },
       "discovery": {
         "source": "huggingface",
-        "repo": "ibm-granite/granite-3b-code-instruct-2k-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "lmstudio-community/gemma-4-31B-it-QAT-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-arcee-ai-virtuoso-small",
-      "name": "Virtuoso Small",
+      "id": "hf-ibm-granite-granite-3b-code-base-2k",
+      "name": "granite 3b code base 2k",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
-        "reasoning"
+        "coding"
       ],
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/arcee-ai/Virtuoso-Small-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/arcee-ai/Virtuoso-Small-GGUF:Q4_K_M",
-        "popularityRef": "arcee-ai/Virtuoso-Small-GGUF"
+        "ref": "hf.co/ibm-granite/granite-3b-code-base-2k-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/ibm-granite/granite-3b-code-base-2k-GGUF:Q4_K_M",
+        "popularityRef": "ibm-granite/granite-3b-code-base-2k-GGUF"
       },
-      "sizeGB": 9,
+      "sizeGB": 2.1,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -5025,10 +5019,15 @@
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/ibm-granite/granite-3b-code-base-2k-GGUF/resolve/main/granite-3b-code-base.Q4_K_M.gguf",
+        "sizeGB": 2.1,
+        "minRamGB": 6
+      },
       "discovery": {
         "source": "huggingface",
-        "repo": "arcee-ai/Virtuoso-Small-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "ibm-granite/granite-3b-code-base-2k-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5068,114 +5067,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "openbmb/BitCPM4-0.5B-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-lmstudio-community-gemma-4-31b-it-qat",
-      "name": "gemma 4 31B it QAT",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/lmstudio-community/gemma-4-31B-it-QAT-GGUF:Q4_0",
-        "pullCommand": "ollama pull hf.co/lmstudio-community/gemma-4-31B-it-QAT-GGUF:Q4_0",
-        "popularityRef": "lmstudio-community/gemma-4-31B-it-QAT-GGUF"
-      },
-      "sizeGB": 17.7,
-      "quantization": "Q4_0",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1106,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "lmstudio-community/gemma-4-31B-it-QAT-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-ibm-granite-granite-3b-code-base-2k",
-      "name": "granite 3b code base 2k",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "coding"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/ibm-granite/granite-3b-code-base-2k-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/ibm-granite/granite-3b-code-base-2k-GGUF:Q4_K_M",
-        "popularityRef": "ibm-granite/granite-3b-code-base-2k-GGUF"
-      },
-      "sizeGB": 2.1,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1107,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "onDevice": {
-        "url": "https://huggingface.co/ibm-granite/granite-3b-code-base-2k-GGUF/resolve/main/granite-3b-code-base.Q4_K_M.gguf",
-        "sizeGB": 2.1,
-        "minRamGB": 6
-      },
-      "discovery": {
-        "source": "huggingface",
-        "repo": "ibm-granite/granite-3b-code-base-2k-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-openbmb-minicpm4-8b",
-      "name": "MiniCPM4 8B",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/openbmb/MiniCPM4-8B-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/openbmb/MiniCPM4-8B-GGUF:Q4_K_M",
-        "popularityRef": "openbmb/MiniCPM4-8B-GGUF"
-      },
-      "sizeGB": 5,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1108,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "openbmb/MiniCPM4-8B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5202,14 +5094,116 @@
         "commercial": "gated"
       },
       "curation": {
-        "rank": 1109,
+        "rank": 1106,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Llama-3.1-SuperNova-Lite-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-openbmb-minicpm4-8b",
+      "name": "MiniCPM4 8B",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/openbmb/MiniCPM4-8B-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/openbmb/MiniCPM4-8B-GGUF:Q4_K_M",
+        "popularityRef": "openbmb/MiniCPM4-8B-GGUF"
+      },
+      "sizeGB": 5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1107,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "openbmb/MiniCPM4-8B-GGUF",
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-ibm-granite-granite-4-0-h-tiny",
+      "name": "granite 4.0 h tiny",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/ibm-granite/granite-4.0-h-tiny-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.0-h-tiny-GGUF:Q4_K_M",
+        "popularityRef": "ibm-granite/granite-4.0-h-tiny-GGUF"
+      },
+      "sizeGB": 4.2,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1108,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "ibm-granite/granite-4.0-h-tiny-GGUF",
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-arcee-ai-supernova-medius",
+      "name": "SuperNova Medius",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/arcee-ai/SuperNova-Medius-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/arcee-ai/SuperNova-Medius-GGUF:Q4_K_M",
+        "popularityRef": "arcee-ai/SuperNova-Medius-GGUF"
+      },
+      "sizeGB": 9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1109,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "arcee-ai/SuperNova-Medius-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5249,75 +5243,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "openbmb/MiniCPM4-0.5B-QAT-Int4-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-ibm-granite-granite-4-0-h-tiny",
-      "name": "granite 4.0 h tiny",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/ibm-granite/granite-4.0-h-tiny-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.0-h-tiny-GGUF:Q4_K_M",
-        "popularityRef": "ibm-granite/granite-4.0-h-tiny-GGUF"
-      },
-      "sizeGB": 4.2,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1111,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "ibm-granite/granite-4.0-h-tiny-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-arcee-ai-supernova-medius",
-      "name": "SuperNova Medius",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/arcee-ai/SuperNova-Medius-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/arcee-ai/SuperNova-Medius-GGUF:Q4_K_M",
-        "popularityRef": "arcee-ai/SuperNova-Medius-GGUF"
-      },
-      "sizeGB": 9,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1112,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "arcee-ai/SuperNova-Medius-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5344,14 +5270,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1113,
+        "rank": 1111,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "lmstudio-community/gemma-4-26B-A4B-it-QAT-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5378,14 +5304,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1114,
+        "rank": 1112,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ggml-org/Qwen3-8B-Base-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5413,7 +5339,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1115,
+        "rank": 1113,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -5425,7 +5351,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.0-1b-base-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5453,7 +5379,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1116,
+        "rank": 1114,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -5465,7 +5391,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ggml-org/gpt-oss-120b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5492,7 +5418,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1117,
+        "rank": 1115,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -5504,7 +5430,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.0-micro-base-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5532,7 +5458,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1118,
+        "rank": 1116,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -5544,7 +5470,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/arcee-lite-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5571,14 +5497,14 @@
         "commercial": "gated"
       },
       "curation": {
-        "rank": 1119,
+        "rank": 1117,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "arcee-ai/Llama-Spark-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5605,14 +5531,88 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1120,
+        "rank": 1118,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "lmstudio-community/gemma-4-E4B-it-QAT-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-ibm-granite-granite-4-0-h-1b-base",
+      "name": "granite 4.0 h 1b base",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning",
+        "fast"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/ibm-granite/granite-4.0-h-1b-base-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.0-h-1b-base-GGUF:Q4_K_M",
+        "popularityRef": "ibm-granite/granite-4.0-h-1b-base-GGUF"
+      },
+      "sizeGB": 0.9,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1119,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/ibm-granite/granite-4.0-h-1b-base-GGUF/resolve/main/granite-4.0-h-1b-base-Q4_K_M.gguf",
+        "sizeGB": 0.9,
+        "minRamGB": 3
+      },
+      "discovery": {
+        "source": "huggingface",
+        "repo": "ibm-granite/granite-4.0-h-1b-base-GGUF",
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-arcee-ai-arcee-scribe",
+      "name": "Arcee Scribe",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/arcee-ai/Arcee-Scribe-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/arcee-ai/Arcee-Scribe-GGUF:Q4_K_M",
+        "popularityRef": "arcee-ai/Arcee-Scribe-GGUF"
+      },
+      "sizeGB": 4.7,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1120,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "arcee-ai/Arcee-Scribe-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5646,12 +5646,12 @@
       "discovery": {
         "source": "huggingface",
         "repo": "lmstudio-community/gemma-4-E2B-it-QAT-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-ibm-granite-granite-4-0-h-1b-base",
-      "name": "granite 4.0 h 1b base",
+      "id": "hf-ibm-granite-granite-4-0-1b",
+      "name": "granite 4.0 1b",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
         "reasoning",
@@ -5660,11 +5660,11 @@
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/ibm-granite/granite-4.0-h-1b-base-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.0-h-1b-base-GGUF:Q4_K_M",
-        "popularityRef": "ibm-granite/granite-4.0-h-1b-base-GGUF"
+        "ref": "hf.co/ibm-granite/granite-4.0-1b-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.0-1b-GGUF:Q4_K_M",
+        "popularityRef": "ibm-granite/granite-4.0-1b-GGUF"
       },
-      "sizeGB": 0.9,
+      "sizeGB": 1,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -5679,19 +5679,19 @@
       },
       "blessed": false,
       "onDevice": {
-        "url": "https://huggingface.co/ibm-granite/granite-4.0-h-1b-base-GGUF/resolve/main/granite-4.0-h-1b-base-Q4_K_M.gguf",
-        "sizeGB": 0.9,
+        "url": "https://huggingface.co/ibm-granite/granite-4.0-1b-GGUF/resolve/main/granite-4.0-1b-Q4_K_M.gguf",
+        "sizeGB": 1,
         "minRamGB": 3
       },
       "discovery": {
         "source": "huggingface",
-        "repo": "ibm-granite/granite-4.0-h-1b-base-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "ibm-granite/granite-4.0-1b-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-arcee-ai-arcee-scribe",
-      "name": "Arcee Scribe",
+      "id": "hf-arcee-ai-arcee-spark",
+      "name": "Arcee Spark",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
         "reasoning"
@@ -5699,9 +5699,9 @@
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/arcee-ai/Arcee-Scribe-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/arcee-ai/Arcee-Scribe-GGUF:Q4_K_M",
-        "popularityRef": "arcee-ai/Arcee-Scribe-GGUF"
+        "ref": "hf.co/arcee-ai/Arcee-Spark-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/arcee-ai/Arcee-Spark-GGUF:Q4_K_M",
+        "popularityRef": "arcee-ai/Arcee-Spark-GGUF"
       },
       "sizeGB": 4.7,
       "quantization": "Q4_K_M",
@@ -5719,8 +5719,8 @@
       "blessed": false,
       "discovery": {
         "source": "huggingface",
-        "repo": "arcee-ai/Arcee-Scribe-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "arcee-ai/Arcee-Spark-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5760,7 +5760,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "openbmb/minicpm-dpo-bf16-ggml-model-q4_0",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5794,25 +5794,24 @@
       "discovery": {
         "source": "huggingface",
         "repo": "lmstudio-community/granite-4.1-30b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-ibm-granite-granite-4-0-1b",
-      "name": "granite 4.0 1b",
+      "id": "hf-ibm-granite-granite-4-0-micro",
+      "name": "granite 4.0 micro",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
-        "reasoning",
-        "fast"
+        "reasoning"
       ],
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/ibm-granite/granite-4.0-1b-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.0-1b-GGUF:Q4_K_M",
-        "popularityRef": "ibm-granite/granite-4.0-1b-GGUF"
+        "ref": "hf.co/ibm-granite/granite-4.0-micro-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.0-micro-GGUF:Q4_K_M",
+        "popularityRef": "ibm-granite/granite-4.0-micro-GGUF"
       },
-      "sizeGB": 1,
+      "sizeGB": 2.1,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -5827,19 +5826,19 @@
       },
       "blessed": false,
       "onDevice": {
-        "url": "https://huggingface.co/ibm-granite/granite-4.0-1b-GGUF/resolve/main/granite-4.0-1b-Q4_K_M.gguf",
-        "sizeGB": 1,
-        "minRamGB": 3
+        "url": "https://huggingface.co/ibm-granite/granite-4.0-micro-GGUF/resolve/main/granite-4.0-micro-Q4_K_M.gguf",
+        "sizeGB": 2.1,
+        "minRamGB": 6
       },
       "discovery": {
         "source": "huggingface",
-        "repo": "ibm-granite/granite-4.0-1b-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "ibm-granite/granite-4.0-micro-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-arcee-ai-arcee-spark",
-      "name": "Arcee Spark",
+      "id": "hf-arcee-ai-llama-3-sec-chat",
+      "name": "Llama 3 SEC Chat",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
         "reasoning"
@@ -5847,18 +5846,18 @@
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/arcee-ai/Arcee-Spark-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/arcee-ai/Arcee-Spark-GGUF:Q4_K_M",
-        "popularityRef": "arcee-ai/Arcee-Spark-GGUF"
+        "ref": "hf.co/arcee-ai/Llama-3-SEC-Chat-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/arcee-ai/Llama-3-SEC-Chat-GGUF:Q4_K_M",
+        "popularityRef": "arcee-ai/Llama-3-SEC-Chat-GGUF"
       },
-      "sizeGB": 4.7,
+      "sizeGB": 42.5,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
+        "id": "Llama-3.1-Community",
+        "name": "Llama 3.1 Community License",
+        "url": "https://www.llama.com/llama3_1/license/",
+        "commercial": "gated"
       },
       "curation": {
         "rank": 1127,
@@ -5867,8 +5866,8 @@
       "blessed": false,
       "discovery": {
         "source": "huggingface",
-        "repo": "arcee-ai/Arcee-Spark-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "arcee-ai/Llama-3-SEC-Chat-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -5902,119 +5901,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "lmstudio-community/granite-4.1-8b-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-ibm-granite-granite-4-0-micro",
-      "name": "granite 4.0 micro",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/ibm-granite/granite-4.0-micro-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.0-micro-GGUF:Q4_K_M",
-        "popularityRef": "ibm-granite/granite-4.0-micro-GGUF"
-      },
-      "sizeGB": 2.1,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1129,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "onDevice": {
-        "url": "https://huggingface.co/ibm-granite/granite-4.0-micro-GGUF/resolve/main/granite-4.0-micro-Q4_K_M.gguf",
-        "sizeGB": 2.1,
-        "minRamGB": 6
-      },
-      "discovery": {
-        "source": "huggingface",
-        "repo": "ibm-granite/granite-4.0-micro-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-arcee-ai-llama-3-sec-chat",
-      "name": "Llama 3 SEC Chat",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/arcee-ai/Llama-3-SEC-Chat-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/arcee-ai/Llama-3-SEC-Chat-GGUF:Q4_K_M",
-        "popularityRef": "arcee-ai/Llama-3-SEC-Chat-GGUF"
-      },
-      "sizeGB": 42.5,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Llama-3.1-Community",
-        "name": "Llama 3.1 Community License",
-        "url": "https://www.llama.com/llama3_1/license/",
-        "commercial": "gated"
-      },
-      "curation": {
-        "rank": 1130,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "discovery": {
-        "source": "huggingface",
-        "repo": "arcee-ai/Llama-3-SEC-Chat-GGUF",
-        "foundAt": "2026-09-08"
-      }
-    },
-    {
-      "id": "hf-lmstudio-community-granite-4-1-3b",
-      "name": "granite 4.1 3b",
-      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
-      "categories": [
-        "reasoning"
-      ],
-      "orchestratorCapable": false,
-      "source": {
-        "kind": "ollama",
-        "ref": "hf.co/lmstudio-community/granite-4.1-3b-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/lmstudio-community/granite-4.1-3b-GGUF:Q4_K_M",
-        "popularityRef": "lmstudio-community/granite-4.1-3b-GGUF"
-      },
-      "sizeGB": 2.1,
-      "quantization": "Q4_K_M",
-      "contextTokens": 8192,
-      "license": {
-        "id": "Apache-2.0",
-        "name": "Apache License 2.0",
-        "url": "https://www.apache.org/licenses/LICENSE-2.0",
-        "commercial": "ok"
-      },
-      "curation": {
-        "rank": 1131,
-        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
-      },
-      "blessed": false,
-      "onDevice": {
-        "url": "https://huggingface.co/lmstudio-community/granite-4.1-3b-GGUF/resolve/main/granite-4.1-3b-Q4_K_M.gguf",
-        "sizeGB": 2.1,
-        "minRamGB": 6
-      },
-      "discovery": {
-        "source": "huggingface",
-        "repo": "lmstudio-community/granite-4.1-3b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6042,7 +5929,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1132,
+        "rank": 1129,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -6054,24 +5941,24 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.0-h-micro-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-ggml-org-qwen3-6-27b",
-      "name": "Qwen3.6 27B",
+      "id": "hf-lmstudio-community-granite-4-1-3b",
+      "name": "granite 4.1 3b",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
-        "vision"
+        "reasoning"
       ],
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/ggml-org/Qwen3.6-27B-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/ggml-org/Qwen3.6-27B-GGUF:Q4_K_M",
-        "popularityRef": "ggml-org/Qwen3.6-27B-GGUF"
+        "ref": "hf.co/lmstudio-community/granite-4.1-3b-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/lmstudio-community/granite-4.1-3b-GGUF:Q4_K_M",
+        "popularityRef": "lmstudio-community/granite-4.1-3b-GGUF"
       },
-      "sizeGB": 19.1,
+      "sizeGB": 2.1,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -6081,14 +5968,19 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1133,
+        "rank": 1130,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
+      "onDevice": {
+        "url": "https://huggingface.co/lmstudio-community/granite-4.1-3b-GGUF/resolve/main/granite-4.1-3b-Q4_K_M.gguf",
+        "sizeGB": 2.1,
+        "minRamGB": 6
+      },
       "discovery": {
         "source": "huggingface",
-        "repo": "ggml-org/Qwen3.6-27B-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "lmstudio-community/granite-4.1-3b-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6115,14 +6007,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1134,
+        "rank": 1131,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.0-h-tiny-base-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6150,7 +6042,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1135,
+        "rank": 1132,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -6162,7 +6054,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.0-h-micro-base-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6190,7 +6082,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1136,
+        "rank": 1133,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -6202,7 +6094,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ggml-org/Qwen3.5-0.8B-Base-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6230,7 +6122,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1137,
+        "rank": 1134,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -6242,7 +6134,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ggml-org/Qwen3-0.6B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6270,7 +6162,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1138,
+        "rank": 1135,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -6282,7 +6174,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.0-h-1b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6310,7 +6202,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1139,
+        "rank": 1136,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -6322,7 +6214,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ggml-org/Qwen3-0.6B-Base-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6349,7 +6241,7 @@
         "commercial": "non-commercial"
       },
       "curation": {
-        "rank": 1140,
+        "rank": 1137,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -6361,7 +6253,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-code-embeddings-1.5b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6388,7 +6280,7 @@
         "commercial": "non-commercial"
       },
       "curation": {
-        "rank": 1141,
+        "rank": 1138,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -6400,7 +6292,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "jinaai/jina-code-embeddings-0.5b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6427,31 +6319,31 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1142,
+        "rank": 1139,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "bartowski/Ateron_Gemma-4-Dark-Thoughts-31B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-bartowski-readyart-gemma-4-31b-it-scotoma-2",
-      "name": "ReadyArt gemma 4 31B it scotoma 2",
+      "id": "hf-unsloth-qwen3-6-27b-mtp",
+      "name": "Qwen3.6 27B MTP",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
-        "reasoning"
+        "vision"
       ],
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/bartowski/ReadyArt_gemma-4-31B-it-scotoma-2-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/bartowski/ReadyArt_gemma-4-31B-it-scotoma-2-GGUF:Q4_K_M",
-        "popularityRef": "bartowski/ReadyArt_gemma-4-31B-it-scotoma-2-GGUF"
+        "ref": "hf.co/unsloth/Qwen3.6-27B-MTP-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/unsloth/Qwen3.6-27B-MTP-GGUF:Q4_K_M",
+        "popularityRef": "unsloth/Qwen3.6-27B-MTP-GGUF"
       },
-      "sizeGB": 19.6,
+      "sizeGB": 17.1,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -6461,14 +6353,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1143,
+        "rank": 1140,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
-        "repo": "bartowski/ReadyArt_gemma-4-31B-it-scotoma-2-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "unsloth/Qwen3.6-27B-MTP-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6496,7 +6388,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1144,
+        "rank": 1141,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -6508,24 +6400,24 @@
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-vision-3.3-2b-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
-      "id": "hf-unsloth-qwen3-6-27b-mtp",
-      "name": "Qwen3.6 27B MTP",
+      "id": "hf-bartowski-readyart-gemma-4-31b-it-scotoma-2",
+      "name": "ReadyArt gemma 4 31B it scotoma 2",
       "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
       "categories": [
-        "vision"
+        "reasoning"
       ],
       "orchestratorCapable": false,
       "source": {
         "kind": "ollama",
-        "ref": "hf.co/unsloth/Qwen3.6-27B-MTP-GGUF:Q4_K_M",
-        "pullCommand": "ollama pull hf.co/unsloth/Qwen3.6-27B-MTP-GGUF:Q4_K_M",
-        "popularityRef": "unsloth/Qwen3.6-27B-MTP-GGUF"
+        "ref": "hf.co/bartowski/ReadyArt_gemma-4-31B-it-scotoma-2-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/bartowski/ReadyArt_gemma-4-31B-it-scotoma-2-GGUF:Q4_K_M",
+        "popularityRef": "bartowski/ReadyArt_gemma-4-31B-it-scotoma-2-GGUF"
       },
-      "sizeGB": 17.1,
+      "sizeGB": 19.6,
       "quantization": "Q4_K_M",
       "contextTokens": 8192,
       "license": {
@@ -6535,14 +6427,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1145,
+        "rank": 1142,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
-        "repo": "unsloth/Qwen3.6-27B-MTP-GGUF",
-        "foundAt": "2026-09-08"
+        "repo": "bartowski/ReadyArt_gemma-4-31B-it-scotoma-2-GGUF",
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6570,7 +6462,7 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1146,
+        "rank": 1143,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
@@ -6582,7 +6474,7 @@
       "discovery": {
         "source": "huggingface",
         "repo": "lmstudio-community/Qwen3.5-2B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6609,14 +6501,14 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1147,
+        "rank": 1144,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "ibm-granite/granite-4.0-h-small-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
       }
     },
     {
@@ -6643,14 +6535,48 @@
         "commercial": "ok"
       },
       "curation": {
-        "rank": 1148,
+        "rank": 1145,
         "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
       },
       "blessed": false,
       "discovery": {
         "source": "huggingface",
         "repo": "lmstudio-community/Qwen3.5-35B-A3B-GGUF",
-        "foundAt": "2026-09-08"
+        "foundAt": "2026-09-09"
+      }
+    },
+    {
+      "id": "hf-ibm-granite-granite-4-0-h-small-base",
+      "name": "granite 4.0 h small base",
+      "tagline": "New on Hugging Face. Trending, not yet rated by OpenShore.",
+      "categories": [
+        "reasoning"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "ollama",
+        "ref": "hf.co/ibm-granite/granite-4.0-h-small-base-GGUF:Q4_K_M",
+        "pullCommand": "ollama pull hf.co/ibm-granite/granite-4.0-h-small-base-GGUF:Q4_K_M",
+        "popularityRef": "ibm-granite/granite-4.0-h-small-base-GGUF"
+      },
+      "sizeGB": 19.5,
+      "quantization": "Q4_K_M",
+      "contextTokens": 8192,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 1146,
+        "note": "Found by live discovery. Unrated; context window shown as a conservative floor."
+      },
+      "blessed": false,
+      "discovery": {
+        "source": "huggingface",
+        "repo": "ibm-granite/granite-4.0-h-small-base-GGUF",
+        "foundAt": "2026-09-09"
       }
     }
   ],
@@ -6703,5 +6629,5 @@
       }
     }
   ],
-  "reviewsSnapshotAt": "2026-09-08"
+  "reviewsSnapshotAt": "2026-09-09"
 }
