@@ -1,0 +1,24 @@
+// Cloudflare Worker config for openshore.ai. The site is a static Eleventy build
+// served as Workers Static Assets: no Worker script, just the built `_site`
+// folder. The Worker name matches the existing project in the dashboard so a
+// `wrangler deploy` updates it in place (the custom domain / routes stay attached
+// in the dashboard; nothing here manages them).
+//
+// This file is deliberate. Without it, `npx wrangler deploy` (the deploy command
+// in Workers Builds) has no entry point and no assets directory, so the deploy
+// falls back to implicit behavior that has shipped broken responses (new pages
+// served as raw downloads). An explicit config makes every deploy deterministic.
+//
+// `_site/_headers` and `_site/_redirects` are honored natively by Static Assets.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "openshore-ai-marketing-site",
+  "compatibility_date": "2026-09-08",
+  "assets": {
+    "directory": "./_site",
+    // /llm-choice -> /llm-choice/ -> llm-choice/index.html served as text/html.
+    "html_handling": "auto-trailing-slash",
+    // No 404.html in the build, so an unknown path is a plain 404.
+    "not_found_handling": "none"
+  }
+}
