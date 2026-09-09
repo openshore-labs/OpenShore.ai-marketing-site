@@ -1,0 +1,37 @@
+---
+layout: base.njk
+permalink: /llm-choice/
+pageTitle: "LLM Choice · OpenShore"
+pageDescription: "You pick the models. Download local ones from the source, bring your own endpoint, or run cloud on your own key. One Reasoning LLM plans and routes each step."
+---
+{% import "viz.njk" as viz %}
+{% set p = tabpages["llm-choice"] %}
+
+<header class="subhero">
+  <span class="eyebrow">{{ p.hero.eyebrow }}</span>
+  <h1>{{ p.hero.headline }}</h1>
+  <p class="subhead">{{ p.hero.subhead }}</p>
+</header>
+
+<div class="block split">
+  <div class="split-text">
+    <h2 class="eyebrow">{{ p.sections[0].heading }}</h2>
+    <p class="lede">{{ p.sections[0].body }}</p>
+    <ul class="why-list">
+      {% for b in p.sections[0].bullets %}<li><strong>{{ b.label }}.</strong> {{ b.text }}</li>{% endfor %}
+    </ul>
+  </div>
+  <div class="split-media">{{ viz.marketplacePhone() }}</div>
+</div>
+
+{{ viz.sec(p.sections[1]) }}
+{{ viz.sec(p.sections[2]) }}
+
+<section class="block">{{ viz.stackRouting() }}</section>
+
+<section class="block">
+  <a class="block-cta" href="{{ p.cta.href }}">{{ p.cta.label }} <span aria-hidden="true">&rarr;</span></a>
+  {% if p.cta.note %}<p class="offer-fine">{{ p.cta.note }}</p>{% endif %}
+</section>
+
+{% include "pagefoot.njk" %}

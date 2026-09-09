@@ -63,19 +63,30 @@
   <body>
     <nav class="sitenav sitenav--oscode" aria-label="Primary">
       <div class="brand brand--oscode">
-        <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
-          <rect width="32" height="32" rx="7.5" fill="#1c2a33" />
-          <!-- Mark nudged up 0.81 so it sits optically centered in the tile. -->
-          <g transform="translate(0 -0.81)">
-            <line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" />
-            <path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </g>
-        </svg>
-        <span class="brand-lockup">
+        <a class="brand-home" href="/" aria-label="OpenShore home">
+          <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+            <rect width="32" height="32" rx="7.5" fill="#1c2a33" />
+            <!-- Mark nudged up 0.81 so it sits optically centered in the tile. -->
+            <g transform="translate(0 -0.81)">
+              <line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" />
+              <path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+          </svg>
           <span class="brand-word">OpenShore</span>
-          <a class="brand-sub" href="{{ site.parentUrl }}">Brought to you by {{ site.parentName }}</a>
-        </span>
+        </a>
+        <a class="brand-sub" href="{{ site.parentUrl }}">Brought to you by {{ site.parentName }}</a>
       </div>
+      <ul class="sitenav-tabs" role="list" aria-label="Sections">
+        {% for t in nav.tabs %}
+        <li>
+          <a
+            class="sitenav-tab{% if page.url == t.url %} is-active{% endif %}"
+            href="{{ t.url }}"
+            {% if page.url == t.url %}aria-current="page"{% endif %}
+          >{{ t.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
     </nav>
     <main class="page page--oscode">
       {{ content | safe }}

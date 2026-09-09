@@ -1,0 +1,40 @@
+---
+layout: base.njk
+permalink: /sustainability/
+pageTitle: "Sustainability · OpenShore"
+pageDescription: "Running your own open models on hardware you already own can draw less energy than round-tripping every token to a metered cloud. OpenShore shows the estimate."
+---
+{% import "viz.njk" as viz %}
+{% set p = tabpages["sustainability"] %}
+
+<header class="subhero">
+  <span class="eyebrow">{{ p.hero.eyebrow }}</span>
+  <h1>{{ p.hero.headline }}</h1>
+  <p class="subhead">{{ p.hero.subhead }}</p>
+</header>
+
+{{ viz.sec(p.sections[0]) }}
+
+<section class="block">{{ viz.localVsCloud() }}</section>
+
+{{ viz.sec(p.sections[1]) }}
+
+<div class="block split split--flip">
+  <div class="split-media">{{ viz.stackHealthPhone() }}</div>
+  <div class="split-text">
+    <h2 class="eyebrow">{{ p.sections[2].heading }}</h2>
+    <p class="lede">{{ p.sections[2].body }}</p>
+  </div>
+</div>
+
+<section class="block">
+  <h2 class="eyebrow">{{ p.sections[3].heading }}</h2>
+  <p class="prose honest-note">{{ p.sections[3].body }}</p>
+</section>
+
+<section class="block">
+  <a class="block-cta" href="{{ p.cta.href }}">{{ p.cta.label }} <span aria-hidden="true">&rarr;</span></a>
+  {% if p.cta.note %}<p class="offer-fine">{{ p.cta.note }}</p>{% endif %}
+</section>
+
+{% include "pagefoot.njk" %}

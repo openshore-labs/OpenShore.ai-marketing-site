@@ -33,26 +33,32 @@ body {
   backdrop-filter: saturate(140%) blur(16px);
   -webkit-backdrop-filter: saturate(140%) blur(16px);
 }
-/* The OpenShore header is a real bar: even padding top and bottom (the shared
-   .sitenav zeroes its bottom padding to seat the tab row, which this page has
-   dropped), so the lockup sits centered in a defined strip. */
+/* The OpenShore header is a real bar: pad the top, then drop the bottom padding
+   to zero so the tab row seats on the header's own border line (the shared
+   .sitenav already does this; .sitenav--oscode restores it after its earlier
+   even-padding override). */
 .sitenav--oscode {
-  padding-block: clamp(14px, 3.6vw, 20px);
+  padding-block: clamp(14px, 3.6vw, 20px) 0;
 }
 .brand-word {
   color: var(--paper);
 }
-/* The OpenShore header swaps the site brand for its own name, with a quiet
-   "brought to you by" line crediting Open Shore back out to the parent site. */
+/* The OpenShore header stacks the brand: an icon-plus-wordmark that links home,
+   with a quiet "brought to you by" line crediting Open Shore back out to the
+   parent site. The tab row sits below it. */
 .brand--oscode {
-  margin-bottom: 0;
-  align-items: center;
-}
-.brand-lockup {
-  display: flex;
   flex-direction: column;
-  gap: 2px;
-  line-height: 1.15;
+  align-items: flex-start;
+  gap: 3px;
+  margin-bottom: clamp(12px, 3vw, 18px);
+}
+.brand-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  background-image: none;
+  line-height: 1;
 }
 .brand--oscode .brand-word {
   font-size: 1.5rem;
@@ -88,10 +94,17 @@ body {
 .brand--oscode .brand-mark path {
   stroke: var(--abyss);
 }
+/* Tab row, dark. The base stylesheet lays out the scrollable strip; here it
+   takes the Nightshore hairline and the teal active underline. */
+.sitenav--oscode .sitenav-tabs {
+  border-bottom-color: var(--line);
+}
 .sitenav-tab {
   color: var(--mist);
+  font-weight: 600;
 }
 .sitenav-tab:hover,
+.sitenav-tab:focus-visible,
 .sitenav-tab.is-active {
   color: var(--paper);
 }
@@ -211,6 +224,30 @@ body {
   border-color: var(--wave);
   background: rgba(91, 182, 203, 0.08);
   color: var(--paper);
+}
+/* Both hero pills share one box so they sit on the same row at the same height,
+   each centered on its own text. The filled pill carried no border and 14px of
+   vertical padding; the ghost carried a 1px border and 13px. That mix rendered
+   two slightly different heights whose centers drifted apart. Fold both into one
+   inline-flex box with a shared min-height (border-box absorbs the ghost's 1px),
+   so they align to the pixel and clear the 44px touch target. */
+.hero-actions .block-cta,
+.hero-actions .hero-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  margin-top: 0;
+  min-height: 50px;
+  padding-block: 0;
+  font-size: 0.98rem;
+  line-height: 1;
+}
+.hero-actions .block-cta {
+  padding-inline: 30px;
+}
+.hero-actions .hero-cta-ghost {
+  padding-inline: 26px;
 }
 
 /* ---- Body sections -------------------------------------------------- */
@@ -673,4 +710,442 @@ button.block-cta {
   .block-cta:active {
     transform: none;
   }
+}
+
+/* ==== Tab pages (LLM Choice, Privacy, Sustainability, Self-Hosting) ====
+   These focused pages share the Platform page's vocabulary (.block, .eyebrow,
+   .lede, .why-list, .pillars, .components) and add three things: an editorial
+   subpage hero, a text-and-visual split, and a figure wrapper for the guiding
+   diagrams and phone mockups. */
+
+/* ---- Subpage hero: Fraunces, quieter than the home billboard ---------- */
+.subhero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(1.4rem, 4.5vw, 2.75rem) clamp(1.6rem, 4vw, 2.75rem);
+}
+.subhero::before {
+  content: "";
+  position: absolute;
+  inset: -30% -20% -40% -20%;
+  z-index: -1;
+  background:
+    radial-gradient(110% 60% at 20% 8%, rgba(91, 182, 203, 0.18), transparent 58%),
+    radial-gradient(70% 46% at 92% 0%, rgba(224, 144, 47, 0.08), transparent 55%);
+}
+.subhero .eyebrow {
+  display: block;
+  margin-bottom: 0.7rem;
+}
+.subhero h1 {
+  font-family: var(--serif);
+  font-weight: 480;
+  font-size: clamp(2.3rem, 6.4vw, 3.9rem);
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  text-wrap: balance;
+}
+.subhero .subhead {
+  margin-top: 1.05rem;
+  max-width: 40rem;
+  color: var(--mist);
+  font-family: var(--sans);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 1.42;
+}
+
+/* ---- Text + visual split -------------------------------------------- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.4rem, 4vw, 2.5rem);
+  align-items: center;
+}
+@media (min-width: 840px) {
+  .split {
+    grid-template-columns: 1.02fr 0.98fr;
+  }
+  .split--flip .split-media {
+    order: -1;
+  }
+}
+
+/* ---- Figure wrapper for diagrams and mockups ------------------------- */
+.figure {
+  margin: 0;
+}
+.figure-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.9rem, 2.6vw, 1.5rem);
+  background: linear-gradient(180deg, rgba(22, 40, 49, 0.55), rgba(16, 32, 42, 0.35));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  /* Only diagrams live in .figure-media, and they carry a lot of small labels.
+     Below their min-width the strip scrolls (like the tab row) so the text stays
+     legible on a phone instead of shrinking to nothing; on desktop it just
+     fits. Phone mockups sit in .split-media, not here, so they are untouched. */
+  overflow-x: auto;
+  scrollbar-width: none;
+  justify-content: safe center;
+}
+.figure-media::-webkit-scrollbar {
+  display: none;
+}
+.figure-media svg {
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+  display: block;
+  flex: none;
+}
+.figure-cap {
+  margin-top: 0.75rem;
+  color: var(--faint);
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+.figure-cap b {
+  color: var(--mist);
+  font-weight: 600;
+}
+
+/* ---- Phone mockup: the real app is a warm CREAM theme, so the screen
+        carries the app's own palette (its accent grammar is load-bearing:
+        teal = local/private, amber = cloud/spend, gold = ratings). A dark
+        bezel lifts it off the Nightshore page. ------------------------- */
+.phone {
+  width: 100%;
+  max-width: 290px;
+  margin: 0 auto;
+  background: #0a181e;
+  border: 1px solid var(--line);
+  border-radius: 42px;
+  padding: 11px;
+  box-shadow:
+    0 24px 60px -24px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(91, 182, 203, 0.06),
+    0 10px 40px -18px rgba(91, 182, 203, 0.22);
+}
+.phone-screen {
+  --a-bg: #f6f4ef;
+  --a-raised: #fcfbf7;
+  --a-surface: #edeae0;
+  --a-border: #e5e0d3;
+  --a-ink: #1c2a33;
+  --a-soft: #55636b;
+  --a-muted: #8a949a;
+  --a-teal: #2f5a66;
+  --a-teal-deep: #24454f;
+  --a-wave: #4b90a3;
+  --a-cloud: #a35f0a;
+  --a-cloud-br: #e0902f;
+  --a-gold: #c98a1f;
+  --a-flow: #8aa0a8;
+  --a-ok: #2f8f4e;
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  background: var(--a-bg);
+  color: var(--a-ink);
+  font-family: var(--sans);
+  aspect-ratio: 293 / 620;
+  display: flex;
+  flex-direction: column;
+}
+.phone-statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 20px 2px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--a-ink);
+}
+.phone-statusbar .dots {
+  letter-spacing: 1px;
+  opacity: 0.75;
+}
+.app-topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 2px;
+}
+.app-back {
+  color: var(--a-wave);
+  font-weight: 700;
+  font-size: 12px;
+}
+.app-topbar .grow {
+  flex: 1;
+}
+.app-h1 {
+  font-family: var(--serif);
+  font-weight: 520;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  color: var(--a-ink);
+  padding: 4px 14px 0;
+}
+.app-lead {
+  color: var(--a-soft);
+  font-size: 11px;
+  line-height: 1.35;
+  padding: 3px 14px 0;
+}
+.app-body {
+  flex: 1;
+  overflow: hidden;
+  padding: 10px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.app-card {
+  background: var(--a-raised);
+  border: 1px solid var(--a-border);
+  border-radius: 14px;
+  padding: 9px 11px;
+}
+.app-card--edge-local {
+  box-shadow: inset 3px 0 0 var(--a-teal);
+}
+.app-card--edge-cloud {
+  box-shadow: inset 3px 0 0 var(--a-cloud-br);
+}
+.app-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.app-row .grow {
+  flex: 1;
+  min-width: 0;
+}
+.app-title {
+  font-weight: 700;
+  font-size: 12.5px;
+  color: var(--a-ink);
+}
+.app-sub {
+  font-size: 10.5px;
+  color: var(--a-soft);
+  line-height: 1.3;
+}
+.app-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.app-pill--local {
+  color: var(--a-teal-deep);
+  background: rgba(47, 90, 102, 0.13);
+}
+.app-pill--cloud {
+  color: #8a5300;
+  background: rgba(163, 95, 10, 0.15);
+}
+.app-pill--ok {
+  color: var(--a-ok);
+  background: rgba(47, 143, 78, 0.15);
+}
+.app-pill--anchor {
+  color: var(--a-teal-deep);
+  background: rgba(47, 90, 102, 0.13);
+  border: 1px solid rgba(47, 90, 102, 0.35);
+}
+.app-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  flex: none;
+}
+.app-dot--local { background: var(--a-teal); }
+.app-dot--cloud { background: var(--a-cloud-br); }
+.app-dot--ok { background: var(--a-ok); }
+.app-chiprail {
+  display: flex;
+  gap: 6px;
+  overflow: hidden;
+}
+.app-chip {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--a-surface);
+  color: var(--a-soft);
+  border: 1px solid var(--a-border);
+  white-space: nowrap;
+  flex: none;
+}
+.app-chip--on {
+  background: rgba(47, 90, 102, 0.12);
+  color: var(--a-teal-deep);
+  border-color: rgba(47, 90, 102, 0.3);
+}
+.app-search {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff;
+  border: 1px solid var(--a-border);
+  border-radius: 11px;
+  padding: 8px 11px;
+  color: var(--a-muted);
+  font-size: 12px;
+}
+.app-btn {
+  background: var(--a-teal);
+  color: var(--a-bg);
+  font-weight: 700;
+  font-size: 10.5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex: none;
+}
+.app-btn--ghost {
+  background: transparent;
+  color: var(--a-teal-deep);
+  border: 1px solid var(--a-border);
+}
+.app-stars {
+  color: var(--a-gold);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.app-meter {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--a-surface);
+  overflow: hidden;
+}
+.app-meter > i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--a-flow);
+}
+.app-field {
+  background: #fff;
+  border: 1px solid var(--a-border);
+  border-radius: 9px;
+  padding: 7px 9px;
+  font-size: 10.5px;
+  color: var(--a-soft);
+}
+.app-field b {
+  color: var(--a-muted);
+  font-weight: 500;
+}
+.app-mono {
+  font-family: var(--mono, ui-monospace, "SFMono-Regular", Menlo, monospace);
+  font-size: 10px;
+}
+.app-sheet {
+  margin-top: auto;
+  background: var(--a-raised);
+  border: 1px solid var(--a-border);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  padding: 11px 12px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  box-shadow: 0 -10px 24px -14px rgba(28, 42, 51, 0.25);
+}
+.app-grab {
+  width: 34px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--a-border);
+  margin: 0 auto 3px;
+}
+
+/* Two mockups or a mockup beside a diagram, side by side on wide screens. */
+.mock-duo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.1rem, 3vw, 1.8rem);
+}
+@media (min-width: 720px) {
+  .mock-duo {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* Ethics: a three-signal quick-scan above the detailed tier cards. Colors
+   mirror the app's own ethics grammar (red refused, amber gated, green left
+   alone), so the site and the product read the same. */
+.signals {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 1.2rem;
+}
+@media (min-width: 720px) {
+  .signals {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.signal {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--sig, var(--wave));
+  border-radius: 16px;
+  padding: 1rem 1.05rem;
+}
+.signal-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.signal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--sig, var(--wave));
+  flex: none;
+}
+.signal-name {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--paper);
+}
+.signal-body {
+  margin-top: 0.5rem;
+  color: var(--mist);
+  font-size: 0.9rem;
+  line-height: 1.42;
+}
+.signal--refuse { --sig: #e5675a; }
+.signal--gate { --sig: #e0902f; }
+.signal--allow { --sig: #4fbf7f; }
+
+/* A quiet inline note used for honest limits and footnotes. */
+.honest-note {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--wave-2);
+  background: rgba(47, 90, 102, 0.12);
+  border-radius: 0 10px 10px 0;
+  color: var(--mist);
+  font-size: 0.92rem;
+  line-height: 1.45;
 }

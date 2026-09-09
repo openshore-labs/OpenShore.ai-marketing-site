@@ -5,6 +5,8 @@ pageTitle: "OpenShore ethical boundaries: enforced by default"
 pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every model call, local and cloud, with no setting that turns them off. What is blocked, what is gated behind consent, what is deliberately left alone, and the limits we will not pretend away."
 ---
 
+{% import "viz.njk" as viz %}
+
 <header class="masthead masthead--sub">
   <h1 class="identity">{{ oscode.trust.label }}</h1>
   <div class="horizon" role="presentation"></div>
@@ -30,6 +32,7 @@ pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every
 
 <section class="block" aria-labelledby="tiers-heading">
   <h2 id="tiers-heading" class="eyebrow">Where the lines are</h2>
+  {{ viz.ethicsSignals() }}
   <ul class="pillars">
     {% for t in oscode.trust.tiers %}
     <li class="pillar">

@@ -1,0 +1,386 @@
+{# ============================================================================
+   Render helpers + guiding visuals for the tab pages.
+   - sec(s): one content section (heading -> eyebrow, body -> lede, bullets ->
+     why-list, steps -> components), matching the Platform page's vocabulary.
+   - Diagrams are inline SVG on the Nightshore dark palette (teal #5bb6cb =
+     local/private, amber #e0902f = cloud/spend), scalable via viewBox.
+   - Phone mockups are HTML in the app's real warm CREAM theme (its accent
+     grammar is load-bearing), framed by .phone so they lift off the dark page.
+   No em dashes anywhere (enforced by scripts/check-copy.mjs).
+============================================================================ #}
+
+{% macro sec(s) %}
+<section class="block">
+  <h2 class="eyebrow">{{ s.heading }}</h2>
+  <p class="lede">{{ s.body }}</p>
+  {% if s.bullets %}
+  <ul class="why-list">
+    {% for b in s.bullets %}
+    <li><strong>{{ b.label }}.</strong> {{ b.text }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% if s.steps %}
+  <ol class="components">
+    {% for step in s.steps %}
+    <li class="component">
+      <span class="component-name">{{ step.name }}</span>
+      <span class="component-body">{{ step.body }}</span>
+    </li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+</section>
+{% endmacro %}
+
+{# ---- LLM Choice: the Stack routing diagram ---------------------------- #}
+{% macro stackRouting() %}
+<figure class="figure">
+  <div class="figure-media">
+    <svg viewBox="0 0 680 430" role="img" aria-labelledby="sr-t">
+      <title id="sr-t">The Reasoning LLM plans the work and routes each step to the specialist you placed for it.</title>
+      <defs>
+        <marker id="sr-arrow" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto">
+          <path d="M0 0 L7 3 L0 6 Z" fill="#4b90a3" />
+        </marker>
+      </defs>
+      <!-- anchor -->
+      <g>
+        <rect x="212" y="18" width="256" height="96" rx="16" fill="#16303a" stroke="#5bb6cb" stroke-width="1.4"/>
+        <text x="340" y="50" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="23" fill="#f6f4ef">Reasoning LLM</text>
+        <text x="340" y="74" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" fill="#a9bac0">plans the work, routes each step</text>
+        <rect x="291" y="86" width="98" height="20" rx="10" fill="#0e2530" stroke="#5bb6cb" stroke-width="1"/>
+        <text x="340" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#8fd3e2" letter-spacing="0.5">ANCHOR</text>
+      </g>
+      <!-- connectors -->
+      <g fill="none" stroke="#4b90a3" stroke-width="1.6" marker-end="url(#sr-arrow)" opacity="0.85">
+        <path d="M340 114 C 200 150, 92 168, 74 214"/>
+        <path d="M340 114 C 300 156, 220 176, 205 214"/>
+        <path d="M340 114 L 340 214"/>
+        <path d="M340 114 C 380 156, 460 176, 475 214"/>
+        <path d="M340 114 C 480 150, 588 168, 606 214"/>
+      </g>
+      <!-- specialist seats -->
+      {{ _seat(20,   "Coding",  "Qwen Coder", "local", "high") }}
+      {{ _seat(151,  "Writing", "your endpoint", "byom", "med") }}
+      {{ _seat(282,  "Analysis","DeepSeek",  "local", "high") }}
+      {{ _seat(413,  "Vision",  "Claude",    "cloud", "med") }}
+      {{ _seat(544,  "Fast",    "Harbor Light","local","low") }}
+      <text x="340" y="420" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#81949c">You place each seat. Change any of them any time.</text>
+    </svg>
+  </div>
+  <figcaption class="figure-cap"><b>One planner, many specialists.</b> A teal dot marks a model on your own device, amber marks cloud on your key. One seat is a model you host yourself.</figcaption>
+</figure>
+{% endmacro %}
+
+{% macro _seat(x, cat, model, src, effort) %}
+{% set dot = "#5bb6cb" if src != "cloud" else "#e0902f" %}
+<g>
+  <rect x="{{ x }}" y="214" width="116" height="150" rx="14"
+        fill="#152a33" stroke="{{ '#5bb6cb' if src == 'byom' else '#24424d' }}"
+        stroke-width="{{ 1.4 if src == 'byom' else 1 }}" {{ 'stroke-dasharray="5 4"' | safe if src == 'byom' }}/>
+  <text x="{{ x + 16 }}" y="242" font-family="Inter, sans-serif" font-weight="700" font-size="14.5" fill="#f6f4ef">{{ cat }}</text>
+  <circle cx="{{ x + 100 }}" cy="237" r="5" fill="{{ dot }}"/>
+  <text x="{{ x + 16 }}" y="286" font-family="Inter, sans-serif" font-size="12.5" fill="#a9bac0">{{ model }}</text>
+  {% if src == "byom" %}
+  <text x="{{ x + 16 }}" y="304" font-family="Inter, sans-serif" font-size="10.5" fill="#8fd3e2">you host</text>
+  {% elif src == "cloud" %}
+  <text x="{{ x + 16 }}" y="304" font-family="Inter, sans-serif" font-size="10.5" fill="#e0a25a">on your key</text>
+  {% else %}
+  <text x="{{ x + 16 }}" y="304" font-family="Inter, sans-serif" font-size="10.5" fill="#7fb8a0">on device</text>
+  {% endif %}
+  <rect x="{{ x + 16 }}" y="330" width="52" height="18" rx="9" fill="#0e2530" stroke="#24424d"/>
+  <text x="{{ x + 42 }}" y="343" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#a9bac0">{{ effort }}</text>
+</g>
+{% endmacro %}
+
+{# ---- Privacy: what stays, what leaves -------------------------------- #}
+{% macro staysOnDevice() %}
+<figure class="figure">
+  <div class="figure-media">
+    <svg viewBox="0 0 680 360" role="img" aria-labelledby="sd-t">
+      <title id="sd-t">Your devices talk over your own private network. The cloud sits behind one deliberate tap.</title>
+      <defs>
+        <marker id="sd-arrow" markerWidth="10" markerHeight="10" refX="6.5" refY="3" orient="auto">
+          <path d="M0 0 L7 3 L0 6 Z" fill="#e0902f"/>
+        </marker>
+      </defs>
+      <!-- private network boundary -->
+      <rect x="18" y="30" width="430" height="248" rx="24" fill="rgba(91,182,203,0.06)" stroke="#5bb6cb" stroke-width="1.5" stroke-dasharray="7 5"/>
+      <g transform="translate(38 20)">
+        <rect x="0" y="0" width="214" height="22" rx="11" fill="#0b1417" stroke="#24424d"/>
+        <circle cx="16" cy="11" r="4.2" fill="#5bb6cb"/>
+        <text x="30" y="15" font-family="Inter, sans-serif" font-weight="700" font-size="11.5" fill="#8fd3e2" letter-spacing="0.3">YOUR PRIVATE NETWORK · TAILSCALE</text>
+      </g>
+      <!-- computer -->
+      <g transform="translate(52 92)">
+        <rect x="0" y="0" width="150" height="150" rx="16" fill="#152a33" stroke="#24424d"/>
+        <rect x="24" y="26" width="102" height="66" rx="7" fill="#0e2530" stroke="#4b90a3"/>
+        <rect x="52" y="98" width="46" height="8" rx="3" fill="#24424d"/>
+        <text x="75" y="124" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#f6f4ef">Computer</text>
+        <text x="75" y="141" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#7fb8a0">engine, runs the models</text>
+      </g>
+      <!-- link -->
+      <g>
+        <line x1="202" y1="167" x2="266" y2="167" stroke="#5bb6cb" stroke-width="2"/>
+        <text x="234" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#a9bac0">encrypted</text>
+      </g>
+      <!-- phone -->
+      <g transform="translate(266 100)">
+        <rect x="0" y="0" width="96" height="134" rx="16" fill="#152a33" stroke="#24424d"/>
+        <rect x="14" y="16" width="68" height="94" rx="8" fill="#0e2530" stroke="#4b90a3"/>
+        <circle cx="48" cy="122" r="4" fill="#24424d"/>
+        <text x="48" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="12" fill="#f6f4ef" transform="translate(0 -2)"></text>
+      </g>
+      <text x="314" y="258" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="12" fill="#f6f4ef">Phone</text>
+      <text x="314" y="273" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#a9bac0">remote control, viewer</text>
+      <text x="233" y="298" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="#8fd3e2">prompts · code · keys stay here</text>
+      <!-- gated cloud -->
+      <path d="M452 150 L 566 150" fill="none" stroke="#e0902f" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#sd-arrow)"/>
+      <g transform="translate(486 118)">
+        <rect x="0" y="0" width="20" height="16" rx="3" fill="none" stroke="#e0902f" stroke-width="1.6"/>
+        <path d="M4 0 V-4 a6 6 0 0 1 12 0 V0" fill="none" stroke="#e0902f" stroke-width="1.6"/>
+      </g>
+      <text x="509" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#e0a25a">one tap</text>
+      <g transform="translate(566 108)">
+        <rect x="0" y="0" width="96" height="86" rx="14" fill="#231a10" stroke="#e0902f" stroke-width="1.2"/>
+        <text x="48" y="34" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="12.5" fill="#f6d9b3">Cloud</text>
+        <text x="48" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#e0a25a">your key</text>
+        <text x="48" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#c99a63">spend asks first</text>
+      </g>
+      <text x="340" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="#a9bac0">No telemetry.  No analytics.  No phone-home.</text>
+    </svg>
+  </div>
+  <figcaption class="figure-cap"><b>What stays, what leaves.</b> Everything inside your private network stays yours. The only thing that ever leaves is a cloud call you choose to make, on your own key.</figcaption>
+</figure>
+{% endmacro %}
+
+{# ---- Sustainability: local answer vs metered round-trip -------------- #}
+{% macro localVsCloud() %}
+<figure class="figure">
+  <div class="figure-media">
+    <svg viewBox="0 0 680 320" role="img" aria-labelledby="lc-t">
+      <title id="lc-t">A local answer stays on your desk. A metered cloud call provisions a data center for every token.</title>
+      <defs>
+        <marker id="lc-a-teal" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#5bb6cb"/></marker>
+        <marker id="lc-a-amber" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#e0902f"/></marker>
+      </defs>
+      <!-- divider -->
+      <line x1="340" y1="24" x2="340" y2="252" stroke="#24424d" stroke-width="1" stroke-dasharray="3 5"/>
+      <!-- LEFT: on your machine -->
+      <text x="30" y="40" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#8fd3e2" letter-spacing="0.4">ON YOUR MACHINE</text>
+      <g transform="translate(70 78)">
+        <rect x="0" y="0" width="120" height="86" rx="12" fill="#152a33" stroke="#5bb6cb"/>
+        <rect x="20" y="18" width="80" height="44" rx="6" fill="#0e2530" stroke="#4b90a3"/>
+        <text x="60" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#a9bac0">your laptop</text>
+      </g>
+      <path d="M198 108 a44 30 0 1 1 -0.1 0" fill="none" stroke="#5bb6cb" stroke-width="2" marker-end="url(#lc-a-teal)"/>
+      <text x="196" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="#f6f4ef">answer stays here</text>
+      <text x="196" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#7fb8a0">short trip, power you already pay for</text>
+      <!-- RIGHT: metered cloud -->
+      <text x="374" y="40" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#e0a25a" letter-spacing="0.4">METERED CLOUD</text>
+      <g transform="translate(372 92)">
+        <rect x="0" y="0" width="86" height="64" rx="10" fill="#152a33" stroke="#24424d"/>
+        <rect x="16" y="14" width="54" height="30" rx="5" fill="#0e2530" stroke="#3a4a52"/>
+        <text x="43" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#a9bac0">your device</text>
+      </g>
+      <path d="M462 116 L 556 116" fill="none" stroke="#e0902f" stroke-width="2" marker-end="url(#lc-a-amber)"/>
+      <path d="M556 140 L 462 140" fill="none" stroke="#e0902f" stroke-width="2" marker-end="url(#lc-a-amber)"/>
+      <g fill="#e0902f">
+        <circle cx="482" cy="108" r="1.7"/><circle cx="500" cy="108" r="1.7"/><circle cx="518" cy="108" r="1.7"/><circle cx="536" cy="108" r="1.7"/>
+      </g>
+      <text x="509" y="99" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#c99a63">per token</text>
+      <g transform="translate(556 84)">
+        <rect x="0" y="0" width="96" height="88" rx="10" fill="#231a10" stroke="#e0902f" stroke-width="1.1"/>
+        <g stroke="#e0902f" stroke-width="1.4" fill="none">
+          <rect x="16" y="16" width="64" height="12" rx="2"/><rect x="16" y="34" width="64" height="12" rx="2"/><rect x="16" y="52" width="64" height="12" rx="2"/>
+        </g>
+        <text x="48" y="82" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#e0a25a">data center</text>
+      </g>
+      <text x="509" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="#f6f4ef">capacity spun up for you</text>
+      <text x="509" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#c99a63">every request, round-trip and billed</text>
+      <text x="340" y="292" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="#81949c">Local inference still uses power. The difference is the trip and the new capacity, not zero energy.</text>
+    </svg>
+  </div>
+  <figcaption class="figure-cap"><b>Local answer vs metered round-trip.</b> One path stays on your desk. The other bills a warehouse of GPUs for every token.</figcaption>
+</figure>
+{% endmacro %}
+
+{# ---- Self-Hosting: your private network topology -------------------- #}
+{% macro topology() %}
+<figure class="figure">
+  <div class="figure-media">
+    <svg viewBox="0 0 680 380" role="img" aria-labelledby="tp-t">
+      <title id="tp-t">Phone, desktop, and an optional always-on machine, linked over your own Tailscale network. Cloud is one tap away.</title>
+      <defs>
+        <marker id="tp-a" markerWidth="10" markerHeight="10" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#e0902f"/></marker>
+      </defs>
+      <rect x="18" y="40" width="452" height="300" rx="24" fill="rgba(91,182,203,0.06)" stroke="#5bb6cb" stroke-width="1.5" stroke-dasharray="7 5"/>
+      <g transform="translate(38 30)">
+        <rect x="0" y="0" width="250" height="22" rx="11" fill="#0b1417" stroke="#24424d"/>
+        <g transform="translate(14 6)"><rect x="0" y="0" width="12" height="9" rx="2" fill="none" stroke="#5bb6cb" stroke-width="1.4"/><path d="M2 0 V-2 a4 4 0 0 1 8 0 V0" fill="none" stroke="#5bb6cb" stroke-width="1.4"/></g>
+        <text x="34" y="15" font-family="Inter, sans-serif" font-weight="700" font-size="11.5" fill="#8fd3e2" letter-spacing="0.3">PRIVATE NETWORK · TAILSCALE</text>
+      </g>
+      <!-- phone -->
+      <g transform="translate(44 150)">
+        <rect x="0" y="0" width="84" height="120" rx="14" fill="#152a33" stroke="#24424d"/>
+        <rect x="12" y="14" width="60" height="82" rx="7" fill="#0e2530" stroke="#4b90a3"/>
+        <text x="42" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11.5" fill="#f6f4ef">Phone</text>
+        <text x="42" y="155" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#a9bac0">remote control</text>
+      </g>
+      <line x1="128" y1="200" x2="196" y2="200" stroke="#5bb6cb" stroke-width="2"/>
+      <!-- desktop engine -->
+      <g transform="translate(196 138)">
+        <rect x="0" y="0" width="150" height="128" rx="16" fill="#16303a" stroke="#5bb6cb" stroke-width="1.3"/>
+        <rect x="26" y="22" width="98" height="58" rx="7" fill="#0e2530" stroke="#4b90a3"/>
+        <text x="75" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="12.5" fill="#f6f4ef">Desktop engine</text>
+        <text x="75" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#7fb8a0">sessions live here</text>
+      </g>
+      <line x1="346" y1="176" x2="392" y2="176" stroke="#5bb6cb" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <!-- optional machine / org hub -->
+      <g transform="translate(392 138)">
+        <rect x="0" y="0" width="62" height="128" rx="12" fill="#152a33" stroke="#5bb6cb" stroke-width="1.1" stroke-dasharray="5 4"/>
+        <rect x="14" y="20" width="34" height="46" rx="5" fill="#0e2530" stroke="#3a4a52"/>
+        <circle cx="24" cy="80" r="3" fill="#5bb6cb"/><circle cx="38" cy="80" r="3" fill="#5bb6cb"/>
+        <text x="31" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#a9bac0">optional</text>
+        <text x="31" y="114" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#a9bac0">home /</text>
+        <text x="31" y="125" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#a9bac0">org hub</text>
+      </g>
+      <!-- gated cloud -->
+      <path d="M470 190 L 566 190" fill="none" stroke="#e0902f" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#tp-a)"/>
+      <text x="516" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#e0a25a">one tap away</text>
+      <g transform="translate(566 150)">
+        <rect x="0" y="0" width="98" height="86" rx="14" fill="#231a10" stroke="#e0902f" stroke-width="1.2"/>
+        <text x="49" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="12.5" fill="#f6d9b3">Cloud</text>
+        <text x="49" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#e0a25a">on your key</text>
+      </g>
+      <text x="244" y="366" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="#81949c">Binds only to loopback or the tailnet, never 0.0.0.0. No public URL.</text>
+    </svg>
+  </div>
+  <figcaption class="figure-cap"><b>Your private network.</b> The engine runs on a machine you own. Your phone is a remote control. For a team, the same picture with an org hub and per-person tokens.</figcaption>
+</figure>
+{% endmacro %}
+
+{# ============================ Phone mockups ============================ #}
+{% macro _status() %}
+<div class="phone-statusbar"><span>9:41</span><span class="dots">·oo  ᯤ  ▮</span></div>
+{% endmacro %}
+
+{% macro marketplacePhone() %}
+<div class="phone"><div class="phone-screen">
+  {{ _status() }}
+  <div class="app-topbar"><span class="app-back">‹ Back</span></div>
+  <div class="app-h1">Models, in plain language</div>
+  <div class="app-lead">Curated for what each model is good at.</div>
+  <div class="app-body">
+    <div class="app-search"><span>⌕</span><span>Search models</span></div>
+    <div class="app-chiprail">
+      <span class="app-chip app-chip--on">All</span>
+      <span class="app-chip">Coding</span>
+      <span class="app-chip">Writing</span>
+      <span class="app-chip">Vision</span>
+    </div>
+    <div class="app-row" style="gap:6px"><span class="app-chip">This Mac runs up to ~32B</span></div>
+    <div class="app-card app-card--edge-local">
+      <div class="app-row"><span class="grow app-title">Qwen2.5 Coder 14B</span><span class="app-pill app-pill--local">On device</span></div>
+      <div class="app-row" style="margin-top:4px"><span class="app-stars">★★★★☆</span><span class="app-sub">community</span></div>
+      <div class="app-sub" style="margin-top:5px">Coding · 9 GB</div>
+      <div class="app-meter" style="margin-top:6px"><i style="width:82%"></i></div>
+      <div class="app-row" style="margin-top:8px"><span class="grow app-sub">Details and license ›</span><span class="app-btn">Get</span></div>
+    </div>
+    <div class="app-card app-card--edge-cloud">
+      <div class="app-row"><span class="grow app-title">Claude (frontier)</span><span class="app-pill app-pill--cloud">On your key</span></div>
+      <div class="app-sub" style="margin-top:5px">Reasoning · cloud, your account</div>
+      <div class="app-row" style="margin-top:8px"><span class="grow app-sub">Spend asks first</span><span class="app-btn app-btn--ghost">Connect</span></div>
+    </div>
+  </div>
+</div></div>
+{% endmacro %}
+
+{% macro stackHealthPhone() %}
+<div class="phone"><div class="phone-screen">
+  {{ _status() }}
+  <div class="app-topbar"><span class="app-back">‹ Back</span></div>
+  <div class="app-h1">Stack Health</div>
+  <div class="app-lead">Nothing here leaves this device.</div>
+  <div class="app-body">
+    <div class="app-chiprail">
+      <span class="app-chip app-chip--on">7 days</span><span class="app-chip">30 days</span><span class="app-chip">All</span>
+      <span class="grow"></span>
+    </div>
+    <div class="app-card" style="display:flex;gap:12px;align-items:center">
+      <svg viewBox="0 0 120 120" width="104" height="104" aria-hidden="true" style="flex:none">
+        <g fill="none" stroke-linecap="round" transform="rotate(-90 60 60)">
+          <circle cx="60" cy="60" r="52" stroke="#e6e1d4" stroke-width="9"/>
+          <circle cx="60" cy="60" r="52" stroke="#2f5a66" stroke-width="9" stroke-dasharray="326.7" stroke-dashoffset="72"/>
+          <circle cx="60" cy="60" r="39" stroke="#e6e1d4" stroke-width="9"/>
+          <circle cx="60" cy="60" r="39" stroke="#8aa0a8" stroke-width="9" stroke-dasharray="245" stroke-dashoffset="86"/>
+          <circle cx="60" cy="60" r="26" stroke="#efe6d6" stroke-width="9"/>
+          <circle cx="60" cy="60" r="26" stroke="#e0902f" stroke-width="9" stroke-dasharray="163.4" stroke-dashoffset="98"/>
+        </g>
+        <text x="60" y="58" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="26" fill="#1c2a33">78%</text>
+        <text x="60" y="76" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#55636b">local</text>
+      </svg>
+      <div style="min-width:0">
+        <div class="app-row" style="gap:6px"><span class="app-dot app-dot--local"></span><span class="app-sub">Local</span></div>
+        <div class="app-row" style="gap:6px;margin-top:4px"><span class="app-dot" style="background:#8aa0a8"></span><span class="app-sub">Flow</span></div>
+        <div class="app-row" style="gap:6px;margin-top:4px"><span class="app-dot app-dot--cloud"></span><span class="app-sub">Saved</span></div>
+      </div>
+    </div>
+    <div class="app-card">
+      <div class="app-title" style="font-size:11.5px">Estimated impact <span class="app-sub" style="font-weight:500">≈ vs a data center</span></div>
+      <div class="app-row" style="margin-top:7px;gap:8px"><span class="app-sub grow">Energy</span><div class="app-meter" style="width:96px"><i style="width:64%;background:#2f5a66"></i></div><span class="app-sub">≈</span></div>
+      <div class="app-row" style="margin-top:5px;gap:8px"><span class="app-sub grow">Water</span><div class="app-meter" style="width:96px"><i style="width:48%;background:#2f5a66"></i></div><span class="app-sub">≈</span></div>
+      <div class="app-row" style="margin-top:5px;gap:8px"><span class="app-sub grow">Carbon</span><div class="app-meter" style="width:96px"><i style="width:57%;background:#2f5a66"></i></div><span class="app-sub">≈</span></div>
+    </div>
+    <div class="app-sub" style="text-align:center">Refreshes once a day · computed on this device</div>
+  </div>
+</div></div>
+{% endmacro %}
+
+{% macro pairPhone() %}
+<div class="phone"><div class="phone-screen">
+  {{ _status() }}
+  <div class="app-topbar"><span class="app-back">‹ Back</span></div>
+  <div class="app-h1">Desktop and phone</div>
+  <div class="app-lead">Connect this phone to the engine on your computer.</div>
+  <div class="app-body">
+    <div class="app-card" style="text-align:center">
+      <svg viewBox="0 0 100 100" width="128" height="128" aria-hidden="true" style="margin:2px auto 0">
+        <rect x="0" y="0" width="100" height="100" rx="10" fill="#fff"/>
+        <g fill="#1c2a33">
+          <rect x="10" y="10" width="24" height="24"/><rect x="66" y="10" width="24" height="24"/><rect x="10" y="66" width="24" height="24"/>
+          <rect x="16" y="16" width="12" height="12" fill="#fff"/><rect x="72" y="16" width="12" height="12" fill="#fff"/><rect x="16" y="72" width="12" height="12" fill="#fff"/>
+          <rect x="44" y="12" width="6" height="6"/><rect x="54" y="12" width="6" height="6"/><rect x="44" y="24" width="6" height="6"/>
+          <rect x="44" y="44" width="6" height="6"/><rect x="56" y="44" width="6" height="6"/><rect x="68" y="46" width="6" height="6"/><rect x="80" y="44" width="6" height="6"/>
+          <rect x="44" y="58" width="6" height="6"/><rect x="60" y="60" width="6" height="6"/><rect x="72" y="60" width="6" height="6"/>
+          <rect x="44" y="72" width="6" height="6"/><rect x="56" y="80" width="6" height="6"/><rect x="70" y="72" width="6" height="6"/><rect x="82" y="82" width="6" height="6"/>
+        </g>
+      </svg>
+      <div class="app-row" style="justify-content:center;margin-top:6px"><span class="app-pill app-pill--ok"><span class="app-dot app-dot--ok"></span>Turned on</span></div>
+    </div>
+    <div class="app-field"><b>Address</b><div class="app-mono" style="color:#1c2a33;margin-top:2px">http://100.92.14.7:4816</div></div>
+    <div class="app-field"><b>Token</b><div class="app-mono" style="color:#1c2a33;margin-top:2px">osc_••••••••••••••••</div></div>
+    <div class="app-row" style="margin-top:1px"><span class="app-pill app-pill--ok"><span class="app-dot app-dot--ok"></span>Connected</span></div>
+    <div class="app-sub">No camera? Type the address and token by hand.</div>
+  </div>
+</div></div>
+{% endmacro %}
+
+{# ---- Ethics: three-signal quick-scan (mirrors the app's ethics grammar) - #}
+{% macro ethicsSignals() %}
+<div class="signals">
+  <div class="signal signal--refuse">
+    <div class="signal-head"><span class="signal-dot"></span><span class="signal-name">Refused outright</span></div>
+    <p class="signal-body">Child sexual abuse material, sexual imagery of a real person, and weapons uplift. There is no consent option.</p>
+  </div>
+  <div class="signal signal--gate">
+    <div class="signal-head"><span class="signal-dot"></span><span class="signal-name">Gated behind consent</span></div>
+    <p class="signal-body">Cloning a real face or voice, allowed only when you state you are authorized. What comes out is marked AI-generated.</p>
+  </div>
+  <div class="signal signal--allow">
+    <div class="signal-head"><span class="signal-dot"></span><span class="signal-name">Left alone</span></div>
+    <p class="signal-body">Legal adult content, dark fiction, satire, security research, and unpopular opinions. No added refusal.</p>
+  </div>
+</div>
+{% endmacro %}

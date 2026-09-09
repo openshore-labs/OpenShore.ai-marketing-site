@@ -1,0 +1,27 @@
+---
+layout: base.njk
+permalink: /privacy/
+pageTitle: "Privacy · OpenShore"
+pageDescription: "OpenShore keeps your prompts, code, and keys on your own hardware. No telemetry, no analytics, no phone-home, encrypted at rest."
+---
+{% import "viz.njk" as viz %}
+{% set p = tabpages["privacy"] %}
+
+<header class="subhero">
+  <span class="eyebrow">{{ p.hero.eyebrow }}</span>
+  <h1>{{ p.hero.headline }}</h1>
+  <p class="subhead">{{ p.hero.subhead }}</p>
+</header>
+
+<section class="block">{{ viz.staysOnDevice() }}</section>
+
+{{ viz.sec(p.sections[0]) }}
+{{ viz.sec(p.sections[1]) }}
+{{ viz.sec(p.sections[2]) }}
+
+<section class="block">
+  <a class="block-cta" href="{{ p.cta.href }}">{{ p.cta.label }} <span aria-hidden="true">&rarr;</span></a>
+  {% if p.cta.note %}<p class="offer-fine">{{ p.cta.note }}</p>{% endif %}
+</section>
+
+{% include "pagefoot.njk" %}

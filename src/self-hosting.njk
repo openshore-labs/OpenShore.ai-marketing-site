@@ -1,0 +1,44 @@
+---
+layout: base.njk
+permalink: /self-hosting/
+pageTitle: "Self-Hosting OpenShore · A Hub You Run"
+pageDescription: "Run OpenShore on a computer you own and reach it from your phone over your own private network. A home server for you, or a shared hub for your team."
+---
+{% import "viz.njk" as viz %}
+{% set p = tabpages["self-hosting"] %}
+
+<header class="subhero">
+  <span class="eyebrow">{{ p.hero.eyebrow }}</span>
+  <h1>{{ p.hero.headline }}</h1>
+  <p class="subhead">{{ p.hero.subhead }}</p>
+</header>
+
+{{ viz.sec(p.sections[0]) }}
+
+<section class="block">{{ viz.topology() }}</section>
+
+<div class="block split">
+  <div class="split-text">
+    <h2 class="eyebrow">{{ p.sections[1].heading }}</h2>
+    <p class="lede">{{ p.sections[1].body }}</p>
+    <ol class="components">
+      {% for step in p.sections[1].steps %}
+      <li class="component">
+        <span class="component-name">{{ step.name }}</span>
+        <span class="component-body">{{ step.body }}</span>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+  <div class="split-media">{{ viz.pairPhone() }}</div>
+</div>
+
+{{ viz.sec(p.sections[2]) }}
+{{ viz.sec(p.sections[3]) }}
+
+<section class="block">
+  <a class="block-cta" href="mailto:{{ site.emails.oscode }}?subject={{ oscode.earlyAccessSubject | urlencode }}&amp;body={{ oscode.earlyAccessBody | urlencode }}">{{ p.cta.label }} <span aria-hidden="true">&rarr;</span></a>
+  {% if p.cta.note %}<p class="offer-fine honest-note">{{ p.cta.note }}</p>{% endif %}
+</section>
+
+{% include "pagefoot.njk" %}
