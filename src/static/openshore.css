@@ -1138,6 +1138,105 @@ button.block-cta {
 .signal--gate { --sig: #e0902f; }
 .signal--allow { --sig: #4fbf7f; }
 
+/* ==== Phone fit and feel ===============================================
+   Scoped to narrow screens (the base stylesheet's own phone breakpoint) so
+   desktop is untouched. Goals: reach content sooner, make the two scrolling
+   strips (tabs, diagrams) read as swipeable instead of cut off, and keep the
+   floating email button off the words. */
+@media (max-width: 34rem) {
+  /* Compact lockup: smaller tile and wordmark, tighter stack, less top air. */
+  .sitenav--oscode {
+    padding-top: 12px;
+  }
+  .brand--oscode {
+    gap: 2px;
+    margin-bottom: 10px;
+  }
+  .brand--oscode .brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  .brand--oscode .brand-word {
+    font-size: 1.3rem;
+  }
+  .brand-sub {
+    font-size: 0.68rem;
+  }
+
+  /* Tab strip: even gaps, a touch smaller, and trailing room so the last tab
+     can clear the fade. The right edge fades out to say "there is more", and
+     proximity snap lets a swipe settle on a tab without fighting free scroll. */
+  .sitenav--oscode .sitenav-tabs {
+    gap: 22px;
+    padding-inline-end: 44px;
+    scroll-padding-inline: 24px;
+    scroll-snap-type: x proximity;
+    /* The fade follows the scroll position (tabs.js toggles the classes):
+       at rest only the right edge fades; once scrolled the left edge fades
+       too; at the end the right edge clears so the last tab is never dimmed. */
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 44px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 44px), transparent);
+  }
+  .sitenav--oscode .sitenav-tabs.is-scrolled {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 44px, #000 calc(100% - 44px), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 44px, #000 calc(100% - 44px), transparent);
+  }
+  .sitenav--oscode .sitenav-tabs.is-scrolled.is-end {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 44px);
+    mask-image: linear-gradient(to right, transparent, #000 44px);
+  }
+  .sitenav--oscode .sitenav-tabs.is-end:not(.is-scrolled) {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .sitenav--oscode .sitenav-tabs > li {
+    scroll-snap-align: start;
+  }
+
+  /* Hero pair: two equal pills that fill the row, so neither wraps alone and
+     leaves an uneven stack. On a very narrow phone they drop to two full-width
+     rows, which is the same clean shape. */
+  .hero-actions .block-cta,
+  .hero-actions .hero-cta-ghost {
+    flex: 1 1 0;
+    min-width: 140px;
+    gap: 0.35em;
+    padding-inline: 18px;
+  }
+  .sitenav--oscode .sitenav-tab {
+    font-size: 0.88rem;
+    letter-spacing: 0;
+    padding-bottom: 11px;
+  }
+
+  /* Diagrams scroll inside their frame on a phone; fade the right edge so the
+     cut-off reads as "swipe", not "broken". */
+  .figure-media {
+    position: relative;
+  }
+  .figure-media::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 44px;
+    border-radius: 0 22px 22px 0;
+    background: linear-gradient(to right, rgba(11, 20, 23, 0), rgba(11, 20, 23, 0.82));
+    pointer-events: none;
+  }
+
+  /* Email button: a hair smaller (still a 44px target) and give the page
+     bottom clearance so the footer never sits under it. */
+  .consult-fab {
+    padding: 13px;
+  }
+  .page--oscode {
+    padding-bottom: calc(clamp(48px, 8vw, 88px) + 56px);
+  }
+}
+
 /* A quiet inline note used for honest limits and footnotes. */
 .honest-note {
   margin-top: 1rem;

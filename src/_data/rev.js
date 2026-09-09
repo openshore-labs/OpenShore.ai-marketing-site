@@ -26,4 +26,5 @@ export default {
   // the old preview. Hashing it into a `?v=` means a refreshed card is a URL the
   // scraper has never seen, so the new preview wins.
   ogImage: rev("src/static/og-openshore.png"),
+  tabsJs: rev("src/static/tabs.js"),
 };
