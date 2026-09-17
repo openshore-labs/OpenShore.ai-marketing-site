@@ -38,22 +38,23 @@ export default {
   // "Get OpenShore" tile grid, the marketing mirror of uki.audio's own get-app
   // section (same shape, same honesty rule from that page's own comment: a
   // tile only goes live once its URL is real, otherwise it reads as hype).
-  // Linux and Windows are genuinely live as of v0.1.2 (2026-09-17):
-  // release.yml publishes both to one real GitHub Release on every push of a
-  // v* tag, proven end to end (package, smoke test, publish, all green).
-  // Both link to the releases page rather than a specific asset on purpose:
-  // electron-builder's installer filenames embed the version
+  // Linux, Windows, and macOS are all genuinely live as of v0.1.2
+  // (2026-09-17): release.yml publishes Linux and Windows to one real GitHub
+  // Release on every push of a v* tag; the mac-desktop Codemagic workflow
+  // publishes the unsigned dmg/zip to that same release on demand. All three
+  // verified end to end against the actual release assets, not just a green
+  // build (see docs/MAC-DESKTOP.md for why that distinction mattered here).
+  // All three link to the releases page rather than a specific asset on
+  // purpose: electron-builder's installer filenames embed the version
   // (OpenShore.Setup.0.1.2.exe), so a hardcoded direct link goes stale the
-  // next release; the page always has the current one. macOS has the same
-  // release pipeline built and tested but needs its Codemagic build actually
-  // triggered (see docs/MAC-DESKTOP.md); iOS needs the App Store; Android
-  // needs a PWA manifest and service worker that do not exist yet. To take a
-  // platform live: set its href, flip status to "live". That is the whole
-  // change; see .get-tile-live in openshore.css.
+  // next release; the page always has the current one. iOS needs the App
+  // Store; Android needs a PWA manifest and service worker that do not exist
+  // yet. To take a platform live: set its href, flip status to "live". That
+  // is the whole change; see .get-tile-live in openshore.css.
   getAppsLabel: "Get OpenShore",
   getAppsTitle: "One stack, every machine you own.",
   getAppsLede:
-    "Linux and Windows are direct downloads today. macOS is one build away. iPhone, iPad, and Android are next.",
+    "Linux, macOS, and Windows are direct downloads today. iPhone, iPad, and Android are next.",
   getApps: [
     {
       id: "linux",
@@ -62,7 +63,13 @@ export default {
       href: "https://github.com/openshore-labs/openshore.code.ai/releases/latest",
       status: "live",
     },
-    { id: "mac", label: "Mac", sub: "Direct download · unsigned .dmg", status: "soon" },
+    {
+      id: "mac",
+      label: "Mac",
+      sub: "Direct download · unsigned .dmg",
+      href: "https://github.com/openshore-labs/openshore.code.ai/releases/latest",
+      status: "live",
+    },
     {
       id: "windows",
       label: "Windows",
