@@ -290,6 +290,119 @@ body {
 }
 
 /* ---- Pillars: glass cards that lift --------------------------------- */
+/* "Get OpenShore" tile grid. Same shape as .pillars (glass card, spring lift
+   on hover) with a glyph well and a status chip added, mirroring the visual
+   grammar of uki.audio's own get-app tiles (styles.css there) re-themed onto
+   Nightshore's dark surface instead of Uki's cream paper. A tile without a
+   live href renders as .is-soon: dimmed, no hover, a neutral chip instead of
+   the wave-colored "Get" one, so a not-yet-real download never looks
+   clickable. */
+.get-app {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  text-align: left;
+}
+.get-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.2rem 1.15rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  text-decoration: none;
+  transition:
+    transform 240ms var(--spring),
+    border-color 200ms ease,
+    box-shadow 240ms ease;
+  will-change: transform;
+}
+.get-tile.is-soon {
+  cursor: default;
+  opacity: 0.55;
+}
+.get-glyph {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: var(--wave);
+  background: rgba(91, 182, 203, 0.1);
+  border: 1px solid var(--line);
+}
+.get-glyph svg {
+  width: 21px;
+  height: 21px;
+}
+.get-label {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 1.02rem;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+}
+.get-sub {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--faint);
+}
+.get-chip {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mist);
+  background: rgba(169, 186, 192, 0.12);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+.get-tile-live {
+  cursor: pointer;
+}
+.get-tile-live:hover,
+.get-tile-live:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--wave);
+  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
+}
+.get-tile-live:hover .get-glyph,
+.get-tile-live:focus-visible .get-glyph {
+  background: rgba(91, 182, 203, 0.18);
+}
+.get-tile-live:focus-visible {
+  outline: 2px solid var(--wave);
+  outline-offset: 2px;
+}
+.get-chip-live {
+  color: var(--abyss);
+  background: var(--wave);
+  border-color: var(--wave);
+}
+@media (prefers-reduced-motion: reduce) {
+  .get-tile-live {
+    transition: none;
+  }
+  .get-tile-live:hover,
+  .get-tile-live:focus-visible {
+    transform: none;
+  }
+}
+
 .pillars {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));

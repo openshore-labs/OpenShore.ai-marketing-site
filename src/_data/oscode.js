@@ -35,6 +35,35 @@ export default {
   summary:
     "It is built the way software should be: local first, private by construction, and yours. One model in your stack plans the work and hands each part to the specialist best suited to it. Your keys never leave your devices. Everything you make is encrypted at rest and answers only to you.",
 
+  // "Get OpenShore" tile grid, the marketing mirror of uki.audio's own get-app
+  // section (same shape, same honesty rule from that page's own comment: a
+  // tile only goes live once its URL is real, otherwise it reads as hype).
+  // Linux is the one genuinely live download today: release.yml publishes a
+  // real GitHub Release on every push of a v* tag. macOS and Windows have
+  // real, tested build pipelines as of 2026-09-17 but no release has been cut
+  // with them yet, so their tiles stay "soon" until one has. iOS needs the
+  // App Store; Android needs a PWA manifest and service worker that do not
+  // exist yet. To take a platform live: set its href, flip status to "live"
+  // (add download: true for a direct file link instead of a page). That is
+  // the whole change; see .get-tile-live in openshore.css.
+  getAppsLabel: "Get OpenShore",
+  getAppsTitle: "One stack, every machine you own.",
+  getAppsLede:
+    "Linux is a direct download today. macOS and Windows are one release away. iPhone, iPad, and Android are next.",
+  getApps: [
+    {
+      id: "linux",
+      label: "Linux",
+      sub: "Direct download · AppImage or .deb",
+      href: "https://github.com/openshore-labs/openshore.code.ai/releases/latest",
+      status: "live",
+    },
+    { id: "mac", label: "Mac", sub: "Direct download · unsigned .dmg", status: "soon" },
+    { id: "windows", label: "Windows", sub: "Direct download · .exe installer", status: "soon" },
+    { id: "ios", label: "iPhone & iPad", sub: "App Store", status: "soon" },
+    { id: "android", label: "Android", sub: "Install from your browser", status: "soon" },
+  ],
+
   // The mission, in the founder's words (2026-09-08). Lower the barrier to
   // open source models, and give the people and companies who would default to
   // a mainstream cloud a private, local alternative. The four promises under it
