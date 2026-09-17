@@ -81,33 +81,13 @@ export default {
     { id: "android", label: "Android", sub: "Install from your browser", status: "soon" },
   ],
 
-  // The mission, in the founder's words (2026-09-08). Lower the barrier to
-  // open source models, and give the people and companies who would default to
-  // a mainstream cloud a private, local alternative. The four promises under it
-  // render as the quiet label-plus-line list (same shape as the pricing trust
-  // row), not as cards, so the mission reads as conviction rather than a
-  // feature grid.
-  missionLabel: "Why OpenShore exists",
-  mission:
-    "Open source models are good enough to do real work. What has been missing is a way in that does not ask you to be an expert, and a reason to choose local over the cloud you already know. OpenShore lowers the barrier to open models and gives individuals and companies a private, local alternative that gives up nothing.",
-  why: [
-    {
-      label: "Open models, made simple.",
-      body: "The setup and the rough edges of running your own models, handled for you.",
-    },
-    {
-      label: "Private by default.",
-      body: "Your prompts, your code, and your keys stay on your hardware. No telemetry, ever.",
-    },
-    {
-      label: "Lower cost, lighter footprint.",
-      body: "Your own models instead of a metered cloud bill, and a smaller energy draw for the same work.",
-    },
-    {
-      label: "Built for teams.",
-      body: "Companies configure their people's experience and grow and build together.",
-    },
-  ],
+  // The mission used to live here as its own "Why OpenShore exists" section
+  // on the Platform tab (headline + four promises). It repeated the same
+  // ground "What makes it different" below already covers, plus what LLM
+  // Choice, Privacy, and Sustainability each cover in depth on their own
+  // tabs, so it was cut rather than trimmed (2026-09-17, platform tab
+  // simplification). The founder's underlying mission is still true; it just
+  // no longer needs its own block here.
 
   pillarsLabel: "What makes it different",
   pillars: [

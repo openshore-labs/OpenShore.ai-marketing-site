@@ -96,18 +96,10 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
   </ul>
 </section>
 
-{# The mission, in the founder's words. The four promises render as the quiet
-   label-plus-line list (the pricing trust row's shape), not cards. #}
-<section class="block" aria-labelledby="mission-heading">
-  <h2 id="mission-heading" class="eyebrow">{{ oscode.missionLabel }}</h2>
-  <p class="lede">{{ oscode.mission }}</p>
-  <ul class="why-list">
-    {% for w in oscode.why %}
-    <li><strong>{{ w.label }}</strong> {{ w.body }}</li>
-    {% endfor %}
-  </ul>
-</section>
-
+{# "What makes it different" carries the thesis on its own now; the mission
+   section that used to sit here repeated the same ground the topic tabs
+   (LLM Choice, Privacy, Sustainability) each cover in depth, so it is gone
+   rather than trimmed. #}
 <section class="block" aria-labelledby="pillars-heading">
   <h2 id="pillars-heading" class="eyebrow">{{ oscode.pillarsLabel }}</h2>
   <ul class="pillars">
@@ -187,27 +179,18 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
   </ul>
 </section>
 
-{# The ethical boundaries. Mirrors the trust statement shown in the app's
-   Settings, from one source of copy in _data/oscode.js. #}
+{# The ethical boundaries, as a short teaser: the founder's stance only. The
+   full mirrored statement (what's refused, gated, left alone, the honest
+   limits, what we keep) lives on the Ethical Standards tab and used to be
+   repeated here almost verbatim; now it is one click away instead. #}
 <section class="block" aria-labelledby="trust-heading" id="ethics">
   <h2 id="trust-heading" class="eyebrow">{{ oscode.trust.label }}</h2>
-  <p class="lede">{{ oscode.trust.stanceLabel }}</p>
+  <p class="lede">{{ oscode.trust.headline }}</p>
   <div class="stance">
     {% for line in oscode.trust.stance %}
     <p class="prose">{{ line }}</p>
     {% endfor %}
   </div>
-  <p class="prose"><strong>{{ oscode.trust.headline }}</strong></p>
-  <ul class="pillars">
-    {% for t in oscode.trust.tiers %}
-    <li class="pillar">
-      <p class="pillar-name">{{ t.name }}</p>
-      <p class="pillar-covers">{{ t.body }}</p>
-    </li>
-    {% endfor %}
-  </ul>
-  <p class="prose">{{ oscode.trust.honestLimit }}</p>
-  <p class="prose">{{ oscode.trust.privacy }}</p>
   <p class="offer-fine">
     <a href="/ethics/">Read the full statement</a> or the
     <a href="/terms/">Terms of Use</a>.
