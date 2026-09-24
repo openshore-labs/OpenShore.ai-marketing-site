@@ -1,11 +1,12 @@
 ---
 layout: base.njk
-permalink: /llm-choice/
-pageTitle: "LLM Choice · OpenShore"
-pageDescription: "You pick the models. Download local ones from the source, bring your own endpoint, or run cloud on your own key. One Reasoning LLM plans and routes each step."
+permalink: /models/
+pageTitle: "Models · OpenShore"
+pageDescription: "OpenShore starts with three models: Harbor Lite, a guide on your phone; Harbor, a small coder on your iPhone; and DeepBlue, a coding agent sized to your computer. Add a model you host, or cloud on your own key."
 ---
+{# Was "LLM Choice" at /llm-choice/, which now 301s here (static/_redirects). #}
 {% import "viz.njk" as viz %}
-{% set p = tabpages["llm-choice"] %}
+{% set p = tabpages["models"] %}
 
 <header class="subhero">
   <span class="eyebrow">{{ p.hero.eyebrow }}</span>
@@ -20,8 +21,9 @@ pageDescription: "You pick the models. Download local ones from the source, brin
     <ul class="why-list">
       {% for b in p.sections[0].bullets %}<li><strong>{{ b.label }}.</strong> {{ b.text }}</li>{% endfor %}
     </ul>
+    {% if p.sections[0].note %}<p class="offer-fine">{{ p.sections[0].note }}</p>{% endif %}
   </div>
-  <div class="split-media">{{ viz.marketplacePhone() }}</div>
+  <div class="split-media">{{ viz.deepBlueCard() }}</div>
 </div>
 
 {{ viz.sec(p.sections[1]) }}
@@ -33,5 +35,3 @@ pageDescription: "You pick the models. Download local ones from the source, brin
   <a class="block-cta" href="{{ p.cta.href }}">{{ p.cta.label }} <span aria-hidden="true">&rarr;</span></a>
   {% if p.cta.note %}<p class="offer-fine">{{ p.cta.note }}</p>{% endif %}
 </section>
-
-{% include "pagefoot.njk" %}

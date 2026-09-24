@@ -1,8 +1,10 @@
-// OpenShore web purchase flow. Commercial seats are bought HERE, on the web, so
-// Apple takes no cut and there is no in-app purchase (guideline 3.1.1). A buyer
-// signs into the same account they use in the app, and their org is billed; the
+// OpenShore web purchase flow. Team plans are bought HERE, on the web, so Apple
+// takes no cut and there is no in-app purchase (guideline 3.1.1). A buyer signs
+// into the same account they use in the app, and their org is billed; the
 // Stripe webhook writes the entitlement the app then reads. Dependency-free and
 // same-origin so the site's strict CSP holds (connect-src allows Supabase).
+// While team billing is dormant (beta), the team buttons are email links, so
+// nothing on the page calls startCheckout; the code stays for when it opens.
 (() => {
   const mount = document.getElementById('oscode-billing');
   if (!mount) return;
@@ -17,6 +19,9 @@
   const emailInput = dialog?.querySelector('#oscode-email');
   const pwInput = dialog?.querySelector('#oscode-password');
   const errEl = dialog?.querySelector('.oscode-login-error');
+  const ageField = dialog?.querySelector('#oscode-age-field');
+  const ageInput = dialog?.querySelector('#oscode-age');
+  const forgotEl = dialog?.querySelector('.oscode-login-forgot');
   const titleEl = dialog?.querySelector('.oscode-login-title');
   const submitEl = dialog?.querySelector('.oscode-login-submit');
   const toggleEl = dialog?.querySelector('.oscode-login-toggle');
@@ -43,10 +48,20 @@
       el.innerHTML = html;
     };
   }
-  function setError(text) {
+  // One live region carries both errors and neutral notices. An error marks
+  // the fields it describes (aria-invalid) so a screen reader hears which one
+  // needs attention; a notice (info) marks nothing.
+  function setError(text, opts = {}) {
     if (!errEl) return;
     errEl.textContent = text || '';
     errEl.classList.toggle('is-shown', Boolean(text));
+    errEl.classList.toggle('is-info', Boolean(text && opts.info));
+    const bad = text && !opts.info ? opts.fields || [] : [];
+    for (const el of [emailInput, pwInput, ageInput]) {
+      if (!el) continue;
+      if (bad.includes(el)) el.setAttribute('aria-invalid', 'true');
+      else el.removeAttribute('aria-invalid');
+    }
   }
 
   // ---- session ------------------------------------------------------------
@@ -174,6 +189,17 @@
     if (body.access_token) saveSession(toSession(body));
     return Boolean(body.access_token);
   }
+  // Password reset. The answer is the same whether or not the email has an
+  // account, so the page never reveals who has one.
+  async function recover(email) {
+    const res = await fetch(`${BASE}/auth/v1/recover`, {
+      method: 'POST',
+      headers: headers(),
+      body: JSON.stringify({ email }),
+    });
+    // A 4xx here (unknown email, rate limit) still gets the neutral answer.
+    return res.status < 500;
+  }
   async function signOut() {
     const s = session;
     saveSession(null);
@@ -238,7 +264,7 @@
       }
       if (account.role !== 'admin') {
         restore();
-        alert('Only a company admin can buy or change seats.');
+        alert('Only a company admin can buy or change the team plan.');
         return;
       }
       // A3: an already-subscribed org manages its plan, it never double-buys.
@@ -328,10 +354,20 @@
   // ---- login dialog -------------------------------------------------------
   function setMode(next) {
     mode = next;
-    if (titleEl) titleEl.textContent = mode === 'signin' ? 'Log in' : 'Create your account';
-    if (submitEl) submitEl.textContent = mode === 'signin' ? 'Log in' : 'Create account';
+    const signup = mode === 'signup';
+    if (titleEl) titleEl.textContent = signup ? 'Create your account' : 'Log in';
+    if (submitEl) submitEl.textContent = signup ? 'Create account' : 'Log in';
     if (toggleEl)
-      toggleEl.textContent = mode === 'signin' ? 'New here? Create an account' : 'Have an account? Log in';
+      toggleEl.textContent = signup ? 'Have an account? Log in' : 'New here? Create an account';
+    // A new account gets a new password, so password managers offer to make one.
+    if (pwInput) pwInput.setAttribute('autocomplete', signup ? 'new-password' : 'current-password');
+    // The 18+ confirmation is required only when creating an account.
+    if (ageField) ageField.hidden = !signup;
+    if (ageInput) {
+      ageInput.required = signup;
+      if (!signup) ageInput.checked = false;
+    }
+    if (forgotEl) forgotEl.hidden = signup;
     setError('');
   }
   function openDialog() {
@@ -348,17 +384,43 @@
   }
 
   toggleEl?.addEventListener('click', () => setMode(mode === 'signin' ? 'signup' : 'signin'));
+  forgotEl?.addEventListener('click', async () => {
+    const email = emailInput?.value.trim();
+    if (!email) {
+      setError('Enter your email above, then tap Forgot password.', { fields: [emailInput] });
+      emailInput?.focus();
+      return;
+    }
+    const restore = busy(forgotEl, 'Sending...');
+    try {
+      const ok = await recover(email);
+      restore();
+      if (ok) setError('If that email has an account, a reset link is on its way.', { info: true });
+      else setError('Could not reach the server. Try again in a moment.');
+    } catch {
+      restore();
+      setError('Could not reach the server. Check your connection and try again.');
+    }
+  });
   dialog?.querySelector('.oscode-login-close')?.addEventListener('click', () => closeDialog());
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = emailInput.value.trim();
     const password = pwInput.value;
     if (!email || !password) {
-      setError('Enter your email and password.');
+      const missing = [!email && emailInput, !password && pwInput].filter(Boolean);
+      setError('Enter your email and password.', { fields: missing });
+      missing[0]?.focus();
       return;
     }
     if (mode === 'signup' && password.length < 8) {
-      setError('Use at least 8 characters for your password.');
+      setError('Use at least 8 characters for your password.', { fields: [pwInput] });
+      pwInput?.focus();
+      return;
+    }
+    if (mode === 'signup' && ageInput && !ageInput.checked) {
+      setError("Confirm you're 18 or older to create an account.", { fields: [ageInput] });
+      ageInput.focus();
       return;
     }
     const restore = busy(submitEl, mode === 'signin' ? 'Logging in...' : 'Creating account...');
@@ -368,9 +430,11 @@
       } else {
         const signedIn = await signUp(email, password);
         if (!signedIn) {
-          setError('Account created. Check your email to confirm, then log in.');
-          setMode('signin');
+          // Restore first and switch modes second, so the button reads "Log in"
+          // and the notice is not cleared by the mode switch.
           restore();
+          setMode('signin');
+          setError('Account created. Check your email to confirm, then log in.', { info: true });
           return;
         }
       }
@@ -385,7 +449,7 @@
         startCheckout(t, b);
       }
     } catch (err) {
-      setError(err.message || 'Could not sign in.');
+      setError(err.message || 'Could not sign in.', { fields: [emailInput, pwInput] });
       restore();
     }
   });

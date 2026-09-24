@@ -1,16 +1,18 @@
 ---
 layout: base.njk
 permalink: /ethics/
-pageTitle: "OpenShore ethical boundaries: enforced by default"
+pageTitle: "Ethics · OpenShore"
+hideFab: true
 pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every model call, local and cloud, with no setting that turns them off. What is blocked, what is gated behind consent, what is deliberately left alone, and the limits we will not pretend away."
 ---
 
 {% import "viz.njk" as viz %}
 
 <header class="masthead masthead--sub">
-  <h1 class="identity">{{ oscode.trust.label }}</h1>
+  <span class="eyebrow">{{ oscode.trust.label }}</span>
+  <h1 class="identity">{{ oscode.trust.headline }}</h1>
   <div class="horizon" role="presentation"></div>
-  <p class="lede">{{ oscode.trust.headline }}</p>
+  <p class="lede">{{ oscode.trust.subhead }}</p>
 </header>
 
 {# The founder's stance leads: the why, above the mirrored statement (the
@@ -44,14 +46,19 @@ pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every
 </section>
 
 <section class="block" aria-labelledby="words-heading">
-  <h2 id="words-heading" class="eyebrow">Words are free. Faces and voices need permission.</h2>
+  <h2 id="words-heading" class="eyebrow">Words are free. Faces need permission.</h2>
   <p class="prose">
-    The consent gate is on synthesized media, an image, a video, or a voice, not
-    on what you write. Satire, parody, and criticism in text never touch it, and
-    the layer proves that in code: it cannot fire on a request that is not asking
-    to synthesize media. "It's satire" does not clear a photorealistic video of a
-    real person's face, though, because a synthesized face is taken as real until
-    proven otherwise, and that asymmetry is the whole reason the gate exists.
+    The consent gate is on synthesized images, not on what you write. Satire,
+    parody, and criticism in text never touch it, and the layer proves that in
+    code: it cannot fire on a request that is not asking to synthesize media.
+    "It's satire" does not clear a photorealistic image of a real person's face,
+    though, because a synthesized face is taken as real until proven otherwise,
+    and that asymmetry is the whole reason the gate exists.
+  </p>
+  <p class="prose">
+    Images of a real person made on your computer carry a provenance record
+    saying they are AI-generated. Video or voice of a real person is refused
+    until it can be marked the same way.
   </p>
 </section>
 
@@ -79,18 +86,15 @@ pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every
 <section class="block" aria-labelledby="privacy-heading">
   <h2 id="privacy-heading" class="eyebrow">What we keep</h2>
   <p class="prose">{{ oscode.trust.privacy }}</p>
+  <p class="prose">{{ oscode.trust.record }}</p>
   <p class="prose">
-    We do not store the prompt, the answer, or any excerpt of either. A block
-    records a category, a tier, a timestamp, a one-way hash of the request, and
-    whether it ran locally or in the cloud. That is enough to recognize a repeat
-    and to identify the same content in a lawful report. Keeping harmful
-    material in order to police harmful material is its own harm.
+    We do not store the prompt, the answer, or any excerpt of either. A one-way
+    fingerprint is enough to recognize a repeat and to identify the same content
+    in a lawful report. Keeping harmful material in order to police harmful
+    material is its own harm.
   </p>
-  <p class="prose">
-    We do not collect, store, or use an IP address, ever. There is no exception
-    for a blocked request. Enforcement is account termination, plus a report
-    where the law requires or permits it.
-  </p>
+  <p class="prose">{{ oscode.trust.ladder }}</p>
+  <p class="prose">{{ oscode.trust.ip }}</p>
 </section>
 
 <section class="block" aria-labelledby="limits-heading">
@@ -101,7 +105,7 @@ pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every
     42001, and C2PA content provenance. That is a self-attestation. No third
     party has certified, endorsed, or audited this product against those
     frameworks, and we will not imply one has. Provenance we attach to generated
-    media uses the C2PA assertion vocabulary but is unsigned, because signing
+    images uses the C2PA assertion vocabulary but is unsigned, because signing
     requires a certificate from a C2PA-recognized authority that we do not
     currently hold. The record says so in its own text.
   </p>
@@ -120,8 +124,3 @@ pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every
     </p>
   </div>
 </section>
-
-<footer class="colophon">
-  <p><a href="/">&larr; OpenShore</a></p>
-  <p>&copy; {{ site.year }} {{ site.legalName }}. OpenShore is a product of {{ site.legalName }}.</p>
-</footer>

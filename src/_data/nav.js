@@ -2,13 +2,16 @@
 // Order is the walk a new visitor takes: what it is, the models you choose,
 // how private it is, its footprint, the ethical floor, then how to run your
 // own. Labels stay short so the row fits a phone; it scrolls if it must.
+// "LLM Choice" became Models at /models/ (the old path 301s there, see
+// static/_redirects) and "Ethical Standards" became Ethics (advisory org,
+// 2026-09-24).
 export default {
   tabs: [
     { label: "Platform", url: "/" },
-    { label: "LLM Choice", url: "/llm-choice/" },
+    { label: "Models", url: "/models/" },
     { label: "Privacy", url: "/privacy/" },
     { label: "Sustainability", url: "/sustainability/" },
-    { label: "Ethical Standards", url: "/ethics/" },
+    { label: "Ethics", url: "/ethics/" },
     { label: "Self-Hosting", url: "/self-hosting/" },
   ],
 };

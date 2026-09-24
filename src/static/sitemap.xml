@@ -4,7 +4,19 @@
     <loc>https://openshore.ai/</loc>
   </url>
   <url>
+    <loc>https://openshore.ai/models/</loc>
+  </url>
+  <url>
+    <loc>https://openshore.ai/privacy/</loc>
+  </url>
+  <url>
+    <loc>https://openshore.ai/sustainability/</loc>
+  </url>
+  <url>
     <loc>https://openshore.ai/ethics/</loc>
+  </url>
+  <url>
+    <loc>https://openshore.ai/self-hosting/</loc>
   </url>
   <url>
     <loc>https://openshore.ai/terms/</loc>

@@ -61,6 +61,7 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <nav class="sitenav sitenav--oscode" aria-label="Primary">
       <div class="brand brand--oscode">
         <a class="brand-home" href="/" aria-label="OpenShore home">
@@ -88,8 +89,47 @@
         {% endfor %}
       </ul>
     </nav>
-    <main class="page page--oscode">
+    <main class="page page--oscode" id="main" tabindex="-1">
       {{ content | safe }}
     </main>
+
+    {# The footer sits outside main so it is the page's contentinfo landmark.
+       TODO: link the Privacy Policy (/privacy-policy/) and Refunds pages here
+       once those pages exist; they are being drafted separately, and a link
+       before then would be a dead end. #}
+    <footer class="colophon site-foot">
+      <p>
+        <a href="/">OpenShore</a> &middot;
+        <a href="/ethics/">Ethics</a> &middot;
+        <a href="/terms/">Terms of Use</a> &middot;
+        <a href="{{ site.parentUrl }}">{{ site.parentName }}</a>
+      </p>
+      <p>&copy; {{ site.year }} {{ site.legalName }}, {{ site.legalForm }}. OpenShore is a product of {{ site.legalName }}.</p>
+      {% if site.address %}<p>{{ site.address }}</p>{% endif %}
+      <p><a href="mailto:{{ site.emails.oscode }}">{{ site.emails.oscode }}</a></p>
+      <p class="colophon-legal">{{ site.trademarks }}</p>
+      <p class="colophon-legal">{{ site.tuxCredit }}</p>
+    </footer>
+
+    {% if not hideFab %}
+    {# The floating button: the download on wide screens, the iPhone beta on
+       narrow ones. Each one's accessible name is its visible label (no
+       aria-label), so a voice user can say what they see. #}
+    <a class="consult-fab consult-fab--wide" href="/#get-app">
+      <svg class="consult-fab-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 4v11" />
+        <path d="m7 10 5 5 5-5" />
+        <path d="M5 19h14" />
+      </svg>
+      <span class="consult-fab-label">{{ oscode.fabWide }}</span>
+    </a>
+    <a class="consult-fab consult-fab--narrow" href="mailto:{{ site.emails.oscode }}?subject={{ oscode.betaSubject | urlencode }}">
+      <svg class="consult-fab-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </svg>
+      <span class="consult-fab-label">{{ oscode.fabNarrow }}</span>
+    </a>
+    {% endif %}
   </body>
 </html>

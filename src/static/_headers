@@ -10,3 +10,12 @@
 # correction propagates immediately.
 /os-code/catalog.json
   Cache-Control: public, max-age=300, must-revalidate
+
+# Site-wide security headers (site audit, 2026-09-24). frame-ancestors and HSTS
+# only work as real headers, not in the page's CSP meta tag.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: frame-ancestors 'none'

@@ -1,45 +1,47 @@
-// Copy for the four new tab pages (LLM Choice, Privacy, Sustainability,
-// Self-Hosting). Written by the CMO, then run through an editor and revision
-// pass against the house voice (no em dashes, no hype, honest, digestible).
-// One source of truth: each page template reads its object by id. Visual markup
-// lives in _includes/mockups.njk keyed by the visual ids referenced here.
+// Copy for the tab pages (Models, Privacy, Sustainability, Self-Hosting).
+// Written by the CMO, run through an editor and revision pass against the
+// house voice (no em dashes, no hype, honest, digestible), then updated to the
+// advisory org's copy review of 2026-09-24 (heroes from Creative Studio). One
+// source of truth: each page template reads its object by id. Visual markup
+// lives in _includes/viz.njk.
 //
 // No em dashes anywhere a customer reads (enforced by scripts/check-copy.mjs).
 export default {
-  "llm-choice": {
+  models: {
     hero: {
-      eyebrow: "Your models",
-      headline: "You pick the models. Every one.",
+      eyebrow: "Models",
+      headline: "Three to start. Room for yours.",
       subhead:
-        "Download a local model, connect one you host, or run cloud on your own key. Nothing is locked in.",
+        "Harbor Lite shows you around your phone. Harbor writes and explains code in chat, even with no signal. DeepBlue edits your repositories from your computer. Add a model you host, or a cloud model on your own key.",
     },
     sections: [
       {
-        heading: "A catalog, not a middleman",
-        body: "The Marketplace tells you in plain language what each model is good at. Browse by family, size, and license. When you download, weights come straight from the source. OpenShore never rehosts weights or proxies your inference.",
+        heading: "Three models, picked for the job",
+        body: "One to show you around, two to write code.",
         bullets: [
-          { label: "Plain fit", text: "Curated for coding, writing, analysis, and vision, not spec-sheet noise." },
-          { label: "Your machine's limit", text: "A capacity chip shows what this device can run before you commit." },
-          { label: "Licenses shown", text: "License and details are on the card, so you know what you are taking on." },
+          { label: "Harbor Lite", text: "Built into the phone app. Works with no signal. A guide that shows you around and hands you off; it doesn't write code." },
+          { label: "Harbor", text: "A small coder on your iPhone for short edits, with web search. Longer work happens on your computer." },
+          { label: "DeepBlue", text: "The coding agent on your desktop. Qwen 2.5 Coder, sized to your computer, set up in one tap. It edits your repositories, and your phone reaches it when docked." },
         ],
+        note: "A full model Marketplace is coming. It stays grayed out in the app until it's ready.",
       },
       {
-        heading: "Four ways to get a model",
-        body: "Mix and match. They all land on your Bench and place into your Stack the same way.",
+        heading: "Three ways to add a model",
+        body: "Mix and match. They all land on your Bench, your installed models, and place into your Stack the same way.",
         bullets: [
-          { label: "On device", text: "Harbor Light is built in and works offline. Larger pocket models download on demand." },
+          { label: "The three models", text: "Harbor Lite is built into the phone app. Harbor and DeepBlue download from their source, from inside the app." },
           { label: "Bring your own", text: "Connect any OpenAI-compatible endpoint you run: a self-hosted vLLM, Ollama, or a fine-tune behind your gateway." },
-          { label: "Cloud on your key", text: "Claude, OpenAI, Gemini, and Kimi on your own account. Spend always asks first." },
-          { label: "Open weights", text: "What runs on your own hardware is yours to control, and no app can take that back." },
+          { label: "Cloud on your key", text: "Claude, OpenAI, Gemini, and Kimi on your own account, plus Perplexity Sonar for research. Spend asks first." },
         ],
       },
       {
         heading: "How the Stack works",
-        body: "One Reasoning LLM is the anchor. It plans the work and hands each step to the specialist you placed for that job: coding, writing, analysis, image reading, or a fast model for quick turns. You decide who sits in each seat, and you can change it any time.",
+        body: "One model is the anchor: the model that plans (the Reasoning LLM in the app). It plans the work and hands each step to the specialist you placed for that job: coding, writing, analysis, image reading, or a fast model for quick turns. You decide who sits in each seat, and you can change it any time.",
         bullets: [
-          { label: "One planner", text: "The Reasoning LLM routes; you never juggle models by hand." },
+          { label: "One planner", text: "The model that plans routes each step; you never juggle models by hand." },
           { label: "You place the specialists", text: "Assign a model to a category, set when it is called, tune its effort." },
           { label: "No lock-in", text: "Swap any seat, keep the rest. Local and cloud sit side by side." },
+          { label: "Open weights", text: "What runs on your own hardware is yours to control, and no app can take that back." },
         ],
       },
     ],
@@ -49,18 +51,34 @@ export default {
   privacy: {
     hero: {
       eyebrow: "Privacy",
-      headline: "Answers only to you.",
+      headline: "Your code never leaves home unless you send it.",
+      // Creative Studio's subhead, with the web search sentence kept, so
+      // search is named here and in "What leaves, and when".
       subhead:
-        "Your prompts, your code, and your keys stay on your own hardware. Nothing leaves unless you tap to send it.",
+        "Home is your own devices and the private network between them. By default your code, prompts, and chats stay there. Code goes out only when you choose a cloud model, on your own key, one call at a time. When the agent searches the web, it asks first, then the search words go to the search service. No telemetry. If you're signed in and the safety screen blocks a request, a short record goes to your account, never your prompt.",
     },
     sections: [
       {
         heading: "Local-first, by construction",
-        body: "The work happens on your machine, on your models. Your prompts and code never reach an OpenShore server, because none sits in the path of your work.",
+        body: "The work happens on your machine, on your models. No OpenShore server sits in the path of your prompts and code.",
         bullets: [
           { label: "On your hardware", text: "Sessions run on your own computer's engine, not a rented cloud." },
-          { label: "Encrypted at rest", text: "Everything on the device is encrypted, and secrets live in the device secret store." },
-          { label: "No phone-home", text: "No telemetry, no analytics, no background pings. Ever." },
+          { label: "Sealed on your device", text: "Keys and chats are sealed on your device. On Linux that needs a system keyring; the app tells you if yours doesn't have one. Your files stay in folders you control." },
+          { label: "No telemetry", text: "No telemetry and no analytics. The activity log is off unless you turn it on, stays on your device, and is never sent." },
+        ],
+      },
+      {
+        heading: "What leaves, and when",
+        body: "These are the things that can leave home, and where each one goes.",
+        bullets: [
+          { label: "A cloud call you choose", text: "Sent to that provider, on your key, one call at a time." },
+          { label: "Web search", text: "When the agent searches the web, it asks first, then the search words go to the search service. A self-hosted SearXNG keeps searches on your own network." },
+          { label: "Model downloads", text: "Models come in from their source. OpenShore never hosts weights." },
+          { label: "Signing in", text: "Signing in to your account talks to OpenShore's sign-in service. Chatting with local models needs no account." },
+          { label: "The guardrail record", text: "When you're signed in, a block sends a short record to your account: the category and tier, the time, a one-way fingerprint of the text, whether it ran locally or in the cloud, what the screen did, whether it was your request or the model's reply, and the names of the rules that matched. Never the text, and never a person's name. Blocks are kept for 180 days. Consent you give to depict a real person stays on your device." },
+          { label: "IP addresses", text: "The guardrail record never contains an IP address, and OpenShore never uses one for enforcement. Our hosting and sign-in providers see IP addresses as any server does." },
+          { label: "Vault", text: "On team plans, org Vault content is stored on OpenShore's backend. A personal Vault on iCloud Drive or Google Drive goes to that provider." },
+          { label: "Voice", text: "Voice on iPhone is recognized on the device. On the desktop, voice asks before any audio goes to a speech service." },
         ],
       },
       {
@@ -76,11 +94,11 @@ export default {
         body: "Prompts are checked locally before they run. Nothing is sent anywhere to screen them.",
         bullets: [
           { label: "Never sent", text: "Your prompt is never stored or transmitted to be checked." },
-          { label: "A block records only three things", text: "Only a category, a time, and a one-way hash. The text stays with you." },
+          { label: "What a block records", text: "Signed out, a block is noted on your device and goes nowhere. Signed in, the guardrail record above goes to your account. Never the text." },
         ],
       },
     ],
-    cta: { label: "Read the ethical standards", href: "/ethics/", note: "The floor is on for everyone and cannot be turned down." },
+    cta: { label: "Read the Ethics page", href: "/ethics/", note: "The floor is on for everyone and cannot be turned down." },
   },
 
   sustainability: {
@@ -88,7 +106,7 @@ export default {
       eyebrow: "Sustainability",
       headline: "The token you don't send.",
       subhead:
-        "Work that stays on hardware you already own does not spin up a data center on your behalf.",
+        "Work that stays home, on hardware you already own, spins up no data center on your behalf.",
     },
     sections: [
       {
@@ -97,14 +115,14 @@ export default {
       },
       {
         heading: "Reuse before rent",
-        body: "OpenShore runs on a computer you already have. A laptop or an always-on home machine, awake while you work. There is no appliance to buy and no fleet to keep warm. You harness the hardware you own instead of renting someone else's.",
+        body: "OpenShore runs on a computer you already have. A laptop, or a home machine you leave running, awake while you work. There is no appliance to buy and no fleet to keep warm. You harness the hardware you own instead of renting someone else's.",
         bullets: [
           { label: "Your machine", text: "Local inference uses the runtime you installed, on power you already pay for." },
           { label: "Cloud on purpose", text: "A frontier model is one deliberate tap on your own key, not the default for every token." },
         ],
       },
       {
-        heading: "Measured, not hand-waved",
+        heading: "Estimated on your device, and labeled that way",
         body: "Stack Health estimates your footprint on-device and refreshes it once a day: energy, water, and carbon avoided versus a data center, each marked as an estimate. Nothing leaves the machine to compute it.",
       },
       {
@@ -118,9 +136,9 @@ export default {
   "self-hosting": {
     hero: {
       eyebrow: "Self-Hosting",
-      headline: "Your home server, without the DevOps.",
+      headline: "Your code stays home. You don't have to.",
       subhead:
-        "Run OpenShore on a computer you own, and reach it from your phone over your own private network.",
+        "Your computer runs the engine and the models. Your phone reaches it over Tailscale, a private network between your own devices, with nothing exposed to the internet.",
     },
     sections: [
       {
@@ -129,19 +147,21 @@ export default {
         bullets: [
           { label: "Desktop engine", text: "Runs your sessions and journals every step, so a dropped connection loses nothing and just reattaches." },
           { label: "Private network", text: "Tailscale links your phone and computer directly. No port forwarding, nothing exposed to the internet." },
-          { label: "Local runtime", text: "Harbor Light is built in and runs offline. For more, point OpenShore at any OpenAI-compatible runtime you run, Ollama for example. It orchestrates, it never hosts weights." },
+          { label: "Local runtime", text: "DeepBlue runs through Ollama on your computer. OpenShore installs and runs models from their source; it never hosts weights." },
+          { label: "Docked, Offshore, Offline", text: "Docked, your phone uses your computer's models. Offshore, when your computer is out of reach, it uses cloud on your key and its own model. Offline, only the model on the phone." },
         ],
       },
       {
-        heading: "Set it up",
-        body: "There is no one-click installer yet, and no DevOps degree either. It is a handful of steps, each a copy-paste command.",
+        heading: "Your home server, without the DevOps.",
+        body: "Install the app, then a few steps, mostly taps. Ollama and Tailscale are separate installs.",
         steps: [
-          { name: "Pick a runtime", body: "Harbor Light already runs offline. For more, install any OpenAI-compatible runtime, Ollama for example, and pull a model." },
-          { name: "Join a network", body: "Install Tailscale on both devices, sign into the same account, turn it on." },
-          { name: "Keep it awake", body: "A sleeping machine kills in-flight runs. Run osc doctor and it prints the one-line fix." },
-          { name: "Start the engine", body: "Run osc serve --bind tailscale, or just open the desktop app, which runs the same daemon." },
-          { name: "Pair the phone", body: "Scan the QR under Desktop and phone. It fills in the address and token for you." },
+          { name: "Install the desktop app", body: "It starts the engine when it opens and keeps running in the tray. No terminal needed." },
+          { name: "Set up DeepBlue", body: "One tap sizes the model to your computer. If Ollama isn't installed, the app helps you get it." },
+          { name: "Join a private network, if you'll use your phone", body: "Install Tailscale on your computer and phone and sign in to the same account." },
+          { name: "Keep it awake", body: "A sleeping computer stops work in progress. Run osc doctor and it prints the one-line fix." },
+          { name: "Pair each phone", body: "The desktop app shows a one-time QR code for each phone. Scan it and you're connected." },
         ],
+        terminal: { lead: "Prefer a terminal?", command: "osc serve --bind tailscale", tail: "runs the same engine." },
       },
       {
         heading: "Models on your terms",
@@ -162,8 +182,11 @@ export default {
         ],
       },
     ],
+    // The desktop app is a live download now, so the page ends on it rather
+    // than the old early-access email.
     cta: {
-      label: "Get early access",
+      label: "Download free",
+      href: "/#get-app",
       note: "In private beta, free to chat and free to build for now. OpenShore runs on your machine, so when it sleeps or powers off, in-flight runs stop. No OpenShore cloud runner takes over yet.",
     },
   },

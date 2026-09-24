@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /privacy/
 pageTitle: "Privacy · OpenShore"
-pageDescription: "OpenShore keeps your prompts, code, and keys on your own hardware. No telemetry, no analytics, no phone-home, encrypted at rest."
+pageDescription: "Your code never leaves home unless you send it. What stays on your own devices, the few things that can leave, and where each one goes."
 ---
 {% import "viz.njk" as viz %}
 {% set p = tabpages["privacy"] %}
@@ -15,13 +15,12 @@ pageDescription: "OpenShore keeps your prompts, code, and keys on your own hardw
 
 <section class="block">{{ viz.staysOnDevice() }}</section>
 
-{{ viz.sec(p.sections[0]) }}
-{{ viz.sec(p.sections[1]) }}
-{{ viz.sec(p.sections[2]) }}
+{% for s in p.sections %}
+{{ viz.sec(s) }}
+{% endfor %}
 
 <section class="block">
   <a class="block-cta" href="{{ p.cta.href }}">{{ p.cta.label }} <span aria-hidden="true">&rarr;</span></a>
   {% if p.cta.note %}<p class="offer-fine">{{ p.cta.note }}</p>{% endif %}
 </section>
 
-{% include "pagefoot.njk" %}

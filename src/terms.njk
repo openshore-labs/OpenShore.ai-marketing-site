@@ -2,6 +2,7 @@
 layout: base.njk
 permalink: /terms/
 pageTitle: "OpenShore Terms of Use"
+hideFab: true
 pageDescription: "The rules for using OpenShore: prohibited uses, what happens when they are broken, what we record when something is blocked, and the limits we will not pretend away."
 ---
 
@@ -103,8 +104,9 @@ pageDescription: "The rules for using OpenShore: prohibited uses, what happens w
     matter is reported to the appropriate authority. In the United States, child
     sexual abuse material is reported to the National Center for Missing and
     Exploited Children. Account termination and, where required, a report are
-    the entire enforcement scope. We do not collect, log, or act on an IP
-    address for any reason.
+    the entire enforcement scope. The guardrail record never contains an IP
+    address, and OpenShore never uses one for enforcement. Our hosting and
+    sign-in providers see IP addresses as any server does.
   </p>
   <p class="prose">
     We take this seriously and we want to be direct about why. Deepfakes,
@@ -186,7 +188,6 @@ pageDescription: "The rules for using OpenShore: prohibited uses, what happens w
   </div>
 </section>
 
-<footer class="colophon">
-  <p><a href="/">&larr; OpenShore</a> &middot; <a href="/ethics/">Ethical boundaries</a></p>
-  <p>&copy; {{ site.year }} {{ site.legalName }}. OpenShore is a product of {{ site.legalName }}.</p>
-</footer>
+{# TODO: link the Privacy Policy and Refunds pages from the footer (base.njk)
+   once they exist. They are being drafted separately; no dead link until
+   then. #}

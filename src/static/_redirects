@@ -11,3 +11,8 @@
 # a live payments function; Cloudflare Pages forwards the query string, so
 # ?checkout=success still reaches the page.
 /os-code/  /  301
+
+# "LLM Choice" became Models (advisory org, 2026-09-24). Keep old links and
+# search results working.
+/llm-choice/  /models/  301
+/llm-choice   /models/  301

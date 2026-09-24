@@ -1,60 +1,72 @@
 // OpenShore product page content. One source of truth for openshore.ai.
-// Carried over verbatim from Open-Shore-LLC-Homepage's /os-code/ subpage
+// Carried over from Open-Shore-LLC-Homepage's /os-code/ subpage
 // (src/_data/oscode.js), which is now retired now that OpenShore has its own
 // standalone site. The `oscode` naming (and the matching DOM ids/classes in
 // openshore-app.js / openshore.css) is internal plumbing only, kept as-is to
 // avoid a needless rename of working code.
 //
-// Pricing model: Free is chat only, no account. Personal is $20 a year and
-// unlocks the coding agent plus the Marketplace for one person, buyable HERE on
-// the web via Stripe, or on iPhone through Apple IAP. Commercial tiers are teams,
-// billed per year and bought HERE on the web (Apple takes no cut). The Free card
-// carries an early-access mailto so nothing dead-ends before a public download.
+// Copy follows the advisory org's rulings and the CMO + CX copy review of
+// 2026-09-24 (openshore.code.ai os-code/DECISIONS.md). Every claim here was
+// checked against the app. Test copy stays conditional ("give it your test
+// command") until test-command detection is measured.
+//
+// Pricing model: Free is chat only, no account. Personal is $20 a year after
+// beta, bought only in the app through the App Store. Team plans are billed per
+// year; team billing is dormant during beta, so the team buttons are email
+// links for now. The web checkout code in openshore-app.js stays but no button
+// reaches it.
 //
 // No em dashes anywhere a customer reads (Open Shore standing instruction).
 export default {
   headline: "Your machine. Your models. Your keys.",
-  coda: "A coding companion you own, not one you rent.",
-  // The one Fraunces line carries the thesis. This phrase inside the coda gets
-  // the teal accent so ownership lands as a promise, not a whisper.
-  codaAccent: "you own",
+  coda: "Models you run at home, within reach of your phone. Never stop building.",
+  // The one Fraunces line carries the byline. This phrase inside the coda gets
+  // the teal accent. "Never stop" is about the person; nothing near it says
+  // agents run nonstop.
+  codaAccent: "Never stop building.",
+  // The supporting line under the horizon defines "home" once, so every later
+  // privacy line on the site can stay short and true.
+  heroNote:
+    "Your code never leaves home unless you send it. Home is your own devices and the private network between them.",
+  heroPrimary: { label: "Download free", href: "#get-app" },
+  heroSecondary: { label: "On iPhone? Join the beta" },
+
+  // The iPhone and iPad app is a private TestFlight beta; every "join the beta"
+  // ask is an email with this subject.
+  betaSubject: "OpenShore iPhone beta (TestFlight)",
 
   // Live checkout config for the web purchase flow (openshore-app.js). These are
   // the PUBLIC Supabase URL + publishable key, safe to ship in client code; the
   // secret keys live only in the edge-function secrets (openshore.code.ai
-  // repo's supabase/functions). Commercial seats are bought here and the
-  // Stripe webhook writes the entitlement the app reads. Same project the
-  // OpenShore app itself talks to (openshore.code.ai/app: VITE_SUPABASE_URL).
+  // repo's supabase/functions). Same project the OpenShore app itself talks to
+  // (openshore.code.ai/app: VITE_SUPABASE_URL).
   checkout: {
     supabaseUrl: "https://lzlrlfdffwiypzreoldb.supabase.co",
     publishableKey: "sb_publishable_0mv-WAsZuZaBbhpzKZ0M1A_lrjBDbPb",
   },
 
   lede:
-    "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Chat and build on your desktop, on Linux, macOS, and Windows, and on your iPhone and iPad, kept in sync over your own private network. Cloud stays one deliberate tap away, always on your own account.",
+    "OpenShore is a coding agent that runs on your own computer. The desktop app for Linux, macOS, and Windows sets up DeepBlue, a coding model sized to your machine, which reads your repositories and edits them with changes you approve. The iPhone and iPad app, in private beta, reaches it over your own private network. Cloud models are there when you want one, on your own key.",
   summary:
-    "It is built the way software should be: local first, private by construction, and yours. One model in your stack plans the work and hands each part to the specialist best suited to it. Your keys never leave your devices. Everything you make is encrypted at rest and answers only to you.",
+    "Most coding agents are rented. You pay by the month or by the token, and your code travels to someone else's servers. OpenShore keeps the agent on a computer you own, and your keys go only to the provider they belong to.",
 
-  // "Get OpenShore" tile grid, the marketing mirror of uki.audio's own get-app
+  // Download tile grid, the marketing mirror of uki.audio's own get-app
   // section (same shape, same honesty rule from that page's own comment: a
   // tile only goes live once its URL is real, otherwise it reads as hype).
   // Linux, Windows, and macOS are all genuinely live as of v0.1.2
   // (2026-09-17): release.yml publishes Linux and Windows to one real GitHub
   // Release on every push of a v* tag; the mac-desktop Codemagic workflow
   // publishes the unsigned dmg/zip to that same release on demand. All three
-  // verified end to end against the actual release assets, not just a green
-  // build (see docs/MAC-DESKTOP.md for why that distinction mattered here).
-  // All three link to the releases page rather than a specific asset on
-  // purpose: electron-builder's installer filenames embed the version
-  // (OpenShore.Setup.0.1.2.exe), so a hardcoded direct link goes stale the
-  // next release; the page always has the current one. iOS needs the App
-  // Store; Android needs a PWA manifest and service worker that do not exist
-  // yet. To take a platform live: set its href, flip status to "live". That
-  // is the whole change; see .get-tile-live in openshore.css.
-  getAppsLabel: "Get OpenShore",
-  getAppsTitle: "One stack, every machine you own.",
+  // link to the releases page rather than a specific asset on purpose:
+  // electron-builder's installer filenames embed the version, so a hardcoded
+  // direct link goes stale the next release. iPhone and iPad are a private
+  // TestFlight beta, so that tile asks for an invite by email. Android is not
+  // built, so it has no tile. A tile with status "soon" renders as a quiet,
+  // non-interactive card with a "Coming soon" chip.
+  getAppsLabel: "Download",
+  getAppsTitle: "Start on the computer you already own.",
   getAppsLede:
-    "Linux, macOS, and Windows are direct downloads today. iPhone, iPad, and Android are next.",
+    "Linux, macOS, and Windows are direct downloads today. On the release page, pick the file for your system: .dmg for Mac, .exe for Windows, AppImage or .deb for Linux. The Mac app isn't signed by Apple yet, so the first time you open it, right-click it and choose Open. iPhone and iPad are in private beta on TestFlight; write to us for an invite. Android isn't built yet.",
   getApps: [
     {
       id: "linux",
@@ -62,6 +74,7 @@ export default {
       sub: "Direct download · AppImage or .deb",
       href: "https://github.com/openshore-labs/openshore.code.ai/releases/latest",
       status: "live",
+      newTabNote: "(opens GitHub in a new tab)",
     },
     {
       id: "mac",
@@ -69,6 +82,7 @@ export default {
       sub: "Direct download · unsigned .dmg",
       href: "https://github.com/openshore-labs/openshore.code.ai/releases/latest",
       status: "live",
+      newTabNote: "(opens GitHub in a new tab)",
     },
     {
       id: "windows",
@@ -76,38 +90,61 @@ export default {
       sub: "Direct download · .exe installer",
       href: "https://github.com/openshore-labs/openshore.code.ai/releases/latest",
       status: "live",
+      newTabNote: "(opens GitHub in a new tab)",
     },
-    { id: "ios", label: "iPhone & iPad", sub: "App Store", status: "soon" },
-    { id: "android", label: "Android", sub: "Install from your browser", status: "soon" },
+    {
+      id: "ios",
+      label: "iPhone & iPad",
+      sub: "Private beta on TestFlight",
+      // An email link, not a download: index.njk builds the beta mailto.
+      status: "invite",
+      chip: "Ask for an invite",
+    },
+  ],
+
+  // The three curated models (founder, 2026-09-21). The Marketplace is grayed
+  // to "Coming soon" in the app, so the site never sells it as live.
+  modelsLabel: "Three models",
+  modelsTitle: "One to show you around, two to write code.",
+  models: [
+    {
+      name: "Harbor Lite",
+      body: "Built into the phone app. Works with no signal. A guide that shows you around and hands you off; it doesn't write code.",
+    },
+    {
+      name: "Harbor",
+      body: "A small coder on your iPhone for short edits, with web search. Longer work happens on your computer.",
+    },
+    {
+      name: "DeepBlue",
+      body: "The coding agent on your desktop. Qwen 2.5 Coder, sized to your computer, set up in one tap. It edits your repositories, and your phone reaches it when docked.",
+    },
   ],
 
   // The mission used to live here as its own "Why OpenShore exists" section
-  // on the Platform tab (headline + four promises). It repeated the same
-  // ground "What makes it different" below already covers, plus what LLM
-  // Choice, Privacy, and Sustainability each cover in depth on their own
-  // tabs, so it was cut rather than trimmed (2026-09-17, platform tab
-  // simplification). The founder's underlying mission is still true; it just
-  // no longer needs its own block here.
+  // on the Platform tab. It repeated ground the pillars and the topic tabs
+  // cover, so it was cut rather than trimmed (2026-09-17).
 
-  pillarsLabel: "What makes it different",
+  pillarsLabel: "What's different",
   pillars: [
     {
-      name: "Local first",
-      promise: "Your models run on your hardware, not someone else's cloud.",
+      name: "Runs at home",
+      promise: "Your models run on your hardware.",
       covers:
-        "A pocket model on your phone, your big models on your desktop, reached over your own Tailscale network. On a plane with no signal, it still works.",
+        "DeepBlue on your desktop, Harbor on your phone, linked over your own Tailscale network. With no signal at all, the phone's own model still answers.",
     },
     {
-      name: "Your stack draws a play",
-      promise: "One Reasoning LLM plans the work and routes every step.",
+      name: "Checks its own work",
+      promise:
+        "It starts from a map of your project, and with your test command it checks the work before it says done.",
       covers:
-        "Set the model that plans and reasons, place specialists by category, and it hands each step to the right model, briefs you as it goes, and re-plans when a result changes the picture.",
+        "When a test fails, it reads the failure and tries again. The model stays the same; the work around it changes.",
     },
     {
-      name: "The Marketplace",
-      promise: "A catalog, not a weight host. Models download straight from the source.",
+      name: "Your Stack, your call",
+      promise: "One model plans. You pick the rest.",
       covers:
-        "Browse by family and size, with honest ratings and license flags shown plainly. OpenShore never rehosts weights or proxies your inference.",
+        "Choose the model that plans the work and place others by job: coding, writing, analysis, image reading. Swap any of them any time.",
     },
     {
       name: "Repositories and Vault",
@@ -116,65 +153,82 @@ export default {
         "Connect a repo where it lives, on your disk, iCloud Drive, or Google Drive. The Vault is a markdown knowledge base that Obsidian opens as is.",
     },
     {
-      name: "Crew and routines",
-      promise: "Named agents that work on a schedule, on your own computer.",
+      name: "Crew routines",
+      promise: "Named agents on a schedule, on your own computer.",
       covers:
         "Give a crew member a task, a workspace, and a clock. It runs while your computer is on and leaves a dated note in your Vault, with the transcript one tap away.",
     },
     {
-      name: "Private by construction",
-      promise: "Sealed on your device, answering only to you.",
+      name: "Private, nothing hidden",
+      promise: "Sealed on your device. The one record that can leave is written down.",
       covers:
-        "Everything is encrypted at rest. Cloud providers see only the calls you choose to make, on your own keys. No telemetry, no analytics, no phone-home, ever.",
+        "Keys and chats are sealed on your device. On Linux that needs a system keyring; the app tells you if yours doesn't have one. Cloud providers see only the calls you choose to make, on your own keys. No telemetry. When you're signed in, a block sends a short record without your text to your account, and the Privacy page lists what it holds.",
     },
   ],
 
   howLabel: "How it works",
+  howTitle: "Set it up once at your desk. Then keep going from your phone.",
   how: [
     {
-      name: "Bring your models",
-      body:
-        "Download a pocket model to your phone, or point OpenShore at the models already on your desktop. Add a cloud model on your own key when you want one.",
+      name: "Install the desktop app",
+      body: "It starts the engine when it opens and keeps running in the tray.",
     },
     {
-      name: "Build your stack",
-      body:
-        "Pick the Reasoning LLM that runs the show and place specialists by category: coding, writing, analysis, image reading, and fast.",
+      name: "Get DeepBlue",
+      body: "One tap sets up Qwen 2.5 Coder through Ollama, sized to your computer. If Ollama isn't installed, the app helps you get it.",
     },
     {
-      name: "Ask, and it draws a play",
-      body:
-        "Your prompt is framed, turned into an ordered set of handoffs, and briefed back to you before it runs. Each step goes to the model that owns it, and the answer streams in.",
+      name: "Pair your phone",
+      body: "Each phone scans its own one-time QR code. Docked, it uses your computer's models. Offshore, when your computer is out of reach, it uses cloud on your key and its own model. Offline, only the model on the phone.",
+    },
+    {
+      name: "Ask",
+      body: "DeepBlue works from a map of your project and proposes changes you approve. Give it your test command and it runs the tests and tries again when they fail.",
     },
     {
       name: "Ship it",
-      body:
-        "Edit your repo with real diffs and approvals you control, then build and launch to the app stores without leaving the app.",
+      body: "Launch a build to TestFlight, the App Store, or Google Play from inside the app.",
+    },
+  ],
+
+  beforeLabel: "Before you start",
+  beforeTitle: "Two things worth knowing first.",
+  before: [
+    {
+      label: "A small model does small jobs.",
+      body: "On a modest computer, DeepBlue handles focused, well-scoped changes. For big changes, use a larger size on a stronger computer, or a cloud model on your own key.",
+    },
+    {
+      label: "Your computer has to be awake.",
+      body: "When it sleeps, work in progress stops, and scheduled tasks wait until it wakes.",
     },
   ],
 
   // Everything inside: the full feature set at a glance, one line each. Rendered
-  // as the quiet label-plus-line list so it scans, and stays honest about state
-  // (Android rides the same Capacitor foundation; it is not a store build yet).
+  // as the quiet label-plus-line list so it scans, and stays honest about state.
   piecesLabel: "Everything inside",
   piecesIntro:
-    "The whole product, one line each. Every piece runs on your models by default and asks before it spends.",
+    "The whole product, one line each. Every piece runs on your models by default and asks before anything costs you money.",
   pieces: [
     {
       label: "A real coding agent.",
-      body: "Reads your repo, edits with diffs you approve, runs commands with your say so, and searches the web with citations.",
+      body: "Reads your repo, edits with changes you approve, runs commands with your say so, and searches the web with citations. Give it your test command and it checks its work before it says done.",
     },
     {
+      // Speech is recognized on the device on iPhone; on the desktop, voice
+      // asks before any audio goes to a speech service (advisory org,
+      // 2026-09-24). So this line makes no on-device claim; the Privacy page
+      // says the rest.
       label: "Voice mode.",
-      body: "A spoken conversation over the chat, native and offline, in a voice you pick.",
+      body: "In testing. Talk to it instead of typing.",
     },
     {
       label: "Video and image attachments.",
       body: "Attach a screen recording or a photo. A clip is read frame by frame by an image reading model.",
     },
     {
-      label: "On-device models.",
-      body: "Harbor Light is built in and works offline. Harbor and bigger pocket models download when you want more.",
+      label: "Three models to start.",
+      body: "Harbor Lite is built into the phone app and shows you around, offline. Harbor writes and explains code in chat on your phone. DeepBlue edits your repositories from your desktop.",
     },
     {
       label: "Bring your own model.",
@@ -182,7 +236,7 @@ export default {
     },
     {
       label: "Cloud on your key.",
-      body: "Claude, OpenAI, Gemini, and Kimi, connected on your own account. Spend always asks first.",
+      body: "Claude, OpenAI, Gemini, and Kimi on your own account, plus Perplexity Sonar for research. Spend asks first.",
     },
     {
       label: "Projects and memory.",
@@ -193,8 +247,8 @@ export default {
       body: "See what your stack is doing, what it saved you, and its estimated footprint, refreshed daily.",
     },
     {
-      label: "Premium by default.",
-      body: "Everything the agent builds is held to a real UX bar, and everything it writes reads like a careful human wrote it.",
+      label: "Built to a bar.",
+      body: "What the agent builds follows a written UX standard, and what it writes avoids the usual AI tells. You can turn either off.",
     },
     {
       label: "Launch.",
@@ -202,28 +256,33 @@ export default {
     },
     {
       label: "Runs everywhere.",
-      body: "Desktop for Linux, macOS, and Windows. iPhone and iPad, with Android built on the same foundation.",
+      body: "Desktop for Linux, macOS, and Windows today. iPhone and iPad are in private beta on TestFlight. Android isn't built yet.",
     },
   ],
 
   // BETA (2026-09-02, founder): every pay gate in the app is off, so the agent
-  // and the Marketplace are free for everyone right now. Personal returns as a
-  // $20 a year App Store subscription (Apple IAP only, no web purchase) when
-  // the beta ends. Copy below is the CMO's; the beta note is the single place
-  // that explains it so no card has to. Revert pricingLabel/pricingIntro, the
-  // Personal card, and the two notes together when the gate comes back.
+  // is free for everyone right now. Personal returns as a $20 a year App Store
+  // subscription when the beta ends. Team billing is dormant, so team buttons
+  // are email links until it opens. Revert pricingIntro, the Personal card,
+  // the team buttons, and the notes together when billing comes back.
   pricingLabel: "Free to chat. Free to build, for now.",
   pricingIntro:
-    "OpenShore runs on your machine, on your models, on your keys. We never see your code. Right now the agent and the Marketplace are free too. Grab it while beta's open.",
+    "OpenShore runs on your machine, on your models, on your keys, and we never see your code. During beta the coding agent is free too.",
   betaNote:
-    "Beta note: the coding agent and Marketplace are free for everyone in the app. Personal returns to $20 a year, in app, on the App Store, once beta ends.",
+    "Beta note: the coding agent is free for everyone. After beta, Personal is $20 a year, bought in the app through the App Store.",
   teamNote:
-    "Team seats buy shared admin and one company stack, not access. Every person already has the agent free during beta.",
+    "Team plans buy shared admin and one company stack, not access. Everyone gets the agent free during beta. Team billing opens after beta, so write to us and we'll set your company up.",
+  // Fine print under each team price.
+  teamFine: [
+    "Billed yearly once team billing opens. Renews automatically each year until you cancel.",
+    "Full refund within 14 days of each annual charge. After that, cancel anytime and keep access to the end of the year.",
+  ],
+  // Team buttons open an email whose subject names the plan.
+  teamSubjectPrefix: "Team plans · ",
 
   // Mirrors app/src/lib/plans.js. Free is chat only; Personal is one person at
-  // $20 a year (buyable on the web via Stripe, or on iPhone via Apple IAP);
-  // commercial bands are teams billed per year, each covering up to its top
-  // number.
+  // $20 a year after beta; commercial bands are teams billed per year, each
+  // covering up to its top number.
   plans: [
     {
       id: "free",
@@ -232,14 +291,12 @@ export default {
       price: "$0",
       promise: "Full chat with the local models you already run.",
       includes: [
-        "Chat with any local model, Harbor or Ollama",
+        "Chat with Harbor Lite, Harbor, or any model you run in Ollama",
         "Runs entirely on your hardware",
         "No account required, no telemetry",
-        "Yours to keep, free forever",
       ],
-      cta: "Get OpenShore",
-      // Free tier: no checkout, an early-access mailto until a public download
-      // exists.
+      cta: "Download free",
+      ctaHref: "#get-app",
       checkoutUrl: null,
     },
     {
@@ -247,23 +304,24 @@ export default {
       segment: "For one person",
       name: "Personal",
       // Beta: nothing charges anyone today, so the price says what is true
-      // today; the future $20 lives in finePrint. Restore "$20 / year" and
-      // "Most popular" when the gate returns.
+      // today; the future $20 lives in finePrint. Restore "$20 / year" when the
+      // gate returns.
       price: "Free",
       promise: "The whole app for one person. Chat becomes a coding agent.",
       includes: [
         "Everything in Free",
         "The coding agent: reads your repo, writes edits, runs tools",
         "Real diffs and tool approvals you control",
-        "The full model Marketplace, rated to your hardware",
+        "DeepBlue, the desktop coding agent, sized to your computer",
       ],
-      cta: "Get early access",
+      cta: "Download free",
+      ctaHref: "#get-app",
       flagship: true,
       flagLabel: "Full access",
       // Personal is an Apple subscription only (founder, 2026-08-31): there is
-      // no web purchase, so no Stripe button renders. The CTA routes to the
-      // same early-access mailto as Free. openshore-app.js still carries the
-      // old personal checkout branch; with no button it is unreachable.
+      // no web purchase, so no Stripe button renders. openshore-app.js still
+      // carries the old personal checkout branch; with no button it is
+      // unreachable.
       buyable: false,
       finePrint:
         "Free for everyone during the beta. After beta, Personal is $20 a year, bought only in the app through the App Store.",
@@ -280,7 +338,7 @@ export default {
         "An admin who owns the shared stack and where it all lives",
         "Each person keeps their own chats, projects, and crew",
       ],
-      cta: "Start Micro",
+      cta: "Ask about team plans",
       checkoutUrl: null, // TODO: Stripe Payment Link for Micro
     },
     {
@@ -294,7 +352,7 @@ export default {
         "Add and remove people by email, grant admin to others",
         "One shared stack the admin controls",
       ],
-      cta: "Start Small",
+      cta: "Ask about team plans",
       checkoutUrl: null, // TODO: Stripe Payment Link for Small
     },
     {
@@ -304,7 +362,7 @@ export default {
       price: "$250 / year",
       promise: "31 to 100 people.",
       includes: ["Everything in Small", "Room to grow across the whole company"],
-      cta: "Start Growth",
+      cta: "Ask about team plans",
       checkoutUrl: null, // TODO: Stripe Payment Link for Growth
     },
     {
@@ -314,16 +372,16 @@ export default {
       price: "$500 / year",
       promise: "More than 100 people.",
       includes: ["Everything in Growth", "One flat price, however large the team"],
-      cta: "Start Scale",
+      cta: "Ask about team plans",
       checkoutUrl: null, // TODO: Stripe Payment Link for Scale
     },
   ],
 
   // A quiet trust row rendered under the pricing cards.
   reassurance: [
-    { label: "Local-first.", body: "Your models run on your hardware." },
-    { label: "Private by default.", body: "No code leaves your machine, no telemetry." },
-    { label: "One year, one price.", body: "Cancel anytime, keep working through the term." },
+    { label: "Runs at home.", body: "Your models run on your hardware." },
+    { label: "Your code stays put.", body: "It leaves only in a cloud call you choose, on your key." },
+    { label: "Nothing charges you today.", body: "Paid plans start after beta, at the prices on this page." },
   ],
 
   // The ethical boundaries. This copy is the marketing-side mirror of the trust
@@ -336,17 +394,15 @@ export default {
   // not help you remove them" describe what the app does. "Aligns with" names
   // public frameworks and is a self-attestation: no third party has certified
   // or endorsed this product, and nothing here says one has. The honest limit
-  // about open weights is not a hedge bolted on the end, it is the truth that
-  // makes the rest of the claim credible.
+  // about open weights is the truth that makes the rest of the claim credible.
   trust: {
-    label: "Ethical boundaries",
-    headline: "Enforced by default. No switch, no exceptions, no lectures.",
+    label: "Ethics",
+    headline: "A floor you can raise, never lower.",
+    subhead:
+      "The same ethical floor runs on every model call, local and cloud, for everyone. No setting turns it down, and legitimate work gets no lecture.",
     // The founder's stance (2026-09-08), rendered above the mirrored statement
     // and tiers. It is the why; the statement and tiers below stay verbatim to
-    // the app's trustStatement.ts and are the what. The deepfake line is a
-    // product direction: authorized, provenance-marked likeness stays gated
-    // behind consent (the tier below), while passing a fake or real person off
-    // as real is not something OpenShore is built to do.
+    // the app's trustStatement.ts and are the what.
     stanceLabel: "AI for humans, by humans",
     stance: [
       "OpenShore ships with an ethical floor that is on for everyone and cannot be turned down. That floor is the foundation, and the door only opens one way: individuals and companies can raise the bar and set stricter boundaries for their own people, never loosen it.",
@@ -366,7 +422,10 @@ export default {
       },
       {
         name: "Gated behind consent",
-        body: "Synthesizing the face or voice of a real, identifiable person, as an image, a video, or a voice, allowed only when you state you are authorized for that specific person. Writing about a person in text is not gated. The assertion is recorded, and what comes out carries provenance metadata saying it was AI-generated.",
+        // Narrowed to what exists (advisory org, round two, 2026-09-24): only
+        // images carry provenance today, so video and voice of a real person
+        // are refused. The app's trustStatement.ts tier must change with it.
+        body: "Synthesizing an image of a real, identifiable person, allowed only when you state you are authorized for that specific person. Writing about a person in text is not gated. Images of a real person made on your computer carry a provenance record saying they are AI-generated. Video or voice of a real person is refused until it can be marked the same way.",
       },
       {
         name: "Left alone",
@@ -376,14 +435,31 @@ export default {
     honestLimit:
       "We will not tell you misuse is impossible. Open model weights on your own hardware are beyond the reach of any application, including ours. The guarantee we can make is narrower and real: this app, as shipped, does not help.",
     privacy:
-      "The screening runs on your device. Nothing is sent anywhere to check a prompt, so a local model stays local even though it is screened. A block records a category, a time, and a one-way hash. Your prompt is never stored and never sent.",
+      "The screening runs on your device. Nothing is sent anywhere to check a prompt, so a local model stays local even though it is screened. Signed out, a block is noted on your device and goes nowhere.",
+    // The guardrail record, final wording (advisory org, round two,
+    // 2026-09-24). Use it everywhere the record is described.
+    record:
+      "When you're signed in, a block sends a short record to your account: the category and tier, the time, a one-way fingerprint of the text, whether it ran locally or in the cloud, what the screen did, whether it was your request or the model's reply, and the names of the rules that matched. Never the text, and never a person's name. Blocks are kept for 180 days. Consent you give to depict a real person stays on your device.",
+    ladder:
+      "Repeated blocks move up a ladder, from a warning to closing the account, with a report where the law requires or permits it.",
+    // OpenShore's own code never reads or stores an IP address, but the hosting
+    // and sign-in providers log them as any server does, so never say "we
+    // never collect an IP address" in absolute terms.
+    ip: "The guardrail record never contains an IP address, and OpenShore never uses one for enforcement. Our hosting and sign-in providers see IP addresses as any server does.",
   },
 
+  closeLabel: "Get started",
+  closeTitle: "Start at home. Build from anywhere.",
   close:
-    "OpenShore is in private beta and getting ready for launch. Join the early access list and we will tell you the moment it is on the App Store, and set your company up with seats when you are ready.",
+    "The desktop app is out now for Linux, macOS, and Windows, free during beta. iPhone and iPad are in private beta on TestFlight. Write to us for an invite, or to set your company up with a team plan.",
 
   earlyAccessSubject: "OpenShore early access",
   earlyAccessBody:
     "I would like early access to OpenShore. Tell me when it launches.",
-  fabLabel: "Get early access",
+  earlyAccessNote: "We'll use your address only to tell you about OpenShore's launch.",
+
+  // The floating button: the download on wide screens, the iPhone beta on
+  // narrow ones (base.njk renders both; CSS shows one by width).
+  fabWide: "Download free",
+  fabNarrow: "Join the iPhone beta",
 };

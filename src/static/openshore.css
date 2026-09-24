@@ -14,11 +14,77 @@
   --line: #24424d; /* hairline on dark */
   --paper: #f6f4ef; /* warm near-white text, never pure #fff */
   --mist: #a9bac0; /* secondary text */
-  --faint: #81949c; /* meta / labels; lifted for AA on small-caps over abyss */
+  --faint: #93a5ac; /* meta / labels; lifted again (site audit, 2026-09-24) for AA over abyss and cards */
   --wave: #5bb6cb; /* bright accent: CTAs, glow, local work */
   --wave-2: #2f5a66; /* deep teal gradient partner */
   --amber: #e0902f; /* cloud / spend / flagship */
   --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---- Contrast and focus (site audit, 2026-09-24) -------------------------
+   The base sheet colors links and focus rings in --water, a deep teal made
+   for cream paper that nearly vanishes on the abyss. On this dark page links
+   and every focus ring use --wave (7.99:1 on the abyss). */
+a {
+  color: var(--wave);
+  background-image: linear-gradient(var(--wave), var(--wave));
+}
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--wave);
+  outline-offset: 2px;
+}
+a:focus-visible,
+.consult-fab:focus-visible,
+.offer-summary:focus-visible,
+.oscode-field input:focus-visible,
+.oscode-auth-btn:focus-visible {
+  outline-color: var(--wave);
+}
+/* The skip link's target takes focus programmatically; it needs no ring. */
+main:focus {
+  outline: none;
+}
+/* Keep a focused control clear of the fixed floating button when the browser
+   scrolls it into view. */
+html {
+  scroll-padding-bottom: 96px;
+}
+
+/* Skip link: the first thing a keyboard reaches, shown only on focus. */
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  z-index: 100;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--wave);
+  background-image: none;
+  color: var(--abyss);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transform: translateY(-200%);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: none;
+  color: var(--abyss);
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
+}
+
+/* Text for screen readers only. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 body {
@@ -65,6 +131,7 @@ body {
   line-height: 1;
 }
 .brand-sub {
+  padding-block: 4px; /* a taller touch target for a small line */
   font-family: var(--sans);
   font-size: 0.72rem;
   font-weight: 500;
@@ -98,6 +165,8 @@ body {
    takes the Nightshore hairline and the teal active underline. */
 .sitenav--oscode .sitenav-tabs {
   border-bottom-color: var(--line);
+  /* Sideways swipes, plus pinch zoom, which a plain pan-x would block. */
+  touch-action: pan-x pinch-zoom;
 }
 .sitenav-tab {
   color: var(--mist);
@@ -191,6 +260,20 @@ body {
 .coda-accent {
   color: var(--wave);
   font-style: italic;
+}
+/* The supporting line under the horizon: plain sans, in mist, so the
+   headline and the Fraunces byline stay the loudest things in the hero. */
+.hero-note {
+  margin-top: clamp(1rem, 2.6vw, 1.35rem);
+  max-width: 40rem;
+  font-family: var(--sans);
+  font-size: clamp(1rem, 2.1vw, 1.12rem);
+  line-height: 1.5;
+  color: var(--mist);
+}
+.masthead--sub .eyebrow {
+  display: block;
+  margin-bottom: 0.7rem;
 }
 .horizon {
   height: 2px;
@@ -325,8 +408,11 @@ body {
     box-shadow 240ms ease;
   will-change: transform;
 }
+/* A not-yet-real tile keeps its text at full contrast; only the glyph dims. */
 .get-tile.is-soon {
   cursor: default;
+}
+.get-tile.is-soon .get-glyph {
   opacity: 0.55;
 }
 .get-glyph {
@@ -579,6 +665,7 @@ body {
   color: var(--faint);
 }
 .offer-name {
+  margin: 0; /* an h3 now, styled as before */
   font-family: var(--sans);
   font-weight: 800;
   font-size: 1.35rem;
@@ -762,6 +849,67 @@ button.block-cta {
 .oscode-field input:focus-visible {
   outline-color: var(--wave);
 }
+.oscode-field input::placeholder {
+  color: var(--faint);
+  opacity: 1;
+}
+.oscode-login-error {
+  color: #f07a6c;
+}
+.oscode-login-error.is-info {
+  color: var(--mist);
+}
+/* The close button is a full 44px target. */
+.oscode-login-close {
+  top: 0.35rem;
+  right: 0.35rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--mist);
+}
+.oscode-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin: 0 0 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--paper);
+  cursor: pointer;
+}
+.oscode-check[hidden],
+.oscode-login-forgot[hidden] {
+  display: none;
+}
+.oscode-check input {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  accent-color: var(--wave);
+}
+.oscode-login-consent {
+  margin: 0.8rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--mist);
+}
+.oscode-login-forgot {
+  display: block;
+  width: 100%;
+  margin-top: 0.7rem;
+  border: none;
+  background: none;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--wave);
+  cursor: pointer;
+}
 .oscode-login .oscode-login-submit {
   background: var(--wave);
   color: var(--abyss);
@@ -832,7 +980,7 @@ button.block-cta {
   }
 }
 
-/* ==== Tab pages (LLM Choice, Privacy, Sustainability, Self-Hosting) ====
+/* ==== Tab pages (Models, Privacy, Sustainability, Self-Hosting) ====
    These focused pages share the Platform page's vocabulary (.block, .eyebrow,
    .lede, .why-list, .pillars, .components) and add three things: an editorial
    subpage hero, a text-and-visual split, and a figure wrapper for the guiding
@@ -960,10 +1108,10 @@ button.block-cta {
   --a-border: #e5e0d3;
   --a-ink: #1c2a33;
   --a-soft: #55636b;
-  --a-muted: #8a949a;
+  --a-muted: #6b767c; /* darkened for contrast on cream */
   --a-teal: #2f5a66;
   --a-teal-deep: #24454f;
-  --a-wave: #4b90a3;
+  --a-wave: #2f6f80; /* darkened for contrast on cream */
   --a-cloud: #a35f0a;
   --a-cloud-br: #e0902f;
   --a-gold: #c98a1f;
@@ -1330,9 +1478,6 @@ button.block-cta {
   .consult-fab {
     padding: 13px;
   }
-  .page--oscode {
-    padding-bottom: calc(clamp(48px, 8vw, 88px) + 56px);
-  }
 }
 
 /* A quiet inline note used for honest limits and footnotes. */
@@ -1345,4 +1490,74 @@ button.block-cta {
   color: var(--mist);
   font-size: 0.92rem;
   line-height: 1.45;
+}
+
+/* ---- Site footer (outside main, the contentinfo landmark) ------------- */
+/* Same column as the page. The bottom padding clears the fixed floating
+   button at every width, so it never covers the last link or a focus ring. */
+.site-foot {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 24px calc(env(safe-area-inset-bottom, 0px) + 104px);
+}
+.colophon p + p {
+  margin-top: 0.4rem;
+}
+.colophon-legal {
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+/* ---- Mockups: a lone app card, and centered captions ------------------ */
+.mock-panel {
+  aspect-ratio: auto;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
+}
+.figure--mock .figure-cap {
+  text-align: center;
+}
+
+/* A terminal command inside running copy. */
+.terminal-line {
+  margin-top: 1rem;
+}
+.prose code {
+  font-family: var(--mono, ui-monospace, "SFMono-Regular", Menlo, monospace);
+  font-size: 0.9em;
+  color: var(--paper);
+  background: rgba(91, 182, 203, 0.1);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.1em 0.4em;
+}
+
+/* ---- Floating button: download on wide screens, iPhone beta on narrow -- */
+/* Both anchors ship; CSS shows one. On a phone the beta button keeps its
+   label visible (the base sheet collapses the button to an icon there), so
+   what a person sees is what a voice user says. */
+.consult-fab--narrow {
+  display: none;
+}
+@media (max-width: 34rem) {
+  .consult-fab--wide {
+    display: none;
+  }
+  .consult-fab--narrow {
+    display: inline-flex;
+    gap: 9px;
+    padding: 13px 18px;
+  }
+  .consult-fab--narrow .consult-fab-label {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+  }
 }

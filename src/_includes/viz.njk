@@ -6,6 +6,10 @@
      local/private, amber #e0902f = cloud/spend), scalable via viewBox.
    - Phone mockups are HTML in the app's real warm CREAM theme (its accent
      grammar is load-bearing), framed by .phone so they lift off the dark page.
+     Each is one role="img" with a descriptive label and a visible
+     "Illustration" caption, so nobody mistakes it for live data.
+   - Diagram frames scroll sideways on a phone, so each is a focusable,
+     labeled region a keyboard can scroll.
    No em dashes anywhere (enforced by scripts/check-copy.mjs).
 ============================================================================ #}
 
@@ -20,6 +24,7 @@
     {% endfor %}
   </ul>
   {% endif %}
+  {% if s.note %}<p class="offer-fine">{{ s.note }}</p>{% endif %}
   {% if s.steps %}
   <ol class="components">
     {% for step in s.steps %}
@@ -33,10 +38,10 @@
 </section>
 {% endmacro %}
 
-{# ---- LLM Choice: the Stack routing diagram ---------------------------- #}
+{# ---- Models: the Stack routing diagram ---------------------------- #}
 {% macro stackRouting() %}
 <figure class="figure">
-  <div class="figure-media">
+  <div class="figure-media" tabindex="0" role="region" aria-label="Diagram, scroll sideways">
     <svg viewBox="0 0 680 430" role="img" aria-labelledby="sr-t">
       <title id="sr-t">The Reasoning LLM plans the work and routes each step to the specialist you placed for it.</title>
       <defs>
@@ -61,11 +66,11 @@
         <path d="M340 114 C 480 150, 588 168, 606 214"/>
       </g>
       <!-- specialist seats -->
-      {{ _seat(20,   "Coding",  "Qwen Coder", "local", "high") }}
+      {{ _seat(20,   "Coding",  "DeepBlue", "local", "high") }}
       {{ _seat(151,  "Writing", "your endpoint", "byom", "med") }}
       {{ _seat(282,  "Analysis","DeepSeek",  "local", "high") }}
       {{ _seat(413,  "Vision",  "Claude",    "cloud", "med") }}
-      {{ _seat(544,  "Fast",    "Harbor Light","local","low") }}
+      {{ _seat(544,  "Fast",    "Harbor",  "local", "low") }}
       <text x="340" y="420" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#81949c">You place each seat. Change any of them any time.</text>
     </svg>
   </div>
@@ -97,7 +102,7 @@
 {# ---- Privacy: what stays, what leaves -------------------------------- #}
 {% macro staysOnDevice() %}
 <figure class="figure">
-  <div class="figure-media">
+  <div class="figure-media" tabindex="0" role="region" aria-label="Diagram, scroll sideways">
     <svg viewBox="0 0 680 360" role="img" aria-labelledby="sd-t">
       <title id="sd-t">Your devices talk over your own private network. The cloud sits behind one deliberate tap.</title>
       <defs>
@@ -148,19 +153,19 @@
         <text x="48" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#e0a25a">your key</text>
         <text x="48" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#c99a63">spend asks first</text>
       </g>
-      <text x="340" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="#a9bac0">No telemetry.  No analytics.  No phone-home.</text>
+      <text x="340" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="#a9bac0">No telemetry.  No analytics.</text>
     </svg>
   </div>
-  <figcaption class="figure-cap"><b>What stays, what leaves.</b> Everything inside your private network stays yours. The only thing that ever leaves is a cloud call you choose to make, on your own key.</figcaption>
+  <figcaption class="figure-cap"><b>What stays, what leaves.</b> Your code stays inside this line.</figcaption>
 </figure>
 {% endmacro %}
 
 {# ---- Sustainability: local answer vs metered round-trip -------------- #}
 {% macro localVsCloud() %}
 <figure class="figure">
-  <div class="figure-media">
+  <div class="figure-media" tabindex="0" role="region" aria-label="Diagram, scroll sideways">
     <svg viewBox="0 0 680 320" role="img" aria-labelledby="lc-t">
-      <title id="lc-t">A local answer stays on your desk. A metered cloud call provisions a data center for every token.</title>
+      <title id="lc-t">A local answer stays on your desk. A cloud call runs on data-center capacity.</title>
       <defs>
         <marker id="lc-a-teal" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#5bb6cb"/></marker>
         <marker id="lc-a-amber" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#e0902f"/></marker>
@@ -209,9 +214,9 @@
 {# ---- Self-Hosting: your private network topology -------------------- #}
 {% macro topology() %}
 <figure class="figure">
-  <div class="figure-media">
+  <div class="figure-media" tabindex="0" role="region" aria-label="Diagram, scroll sideways">
     <svg viewBox="0 0 680 380" role="img" aria-labelledby="tp-t">
-      <title id="tp-t">Phone, desktop, and an optional always-on machine, linked over your own Tailscale network. Cloud is one tap away.</title>
+      <title id="tp-t">Phone, desktop, and an optional home machine you leave running, linked over your own Tailscale network. Cloud is one tap away.</title>
       <defs>
         <marker id="tp-a" markerWidth="10" markerHeight="10" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#e0902f"/></marker>
       </defs>
@@ -266,39 +271,25 @@
 <div class="phone-statusbar"><span>9:41</span><span class="dots">·oo  ᯤ  ▮</span></div>
 {% endmacro %}
 
-{% macro marketplacePhone() %}
-<div class="phone"><div class="phone-screen">
-  {{ _status() }}
-  <div class="app-topbar"><span class="app-back">‹ Back</span></div>
-  <div class="app-h1">Models, in plain language</div>
-  <div class="app-lead">Curated for what each model is good at.</div>
-  <div class="app-body">
-    <div class="app-search"><span>⌕</span><span>Search models</span></div>
-    <div class="app-chiprail">
-      <span class="app-chip app-chip--on">All</span>
-      <span class="app-chip">Coding</span>
-      <span class="app-chip">Writing</span>
-      <span class="app-chip">Vision</span>
-    </div>
-    <div class="app-row" style="gap:6px"><span class="app-chip">This Mac runs up to ~32B</span></div>
+{# The DeepBlue setup card from the desktop app, drawn alone (no phone
+   frame), because DeepBlue is set up on the computer. It replaced a
+   Marketplace mockup: the Marketplace is grayed out in the app until it is
+   ready, so the site never shows it live. #}
+{% macro deepBlueCard() %}
+<figure class="figure figure--mock">
+  <div class="phone-screen mock-panel" role="img" aria-label="Illustration of the DeepBlue card in the OpenShore desktop app: Qwen 2.5 Coder 7B, fits this computer, with a Set up button.">
     <div class="app-card app-card--edge-local">
-      <div class="app-row"><span class="grow app-title">Qwen2.5 Coder 14B</span><span class="app-pill app-pill--local">On device</span></div>
-      <div class="app-row" style="margin-top:4px"><span class="app-stars">★★★★☆</span><span class="app-sub">community</span></div>
-      <div class="app-sub" style="margin-top:5px">Coding · 9 GB</div>
-      <div class="app-meter" style="margin-top:6px"><i style="width:82%"></i></div>
-      <div class="app-row" style="margin-top:8px"><span class="grow app-sub">Details and license ›</span><span class="app-btn">Get</span></div>
-    </div>
-    <div class="app-card app-card--edge-cloud">
-      <div class="app-row"><span class="grow app-title">Claude (frontier)</span><span class="app-pill app-pill--cloud">On your key</span></div>
-      <div class="app-sub" style="margin-top:5px">Reasoning · cloud, your account</div>
-      <div class="app-row" style="margin-top:8px"><span class="grow app-sub">Spend asks first</span><span class="app-btn app-btn--ghost">Connect</span></div>
+      <div class="app-row"><span class="grow app-title">DeepBlue</span><span class="app-pill app-pill--local">On this computer</span></div>
+      <div class="app-row" style="margin-top:8px"><span class="grow app-sub">Qwen 2.5 Coder 7B · fits this computer</span><span class="app-btn">Set up</span></div>
     </div>
   </div>
-</div></div>
+  <figcaption class="figure-cap">Illustration. The DeepBlue card in the desktop app.</figcaption>
+</figure>
 {% endmacro %}
 
 {% macro stackHealthPhone() %}
-<div class="phone"><div class="phone-screen">
+<figure class="figure figure--mock">
+<div class="phone" role="img" aria-label="Illustration of the Stack Health screen in the OpenShore app: a ring chart of local, flow, and saved work, and estimated energy, water, and carbon impact versus a data center. The figures are illustrative."><div class="phone-screen">
   {{ _status() }}
   <div class="app-topbar"><span class="app-back">‹ Back</span></div>
   <div class="app-h1">Stack Health</div>
@@ -336,10 +327,13 @@
     <div class="app-sub" style="text-align:center">Refreshes once a day · computed on this device</div>
   </div>
 </div></div>
+<figcaption class="figure-cap">Illustration. Illustrative figures, not your data.</figcaption>
+</figure>
 {% endmacro %}
 
 {% macro pairPhone() %}
-<div class="phone"><div class="phone-screen">
+<figure class="figure figure--mock">
+<div class="phone" role="img" aria-label="Illustration of the pairing screen: a one-time QR code, the desktop address, and a one-time pairing code, with the phone connected."><div class="phone-screen">
   {{ _status() }}
   <div class="app-topbar"><span class="app-back">‹ Back</span></div>
   <div class="app-h1">Desktop and phone</div>
@@ -360,11 +354,14 @@
       <div class="app-row" style="justify-content:center;margin-top:6px"><span class="app-pill app-pill--ok"><span class="app-dot app-dot--ok"></span>Turned on</span></div>
     </div>
     <div class="app-field"><b>Address</b><div class="app-mono" style="color:#1c2a33;margin-top:2px">http://100.92.14.7:4816</div></div>
-    <div class="app-field"><b>Token</b><div class="app-mono" style="color:#1c2a33;margin-top:2px">osc_••••••••••••••••</div></div>
+    <div class="app-field"><b>Pairing code</b><div class="app-mono" style="color:#1c2a33;margin-top:2px">pc_••••••••••••</div></div>
+    <div class="app-sub">A one-time code, good for five minutes.</div>
     <div class="app-row" style="margin-top:1px"><span class="app-pill app-pill--ok"><span class="app-dot app-dot--ok"></span>Connected</span></div>
-    <div class="app-sub">No camera? Type the address and token by hand.</div>
+    <div class="app-sub">No camera? Type the address and code by hand.</div>
   </div>
 </div></div>
+<figcaption class="figure-cap">Illustration. Pairing a phone to the desktop engine.</figcaption>
+</figure>
 {% endmacro %}
 
 {# ---- Ethics: three-signal quick-scan (mirrors the app's ethics grammar) - #}
@@ -376,7 +373,7 @@
   </div>
   <div class="signal signal--gate">
     <div class="signal-head"><span class="signal-dot"></span><span class="signal-name">Gated behind consent</span></div>
-    <p class="signal-body">Cloning a real face or voice, allowed only when you state you are authorized. What comes out is marked AI-generated.</p>
+    <p class="signal-body">An image of a real person, allowed only when you state you are authorized, and marked AI-generated. Video or voice of a real person is refused for now.</p>
   </div>
   <div class="signal signal--allow">
     <div class="signal-head"><span class="signal-dot"></span><span class="signal-name">Left alone</span></div>
