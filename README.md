@@ -42,6 +42,21 @@ deploy key), DNS + TLS + cache live in one pane.
    the `Open-Shore-LLC-Homepage` Pages project** — a domain can only be
    attached to one Pages project at a time.
 
+## Download buttons (`/download/<platform>`)
+
+The desktop tiles' Download buttons point at `/download/windows`,
+`/download/linux`, `/download/linux-deb`, `/download/mac`, and
+`/download/mac-intel` on this site. The static files are always served first;
+only those paths (which have no file behind them) run the site's one script,
+`worker/index.js` (wired as `main` in `wrangler.jsonc`). It answers with a
+302 to the newest openshore.code.ai release file for that platform, so the
+click downloads on the spot. Release file names carry the version and a Mac
+build can land after Linux and Windows, so each platform takes the newest
+release that actually has its file (`worker/downloads.js`, tested by
+`npm test`). The release list is cached for ten minutes; any failure sends
+the person to the releases page. An optional `GITHUB_TOKEN` Worker secret
+lifts GitHub's anonymous rate limit; the cache makes it unnecessary today.
+
 ## Runtime and keys
 
 The page carries a small client runtime (`src/static/openshore-app.js`) for

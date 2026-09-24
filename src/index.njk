@@ -79,18 +79,24 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
     {% for app in oscode.getApps %}
     {% set live = app.status == 'live' and app.href %}
     <li>
-      {% if live and app.download %}
-      <a class="get-tile get-tile-live" href="{{ app.href }}" download>
-      {% elif live %}
-      <a class="get-tile get-tile-live" href="{{ app.href }}" target="_blank" rel="noopener noreferrer">
+      {% if live %}
+      <div class="get-tile get-tile-live">
       {% else %}
       <div class="get-tile is-soon" aria-disabled="true">
       {% endif %}
         <span class="get-glyph" aria-hidden="true">{{ getGlyph(app.id) | safe }}</span>
         <span class="get-label">{{ app.label }}</span>
         <span class="get-sub">{{ app.sub }}</span>
-        <span class="get-chip{% if live %} get-chip-live{% endif %}">{% if live %}Get{% else %}Coming soon{% endif %}</span>
-      {% if live %}</a>{% else %}</div>{% endif %}
+        {% if live %}
+        <span class="get-actions">
+          <a class="get-chip get-chip-live" href="{{ app.href }}" aria-label="Download OpenShore for {{ app.label }}">Download</a>
+          <a class="get-link" href="{{ oscode.githubReleases }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+          {% if app.alt %}<a class="get-link" href="{{ app.alt.href }}">{{ app.alt.label }}</a>{% endif %}
+        </span>
+        {% else %}
+        <span class="get-chip">Coming soon</span>
+        {% endif %}
+      </div>
     </li>
     {% endfor %}
   </ul>

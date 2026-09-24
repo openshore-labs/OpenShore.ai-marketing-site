@@ -44,13 +44,17 @@ export default {
   // publishes the unsigned dmg/zip to that same release on demand. All three
   // verified end to end against the actual release assets, not just a green
   // build (see docs/MAC-DESKTOP.md for why that distinction mattered here).
-  // All three link to the releases page rather than a specific asset on
-  // purpose: electron-builder's installer filenames embed the version
-  // (OpenShore.Setup.0.1.2.exe), so a hardcoded direct link goes stale the
-  // next release; the page always has the current one. iOS needs the App
-  // Store; Android needs a PWA manifest and service worker that do not exist
-  // yet. To take a platform live: set its href, flip status to "live". That
-  // is the whole change; see .get-tile-live in openshore.css.
+  // Download buttons (2026-09-24): each points at /download/<platform> on this
+  // site, which worker/index.js answers with the newest release file for that
+  // platform, so the click downloads on the spot instead of opening GitHub.
+  // (electron-builder's file names carry the version, so no fixed asset link
+  // stays right, and a Mac build can land in a release after Linux and Windows;
+  // the worker handles both.) `alt` offers the other file for the same
+  // platform, and the GitHub link sits beside the button for anyone who wants
+  // the release notes and every file. iOS needs the App Store; Android needs a
+  // PWA manifest and service worker that do not exist yet. To take a platform
+  // live: set its href, flip status to "live"; see .get-tile-live.
+  githubReleases: "https://github.com/openshore-labs/openshore.code.ai/releases",
   getAppsLabel: "Get OpenShore",
   getAppsTitle: "One stack, every machine you own.",
   getAppsLede:
@@ -60,21 +64,23 @@ export default {
       id: "linux",
       label: "Linux",
       sub: "Direct download · AppImage or .deb",
-      href: "https://github.com/openshore-labs/openshore.code.ai/releases/latest",
+      href: "/download/linux",
+      alt: { label: ".deb", href: "/download/linux-deb" },
       status: "live",
     },
     {
       id: "mac",
       label: "Mac",
       sub: "Direct download · unsigned .dmg",
-      href: "https://github.com/openshore-labs/openshore.code.ai/releases/latest",
+      href: "/download/mac",
+      alt: { label: "Intel Mac", href: "/download/mac-intel" },
       status: "live",
     },
     {
       id: "windows",
       label: "Windows",
       sub: "Direct download · .exe installer",
-      href: "https://github.com/openshore-labs/openshore.code.ai/releases/latest",
+      href: "/download/windows",
       status: "live",
     },
     { id: "ios", label: "iPhone & iPad", sub: "App Store", status: "soon" },

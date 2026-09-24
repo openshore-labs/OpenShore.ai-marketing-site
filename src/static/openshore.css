@@ -371,34 +371,63 @@ body {
   padding: 4px 10px;
   white-space: nowrap;
 }
-.get-tile-live {
-  cursor: pointer;
-}
 .get-tile-live:hover,
-.get-tile-live:focus-visible {
+.get-tile-live:focus-within {
   transform: translateY(-4px);
   border-color: var(--wave);
   box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
 }
 .get-tile-live:hover .get-glyph,
-.get-tile-live:focus-visible .get-glyph {
+.get-tile-live:focus-within .get-glyph {
   background: rgba(91, 182, 203, 0.18);
 }
-.get-tile-live:focus-visible {
-  outline: 2px solid var(--wave);
-  outline-offset: 2px;
+/* Download is the one action; GitHub and the other file sit beside it,
+   quiet, for anyone who wants the release notes or a different package. */
+.get-actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.get-actions .get-chip {
+  margin-top: 0;
+  text-decoration: none;
+  cursor: pointer;
 }
 .get-chip-live {
   color: var(--abyss);
   background: var(--wave);
   border-color: var(--wave);
+  font-size: 11px;
+  padding: 6px 14px;
+  transition: filter 160ms ease;
+}
+.get-chip-live:hover {
+  filter: brightness(1.08);
+}
+.get-chip-live:focus-visible,
+.get-link:focus-visible {
+  outline: 2px solid var(--wave);
+  outline-offset: 2px;
+}
+.get-link {
+  font-size: 0.78rem;
+  color: var(--mist);
+  text-decoration: underline;
+  text-decoration-color: rgba(169, 186, 192, 0.35);
+  text-underline-offset: 3px;
+}
+.get-link:hover {
+  color: var(--paper);
+  text-decoration-color: currentColor;
 }
 @media (prefers-reduced-motion: reduce) {
   .get-tile-live {
     transition: none;
   }
   .get-tile-live:hover,
-  .get-tile-live:focus-visible {
+  .get-tile-live:focus-within {
     transform: none;
   }
 }

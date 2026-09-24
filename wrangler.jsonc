@@ -10,11 +10,18 @@
 // served as raw downloads). An explicit config makes every deploy deterministic.
 //
 // `_site/_headers` and `_site/_redirects` are honored natively by Static Assets.
+//
+// `main` is the site's one piece of server code (worker/index.js): the static
+// files are always served first, and only a path with no file behind it runs
+// the script, which answers /download/<platform> with the newest release file
+// so a Download button starts the download on the spot (2026-09-24).
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "openshore-ai-marketing-site",
+  "main": "worker/index.js",
   "compatibility_date": "2026-09-08",
   "assets": {
+    "binding": "ASSETS",
     "directory": "./_site",
     // /llm-choice -> /llm-choice/ -> llm-choice/index.html served as text/html.
     "html_handling": "auto-trailing-slash",

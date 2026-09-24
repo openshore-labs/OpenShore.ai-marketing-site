@@ -9,7 +9,8 @@
     "build": "eleventy && npm run check:copy",
     "check:copy": "node scripts/check-copy.mjs",
     "serve": "eleventy --serve",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "test": "node --test worker/downloads.test.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
