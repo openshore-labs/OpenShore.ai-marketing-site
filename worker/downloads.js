@@ -2,13 +2,14 @@
 // hand over. Pure, so it is tested without a network (worker/downloads.test.js).
 //
 // Desktop releases come from openshore.code.ai's release workflow on every push
-// to main, and each file name carries its version (OpenShore.Setup.0.1.3.exe),
-// so no fixed link stays right. The Mac build also lands later than Linux and
+// to main, published to the public, installers-only openshore-releases repo
+// (the code repo is private), and each file name carries its version
+// (OpenShore.Setup.0.1.3.exe), so no fixed link stays right. The Mac build also lands later than Linux and
 // Windows (Codemagic, or built by hand), so the newest release may not have a
 // Mac file yet. Each platform therefore takes the newest published release that
 // actually carries its file.
 
-export const REPO = 'openshore-labs/openshore.code.ai';
+export const REPO = 'openshore-labs/openshore-releases';
 export const RELEASES_PAGE = `https://github.com/${REPO}/releases`;
 
 /** The platforms a button can ask for, and how each one's file is named by

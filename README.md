@@ -49,7 +49,7 @@ The desktop tiles' Download buttons point at `/download/windows`,
 `/download/mac-intel` on this site. The static files are always served first;
 only those paths (which have no file behind them) run the site's one script,
 `worker/index.js` (wired as `main` in `wrangler.jsonc`). It answers with a
-302 to the newest openshore.code.ai release file for that platform, so the
+302 to the newest openshore-releases release file for that platform, so the
 click downloads on the spot. Release file names carry the version and a Mac
 build can land after Linux and Windows, so each platform takes the newest
 release that actually has its file (`worker/downloads.js`, tested by

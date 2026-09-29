@@ -54,7 +54,7 @@ export default {
   // the release notes and every file. iOS needs the App Store; Android needs a
   // PWA manifest and service worker that do not exist yet. To take a platform
   // live: set its href, flip status to "live"; see .get-tile-live.
-  githubReleases: "https://github.com/openshore-labs/openshore.code.ai/releases",
+  githubReleases: "https://github.com/openshore-labs/openshore-releases/releases",
   getAppsLabel: "Get OpenShore",
   getAppsTitle: "One stack, every machine you own.",
   getAppsLede:
