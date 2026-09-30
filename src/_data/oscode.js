@@ -7,7 +7,8 @@
 //
 // Pricing model (2026-09-30): Free is chat only, no account. OpenShore Plus is
 // $49.99 a year and lets the agent build on your computer (the coding agent and
-// Crew routines), bought on the web via Stripe or on iPhone and iPad through the
+// Crew routines) and your phone reach it (Desktop + phone, founder 2026-09-30),
+// bought on the web via Stripe or on iPhone and iPad through the
 // App Store. "Personal" is the internal name of the v1 release only; customers
 // read "OpenShore Plus" (CMO and Creative Studio). Team plans come later (v4,
 // founder: "just starting with personal"), so no team card renders. The Free
@@ -261,6 +262,7 @@ export default {
         "Everything in Free",
         "The coding agent: reads your project, makes real changes you approve",
         "Crew routines that run while your computer is on",
+        "Your computer from your phone, while it is on",
         "Your models, your keys. Your prompts never pass through us.",
       ],
       cta: "Get early access",
