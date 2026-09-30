@@ -5,11 +5,13 @@
 // openshore-app.js / openshore.css) is internal plumbing only, kept as-is to
 // avoid a needless rename of working code.
 //
-// Pricing model: Free is chat only, no account. Personal is $20 a year and
-// unlocks the coding agent plus the Marketplace for one person, buyable HERE on
-// the web via Stripe, or on iPhone through Apple IAP. Commercial tiers are teams,
-// billed per year and bought HERE on the web (Apple takes no cut). The Free card
-// carries an early-access mailto so nothing dead-ends before a public download.
+// Pricing model (2026-09-30): Free is chat only, no account. OpenShore Plus is
+// $49.99 a year and lets the agent build on your computer (the coding agent and
+// Crew routines), bought on the web via Stripe or on iPhone and iPad through the
+// App Store. "Personal" is the internal name of the v1 release only; customers
+// read "OpenShore Plus" (CMO and Creative Studio). Team plans come later (v4,
+// founder: "just starting with personal"), so no team card renders. The Free
+// card carries an early-access mailto so nothing dead-ends before a download.
 //
 // No em dashes anywhere a customer reads (Open Shore standing instruction).
 export default {
@@ -212,24 +214,22 @@ export default {
     },
   ],
 
-  // BETA (2026-09-02, founder): every pay gate in the app is off, so the agent
-  // and the Marketplace are free for everyone right now. Personal returns as a
-  // $20 a year App Store subscription (Apple IAP only, no web purchase) when
-  // the beta ends. Copy below is the CMO's; the beta note is the single place
+  // BETA: every pay gate in the app is off (the app's VITE_PAY_GATES build
+  // flag), so the agent is free for everyone right now. OpenShore Plus is
+  // $49.99 a year when the beta ends, on the App Store (iPhone and iPad) or on
+  // the web through Stripe (2026-09-30). The beta note is the single place
   // that explains it so no card has to. Revert pricingLabel/pricingIntro, the
-  // Personal card, and the two notes together when the gate comes back.
+  // Plus card's price and CTA, and the note together when the gate comes back.
   pricingLabel: "Free to chat. Free to build, for now.",
   pricingIntro:
-    "OpenShore runs on your machine, on your models, on your keys. We never see your code. Right now the agent and the Marketplace are free too. Grab it while beta's open.",
+    "OpenShore runs on your machine, on your models, on your keys. We never see your code. Right now the agent is free too. Grab it while the beta's open.",
   betaNote:
-    "Beta note: the coding agent and Marketplace are free for everyone in the app. Personal returns to $20 a year, in app, on the App Store, once beta ends.",
-  teamNote:
-    "Team seats buy shared admin and one company stack, not access. Every person already has the agent free during beta.",
+    "Beta note: the coding agent is free for everyone in the app right now. When the beta ends, OpenShore Plus is $49.99 a year, on the App Store or here on the web.",
 
-  // Mirrors app/src/lib/plans.js. Free is chat only; Personal is one person at
-  // $20 a year (buyable on the web via Stripe, or on iPhone via Apple IAP);
-  // commercial bands are teams billed per year, each covering up to its top
-  // number.
+  // Mirrors app/src/lib/plans.ts. Free is chat only; OpenShore Plus (id
+  // "personal", the internal tier name) is one person at $49.99 a year, on the
+  // web via Stripe or on iPhone and iPad via the App Store. Team plans return
+  // with the v4 tier.
   plans: [
     {
       id: "free",
@@ -251,78 +251,31 @@ export default {
     {
       id: "personal",
       segment: "For one person",
-      name: "Personal",
+      name: "Plus",
       // Beta: nothing charges anyone today, so the price says what is true
       // today; the future $20 lives in finePrint. Restore "$20 / year" and
       // "Most popular" when the gate returns.
       price: "Free",
-      promise: "The whole app for one person. Chat becomes a coding agent.",
+      promise: "Chat stays free. Plus lets the agent build on your computer.",
       includes: [
         "Everything in Free",
-        "The coding agent: reads your repo, writes edits, runs tools",
-        "Real diffs and tool approvals you control",
-        "The full model Marketplace, rated to your hardware",
+        "The coding agent: reads your project, makes real changes you approve",
+        "Crew routines that run while your computer is on",
+        "Your models, your keys. Your prompts never pass through us.",
       ],
       cta: "Get early access",
       flagship: true,
       flagLabel: "Full access",
-      // Personal is an Apple subscription only (founder, 2026-08-31): there is
-      // no web purchase, so no Stripe button renders. The CTA routes to the
-      // same early-access mailto as Free. openshore-app.js still carries the
-      // old personal checkout branch; with no button it is unreachable.
+      // Beta: no Stripe button renders yet (buyable false); the CTA routes to
+      // the same early-access mailto as Free. openshore-app.js carries the
+      // personal checkout branch (stripe-checkout, tierId 'personal') for when
+      // the gate returns and this card turns buyable.
       buyable: false,
       finePrint:
-        "Free for everyone during the beta. After beta, Personal is $20 a year, bought only in the app through the App Store.",
+        "Free for everyone during the beta. After the beta, OpenShore Plus is $49.99 a year, on the App Store on iPhone and iPad, or here on the web.",
       checkoutUrl: null,
     },
-    {
-      id: "commercial_micro",
-      segment: "For teams",
-      name: "Micro",
-      price: "$20 / year",
-      promise: "Up to 5 people, one company umbrella.",
-      includes: [
-        "Everything in Personal, for every person on the team",
-        "An admin who owns the shared stack and where it all lives",
-        "Each person keeps their own chats, projects, and crew",
-      ],
-      cta: "Start Micro",
-      checkoutUrl: null, // TODO: Stripe Payment Link for Micro
-    },
-    {
-      id: "commercial_small",
-      segment: "For teams",
-      name: "Small",
-      price: "$100 / year",
-      promise: "6 to 30 people.",
-      includes: [
-        "Everything in Micro",
-        "Add and remove people by email, grant admin to others",
-        "One shared stack the admin controls",
-      ],
-      cta: "Start Small",
-      checkoutUrl: null, // TODO: Stripe Payment Link for Small
-    },
-    {
-      id: "commercial_mid",
-      segment: "For teams",
-      name: "Growth",
-      price: "$250 / year",
-      promise: "31 to 100 people.",
-      includes: ["Everything in Small", "Room to grow across the whole company"],
-      cta: "Start Growth",
-      checkoutUrl: null, // TODO: Stripe Payment Link for Growth
-    },
-    {
-      id: "commercial_large",
-      segment: "For teams",
-      name: "Scale",
-      price: "$500 / year",
-      promise: "More than 100 people.",
-      includes: ["Everything in Growth", "One flat price, however large the team"],
-      cta: "Start Scale",
-      checkoutUrl: null, // TODO: Stripe Payment Link for Scale
-    },
+    // Team plans (Micro, Small, Growth, Scale) come back with the v4 tier.
   ],
 
   // A quiet trust row rendered under the pricing cards.
