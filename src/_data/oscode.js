@@ -5,9 +5,10 @@
 // openshore-app.js / openshore.css) is internal plumbing only, kept as-is to
 // avoid a needless rename of working code.
 //
-// Pricing model (2026-09-30): Free is chat only, no account. OpenShore Plus is
-// $49.99 a year and lets the agent build on your computer (the coding agent and
-// Crew routines) and your phone reach it (Desktop + phone, founder 2026-09-30),
+// Pricing model (2026-09-30): Free is Chats, Projects, the Stack and Cloud
+// Connections, with chat needing no account. OpenShore Plus is $49.99 a year
+// and opens the rest (founder, 2026-09-30): the coding agent, Crew routines,
+// Terminal, Repositories, Vault, and Desktop + phone,
 // bought on the web via Stripe or on iPhone and iPad through the
 // App Store. "Personal" is the internal name of the v1 release only; customers
 // read "OpenShore Plus" (CMO and Creative Studio). Team plans come later (v4,
@@ -240,6 +241,7 @@ export default {
       promise: "Full chat with the local models you already run.",
       includes: [
         "Chat with any local model, Harbor or Ollama",
+        "Projects, your Stack, and cloud models on your own keys",
         "Runs entirely on your hardware",
         "No account required, no telemetry",
         "Yours to keep, free forever",
@@ -257,11 +259,12 @@ export default {
       // today; the future $20 lives in finePrint. Restore "$20 / year" and
       // "Most popular" when the gate returns.
       price: "Free",
-      promise: "Chat stays free. Plus lets the agent build on your computer.",
+      promise: "Chat stays free. Plus opens the rest of OpenShore.",
       includes: [
         "Everything in Free",
         "The coding agent: reads your project, makes real changes you approve",
         "Crew routines that run while your computer is on",
+        "Terminal, Repositories, and Vault",
         "Your computer from your phone, while it is on",
         "Your models, your keys. Your prompts never pass through us.",
       ],
