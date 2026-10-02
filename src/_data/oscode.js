@@ -172,7 +172,7 @@ export default {
   pieces: [
     {
       label: "A real coding agent.",
-      body: "Reads your repo, edits with diffs you approve, runs commands with your say so, and searches the web with citations (on by default; only the search words go out, to DuckDuckGo unless you pick another).",
+      body: "Reads your repo, edits with diffs you approve, runs commands with your say so, and searches the web with citations (once you allow it; only the search words go out, to DuckDuckGo unless you pick another).",
     },
     {
       label: "Voice mode.",
