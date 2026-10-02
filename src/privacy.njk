@@ -98,16 +98,18 @@ pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys stay 
 <section class="block policy" aria-labelledby="processors-heading">
   <h2 id="processors-heading" class="eyebrow">5. Who processes data for us</h2>
   <ul>
-    <li><b>Supabase</b> runs our account service and database (on Amazon Web Services), and sends sign-in email.</li>
+    <li><b>Supabase</b> runs our account service and database on Amazon Web Services in the United States (East US, North Virginia), and sends the sign-up and password emails.</li>
     <li><b>Apple</b> delivers notifications and distributes the iPhone app.</li>
-    <li><b>Cloudflare</b> serves this website and the model list.</li>
+    <li><b>Cloudflare</b> serves this website and the model list, and forwards mail sent to {{ site.emails.oscode }}.</li>
+    <li><b>Proton</b> hosts the mailbox where we read and answer that mail.</li>
     <li><b>GitHub</b> hosts the desktop downloads and answers update checks.</li>
   </ul>
   <p class="prose">
     Like any web service, these providers see your IP address in transit and keep
-    short operational logs under their own policies. Your data may be processed in the United
-    States or another country where these providers operate, under their standard
-    contractual protections. We never sell your data and never share it for
+    short operational logs under their own policies. Our database is in the United States. If
+    you are elsewhere, your account data is transferred there, under these
+    providers' standard contractual protections; mail you send us is held by
+    Proton, a Swiss company, under its own encrypted-storage terms. We never sell your data and never share it for
     advertising.
   </p>
 </section>
