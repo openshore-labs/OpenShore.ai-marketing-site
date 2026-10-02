@@ -1,0 +1,43 @@
+---
+layout: base.njk
+permalink: /support/
+pageTitle: "Support · OpenShore"
+pageDescription: "Get help with OpenShore: pairing your computer, models and keys, your account, and privacy questions. Write to us. A person reads every message."
+---
+
+<header class="masthead masthead--sub">
+  <h1 class="identity">Support</h1>
+  <div class="horizon" role="presentation"></div>
+  <p class="lede">Write to us. A person reads every message.</p>
+</header>
+
+<section class="block policy" aria-labelledby="contact-heading">
+  <h2 id="contact-heading" class="eyebrow">Contact</h2>
+  <div class="contact">
+    <p class="contact-line">
+      <span class="contact-label">Help, bugs, account and privacy requests</span>
+      <a href="mailto:{{ site.emails.oscode }}?subject={{ 'OpenShore support' | urlencode }}">{{ site.emails.oscode }}</a>
+    </p>
+  </div>
+  <p class="prose">
+    Tell us which device you are on (iPhone, iPad, or your computer) and what you
+    saw. Please never send an API key, a password, or a pairing code.
+  </p>
+</section>
+
+<section class="block policy" aria-labelledby="common-heading">
+  <h2 id="common-heading" class="eyebrow">Common questions</h2>
+  <ul>
+    <li><b>Do I need an account?</b> No, not to chat. A free account opens Projects, Repositories, Vault, Crew, Terminal, Cloud Connections, and pairing.</li>
+    <li><b>Pairing my computer:</b> install OpenShore on your computer and Tailscale on both devices, signed in to the same Tailscale account. On the computer open Pairing, scan the code with your phone, then tap Allow on the computer.</li>
+    <li><b>Cloud models:</b> add your own key in Cloud Connections. It is stored on your device and sent only to that provider.</li>
+    <li><b>Web search:</b> the app asks the first time a model wants to search. Change it any time in Settings, Harbor.</li>
+    <li><b>Delete your account:</b> in the app, Settings, Account, Delete account.</li>
+    <li><b>What leaves your device:</b> in the app, Settings, Privacy, What leaves this device. The full policy is at <a href="/privacy/">openshore.ai/privacy</a>.</li>
+  </ul>
+</section>
+
+<footer class="colophon">
+  <p><a href="/">&larr; OpenShore</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/terms/">Terms of Use</a></p>
+  <p>&copy; {{ site.year }} {{ site.legalName }}. OpenShore is a product of {{ site.legalName }}.</p>
+</footer>
