@@ -289,6 +289,20 @@ body {
   margin-top: 1rem;
 }
 
+/* ---- Privacy policy: plain lists with air --------------------------- */
+.policy ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--mist);
+}
+.policy li + li {
+  margin-top: 0.6rem;
+}
+.policy .prose + .prose,
+.policy ul + .prose {
+  margin-top: 0.85rem;
+}
+
 /* ---- Pillars: glass cards that lift --------------------------------- */
 /* "Get OpenShore" tile grid. Same shape as .pillars (glass card, spring lift
    on hover) with a glyph well and a status chip added, mirroring the visual

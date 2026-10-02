@@ -35,9 +35,9 @@ export default {
   },
 
   lede:
-    "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Chat and build on your desktop, on Linux, macOS, and Windows, and on your iPhone and iPad, kept in sync over your own private network. Cloud stays one deliberate tap away, always on your own account.",
+    "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Chat and build on your desktop, on Linux, macOS, and Windows, and on your iPhone and iPad, your phone reaching your computer over your own private network. Cloud stays one deliberate tap away, always on your own account.",
   summary:
-    "It is built the way software should be: local first, private by construction, and yours. One model in your stack plans the work and hands each part to the specialist best suited to it. Your keys never leave your devices. Everything you make is encrypted at rest and answers only to you.",
+    "It is built the way software should be: local first, private by construction, and yours. One model in your stack plans the work and hands each part to the specialist best suited to it. Your API keys are stored only on your devices and sent only to the provider they belong to. Your chats and settings are encrypted at rest; your notes and code stay plain files you own.",
 
   // "Get OpenShore" tile grid, the marketing mirror of uki.audio's own get-app
   // section (same shape, same honesty rule from that page's own comment: a
@@ -133,9 +133,9 @@ export default {
     },
     {
       name: "Private by construction",
-      promise: "Sealed on your device, answering only to you.",
+      promise: "Kept on your device, answering only to you.",
       covers:
-        "Everything is encrypted at rest. Cloud providers see only the calls you choose to make, on your own keys. No telemetry, no analytics, no phone-home, ever.",
+        "Your chats and settings are encrypted at rest. Cloud providers see only the turns you send them, on your own keys. No telemetry, no analytics, no ads.",
     },
   ],
 
@@ -172,11 +172,11 @@ export default {
   pieces: [
     {
       label: "A real coding agent.",
-      body: "Reads your repo, edits with diffs you approve, runs commands with your say so, and searches the web with citations.",
+      body: "Reads your repo, edits with diffs you approve, runs commands with your say so, and searches the web with citations (on by default; only the search words go out, to DuckDuckGo unless you pick another).",
     },
     {
       label: "Voice mode.",
-      body: "A spoken conversation over the chat, native and offline, in a voice you pick.",
+      body: "A spoken conversation over the chat, in a voice you pick. On iPhone and iPad, speech is recognized on the device and works offline.",
     },
     {
       label: "Video and image attachments.",
@@ -242,7 +242,7 @@ export default {
       includes: [
         "Chat with any local model, Harbor or Ollama",
         "Projects, your Stack, and cloud models on your own keys",
-        "Runs entirely on your hardware",
+        "Local models run entirely on your hardware",
         "No account required, no telemetry",
         "Yours to keep, free forever",
       ],
@@ -286,7 +286,7 @@ export default {
   // A quiet trust row rendered under the pricing cards.
   reassurance: [
     { label: "Local-first.", body: "Your models run on your hardware." },
-    { label: "Private by default.", body: "No code leaves your machine, no telemetry." },
+    { label: "Private by default.", body: "No code leaves your machine unless you push it; no telemetry." },
     { label: "One year, one price.", body: "Cancel anytime, keep working through the term." },
   ],
 
@@ -340,7 +340,7 @@ export default {
     honestLimit:
       "We will not tell you misuse is impossible. Open model weights on your own hardware are beyond the reach of any application, including ours. The guarantee we can make is narrower and real: this app, as shipped, does not help.",
     privacy:
-      "The screening runs on your device. Nothing is sent anywhere to check a prompt, so a local model stays local even though it is screened. A block records a category, a time, and a one-way hash. Your prompt is never stored and never sent.",
+      "The screening runs on your device. Nothing is sent anywhere to check a prompt, so a local model stays local even though it is screened. A block records a category, a time, and a one-way hash. Your prompt is never stored and never sent. If you are signed in, the record (never the prompt) is kept on your account for 180 days so enforcement survives a reinstall.",
   },
 
   close:

@@ -51,7 +51,7 @@ export default {
       eyebrow: "Privacy",
       headline: "Answers only to you.",
       subhead:
-        "Your prompts, your code, and your keys stay on your own hardware. Nothing leaves unless you tap to send it.",
+        "Your prompts, your code, and your keys stay on your own hardware. What does leave is a short, published list, below.",
     },
     sections: [
       {
@@ -59,16 +59,16 @@ export default {
         body: "The work happens on your machine, on your models. Your prompts and code never reach an OpenShore server, because none sits in the path of your work.",
         bullets: [
           { label: "On your hardware", text: "Sessions run on your own computer's engine, not a rented cloud." },
-          { label: "Encrypted at rest", text: "Everything on the device is encrypted, and secrets live in the device secret store." },
-          { label: "No phone-home", text: "No telemetry, no analytics, no background pings. Ever." },
+          { label: "Encrypted at rest", text: "Your chats, settings, and session journals are encrypted on the device (AES-256) under a key in your system's keychain. Your Vault notes and your code stay plain files, so Obsidian and git can open them." },
+          { label: "No phone-home", text: "No telemetry, no analytics, no tracking, no ads. The few background requests (update checks, the model list) carry nothing about you, and each one is on the published list." },
         ],
       },
       {
         heading: "Cloud is a deliberate tap",
-        body: "You can call Claude, OpenAI, Gemini, or Kimi, but only on your own keys and only when you choose. Providers see just the one call you make, and spend always asks first.",
+        body: "You can call Claude, OpenAI, Gemini, or Kimi, but only on your own keys and only when you choose. That provider sees the conversation that turn carries, under its own terms.",
         bullets: [
           { label: "Your keys", text: "Cloud calls run on your account. We never proxy inference or rehost weights." },
-          { label: "Local until you send it", text: "A model runs on your machine until you send it to the cloud on purpose." },
+          { label: "Local until you send it", text: "A local model's chat stays on your machine. If it searches the web, only the search words go out." },
         ],
       },
       {
@@ -76,7 +76,7 @@ export default {
         body: "Prompts are checked locally before they run. Nothing is sent anywhere to screen them.",
         bullets: [
           { label: "Never sent", text: "Your prompt is never stored or transmitted to be checked." },
-          { label: "A block records only three things", text: "Only a category, a time, and a one-way hash. The text stays with you." },
+          { label: "A block records only what enforcement needs", text: "The category, tier, time, a keyed one-way hash, and whether a local or cloud model was in play. If you are signed in, that record goes to your account for 180 days so enforcement survives a reinstall. Your words never leave." },
         ],
       },
     ],

@@ -13,7 +13,7 @@ pageDescription: "The rules for using OpenShore: prohibited uses, what happens w
   <h1 class="identity">Terms of Use</h1>
   <div class="horizon" role="presentation"></div>
   <p class="lede">Plain language throughout, because terms nobody reads protect nobody.</p>
-  <p class="offer-fine">Last updated 5 September 2026.</p>
+  <p class="offer-fine">Last updated 2 October 2026.</p>
 </header>
 
 <section class="block" aria-labelledby="what-heading">
@@ -103,8 +103,10 @@ pageDescription: "The rules for using OpenShore: prohibited uses, what happens w
     matter is reported to the appropriate authority. In the United States, child
     sexual abuse material is reported to the National Center for Missing and
     Exploited Children. Account termination and, where required, a report are
-    the entire enforcement scope. We do not collect, log, or act on an IP
-    address for any reason.
+    the entire enforcement scope. We never store an IP address in our database or
+    use one for enforcement. Our hosting providers see it in transit and keep
+    short operational logs, as any web service does; the
+    <a href="/privacy/">privacy policy</a> names them.
   </p>
   <p class="prose">
     We take this seriously and we want to be direct about why. Deepfakes,
@@ -119,7 +121,8 @@ pageDescription: "The rules for using OpenShore: prohibited uses, what happens w
   <h2 id="records-heading" class="eyebrow">5. What we record when something is blocked</h2>
   <p class="prose">
     We record the category, the tier, the time, which model path served it, and a
-    one-way SHA-256 hash of the request.
+    keyed one-way hash (HMAC-SHA-256) of the request. We keep it for 180 days,
+    longer only under a legal hold.
   </p>
   <p class="prose">
     We do not store the prompt, the answer, or any excerpt of either. A hash is
@@ -166,7 +169,8 @@ pageDescription: "The rules for using OpenShore: prohibited uses, what happens w
   <h2 id="yours-heading" class="eyebrow">8. Your content and your models</h2>
   <p class="prose">
     Your prompts, code, and generated work are yours. Local model work stays on
-    your machine. Cloud model work goes to the provider you connected, on your
+    your machine, except the words of a web search a model makes while web
+    search is on. Cloud model work goes to the provider you connected, on your
     account, under that provider's terms. A cloud provider's own policies apply
     in addition to these terms, never instead of them.
   </p>

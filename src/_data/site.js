@@ -11,17 +11,16 @@ export default {
   url: "https://openshore.ai",
 
   metaDescription:
-    "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, synced over your own private network, private by construction, with cloud one deliberate tap away on your own keys. Free for personal use; company seats from $20 a year.",
+    "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free for personal use; company seats from $20 a year.",
 
   // The parent company's site, credited from the OpenShore header and footer.
   parentUrl: "https://openshorellc.com",
   parentName: "Open Shore, LLC",
 
   emails: {
-    // Existing, monitored mailbox (Open-Shore-LLC-Homepage src/_data/site.js).
-    // Keep using it here rather than standing up an unrouted openshore.ai
-    // alias; early-access + company-seat inquiries land in the same inbox.
-    oscode: "os-code@openshorellc.com",
+    // The one published address (founder F1, 2026-09-30), the same as the
+    // app's SUPPORT_EMAIL, so the Terms, the privacy policy, and the app agree.
+    oscode: "support@openshore.ai",
   },
 
   year: "2026",

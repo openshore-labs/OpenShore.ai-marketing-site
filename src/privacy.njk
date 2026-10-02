@@ -1,27 +1,185 @@
 ---
 layout: base.njk
 permalink: /privacy/
-pageTitle: "Privacy · OpenShore"
-pageDescription: "OpenShore keeps your prompts, code, and keys on your own hardware. No telemetry, no analytics, no phone-home, encrypted at rest."
+pageTitle: "Privacy Policy · OpenShore"
+pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys stay on your own hardware. No telemetry, no analytics, no ads. Exactly what we keep, why, and for how long."
 ---
 {% import "viz.njk" as viz %}
-{% set p = tabpages["privacy"] %}
 
-<header class="subhero">
-  <span class="eyebrow">{{ p.hero.eyebrow }}</span>
-  <h1>{{ p.hero.headline }}</h1>
-  <p class="subhead">{{ p.hero.subhead }}</p>
+{# The privacy policy, and the URL the iPhone app gives Apple as its privacy
+   policy. Written to the Proton standard (CTO security and privacy review,
+   2026-10-01, openshore.code.ai docs/security-privacy-review-2026-10-01.md):
+   every sentence here is what the code does. It must change in the same piece
+   of work as app/src/lib/egressManifest.ts (What leaves this device) and
+   app/ios/App/App/PrivacyInfo.xcprivacy in the openshore.code.ai repo. #}
+
+<header class="masthead masthead--sub">
+  <h1 class="identity">Privacy Policy</h1>
+  <div class="horizon" role="presentation"></div>
+  <p class="lede">We keep the bare minimum it takes to run OpenShore, and we tell you exactly what that is.</p>
+  <p class="offer-fine">Last updated 2 October 2026.</p>
 </header>
+
+<section class="block policy" aria-labelledby="short-heading">
+  <h2 id="short-heading" class="eyebrow">The short version</h2>
+  <ul>
+    <li>Your prompts, chats, code, files, and API keys stay on your own devices. They never reach an OpenShore server.</li>
+    <li>You can chat without an account. If you create one, we keep your email, a few preferences, and what is listed below, and nothing else.</li>
+    <li>No telemetry, no analytics, no advertising, no tracking, and no selling or sharing of your data with anyone.</li>
+    <li>Everything the app sends off your device is listed in the app, under Settings, Privacy, What leaves this device.</li>
+    <li>You can delete your account in the app at any time.</li>
+  </ul>
+</section>
 
 <section class="block">{{ viz.staysOnDevice() }}</section>
 
-{{ viz.sec(p.sections[0]) }}
-{{ viz.sec(p.sections[1]) }}
-{{ viz.sec(p.sections[2]) }}
-
-<section class="block">
-  <a class="block-cta" href="{{ p.cta.href }}">{{ p.cta.label }} <span aria-hidden="true">&rarr;</span></a>
-  {% if p.cta.note %}<p class="offer-fine">{{ p.cta.note }}</p>{% endif %}
+<section class="block policy" aria-labelledby="who-heading">
+  <h2 id="who-heading" class="eyebrow">1. Who we are</h2>
+  <p class="prose">
+    OpenShore is made by {{ site.legalName }} ("we", "us"), which decides how the
+    little data described here is used. Write to us at
+    <a href="mailto:{{ site.emails.oscode }}?subject={{ 'Privacy' | urlencode }}">{{ site.emails.oscode }}</a>.
+    This policy covers the OpenShore apps for iPhone, iPad, macOS, Windows, and
+    Linux, and this website.
+  </p>
 </section>
 
-{% include "pagefoot.njk" %}
+<section class="block policy" aria-labelledby="never-heading">
+  <h2 id="never-heading" class="eyebrow">2. What we never collect</h2>
+  <p class="prose">
+    We do not collect your prompts, chats, model answers, code, files, Vault
+    notes, API keys, contacts, location, photos, or usage analytics. We do not
+    store IP addresses in our database. No analytics, crash-reporting,
+    advertising, or tracking code runs in the app or on this website, and this
+    website sets no cookies. If you sign in on this website, your sign-in session
+    is kept in your own browser's storage.
+  </p>
+</section>
+
+<section class="block policy" aria-labelledby="keep-heading">
+  <h2 id="keep-heading" class="eyebrow">3. What we keep, why, and for how long</h2>
+  <p class="prose">Only if you create an account, or turn on a feature that needs it:</p>
+  <ul>
+    <li><b>Your account:</b> your email address, a password hash, and an account id, so you can sign in. Kept until you delete your account.</li>
+    <li><b>Eight preferences</b> (such as theme, effort, reasoning, and voice), so they follow you to your other devices. Kept until you delete your account.</li>
+    <li><b>A record of a blocked request,</b> if our safety guardrail blocks something while you are signed in: its category, tier, time, a keyed one-way hash of the request, and whether a local or cloud model was in play. Never the request itself and never the name of anyone it was about. Kept for 180 days, longer only under a legal hold. Enforcement steps taken on an account are kept for two years.</li>
+    <li><b>A notification token,</b> only if you allow notifications on your iPhone, so we can tell you when work on your computer finishes or needs you. It is stored with your account id. A notification carries one fixed line and a session id, never your work. Our log of sent notifications is kept for 30 days.</li>
+    <li><b>After you delete your account,</b> we keep only two things, and only when they apply: a one-way hash of your email if we had ended the account for abuse, so it cannot return under the same address (two years); and any record under a legal hold, until the hold ends.</li>
+  </ul>
+  <p class="prose">
+    When you connect GitHub, GitLab, or Bitbucket, the sign-in passes through our
+    server because those services require a secret only a server can hold. Your
+    access token passes through when you connect and each time it is refreshed;
+    we keep no copy and log none of it.
+  </p>
+  <p class="prose">
+    This version of the iPhone app sells nothing. If we sell a subscription
+    later, this policy will say what a purchase adds before it ships.
+  </p>
+</section>
+
+<section class="block policy" aria-labelledby="leaves-heading">
+  <h2 id="leaves-heading" class="eyebrow">4. What your device sends to others, at your direction</h2>
+  <p class="prose">
+    These go straight from your device to the service, not through us, under that
+    service's own privacy policy:
+  </p>
+  <ul>
+    <li><b>Web search:</b> the words of a search, to DuckDuckGo unless you choose Brave, Tavily, Perplexity, or your own search server. On by default; turn it off in Settings, Harbor. Crew routines on your computer follow the same switch and only search.</li>
+    <li><b>Cloud models:</b> your conversation, on a turn you send to Anthropic, OpenAI, Google, Moonshot, Perplexity, or a model server you connect, on your own key.</li>
+    <li><b>Model downloads:</b> a request for the model you picked, to Hugging Face or Ollama.</li>
+    <li><b>Your repositories:</b> to GitHub, GitLab, or Bitbucket, on your own access.</li>
+    <li><b>Your computer:</b> your phone talks to your own computer over your own Tailscale network.</li>
+    <li><b>Updates:</b> the desktop app asks GitHub whether a newer version exists, at launch and every 30 minutes, and once a day reads the list of available models from openshore.ai.</li>
+    <li><b>Speech:</b> on iPhone and iPad it is recognized on the device. On the desktop and the web, the mic uses the speech service built into the app or your browser.</li>
+  </ul>
+</section>
+
+<section class="block policy" aria-labelledby="processors-heading">
+  <h2 id="processors-heading" class="eyebrow">5. Who processes data for us</h2>
+  <ul>
+    <li><b>Supabase</b> runs our account service and database (on Amazon Web Services), and sends sign-in email.</li>
+    <li><b>Apple</b> delivers notifications and distributes the iPhone app.</li>
+    <li><b>Cloudflare</b> serves this website and the model list.</li>
+    <li><b>GitHub</b> hosts the desktop downloads and answers update checks.</li>
+  </ul>
+  <p class="prose">
+    Like any web service, these providers see your IP address in transit and keep
+    short operational logs under their own policies. Your data may be processed in the United
+    States or another country where these providers operate, under their standard
+    contractual protections. We never sell your data and never share it for
+    advertising.
+  </p>
+</section>
+
+<section class="block policy" aria-labelledby="basis-heading">
+  <h2 id="basis-heading" class="eyebrow">6. Why we are allowed to</h2>
+  <p class="prose">
+    Your account, preferences, and notifications are kept to provide the service
+    you asked for. Notifications only run with your permission, which you can take
+    back in your phone's settings. Blocked-request records and enforcement are kept
+    for our legitimate interest in keeping the product from being used for abuse,
+    and to meet legal duties to report child sexual abuse material.
+  </p>
+</section>
+
+<section class="block policy" aria-labelledby="rights-heading">
+  <h2 id="rights-heading" class="eyebrow">7. Your rights</h2>
+  <ul>
+    <li><b>Delete:</b> in the app, Settings, Account, Delete account. It erases your account from our server.</li>
+    <li><b>See and take a copy:</b> email us and we will send everything we hold about you.</li>
+    <li><b>Correct or object:</b> email us.</li>
+    <li><b>On your devices:</b> your chats and files are yours to clear in the app or by uninstalling it.</li>
+    <li><b>Complain:</b> you may complain to your local data protection authority.</li>
+  </ul>
+  <p class="prose">We answer within 30 days.</p>
+</section>
+
+<section class="block policy" aria-labelledby="security-heading">
+  <h2 id="security-heading" class="eyebrow">8. Security</h2>
+  <p class="prose">
+    Everything we send travels over TLS. On your device, chats, settings, and
+    session journals are encrypted at rest (AES-256) under a key in your system's
+    keychain; your Vault notes and code stay plain files you own. Our database
+    lets each account read only its own rows. Desktop updates are checked against
+    our signing keys before they install. If something goes wrong, we will tell
+    the people affected.
+  </p>
+</section>
+
+<section class="block policy" aria-labelledby="children-heading">
+  <h2 id="children-heading" class="eyebrow">9. Children</h2>
+  <p class="prose">
+    OpenShore is not for children under 13, or under 16 in the European Economic
+    Area and the United Kingdom, and we do not knowingly hold their data. If you
+    believe a child has an account, write to us and we will delete it.
+  </p>
+</section>
+
+<section class="block policy" aria-labelledby="law-heading">
+  <h2 id="law-heading" class="eyebrow">10. Law enforcement</h2>
+  <p class="prose">
+    We hand over data only when the law requires it, and we hold very little:
+    never a prompt or its content. A report we are required to make carries the
+    account, the category, and the hash.
+  </p>
+</section>
+
+<section class="block policy" aria-labelledby="changes-heading">
+  <h2 id="changes-heading" class="eyebrow">11. Changes and contact</h2>
+  <p class="prose">
+    We will update this policy when the product changes, change the date above,
+    and say so in the app for any material change.
+  </p>
+  <div class="contact">
+    <p class="contact-line">
+      <span class="contact-label">Privacy questions and requests</span>
+      <a href="mailto:{{ site.emails.oscode }}?subject={{ 'Privacy' | urlencode }}">{{ site.emails.oscode }}</a>
+    </p>
+  </div>
+</section>
+
+<footer class="colophon">
+  <p><a href="/">&larr; OpenShore</a> &middot; <a href="/terms/">Terms of Use</a> &middot; <a href="/ethics/">Ethical boundaries</a></p>
+  <p>&copy; {{ site.year }} {{ site.legalName }}. OpenShore is a product of {{ site.legalName }}.</p>
+</footer>

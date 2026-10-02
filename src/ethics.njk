@@ -82,13 +82,15 @@ pageDescription: "OpenShore enforces a narrow set of ethical boundaries on every
   <p class="prose">
     We do not store the prompt, the answer, or any excerpt of either. A block
     records a category, a tier, a timestamp, a one-way hash of the request, and
-    whether it ran locally or in the cloud. That is enough to recognize a repeat
+    whether it ran locally or in the cloud, kept for 180 days. That is enough to recognize a repeat
     and to identify the same content in a lawful report. Keeping harmful
     material in order to police harmful material is its own harm.
   </p>
   <p class="prose">
-    We do not collect, store, or use an IP address, ever. There is no exception
-    for a blocked request. Enforcement is account termination, plus a report
+    We never store an IP address in our database or use one for enforcement,
+    and there is no exception for a blocked request. Our hosting providers see
+    it in transit and keep short operational logs, as any web service does; the
+    <a href="/privacy/">privacy policy</a> names them. Enforcement is account termination, plus a report
     where the law requires or permits it.
   </p>
 </section>
