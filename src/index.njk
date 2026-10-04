@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /
 pageTitle: "OpenShore: Your machine, your models, your keys"
-pageDescription: "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free during beta, including the coding agent."
+pageDescription: "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free during pre-release, including the coding agent."
 ---
 
 <div
@@ -28,7 +28,7 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
     },
     "offers": [
       { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
-      { "@type": "Offer", "name": "OpenShore Plus", "price": "49.99", "priceCurrency": "USD" }
+      { "@type": "Offer", "name": "OpenShore Plus (pre-release)", "price": "0", "priceCurrency": "USD" }
     ]
   }
 </script>
@@ -151,7 +151,7 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
           <span class="offer-segment">{{ plan.segment }}</span>
           <span class="offer-name">{{ plan.name }}{% if plan.flagship %} <span class="offer-flag">{{ plan.flagLabel or 'Most popular' }}</span>{% endif %}</span>
         </span>
-        <span class="offer-price">{{ plan.price }}</span>
+        <span class="offer-price">{{ plan.price }}{% if plan.priceNote %}<span class="offer-price-note">{{ plan.priceNote }}</span>{% endif %}</span>
       </div>
       <div class="offer-detail">
         <div class="offer-detail-inner">

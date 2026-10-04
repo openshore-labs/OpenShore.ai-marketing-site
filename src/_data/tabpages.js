@@ -43,7 +43,7 @@ export default {
         ],
       },
     ],
-    cta: { label: "See the plans", href: "/#pricing", note: "Free to chat, free to build during beta." },
+    cta: { label: "See the plans", href: "/#pricing", note: "Free to chat. Plus is free during pre-release." },
   },
 
   privacy: {
@@ -164,7 +164,7 @@ export default {
     ],
     cta: {
       label: "Get early access",
-      note: "In private beta, free to chat and free to build for now. OpenShore runs on your machine, so when it sleeps or powers off, in-flight runs stop. No OpenShore cloud runner takes over yet.",
+      note: "In pre-release, free to chat, and Plus is free for now. OpenShore runs on your machine, so when it sleeps or powers off, in-flight runs stop. No OpenShore cloud runner takes over yet.",
     },
   },
 };

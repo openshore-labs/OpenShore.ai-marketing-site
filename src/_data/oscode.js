@@ -216,17 +216,18 @@ export default {
     },
   ],
 
-  // BETA: every pay gate in the app is off (the app's VITE_PAY_GATES build
-  // flag), so the agent is free for everyone right now. OpenShore Plus is
-  // $49.99 a year when the beta ends, on the App Store (iPhone and iPad) or on
-  // the web through Stripe (2026-09-30). The beta note is the single place
-  // that explains it so no card has to. Revert pricingLabel/pricingIntro, the
-  // Plus card's price and CTA, and the note together when the gate comes back.
-  pricingLabel: "Free to chat. Free to build, for now.",
+  // PRE-RELEASE: every pay gate in the app is off (the app's VITE_PAY_GATES
+  // build flag), so Plus is free for everyone right now. Founder, 2026-10-04:
+  // say plainly that Plus is free only while the app is in pre-release, and
+  // that it will be a paid annual plan, probably about $50 a year, with the
+  // price not final. Never print a firm number until the founder sets one.
+  // Revert pricingLabel/pricingIntro, the Plus card's price, priceNote and
+  // CTA, and the note together when the gate comes back.
+  pricingLabel: "Free to chat. Plus is free during pre-release.",
   pricingIntro:
-    "OpenShore runs on your machine, on your models, on your keys. We never see your code. Right now the agent is free too. Grab it while the beta's open.",
+    "OpenShore runs on your machine, on your models, on your keys. We never see your code. Chat is free for good. Plus, the rest of OpenShore, is free while the app is in pre-release.",
   betaNote:
-    "Beta note: the coding agent is free for everyone in the app right now. When the beta ends, OpenShore Plus is $49.99 a year, on the App Store or here on the web.",
+    "Pre-release note: OpenShore Plus costs nothing while the app is in pre-release. Once OpenShore is ready, Plus becomes a paid annual plan, likely around $50 a year. That price is not final and may change. Nothing charges you unless you choose to buy it.",
 
   // Mirrors app/src/lib/plans.ts. Free is chat only; OpenShore Plus (id
   // "personal", the internal tier name) is one person at $49.99 a year, on the
@@ -255,10 +256,11 @@ export default {
       id: "personal",
       segment: "For one person",
       name: "Plus",
-      // Beta: nothing charges anyone today, so the price says what is true
-      // today; the future $20 lives in finePrint. Restore "$20 / year" and
-      // "Most popular" when the gate returns.
-      price: "Free",
+      // Pre-release: nothing charges anyone today, so the price says what is
+      // true today and priceNote says it will not stay that way. Restore a
+      // real yearly price and "Most popular" when the gate returns.
+      price: "$0",
+      priceNote: "for now. About $50 a year after pre-release",
       promise: "Chat stays free. Plus opens the rest of OpenShore.",
       includes: [
         "Everything in Free",
@@ -270,14 +272,14 @@ export default {
       ],
       cta: "Get early access",
       flagship: true,
-      flagLabel: "Full access",
-      // Beta: no Stripe button renders yet (buyable false); the CTA routes to
+      flagLabel: "Pre-release",
+      // Pre-release: no Stripe button renders yet (buyable false); the CTA routes to
       // the same early-access mailto as Free. openshore-app.js carries the
       // personal checkout branch (stripe-checkout, tierId 'personal') for when
       // the gate returns and this card turns buyable.
       buyable: false,
       finePrint:
-        "Free for everyone during the beta. After the beta, OpenShore Plus is $49.99 a year, on the App Store on iPhone and iPad, or here on the web.",
+        "Free for everyone during pre-release. After that, OpenShore Plus will likely be around $50 a year (price not final), on the App Store on iPhone and iPad, or here on the web.",
       checkoutUrl: null,
     },
     // Team plans (Micro, Small, Growth, Scale) come back with the v4 tier.
@@ -287,7 +289,7 @@ export default {
   reassurance: [
     { label: "Local-first.", body: "Your models run on your hardware." },
     { label: "Private by default.", body: "No code leaves your machine unless you push it; no telemetry." },
-    { label: "One year, one price.", body: "Cancel anytime, keep working through the term." },
+    { label: "No charge in pre-release.", body: "When Plus turns paid, it is one yearly price, and you choose whether to buy it." },
   ],
 
   // The ethical boundaries. This copy is the marketing-side mirror of the trust
