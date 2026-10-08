@@ -37,7 +37,7 @@ export default {
   lede:
     "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Chat and build on your desktop, on Linux, macOS, and Windows, and on your iPhone and iPad, your phone reaching your computer over your own private network. Cloud stays one deliberate tap away, always on your own account.",
   summary:
-    "It is built the way software should be: local first, private by construction, and yours. One model in your stack plans the work and hands each part to the specialist best suited to it. Your API keys are stored only on your devices and sent only to the provider they belong to. Your chats and settings are encrypted at rest; your notes and code stay plain files you own.",
+    "It is built the way software should be: local first, private by construction, and yours. One model runs the show and hands each task to the specialist that fits. Each API key is stored only on the device you add it to and sent only to the provider it belongs to. Your chats and settings are encrypted at rest; your notes and code stay plain files you own.",
 
   // "Get OpenShore" tile grid, the marketing mirror of uki.audio's own get-app
   // section (same shape, same honesty rule from that page's own comment: a
@@ -108,22 +108,22 @@ export default {
         "A pocket model on your phone, your big models on your desktop, reached over your own Tailscale network. On a plane with no signal, it still works.",
     },
     {
-      name: "Your stack draws a play",
-      promise: "One Reasoning LLM plans the work and routes every step.",
+      name: "The Stack draws a play",
+      promise: "One Reasoning model plans the work and routes every step.",
       covers:
         "Set the model that plans and reasons, place specialists by category, and it hands each step to the right model, briefs you as it goes, and re-plans when a result changes the picture.",
     },
     {
-      name: "The Marketplace",
-      promise: "A catalog, not a weight host. Models download straight from the source.",
+      name: "Three models out of the box",
+      promise: "Ready on day one, all on Apache 2.0 open weights.",
       covers:
-        "Browse by family and size, with honest ratings and license flags shown plainly. OpenShore never rehosts weights or proxies your inference.",
+        "Harbor Lite is built into the phone app and works offline. Harbor is a coder that runs on your phone, and DeepBlue codes on your computer, sized to fit it. Weights come straight from the source; OpenShore never rehosts them or proxies your inference.",
     },
     {
       name: "Repositories and Vault",
       promise: "Your code and your notes, in files you own.",
       covers:
-        "Connect a repo where it lives, on your disk, iCloud Drive, or Google Drive. The Vault is a markdown knowledge base that Obsidian opens as is.",
+        "Connect GitHub, GitLab, or Bitbucket and work on your code on your own computer. The Vault is a folder of markdown notes that Obsidian opens as is.",
     },
     {
       name: "Crew and routines",
@@ -135,7 +135,7 @@ export default {
       name: "Private by construction",
       promise: "Kept on your device, answering only to you.",
       covers:
-        "Your chats and settings are encrypted at rest. Cloud providers see only the turns you send them, on your own keys. No telemetry, no analytics, no ads.",
+        "Your chats and settings are encrypted at rest. A cloud provider sees only the turns it answers, on your own key or account. No telemetry, no analytics, no ads.",
     },
   ],
 
@@ -144,12 +144,12 @@ export default {
     {
       name: "Bring your models",
       body:
-        "Download a pocket model to your phone, or point OpenShore at the models already on your desktop. Add a cloud model on your own key when you want one.",
+        "Harbor Lite is already on your phone. Download Harbor, or point OpenShore at the models already on your computer. Add a cloud model on your own key when you want one.",
     },
     {
       name: "Build your stack",
       body:
-        "Pick the Reasoning LLM that runs the show and place specialists by category: coding, writing, analysis, image reading, and fast.",
+        "Pick the Reasoning model that runs the show and place specialists by category: coding, writing, analysis, image reading, and fast.",
     },
     {
       name: "Ask, and it draws a play",
@@ -159,7 +159,7 @@ export default {
     {
       name: "Ship it",
       body:
-        "Edit your repo with real diffs and approvals you control, then build and launch to the app stores without leaving the app.",
+        "Edit your repo with real diffs and approvals you control, run its tests, and push when you are ready.",
     },
   ],
 
@@ -168,23 +168,23 @@ export default {
   // (Android rides the same Capacitor foundation; it is not a store build yet).
   piecesLabel: "Everything inside",
   piecesIntro:
-    "The whole product, one line each. Every piece runs on your models by default and asks before it spends.",
+    "The whole product, one line each. Every piece runs on your own models by default, and a cloud model answers only when you pick it or place it in Stack.",
   pieces: [
     {
       label: "A real coding agent.",
-      body: "Reads your repo, edits with diffs you approve, runs commands with your say so, and searches the web with citations (once you allow it; only the search words go out, to DuckDuckGo unless you pick another).",
+      body: "Reads your repo, edits with diffs you approve, runs commands with your say so, and searches the web with citations once you allow it (only the search words go out, to DuckDuckGo unless you pick another). It asks before it opens a web page, unless you set that to Always.",
     },
     {
       label: "Voice mode.",
-      body: "A spoken conversation over the chat, in a voice you pick. On iPhone and iPad, speech is recognized on the device and works offline.",
+      body: "A spoken conversation over the chat, in a voice you pick. On iPhone and iPad, speech is turned into text on the device, works offline, and the audio never leaves it.",
     },
     {
       label: "Video and image attachments.",
-      body: "Attach a screen recording or a photo. A clip is read frame by frame by an image reading model.",
+      body: "Attach a photo, a screenshot, or a screen recording, or take one with the camera. A video is turned into still frames on your device for an image reading model, and the video itself is never sent.",
     },
     {
       label: "On-device models.",
-      body: "Harbor Light is built in and works offline. Harbor and bigger pocket models download when you want more.",
+      body: "Harbor Lite is built into the phone app and works offline. Harbor, a coder that runs on your phone, downloads once (about 2.5 GB) when you want more.",
     },
     {
       label: "Bring your own model.",
@@ -192,27 +192,23 @@ export default {
     },
     {
       label: "Cloud on your key.",
-      body: "Claude, OpenAI, Gemini, and Kimi, connected on your own account. Spend always asks first.",
+      body: "Claude, OpenAI, Gemini, Kimi, and Perplexity, on your own key. A cloud model answers only when you pick it or place it in Stack, and on your computer the coding agent asks before a cloud model's first step in each task.",
+    },
+    {
+      label: "Vault.",
+      body: "A folder of markdown notes you own, that Obsidian opens as is. By default, notes in Private/ or Journal/, or marked private, are private notes. OpenShore never sends private notes to a cloud model. A command you run or allow, or a change you allow, can still carry their words to one.",
     },
     {
       label: "Projects and memory.",
       body: "Work stays organized in projects, and the agent keeps its notes inside your repo, committed with the code.",
     },
     {
-      label: "Stack Health.",
-      body: "See what your stack is doing, what it saved you, and its estimated footprint, refreshed daily.",
-    },
-    {
       label: "Premium by default.",
       body: "Everything the agent builds is held to a real UX bar, and everything it writes reads like a careful human wrote it.",
     },
     {
-      label: "Launch.",
-      body: "Take a finished build to the App Store or Google Play from inside the app, with the model reading each build result.",
-    },
-    {
       label: "Runs everywhere.",
-      body: "Desktop for Linux, macOS, and Windows. iPhone and iPad, with Android built on the same foundation.",
+      body: "Desktop for Linux, macOS, and Windows today. iPhone and iPad next, with Android built on the same foundation.",
     },
   ],
 
@@ -242,9 +238,9 @@ export default {
       promise: "Full chat with the local models you already run.",
       includes: [
         "Chat with any local model, Harbor or Ollama",
-        "Projects, your Stack, and cloud models on your own keys",
+        "Your Stack, plus Projects and cloud models on your own keys with a free sign-in",
         "Local models run entirely on your hardware",
-        "No account required, no telemetry",
+        "No account to chat, no telemetry",
         "Yours to keep, free forever",
       ],
       cta: "Get OpenShore",
@@ -288,7 +284,7 @@ export default {
   // A quiet trust row rendered under the pricing cards.
   reassurance: [
     { label: "Local-first.", body: "Your models run on your hardware." },
-    { label: "Private by default.", body: "No code leaves your machine unless you push it; no telemetry." },
+    { label: "Private by default.", body: "Your code never reaches us, and a cloud model sees it only on the turns it answers. No telemetry." },
     { label: "No charge in pre-release.", body: "When Plus turns paid, it is one yearly price, and you choose whether to buy it." },
   ],
 
@@ -346,7 +342,7 @@ export default {
   },
 
   close:
-    "OpenShore is in private beta and getting ready for launch. Join the early access list and we will tell you the moment it is on the App Store, and set your company up with seats when you are ready.",
+    "OpenShore is in pre-release and getting ready for the App Store. Join the early access list and we will tell you the moment it is there.",
 
   earlyAccessSubject: "OpenShore early access",
   earlyAccessBody:

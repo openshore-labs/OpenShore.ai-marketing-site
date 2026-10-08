@@ -2,13 +2,15 @@
 layout: base.njk
 permalink: /privacy/
 pageTitle: "Privacy Policy · OpenShore"
-pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys stay on your own hardware. No telemetry, no analytics, no ads. Exactly what we keep, why, and for how long."
+pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys never reach an OpenShore server. No telemetry, no analytics, no ads. Exactly what we keep, why, and for how long."
 ---
 {% import "viz.njk" as viz %}
 
 {# The privacy policy, and the URL the iPhone app gives Apple as its privacy
    policy. Written to the Proton standard (CTO security and privacy review,
-   2026-10-01, openshore.code.ai docs/security-privacy-review-2026-10-01.md):
+   2026-10-01, openshore.code.ai docs/security-privacy-review-2026-10-01.md;
+   realigned to the 2026-10-08 review and the CX and CMO rulings, the same
+   repo's docs/security-privacy-review-2026-10-08.md):
    every sentence here is what the code does. It must change in the same piece
    of work as app/src/lib/egressManifest.ts (What leaves this device) and
    app/ios/App/App/PrivacyInfo.xcprivacy in the openshore.code.ai repo. #}
@@ -17,13 +19,13 @@ pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys stay 
   <h1 class="identity">Privacy Policy</h1>
   <div class="horizon" role="presentation"></div>
   <p class="lede">We keep the bare minimum it takes to run OpenShore, and we tell you exactly what that is.</p>
-  <p class="offer-fine">Last updated 2 October 2026.</p>
+  <p class="offer-fine">Last updated 8 October 2026.</p>
 </header>
 
 <section class="block policy" aria-labelledby="short-heading">
   <h2 id="short-heading" class="eyebrow">The short version</h2>
   <ul>
-    <li>Your prompts, chats, code, files, and API keys stay on your own devices. They never reach an OpenShore server.</li>
+    <li>Your prompts, chats, code, files, and API keys never reach an OpenShore server. They leave your device only for a service you choose, listed in section 4: a cloud model sees the turns it answers, and each API key is stored only on the device you add it to and sent only to its provider.</li>
     <li>You can chat without an account. If you create one, we keep your email, a few preferences, and what is listed below, and nothing else.</li>
     <li>No telemetry, no analytics, no advertising, no tracking, and no selling or sharing of your data with anyone.</li>
     <li>Everything the app sends off your device is listed in the app, under Settings, Privacy, What leaves this device.</li>
@@ -48,8 +50,11 @@ pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys stay 
   <h2 id="never-heading" class="eyebrow">2. What we never collect</h2>
   <p class="prose">
     We do not collect your prompts, chats, model answers, code, files, Vault
-    notes, API keys, contacts, location, photos, or usage analytics. We do not
-    store IP addresses in our database. No analytics, crash-reporting,
+    notes, API keys, contacts, location, photos, video, audio, or usage
+    analytics. We do not keep IP addresses in our own records. Our sign-in
+    service, run by Supabase, keeps a log of sign-ins; we keep one week of it,
+    and clear the network address and browser name from sign-in sessions each
+    day. No analytics, crash-reporting,
     advertising, or tracking code runs in the app or on this website, and this
     website sets no cookies. If you sign in on this website, your sign-in session
     is kept in your own browser's storage.
@@ -61,9 +66,9 @@ pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys stay 
   <p class="prose">Only if you create an account, or turn on a feature that needs it:</p>
   <ul>
     <li><b>Your account:</b> your email address, a password hash, and an account id, so you can sign in. Kept until you delete your account.</li>
-    <li><b>Eight preferences</b> (such as theme, effort, reasoning, and voice), so they follow you to your other devices. Kept until you delete your account.</li>
+    <li><b>Eight preferences</b> (your appearance, effort, Humanize Writing, Chain of Thought, notices, and voice settings), so they follow you to your other devices. Never your chats, prompts, projects, keys, or addresses. Kept until you delete your account.</li>
     <li><b>A record of a blocked request,</b> if our safety guardrail blocks something while you are signed in: its category, tier, time, a keyed one-way hash of the request, and whether a local or cloud model was in play. Never the request itself and never the name of anyone it was about. Kept for 180 days, longer only under a legal hold. Enforcement steps taken on an account are kept for two years.</li>
-    <li><b>A notification token,</b> only if you allow notifications on your iPhone, so we can tell you when work on your computer finishes or needs you. It is stored with your account id. A notification carries one fixed line and a session id, never your work. Our log of sent notifications is kept for 30 days.</li>
+    <li><b>A notification token,</b> only if you allow notifications on your iPhone, so we can tell you when work on your computer finishes or needs you. It is stored with your account id. For each notification we relay only a session id, its kind, and a number to Apple, never the words of a chat. Our log of sent notifications is kept for 2 days, and a token not refreshed in 180 days is deleted.</li>
     <li><b>After you delete your account,</b> we keep only two things, and only when they apply: a one-way hash of your email if we had ended the account for abuse, so it cannot return under the same address (two years); and any record under a legal hold, until the hold ends.</li>
   </ul>
   <p class="prose">
@@ -85,13 +90,16 @@ pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys stay 
     service's own privacy policy:
   </p>
   <ul>
-    <li><b>Web search:</b> the words of a search, to DuckDuckGo unless you choose Brave, Tavily, Perplexity, or your own search server. Off until you allow it: the app asks the first time a model wants to search, and you can change it in Settings, Harbor. Crew routines on your computer follow the same choice and only search.</li>
-    <li><b>Cloud models:</b> your conversation, on a turn you send to Anthropic, OpenAI, Google, Moonshot, Perplexity, or a model server you connect, on your own key.</li>
-    <li><b>Model downloads:</b> a request for the model you picked, to Hugging Face or Ollama.</li>
+    <li><b>Web search:</b> the words of a search, and the network address any web request carries, to DuckDuckGo unless you add a key for Brave, Tavily, or Perplexity, or point the desktop engine at your own search server. Never the rest of your chat, never your files. Off until you allow it: the app asks the first time a model wants to search, and you can change it in Settings, Web search. Once a local model in a chat has read a private note, or its project pins one, each search it writes shows its words and asks first. Crew routines on your computer follow the same choice, while your computer is on, and only search; they never open pages.</li>
+    <li><b>Web pages:</b> on your computer, a page the coding agent opens, to that site. It asks first unless you set Opening web pages to Always in Settings, Approvals, and a page on your own network always asks.</li>
+    <li><b>Cloud models:</b> your chat, and the notes and files it draws on, to Anthropic, OpenAI, Google, Moonshot, or Perplexity on your own key, or to a model server you connect. Only when you pick a cloud model or place one in your Stack, and only on the turns it answers; on your computer, the coding agent asks first in each task. OpenShore never sends private notes to a cloud model. A command you run or allow, or a change you allow, can still carry their words to one. An Ollama model whose tag says cloud (like kimi-k3:cloud) runs on ollama.com under your own Ollama account, so it counts as a cloud model.</li>
+    <li><b>Photos and video:</b> a photo or screenshot you attach goes only to the model that reads it. A video is turned into still frames on your device first; the video itself, and its sound, are never sent.</li>
+    <li><b>Model downloads:</b> a request for the model you picked, to Hugging Face or Ollama. For a model that runs on your computer, nothing about you rides along.</li>
     <li><b>Your repositories:</b> to GitHub, GitLab, or Bitbucket, on your own access.</li>
     <li><b>Your computer:</b> your phone talks to your own computer over your own Tailscale network.</li>
-    <li><b>Updates:</b> the desktop app asks GitHub whether a newer version exists, at launch and every 30 minutes, and once a day reads the list of available models from openshore.ai.</li>
-    <li><b>Speech:</b> on iPhone and iPad it is recognized on the device. On the desktop and the web, the mic uses the speech service built into the app or your browser.</li>
+    <li><b>Updates:</b> the desktop app asks GitHub whether a newer version exists (your version and network address), at launch and every 30 minutes. Nothing downloads until you click Update.</li>
+    <li><b>The model list:</b> when you open Stack, at most once a day, the app reads the list of available models from openshore.ai. Nothing about you rides along; the server sees your network address, as any website does.</li>
+    <li><b>Speech:</b> on iPhone and iPad it is turned into text on the device, and the audio never leaves it. On the desktop and the web, the mic uses the speech service built into the app or your browser (Google's, in Chrome and the desktop app).</li>
   </ul>
 </section>
 
