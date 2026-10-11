@@ -95,6 +95,10 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
     </li>
     {% endfor %}
   </ul>
+  <p class="lede" id="cli">{{ oscode.cli.title }}</p>
+  <p class="prose">{{ oscode.cli.lede }}</p>
+  <pre class="prose"><code>{% for c in oscode.cli.commands %}{{ c }}
+{% endfor %}</code></pre>
 </section>
 
 {# "What makes it different" carries the thesis on its own now; the mission

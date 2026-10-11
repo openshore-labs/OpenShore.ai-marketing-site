@@ -54,6 +54,14 @@ export default {
   // PWA manifest and service worker that do not exist yet. To take a platform
   // live: set its href, flip status to "live"; see .get-tile-live.
   githubReleases: "https://github.com/openshore-labs/openshore-releases/releases",
+  // OS Code, the terminal CLI (founder, 2026-10-11): the same agent in your
+  // terminal, installed from npm. Plain markup for now; the founder styles it.
+  cli: {
+    title: "OS Code, in your terminal.",
+    lede: "The same agent as a command-line tool. With Node 22 or newer and a local model server such as Ollama, two commands set it up, and osc starts it in any project.",
+    commands: ["npm install -g os-code", "osc init", "cd your-project && osc"],
+  },
+
   getAppsLabel: "Get OpenShore",
   getAppsTitle: "One stack, every machine you own.",
   getAppsLede:
