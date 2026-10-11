@@ -5,15 +5,10 @@
 // openshore-app.js / openshore.css) is internal plumbing only, kept as-is to
 // avoid a needless rename of working code.
 //
-// Pricing model (2026-09-30): Free is Chats, Projects, the Stack and Cloud
-// Connections, with chat needing no account. OpenShore Plus is $49.99 a year
-// and opens the rest (founder, 2026-09-30): the coding agent, Crew routines,
-// Terminal, Repositories, Vault, and Desktop + phone,
-// bought on the web via Stripe or on iPhone and iPad through the
-// App Store. "Personal" is the internal name of the v1 release only; customers
-// read "OpenShore Plus" (CMO and Creative Studio). Team plans come later (v4,
-// founder: "just starting with personal"), so no team card renders. The Free
-// card carries an early-access mailto so nothing dead-ends before a download.
+// Pricing model (2026-10-11): OpenShore is free and open source under the
+// Apache License 2.0, and nothing is sold to a person (the app's pay gate is
+// deleted). Team seat plans are a later tier and render no card. The card
+// carries an early-access mailto so nothing dead-ends before a download.
 //
 // No em dashes anywhere a customer reads (Open Shore standing instruction).
 export default {
@@ -212,80 +207,40 @@ export default {
     },
   ],
 
-  // PRE-RELEASE: every pay gate in the app is off (the app's VITE_PAY_GATES
-  // build flag), so Plus is free for everyone right now. Founder, 2026-10-04:
-  // say plainly that Plus is free only while the app is in pre-release, and
-  // that it will be a paid annual plan, probably about $50 a year, with the
-  // price not final. Never print a firm number until the founder sets one.
-  // Revert pricingLabel/pricingIntro, the Plus card's price, priceNote and
-  // CTA, and the note together when the gate comes back.
-  pricingLabel: "Free to chat. Plus is free during pre-release.",
+  pricingLabel: "Free and open source.",
   pricingIntro:
-    "OpenShore runs on your machine, on your models, on your keys. We never see your code. Chat is free for good. Plus, the rest of OpenShore, is free while the app is in pre-release.",
-  betaNote:
-    "Pre-release note: OpenShore Plus costs nothing while the app is in pre-release. Once OpenShore is ready, Plus becomes a paid annual plan, likely around $50 a year. That price is not final and may change. Nothing charges you unless you choose to buy it.",
+    "OpenShore runs on your machine, on your models, on your keys. We never see your code. It costs nothing, and the code is open under the Apache License 2.0.",
 
-  // Mirrors app/src/lib/plans.ts. Free is chat only; OpenShore Plus (id
-  // "personal", the internal tier name) is one person at $49.99 a year, on the
-  // web via Stripe or on iPhone and iPad via the App Store. Team plans return
-  // with the v4 tier.
+  // Mirrors app/src/lib/plans.ts: one plan for a person, free. Team plans
+  // are a later tier; no card renders.
   plans: [
     {
       id: "free",
       segment: "For your own work",
-      name: "Free",
+      name: "OpenShore",
       price: "$0",
-      promise: "Full chat with the local models you already run.",
+      promise: "Everything, free. Open source under Apache 2.0.",
       includes: [
         "Chat with any local model, Harbor or Ollama",
-        "Your Stack, plus Projects and cloud models on your own keys with a free sign-in",
-        "Local models run entirely on your hardware",
-        "No account to chat, no telemetry",
-        "Yours to keep, free forever",
-      ],
-      cta: "Get OpenShore",
-      // Free tier: no checkout, an early-access mailto until a public download
-      // exists.
-      checkoutUrl: null,
-    },
-    {
-      id: "personal",
-      segment: "For one person",
-      name: "Plus",
-      // Pre-release: nothing charges anyone today, so the price says what is
-      // true today and priceNote says it will not stay that way. Restore a
-      // real yearly price and "Most popular" when the gate returns.
-      price: "$0",
-      priceNote: "for now. About $50 a year after pre-release",
-      promise: "Chat stays free. Plus opens the rest of OpenShore.",
-      includes: [
-        "Everything in Free",
         "The coding agent: reads your project, makes real changes you approve",
         "Crew routines that run while your computer is on",
         "Terminal, Repositories, and Vault",
         "Your computer from your phone, while it is on",
-        "Your models, your keys. Your prompts never pass through us.",
+        "Cloud models on your own keys. Your prompts never pass through us.",
+        "No account to chat, no telemetry",
+        "Source on GitHub under Apache 2.0",
       ],
-      cta: "Get early access",
-      flagship: true,
-      flagLabel: "Pre-release",
-      // Pre-release: no Stripe button renders yet (buyable false); the CTA routes to
-      // the same early-access mailto as Free. openshore-app.js carries the
-      // personal checkout branch (stripe-checkout, tierId 'personal') for when
-      // the gate returns and this card turns buyable.
-      buyable: false,
-      finePrint:
-        "Free for everyone during pre-release. After that, OpenShore Plus will likely be around $50 a year (price not final), on the App Store on iPhone and iPad, or here on the web.",
+      cta: "Get OpenShore",
+      // No checkout: an early-access mailto until a public download exists.
       checkoutUrl: null,
     },
-    // Team plans (Micro, Small, Growth, Scale) come back with the v4 tier.
   ],
 
   // A quiet trust row rendered under the pricing cards.
   reassurance: [
     { label: "Local-first.", body: "Your models run on your hardware." },
     { label: "Private by default.", body: "Your code never reaches us, and a cloud model sees it only on the turns it answers. No telemetry." },
-    { label: "No charge in pre-release.", body: "When Plus turns paid, it is one yearly price, and you choose whether to buy it." },
+    { label: "Open source.", body: "The code is public under the Apache License 2.0, and nothing is for sale." },
   ],
 
   // The ethical boundaries. This copy is the marketing-side mirror of the trust
@@ -319,7 +274,7 @@ export default {
       "It aligns with recognized frameworks: the NIST AI Risk Management Framework, ISO/IEC 42001, and C2PA content provenance.",
       "We block child sexual abuse material, non-consensual intimate imagery, and weapons uplift outright, and we gate the cloning of real people behind consent.",
       "We're honest about the limit: once open model weights are on your own machine, they are beyond any app's control.",
-      "What we guarantee is that this app, as shipped, does not assist misuse and does not help you strip these protections out.",
+      "What we guarantee is that this app, as shipped, does not assist misuse and does not help you strip these protections out. Because the code is open, anyone can change their own copy; this covers the builds we ship.",
     ],
     tiers: [
       {

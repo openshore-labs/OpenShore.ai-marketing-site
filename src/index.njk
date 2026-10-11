@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /
 pageTitle: "OpenShore: Your machine, your models, your keys"
-pageDescription: "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free during pre-release, including the coding agent."
+pageDescription: "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free and open source, including the coding agent."
 ---
 
 <div
@@ -27,8 +27,7 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
       "url": "{{ site.parentUrl }}"
     },
     "offers": [
-      { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
-      { "@type": "Offer", "name": "OpenShore Plus (pre-release)", "price": "0", "priceCurrency": "USD" }
+      { "@type": "Offer", "name": "OpenShore", "price": "0", "priceCurrency": "USD" }
     ]
   }
 </script>
@@ -40,7 +39,7 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
   <h1 class="identity">{{ oscode.headline }}<span class="identity-coda identity-byline">{{ oscode.coda | replace(oscode.codaAccent, '<span class="coda-accent">' + oscode.codaAccent + '</span>') | safe }}</span></h1>
   <div class="horizon" role="presentation"></div>
   <div class="hero-actions">
-    <a class="block-cta hero-cta" href="#pricing">See the plans <span aria-hidden="true">&rarr;</span></a>
+    <a class="block-cta hero-cta" href="#pricing">Get OpenShore <span aria-hidden="true">&rarr;</span></a>
     <a class="hero-cta-ghost" href="#how-heading">How it works</a>
   </div>
 </header>
@@ -162,7 +161,7 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
               {% for item in plan.includes %}<li>{{ item }}</li>{% endfor %}
             </ul>
           </div>
-          {% if plan.id == 'free' or plan.id == 'personal' %}
+          {% if plan.id == 'free' %}
           <a class="block-cta" href="mailto:{{ site.emails.oscode }}?subject={{ (plan.name + ' · OpenShore') | urlencode }}">{{ plan.cta }} <span aria-hidden="true">&rarr;</span></a>
           {% elif plan.buyable or plan.segment == 'For teams' %}
           <button type="button" class="block-cta" data-tier="{{ plan.id }}">{{ plan.cta }} <span aria-hidden="true">&rarr;</span></button>
