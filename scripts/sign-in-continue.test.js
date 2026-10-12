@@ -22,9 +22,12 @@ test('refuses anything else', () => {
     verify('type=magiclink'),
     verify('token=t&type=recovery'),
     verify('token=t&type=magiclink&redirect_to=https://evil.example/'),
+    verify('token=t&type=magiclink&redirect_to=oscode://auth-callback'),
+    verify('token=pkce_t&type=email&redirect_to=oscode://auth-callback'),
+    verify('token=pkce_t&type=magiclink&redirect_to=http://localhost:5173/auth-callback'),
     verify('token=t&type=magiclink'),
-    `http://lzlrlfdffwiypzreoldb.supabase.co/auth/v1/verify?token=t&type=magiclink`,
-    `https://user:pw@lzlrlfdffwiypzreoldb.supabase.co/auth/v1/verify?token=t&type=magiclink`,
+    `http://lzlrlfdffwiypzreoldb.supabase.co/auth/v1/verify?token=pkce_t&type=magiclink&redirect_to=oscode://auth-callback`,
+    `https://user:pw@lzlrlfdffwiypzreoldb.supabase.co/auth/v1/verify?token=pkce_t&type=magiclink&redirect_to=oscode://auth-callback`,
     'javascript:alert(1)',
   ]) {
     assert.equal(verifyTarget(frag(u), ORIGIN), null, u);

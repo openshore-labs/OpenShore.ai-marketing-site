@@ -9,12 +9,9 @@
 // the app's own sign-in addresses, or nothing happens: this page never sends
 // anyone anywhere else.
 
-/** Where a sign-in may return, as supabase/config.toml lists them. */
-export const APP_RETURNS = [
-  'oscode://auth-callback',
-  'http://127.0.0.1:4817/auth-callback',
-  'http://localhost:5173/auth-callback',
-];
+/** Where a sign-in may return: the iPhone app and the desktop app. The web
+ *  build's development address is left out on purpose (CTO review). */
+export const APP_RETURNS = ['oscode://auth-callback', 'http://127.0.0.1:4817/auth-callback'];
 
 /** The verify address to move on to, or null when the link is not one of
  *  ours. `authOrigin` is the project's https origin. */
@@ -35,7 +32,9 @@ export function verifyTarget(fragment, authOrigin) {
   const token = u.searchParams.get('token');
   const type = u.searchParams.get('type');
   const back = u.searchParams.get('redirect_to');
-  if (!token || !['magiclink', 'signup', 'email'].includes(type || '')) return null;
+  // Only a PKCE link (the app's own request): its token is prefixed pkce_.
+  if (!token || !token.startsWith('pkce_')) return null;
+  if (!['magiclink', 'signup'].includes(type || '')) return null;
   if (!back || !APP_RETURNS.includes(back)) return null;
   return u.toString();
 }
