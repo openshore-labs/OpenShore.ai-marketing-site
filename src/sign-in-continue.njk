@@ -1,0 +1,34 @@
+---
+layout: base.njk
+permalink: /sign-in/continue/
+pageTitle: "Sign in · OpenShore"
+pageDescription: "Finish signing in to OpenShore."
+pageNoindex: true
+eleventyExcludeFromCollections: true
+---
+
+<header class="masthead masthead--sub">
+  <h1 class="identity">Sign in</h1>
+  <div class="horizon" role="presentation"></div>
+</header>
+
+<section class="block policy" id="continue" data-auth-origin="{{ oscode.checkout.supabaseUrl }}">
+  <div id="continue-ready" hidden>
+    <p class="prose">
+      On the device that asked for this email? Continue, and OpenShore opens signed in.
+      On another device, type the 6-digit code from the email into OpenShore instead.
+    </p>
+    <p><button type="button" class="block-cta" id="continue-go">Continue</button></p>
+  </div>
+  <div id="continue-bad" hidden>
+    <p class="prose">
+      This link opens only in the OpenShore app that asked for it. Type the 6-digit
+      code from the email where you asked for it, or ask for a new email there.
+    </p>
+  </div>
+  <noscript>
+    <p class="prose">Type the 6-digit code from the email into OpenShore instead.</p>
+  </noscript>
+</section>
+
+<script type="module" src="/sign-in-continue.js"></script>

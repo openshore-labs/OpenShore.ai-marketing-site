@@ -15,7 +15,8 @@
   const dialog = document.getElementById('oscode-login');
   const form = dialog?.querySelector('form');
   const emailInput = dialog?.querySelector('#oscode-email');
-  const pwInput = dialog?.querySelector('#oscode-password');
+  const codeField = dialog?.querySelector('#oscode-code-field');
+  const codeInput = dialog?.querySelector('#oscode-code');
   const errEl = dialog?.querySelector('.oscode-login-error');
   const titleEl = dialog?.querySelector('.oscode-login-title');
   const submitEl = dialog?.querySelector('.oscode-login-submit');
@@ -23,7 +24,7 @@
 
   let session = loadSession();
   let account = null; // { role, org: {id,name,tierId}, entitlement }
-  let mode = 'signin'; // or 'signup'
+  let sentTo = null; // the address the newest code went to; set, the dialog asks for it
   let pendingTier = null; // a tier the user tapped Buy on before signing in
   let pendingBtn = null; // the button that tier was tapped on, for its label
 
@@ -154,25 +155,25 @@
   }
 
   // ---- auth actions -------------------------------------------------------
-  async function signIn(email, password) {
-    const res = await fetch(`${BASE}/auth/v1/token?grant_type=password`, {
+  // No passwords (openshore.code.ai, 2026-10-12): an email carries a 6-digit
+  // code, typed here. The first code to a new address makes the account, the
+  // same as in the app.
+  async function sendCode(email) {
+    const res = await fetch(`${BASE}/auth/v1/otp`, {
       method: 'POST',
       headers: headers(),
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, create_user: true }),
     });
     if (!res.ok) throw new Error(await errText(res));
-    saveSession(toSession(await res.json()));
   }
-  async function signUp(email, password) {
-    const res = await fetch(`${BASE}/auth/v1/signup`, {
+  async function verifyCode(email, code) {
+    const res = await fetch(`${BASE}/auth/v1/verify`, {
       method: 'POST',
       headers: headers(),
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ type: 'email', email, token: code }),
     });
-    if (!res.ok) throw new Error(await errText(res));
-    const body = await res.json();
-    if (body.access_token) saveSession(toSession(body));
-    return Boolean(body.access_token);
+    if (!res.ok) throw new Error('That code did not work. Check the newest email, or send a new code.');
+    saveSession(toSession(await res.json()));
   }
   async function signOut() {
     const s = session;
@@ -326,17 +327,19 @@
   }
 
   // ---- login dialog -------------------------------------------------------
-  function setMode(next) {
-    mode = next;
-    if (titleEl) titleEl.textContent = mode === 'signin' ? 'Log in' : 'Create your account';
-    if (submitEl) submitEl.textContent = mode === 'signin' ? 'Log in' : 'Create account';
-    if (toggleEl)
-      toggleEl.textContent = mode === 'signin' ? 'New here? Create an account' : 'Have an account? Log in';
-    setError('');
+  function setStep(to) {
+    sentTo = to;
+    if (codeField) codeField.hidden = !to;
+    if (emailInput) emailInput.disabled = Boolean(to);
+    if (titleEl) titleEl.textContent = to ? 'Check your email' : 'Log in';
+    if (submitEl) submitEl.textContent = to ? 'Log in' : 'Email me a code';
+    if (toggleEl) toggleEl.hidden = !to;
+    if (codeInput) codeInput.value = '';
+    setError(to ? `We sent a 6-digit code to ${to}. It works for 10 minutes.` : '');
   }
   function openDialog() {
     if (!dialog) return;
-    setMode('signin');
+    setStep(null);
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open', '');
     emailInput?.focus();
@@ -347,33 +350,39 @@
     else dialog.removeAttribute('open');
   }
 
-  toggleEl?.addEventListener('click', () => setMode(mode === 'signin' ? 'signup' : 'signin'));
+  toggleEl?.addEventListener('click', () => {
+    setStep(null);
+    emailInput?.focus();
+  });
   dialog?.querySelector('.oscode-login-close')?.addEventListener('click', () => closeDialog());
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = emailInput.value.trim();
-    const password = pwInput.value;
-    if (!email || !password) {
-      setError('Enter your email and password.');
-      return;
-    }
-    if (mode === 'signup' && password.length < 8) {
-      setError('Use at least 8 characters for your password.');
-      return;
-    }
-    const restore = busy(submitEl, mode === 'signin' ? 'Logging in...' : 'Creating account...');
-    try {
-      if (mode === 'signin') {
-        await signIn(email, password);
-      } else {
-        const signedIn = await signUp(email, password);
-        if (!signedIn) {
-          setError('Account created. Check your email to confirm, then log in.');
-          setMode('signin');
-          restore();
-          return;
-        }
+    if (!sentTo) {
+      const email = emailInput.value.trim();
+      if (!email) {
+        setError('Enter your email.');
+        return;
       }
+      const restore = busy(submitEl, 'Sending...');
+      try {
+        await sendCode(email);
+        restore();
+        setStep(email);
+        codeInput?.focus();
+      } catch (err) {
+        setError(err.message || 'Could not send the code.');
+        restore();
+      }
+      return;
+    }
+    const code = (codeInput?.value || '').replace(/\D/g, '');
+    if (code.length !== 6) {
+      setError('Type the 6-digit code from the email.');
+      return;
+    }
+    const restore = busy(submitEl, 'Logging in...');
+    try {
+      await verifyCode(sentTo, code);
       await loadAccount();
       closeDialog();
       renderAuth();

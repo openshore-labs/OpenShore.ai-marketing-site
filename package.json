@@ -10,7 +10,7 @@
     "check:copy": "node scripts/check-copy.mjs",
     "serve": "eleventy --serve",
     "clean": "rm -rf _site",
-    "test": "node --test worker/downloads.test.js"
+    "test": "node --test worker/downloads.test.js scripts/sign-in-continue.test.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"

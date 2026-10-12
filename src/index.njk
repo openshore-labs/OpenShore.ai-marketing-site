@@ -233,19 +233,20 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
 <dialog id="oscode-login" class="oscode-login" aria-labelledby="oscode-login-title">
   <button type="button" class="oscode-login-close" aria-label="Close">&times;</button>
   <h2 id="oscode-login-title" class="oscode-login-title">Log in</h2>
-  <p class="oscode-login-sub">Sign in with the same account you use in the OpenShore app. Chatting needs no account.</p>
+  <p class="oscode-login-sub">Sign in with the same account you use in the OpenShore app. We email you a 6-digit code; there are no passwords.</p>
   <form>
     <label class="oscode-field">
       <span>Email</span>
       <input id="oscode-email" type="email" autocomplete="email" autocapitalize="none" placeholder="you@company.com" />
     </label>
-    <label class="oscode-field">
-      <span>Password</span>
-      <input id="oscode-password" type="password" autocomplete="current-password" placeholder="Password" />
+    <label class="oscode-field" id="oscode-code-field" hidden>
+      <span>6-digit code</span>
+      <input id="oscode-code" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="000000" maxlength="8" />
     </label>
     <p class="oscode-login-error" role="alert"></p>
-    <button type="submit" class="block-cta oscode-login-submit">Log in</button>
-    <button type="button" class="oscode-login-toggle">New here? Create an account</button>
+    <button type="submit" class="block-cta oscode-login-submit">Email me a code</button>
+    <button type="button" class="oscode-login-toggle" hidden>Use a different email</button>
+    <p class="oscode-login-sub">Continuing means you accept the <a href="/terms/">Terms of Use</a> and <a href="/privacy/">Privacy Policy</a>.</p>
   </form>
 </dialog>
 
