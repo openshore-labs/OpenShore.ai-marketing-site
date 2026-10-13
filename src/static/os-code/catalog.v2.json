@@ -2366,6 +2366,74 @@
       "updatedAt": "2026-09-23T08:04:17.000Z"
     },
     {
+      "id": "qwen-image-edit-2511",
+      "name": "Qwen-Image-Edit 2511",
+      "tagline": "Changes a photo the way you describe, keeping the rest as it was.",
+      "categories": [
+        "image-edit"
+      ],
+      "orchestratorCapable": false,
+      "source": {
+        "kind": "huggingface",
+        "ref": "Comfy-Org/Qwen-Image-Edit_ComfyUI",
+        "pullCommand": "curl -L -o \"models/diffusion_models/qwen_image_edit_2511_int8_convrot.safetensors\" \"https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_int8_convrot.safetensors\"\ncurl -L -o \"models/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors\" \"https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors\"\ncurl -L -o \"models/vae/qwen_image_vae.safetensors\" \"https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors\"\ncurl -L -o \"models/loras/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors\" \"https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors\"",
+        "files": [
+          {
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/f68ace85e60b4a02a323e394253731947657b7d2/split_files/diffusion_models/qwen_image_edit_2511_int8_convrot.safetensors",
+            "sha256": "11b5af5ac601821d73930c84846c9a158e67177356daf927ce1c8d10f3963829",
+            "sizeGB": 19.09,
+            "dest": "diffusion_models/qwen_image_edit_2511_int8_convrot.safetensors"
+          },
+          {
+            "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/1405a2b738c29b890cf6d03fc038d8d3e92eeed7/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+            "sha256": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
+            "sizeGB": 8.74,
+            "dest": "text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+            "license": "Apache-2.0"
+          },
+          {
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+            "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+            "sizeGB": 0.24,
+            "dest": "vae/qwen_image_vae.safetensors",
+            "license": "Apache-2.0"
+          },
+          {
+            "url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/d74eba145674fd7e31b949324e148e21e7118abd/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+            "sha256": "22226e8d05d354bb356627d428809f5afd7819399b077238a2b70a82883a904f",
+            "sizeGB": 0.81,
+            "dest": "loras/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+            "license": "Apache-2.0"
+          }
+        ]
+      },
+      "runtime": "comfyui",
+      "runner": {
+        "graph": "qwen-image-edit-2511"
+      },
+      "sizeGB": 28.88,
+      "quantization": "as published",
+      "contextTokens": 1,
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "commercial": "ok"
+      },
+      "curation": {
+        "rank": 212,
+        "note": "The workstation pick for editing by asking."
+      },
+      "blessed": false,
+      "popularity": {
+        "downloads": 1668462,
+        "likes": 506,
+        "source": "huggingface"
+      },
+      "createdAt": "2025-08-19T02:18:21.000Z",
+      "updatedAt": "2026-09-23T08:05:05.000Z"
+    },
+    {
       "id": "wan2.2-ti2v-5b",
       "name": "Wan 2.2 5B",
       "tagline": "Five-second clips at 720p from a description or a picture.",
@@ -3422,6 +3490,10 @@
         "laptop": {
           "model": "flux2-klein-4b",
           "why": "The only openly licensed editor its maker says fits about 8 GB."
+        },
+        "workstation": {
+          "model": "qwen-image-edit-2511",
+          "why": "The top openly licensed model on Artificial Analysis's open-weights editing board."
         }
       },
       "video.text": {
