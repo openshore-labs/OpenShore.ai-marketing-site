@@ -669,7 +669,7 @@
       },
       "popularity": {
         "downloads": 8990,
-        "likes": 54,
+        "likes": 55,
         "source": "huggingface"
       },
       "createdAt": "2024-10-31T20:35:06.000Z",
@@ -1841,7 +1841,7 @@
       "blessed": false,
       "popularity": {
         "downloads": 329669,
-        "likes": 91,
+        "likes": 92,
         "source": "huggingface"
       },
       "createdAt": "2026-01-14T22:32:43.000Z",
@@ -3111,7 +3111,7 @@
       "blessed": false,
       "popularity": {
         "downloads": 10639234,
-        "likes": 7247,
+        "likes": 7248,
         "source": "huggingface"
       },
       "createdAt": "2024-12-26T00:20:08.000Z",
@@ -3192,7 +3192,7 @@
       "blessed": false,
       "popularity": {
         "downloads": 1641216,
-        "likes": 1845,
+        "likes": 1846,
         "source": "huggingface"
       },
       "createdAt": "2025-04-24T12:03:33.000Z",
