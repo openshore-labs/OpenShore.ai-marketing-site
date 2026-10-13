@@ -147,7 +147,7 @@ export default {
     {
       name: "Bring your models",
       body:
-        "Harbor Lite is already on your phone. Download Harbor, or point OpenShore at the models already on your computer. Add a cloud model on your own key when you want one.",
+        "Harbor Lite is already on your phone. Download Harbor, browse the Local Library for a model that fits each job and your machine, or point OpenShore at the models already on your computer. Add a cloud model on your own key when you want one.",
     },
     {
       name: "Build your stack",
@@ -194,8 +194,16 @@ export default {
       body: "Connect any OpenAI compatible endpoint you run yourself, on your own server.",
     },
     {
+      label: "Local Library.",
+      body: "A free, shared library of models for every job in your Stack, with one pick for each size of machine: a phone, a laptop, a workstation, a server. Each pick says what its license asks, and where a license sets conditions you accept them yourself before anything downloads. Weights come straight from the publisher, and nothing is sold.",
+    },
+    {
+      label: "Photos, video, speech, and sound.",
+      body: "Edit a photo, make a clip, transcribe a recording, give text a voice, make music or a sound effect. Models for each job sit in the Local Library and run on your own computer, in ComfyUI or a speech server you set up. Clips and sounds it makes carry a label saying they were made by AI.",
+    },
+    {
       label: "Cloud on your key.",
-      body: "Claude, OpenAI, Gemini, Kimi, and Perplexity, on your own key. A cloud model answers only when you pick it or place it in Stack, and on your computer the coding agent asks before a cloud model's first step in each task.",
+      body: "Claude, OpenAI, Gemini, Kimi, Perplexity, and thirteen more providers, in Cloud Connections, on your own key. A cloud model answers only when you pick it or place it in Stack, and on your computer the coding agent asks before a cloud model's first step in each task.",
     },
     {
       label: "Vault.",

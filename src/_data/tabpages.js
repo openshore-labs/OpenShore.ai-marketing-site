@@ -11,25 +11,25 @@ export default {
       eyebrow: "Your models",
       headline: "You pick the models. Every one.",
       subhead:
-        "Download a local model, connect one you host, or run cloud on your own key. Nothing is locked in.",
+        "Download a local model from the Local Library, connect one you host, or run cloud on your own key. Nothing is locked in.",
     },
     sections: [
       {
-        heading: "A catalog, not a middleman",
-        body: "OpenShore starts you on three curated models, and the Marketplace, coming soon, will tell you in plain language what each model is good at. When you download, weights come straight from the source. OpenShore never rehosts weights or proxies your inference.",
+        heading: "The Local Library, free and shared",
+        body: "OpenShore starts you on three curated models. The Local Library lists more, one shelf for each job in your Stack: writing, coding, reading images, photo editing, video, voices, music, and sound. It is a library, not a store. Nothing in it is sold, and every model in it runs on your own machines. When you download, weights come straight from the publisher. OpenShore never rehosts weights or proxies your inference.",
         bullets: [
-          { label: "Plain fit", text: "Harbor Lite guides you on the phone, Harbor codes on the phone, and DeepBlue codes on your computer." },
-          { label: "Your machine's limit", text: "DeepBlue is sized to what your computer can run, never the biggest on a guess." },
-          { label: "Licenses shown", text: "All three curated models are Apache 2.0 open weights, and the app names the weights behind each one." },
+          { label: "One pick per size", text: "Each shelf names one pick for a phone, a laptop, a workstation, and a server, with the reason, so you choose by the machine in front of you." },
+          { label: "Licenses shown", text: "Every pick says what its license asks of you. Where a license sets conditions, you read them and accept them yourself before anything downloads." },
+          { label: "Cloud models live elsewhere", text: "Models that run on someone else's servers are not in the library. You connect them, on your own key, in Cloud Connections." },
         ],
       },
       {
         heading: "Four ways to get a model",
-        body: "Mix and match. They all show up in Stack and place the same way.",
+        body: "Mix and match. They all show up in Stack and place the same way. Local models come from the Local Library; cloud models come from Cloud Connections.",
         bullets: [
-          { label: "On device", text: "Harbor Lite is built into the phone app and works offline. Harbor downloads when you want a coder on your phone, and DeepBlue comes through Ollama on your computer." },
+          { label: "On device", text: "Harbor Lite is built into the phone app and works offline. Harbor downloads when you want a coder on your phone, and DeepBlue comes through Ollama on your computer. The Local Library has more, sized for your phone, your laptop, or a bigger machine." },
           { label: "Bring your own", text: "Connect any OpenAI-compatible endpoint you run: a self-hosted vLLM, Ollama, or a fine-tune behind your gateway." },
-          { label: "Cloud on your key", text: "Claude, OpenAI, Gemini, Kimi, and Perplexity on your own key, only when you pick one or place it in Stack. On your computer, the coding agent asks before a cloud model's first step in each task. An Ollama model whose tag (after the colon) is cloud or ends in -cloud runs on Ollama's cloud, not on your computer, and counts as cloud." },
+          { label: "Cloud on your key", text: "Claude, OpenAI, Gemini, Kimi, Perplexity, and thirteen more providers on your own key, found in Cloud Connections, only when you pick one or place it in Stack. On your computer, the coding agent asks before a cloud model's first step in each task. An Ollama model whose tag (after the colon) is cloud or ends in -cloud runs on Ollama's cloud, not on your computer, and counts as cloud." },
           { label: "Open weights", text: "What runs on your own hardware is yours to control, and no app can take that back." },
         ],
       },
@@ -65,7 +65,7 @@ export default {
       },
       {
         heading: "Cloud is a deliberate tap",
-        body: "You can call Claude, OpenAI, Gemini, Kimi, or Perplexity, but only on your own keys, and only when you pick one or place it in Stack. That provider sees the conversation that turn carries, under its own terms. OpenShore never sends private notes to a cloud model. A command you run or allow, or a change you allow, can still carry their words to one.",
+        body: "You can call Claude, OpenAI, Gemini, Kimi, Perplexity, or any of thirteen more providers, but only on your own keys, and only when you pick one or place it in Stack. That provider sees the conversation that turn carries, under its own terms. OpenShore never sends private notes to a cloud model. A command you run or allow, or a change you allow, can still carry their words to one.",
         bullets: [
           { label: "Your keys", text: "Cloud calls run on your account. We never proxy inference or rehost weights." },
           { label: "Local until you send it", text: "What you send a local model stays on your machine, and so does its answer, unless a cloud model in the same chat reads it later. If it searches the web, only the search words go out." },
@@ -148,7 +148,7 @@ export default {
         body: "Place a local model, connect one you host, or reach a cloud model on your own key. They all show up in Stack and route the same way.",
         bullets: [
           { label: "Bring your own model", text: "Any OpenAI-compatible endpoint you run: a base URL, a model id, an optional key." },
-          { label: "Cloud on your key", text: "Claude, OpenAI, Gemini, Kimi, and Perplexity on your own key, only when you pick one or place it in Stack. On your computer, the coding agent asks before a cloud model's first step in each task." },
+          { label: "Cloud on your key", text: "Claude, OpenAI, Gemini, Kimi, Perplexity, and thirteen more providers on your own key, only when you pick one or place it in Stack. On your computer, the coding agent asks before a cloud model's first step in each task." },
           { label: "Offline", text: "Choose Offline, or lose the connection, and OpenShore uses only models on this computer or your own network." },
         ],
       },

@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /llm-choice/
 pageTitle: "LLM Choice · OpenShore"
-pageDescription: "You pick the models. Download local ones from the source, bring your own endpoint, or run cloud on your own key. One Reasoning model plans and routes each step."
+pageDescription: "You pick the models. Download local ones from the free Local Library, bring your own endpoint, or run cloud on your own key. One Reasoning model plans and routes each step."
 ---
 {% import "viz.njk" as viz %}
 {% set p = tabpages["llm-choice"] %}
@@ -21,7 +21,7 @@ pageDescription: "You pick the models. Download local ones from the source, brin
       {% for b in p.sections[0].bullets %}<li><strong>{{ b.label }}.</strong> {{ b.text }}</li>{% endfor %}
     </ul>
   </div>
-  <div class="split-media">{{ viz.marketplacePhone() }}</div>
+  <div class="split-media">{{ viz.libraryPhone() }}</div>
 </div>
 
 {{ viz.sec(p.sections[1]) }}
