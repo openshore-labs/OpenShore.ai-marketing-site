@@ -118,52 +118,76 @@ export default {
   "self-hosting": {
     hero: {
       eyebrow: "Self-Hosting",
-      headline: "Your home server, without the DevOps.",
+      headline: "Your own machine, without the DevOps.",
       subhead:
-        "Run OpenShore on a computer you own, and reach it from your phone over your own private network.",
+        "Run OpenShore on a computer you own, or on a server you keep at home or rent, and reach it from your phone over your own private network.",
     },
     sections: [
       {
         heading: "The pieces",
-        body: "The engine is the OpenShore daemon. It owns your sessions and does the generating on your computer. Your phone attaches and detaches freely, more remote control than compute.",
+        body: "The engine is the OpenShore daemon. It owns your sessions and does the generating on the machine it runs on. Your phone attaches and detaches freely, more remote control than compute. Linking a device to a machine is called docking.",
         bullets: [
-          { label: "Desktop engine", text: "Runs your sessions and journals every step, so a dropped connection loses nothing and just reattaches." },
-          { label: "Private network", text: "Tailscale links your phone and computer directly. No port forwarding, nothing exposed to the internet." },
+          { label: "The engine", text: "Runs your sessions and journals every step, so a dropped connection loses nothing and just reattaches." },
+          { label: "Private network", text: "Tailscale links your devices directly. No port forwarding, nothing exposed to the internet, and OpenShore never listens on a public address." },
           { label: "Local runtime", text: "The desktop app pulls DeepBlue through Ollama on your computer. Or point OpenShore at any OpenAI-compatible runtime you run. It orchestrates, it never hosts weights." },
         ],
       },
       {
-        heading: "Set it up",
-        body: "There is no one-click installer yet, and no DevOps degree either. It is a handful of steps, each a copy-paste command.",
+        heading: "Dock a computer",
+        body: "Your own desktop does the work and your phone reaches it. It is a handful of steps, each a copy-paste command.",
         steps: [
           { name: "Pick a runtime", body: "Install Ollama and let the desktop app pull DeepBlue, or run any OpenAI-compatible runtime and point OpenShore at it." },
           { name: "Join a network", body: "Install Tailscale on both devices, sign into the same account, turn it on." },
           { name: "Keep it awake", body: "A sleeping machine kills in-flight runs. Run osc doctor and it prints the one-line fix." },
           { name: "Start the engine", body: "Run osc serve --bind tailscale, or just open the desktop app, which runs the same daemon." },
-          { name: "Connect your computer", body: "On the computer, open Pairing. On the phone, choose Connect your computer and scan the QR, then allow the phone on the computer. Each phone gets its own key, which you can revoke." },
+          { name: "Connect your computer", body: "On the computer, open Computer. On the phone, choose Connect your computer and scan the QR, then allow the phone on the computer. Each phone gets its own key, which you can revoke." },
+        ],
+      },
+      {
+        heading: "Dock a server",
+        body: "A server is a Linux machine that stays powered, at home or rented from any provider. It runs the same engine with no desktop app, so your phone can drive it while it sleeps. Nothing is sent to OpenShore to set it up.",
+        steps: [
+          { name: "Get a Linux server", body: "Rent one from any provider, or use a machine at home, such as an old laptop or a mini PC. 2 GB of memory runs OpenShore. A big model needs a GPU server, which is billed by the hour." },
+          { name: "Put Tailscale on it", body: "Sign in to the same Tailscale account as your phone. That private link is the only way in." },
+          { name: "Run one command on it", body: "Over SSH, paste the command below. It checks the download is signed by OpenShore, installs it, keeps it running, and prints a code." },
+          { name: "Scan the code, then say yes", body: "Scan it in the app, in Computer or in Cloud Connections under Your server. The server shows a four-digit code and asks whether the device may dock. Type y there." },
+        ],
+        command: "curl -fsSL https://github.com/openshore-labs/openshore-releases/releases/latest/download/install-server.sh | sh",
+        bullets: [
+          { label: "Renting", text: "A rented server runs on hardware another company owns, and that company can reach its disk. Pick one you trust." },
+          { label: "Sizes", text: "2 to 4 GB runs OpenShore and your builds, with a cloud model on your key. 8 GB or more also has room for a small model of its own, a 3B or a 4B. A GPU server runs big models of its own." },
+          { label: "While it is running", text: "A server works while it is powered and on Tailscale. If it goes down, the app says so and your work waits." },
+        ],
+      },
+      {
+        heading: "Many machines, and a project chooses",
+        body: "A device can dock to any number of computers and servers. Each project chooses where it runs, under Runs on in its room, and each coding chat goes back only to the machine it started on.",
+        bullets: [
+          { label: "Your default machine", text: "The Stack, the Vault, and Crew follow the default machine you set. Choosing a project's machine never moves your Vault." },
+          { label: "Keys on your server", text: "A server can keep a cloud key for its own coding sessions, added from the app or over SSH. Routines and the free chat run only on a local model, so they stop while a cloud model is the server's model." },
+          { label: "Same private link", text: "Every connection runs over Tailscale. Still no public URL." },
         ],
       },
       {
         heading: "Models on your terms",
         body: "Place a local model, connect one you host, or reach a cloud model on your own key. They all show up in Stack and route the same way.",
         bullets: [
-          { label: "Bring your own model", text: "Any OpenAI-compatible endpoint you run: a base URL, a model id, an optional key." },
+          { label: "Bring your own model", text: "Any OpenAI-compatible or Anthropic-compatible endpoint you run: a base URL, a model id, an optional key." },
           { label: "Cloud on your key", text: "Claude, OpenAI, Gemini, Kimi, Perplexity, and thirteen more providers on your own key, only when you pick one or place it in Stack. On your computer, the coding agent asks before a cloud model's first step in each task." },
           { label: "Offline", text: "Choose Offline, or lose the connection, and OpenShore uses only models on this computer or your own network." },
         ],
       },
       {
         heading: "For a team, later",
-        body: "This release is for one person: your computer and your own phone. Sharing a computer with a team, with roles and shared projects, comes in a later release.",
+        body: "This release is for one person: your own computers and servers, and your own phone. Sharing a machine with a team, with roles and shared projects, comes in a later release.",
         bullets: [
-          { label: "Today", text: "Each phone you connect gets its own key, and you can revoke one without touching the rest." },
-          { label: "Same private link", text: "Every connection runs over Tailscale. Still no public URL." },
+          { label: "Today", text: "Each device you dock gets its own key, and you can revoke one without touching the rest." },
         ],
       },
     ],
     cta: {
       label: "Get early access",
-      note: "Free and open source. OpenShore runs on your machine, so when it sleeps or powers off, in-flight runs stop. No OpenShore cloud runner takes over yet.",
+      note: "Free and open source. OpenShore runs on your machine, so when it sleeps or powers off, in-flight runs stop. No OpenShore cloud runner takes over.",
     },
   },
 };

@@ -1,8 +1,8 @@
 ---
 layout: base.njk
 permalink: /self-hosting/
-pageTitle: "Self-Hosting OpenShore · A Computer You Own"
-pageDescription: "Run OpenShore on a computer you own and reach it from your phone over your own private network."
+pageTitle: "Self-Hosting OpenShore · A Machine You Own"
+pageDescription: "Run OpenShore on a computer you own, or on a server at home or rented, and reach it from your phone over your own private network."
 ---
 {% import "viz.njk" as viz %}
 {% set p = tabpages["self-hosting"] %}
@@ -35,6 +35,8 @@ pageDescription: "Run OpenShore on a computer you own and reach it from your pho
 
 {{ viz.sec(p.sections[2]) }}
 {{ viz.sec(p.sections[3]) }}
+{{ viz.sec(p.sections[4]) }}
+{{ viz.sec(p.sections[5]) }}
 
 <section class="block">
   <a class="block-cta" href="mailto:{{ site.emails.oscode }}?subject={{ oscode.earlyAccessSubject | urlencode }}&amp;body={{ oscode.earlyAccessBody | urlencode }}">{{ p.cta.label }} <span aria-hidden="true">&rarr;</span></a>
