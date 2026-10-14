@@ -19,7 +19,7 @@ pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys never
   <h1 class="identity">Privacy Policy</h1>
   <div class="horizon" role="presentation"></div>
   <p class="lede">We keep the bare minimum it takes to run OpenShore, and we tell you exactly what that is.</p>
-  <p class="offer-fine">Last updated 12 October 2026.</p>
+  <p class="offer-fine">Last updated 14 October 2026.</p>
 </header>
 
 <section class="block policy" aria-labelledby="short-heading">
@@ -70,8 +70,8 @@ pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys never
     <li><b>A passkey,</b> only if you add one: its public key and id, the kind of authenticator and the name of the app that keeps it (such as iCloud Keychain), a use counter, whether it is backed up, how it connects, and when it was added and last used. The passkey itself never leaves your device and your keychain or password manager. Kept until you remove it or delete your account.</li>
     <li><b>Eight preferences</b> (your appearance, effort, Humanize Writing, Chain of Thought, notices, and voice settings), so they follow you to your other devices. Never your chats, prompts, projects, keys, or addresses. Kept until you delete your account.</li>
     <li><b>A record of a blocked request,</b> if our safety guardrail blocks something while you are signed in: its category, tier, time, a keyed one-way hash of the request, and whether a local or cloud model was in play. Never the request itself and never the name of anyone it was about. Kept for 180 days, longer only under a legal hold. Enforcement steps taken on an account are kept for two years.</li>
-    <li><b>A notification token,</b> only if you allow notifications on your iPhone, so we can tell you when work on your computer finishes or needs you. It is stored with your account id. For each notification we relay only a session id, its kind, and a number to Apple, never the words of a chat. Our log of sent notifications is kept for 2 days, and a token not refreshed in 180 days is deleted.</li>
-    <li><b>After you delete your account,</b> we keep only two things, and only when they apply: a one-way hash of your email if we had ended the account for abuse, so it cannot return under the same address (two years); and any record under a legal hold, until the hold ends.</li>
+    <li><b>A notification token,</b> only if you allow notifications on your iPhone, so we can tell you when work on your computer finishes or needs you. It is stored with your account id. For each notification we relay only a session id, its kind, and a number to Apple, never the words of a chat. Our log of sent notifications keeps only a keyed one-way hash of the session id, for 2 days. Signing out deletes your device's token, and a token not refreshed in 180 days is deleted.</li>
+    <li><b>After you delete your account,</b> we keep only two things, and only when they apply: a keyed one-way hash of your email if we had ended the account for abuse, so it cannot return under the same address (two years); and any record under a legal hold, until the hold ends.</li>
   </ul>
   <p class="prose">
     When you connect GitHub, GitLab, or Bitbucket, the sign-in passes through our
@@ -108,7 +108,8 @@ pageDescription: "OpenShore's privacy policy. Your prompts, code, and keys never
 <section class="block policy" aria-labelledby="processors-heading">
   <h2 id="processors-heading" class="eyebrow">5. Who processes data for us</h2>
   <ul>
-    <li><b>Supabase</b> runs our account service and database on Amazon Web Services in the United States (East US, North Virginia), and sends the sign-in emails.</li>
+    <li><b>Supabase</b> runs our account service and database on Amazon Web Services in the United States (East US, North Virginia).</li>
+    <li><b>Resend</b> sends the sign-in emails, from the United States: it sees your email address and the code or link in that email, and we have turned its open and click tracking off.</li>
     <li><b>Apple</b> delivers notifications and distributes the iPhone app.</li>
     <li><b>Cloudflare</b> serves this website and the model list, and forwards mail sent to {{ site.emails.oscode }}.</li>
     <li><b>Proton</b> hosts the mailbox where we read and answer that mail.</li>
