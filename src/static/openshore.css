@@ -94,6 +94,48 @@ body {
 .brand--oscode .brand-mark path {
   stroke: var(--abyss);
 }
+/* Top row of the header: the brand on the left, the open source link on the
+   right. The link is a quiet outlined pill that lights teal on hover, centred
+   on the 46px logo tile. */
+.sitenav-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.source-link {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--paper);
+  text-decoration: none;
+  background-image: none;
+  background-color: rgba(22, 40, 49, 0.6);
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+.source-link:hover,
+.source-link:focus-visible {
+  color: var(--wave);
+  border-color: var(--wave-2);
+  background-color: var(--surface-solid);
+}
+.source-mark {
+  display: block;
+  flex: none;
+}
+
 /* Tab row, dark. The base stylesheet lays out the scrollable strip; here it
    takes the Nightshore hairline and the teal active underline. */
 .sitenav--oscode .sitenav-tabs {
@@ -1341,6 +1383,22 @@ button.block-cta {
   }
   .brand-sub {
     font-size: 0.68rem;
+  }
+  /* On a phone the link says just "GitHub" and centres on the 40px tile. The
+     brand may shrink beside it, so the credit line keeps to one row and runs
+     on under the link, which sits only beside the tile. */
+  .brand--oscode {
+    min-width: 0;
+  }
+  .brand-sub {
+    white-space: nowrap;
+  }
+  .source-label-long {
+    display: none;
+  }
+  .source-link {
+    margin-top: 3px;
+    padding: 9px 12px;
   }
 
   /* Tab strip: a plain static horizontal scroll. Smaller type and tighter gaps

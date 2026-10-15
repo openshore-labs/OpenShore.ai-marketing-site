@@ -17,6 +17,10 @@ export default {
   parentUrl: "https://openshorellc.com",
   parentName: "Open Shore, LLC",
 
+  // The open source code (Apache 2.0), linked from the header on every page.
+  // Installers stay in openshore-releases (oscode.githubReleases).
+  sourceUrl: "https://github.com/openshore-labs/openshore.code.ai",
+
   emails: {
     // The one published address (founder F1, 2026-09-30), the same as the
     // app's SUPPORT_EMAIL, so the Terms, the privacy policy, and the app agree.
