@@ -1463,3 +1463,73 @@ button.block-cta {
   font-size: 0.92rem;
   line-height: 1.45;
 }
+
+/* ==== Desktop width ====================================================
+   The base sheet caps the header and page at one 42rem column, which is the
+   right shape for a phone but left a desktop window reading like a phone
+   held up to a monitor. From tablet-landscape up, the header becomes a
+   full-width bar with its contents on a wide grid, the page opens to the same
+   grid, and the card rows (apps, pillars, steps, plans) get room to sit side
+   by side. Running text keeps its own measure (.prose 62ch, .lede 34ch), so
+   lines stay readable; only the layout widens. Phones are untouched. */
+@media (min-width: 60rem) {
+  :root {
+    --wide: 72rem;
+    --gutter: clamp(32px, 4vw, 48px);
+  }
+  /* Full-bleed bar: the background and hairline run edge to edge, the brand
+     and tabs line up with the page column below. */
+  .sitenav--oscode {
+    max-width: none;
+    padding-inline: max(var(--gutter), calc((100% - var(--wide)) / 2));
+  }
+  .page--oscode {
+    max-width: calc(var(--wide) + 2 * var(--gutter));
+    padding-inline: var(--gutter);
+  }
+  .sitenav--oscode .sitenav-tabs {
+    border-bottom: none;
+  }
+
+  /* The hero glow reads as a deliberate panel instead of a clipped box: round
+     it, frame it with the hairline, and give the type room off its edges. */
+  .masthead {
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding-inline: clamp(2.5rem, 5vw, 4.5rem);
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(2.5rem, 5vw, 4rem);
+  }
+  .masthead .horizon {
+    max-width: 44rem;
+  }
+  /* Narrow enough that each "Your ..." sentence takes its own line instead of
+     breaking mid-phrase ("Your machine. Your / models."). */
+  .masthead .identity {
+    max-width: 7.6em;
+  }
+
+  /* Card rows sized to their content so nothing ends on a lone orphan. */
+  .pillars {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .components {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  .why-list {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px 28px;
+  }
+  /* A rack of one or two plans should not stretch across the whole page. */
+  .offers {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+  .offer-reassure {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .policy ul {
+    max-width: 62ch;
+  }
+}
