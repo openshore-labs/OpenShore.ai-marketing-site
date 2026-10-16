@@ -66,7 +66,7 @@ body {
 }
 .brand-sub {
   font-family: var(--sans);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.01em;
   color: var(--faint);
@@ -416,7 +416,7 @@ body {
 .get-chip {
   margin-top: auto;
   align-self: flex-start;
-  font-size: 10px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -455,8 +455,11 @@ body {
   color: var(--abyss);
   background: var(--wave);
   border-color: var(--wave);
-  font-size: 11px;
-  padding: 6px 14px;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 16px;
   transition: filter 160ms ease;
 }
 .get-chip-live:hover {
@@ -660,7 +663,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--faint);
 }
 .offer-name {
@@ -679,7 +682,7 @@ body {
   color: var(--amber);
   font-family: var(--sans);
   font-weight: 700;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   letter-spacing: 0.02em;
   vertical-align: middle;
   white-space: nowrap;
@@ -714,7 +717,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   color: var(--faint);
 }
 .track-includes {
@@ -1289,6 +1292,14 @@ button.block-cta {
   gap: 7px;
   box-shadow: 0 -10px 24px -14px rgba(28, 42, 51, 0.25);
 }
+/* Spacing helpers for the mockups: the CSP (style-src 'self') refuses inline
+   style attributes, so mock spacing lives here. */
+.app-gap-6 { gap: 6px; }
+.app-mt-4 { margin-top: 4px; }
+.app-mt-5 { margin-top: 5px; }
+.app-mt-6 { margin-top: 6px; }
+.app-mt-8 { margin-top: 8px; }
+.app-meter--82 > i { width: 82%; }
 .app-grab {
   width: 34px;
   height: 4px;
@@ -1382,7 +1393,7 @@ button.block-cta {
     font-size: 1.3rem;
   }
   .brand-sub {
-    font-size: 0.68rem;
+    font-size: 0.75rem;
   }
   /* On a phone the link says just "GitHub" and centres on the 40px tile. The
      brand may shrink beside it, so the credit line keeps to one row and runs
@@ -1409,7 +1420,7 @@ button.block-cta {
     gap: 13px;
   }
   .sitenav--oscode .sitenav-tab {
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     letter-spacing: 0;
     padding-bottom: 11px;
   }
@@ -1504,7 +1515,7 @@ button.block-cta {
   }
   /* Narrow enough that each "Your ..." sentence takes its own line instead of
      breaking mid-phrase ("Your machine. Your / models."). */
-  .masthead .identity {
+  .masthead:not(.masthead--sub) .identity {
     max-width: 7.6em;
   }
 
@@ -1531,5 +1542,257 @@ button.block-cta {
   }
   .policy ul {
     max-width: 62ch;
+  }
+}
+
+/* ==== UX review fixes (2026-10-16) =====================================
+   From a measured pass at 390px and 1440px against WCAG 2.2 and the usual
+   usability evidence (contrast, target size, Fitts/Hick, proximity, line
+   length). site.js supplies the behaviors; everything here degrades to a
+   working page without it. */
+
+/* Pinned header. The whole bar is sticky, but site.js sets --nav-hide to the
+   brand row's height so only the tab row (and the desktop Download button)
+   stays on screen. In-page jumps land below it. */
+.sitenav--oscode {
+  position: sticky;
+  top: calc(-1 * var(--nav-hide, 0px));
+  z-index: 40;
+}
+html {
+  scroll-padding-top: calc(var(--nav-pinned, 0px) + 16px);
+}
+.sitenav-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.sitenav-row .sitenav-tabs {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.nav-cta {
+  display: none;
+}
+@media (min-width: 60rem) {
+  .sitenav-row {
+    padding-top: 8px;
+  }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    min-height: 36px;
+    margin-bottom: 8px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: var(--wave);
+    background-image: none;
+    color: var(--abyss);
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: filter 150ms ease;
+  }
+  .nav-cta:hover,
+  .nav-cta:focus-visible {
+    color: var(--abyss);
+    filter: brightness(1.08);
+    background-image: none;
+  }
+}
+
+/* Links inside running text. They inherited the light theme's deep teal
+   (about 2.5:1 on the abyss, under WCAG's 4.5:1) and no underline, so they
+   neither read nor looked clickable. */
+.page--oscode :is(p, li, dd) a:not([class]) {
+  color: var(--wave);
+  background-image: none;
+  text-decoration: underline;
+  text-decoration-color: rgba(91, 182, 203, 0.5);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.page--oscode :is(p, li, dd) a:not([class]):hover,
+.page--oscode :is(p, li, dd) a:not([class]):focus-visible {
+  text-decoration-color: currentColor;
+}
+
+/* The plan's feature list was the light theme's soft ink (2.7:1). */
+.track-includes li {
+  color: var(--mist);
+}
+.track-includes li::before {
+  background: var(--wave);
+}
+
+/* Target size: the small standalone links get a taller hit area (WCAG 2.2
+   asks 24px at minimum) without moving anything on screen. */
+.get-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 4px;
+  margin: 0 -4px;
+}
+.brand-sub {
+  padding-block: 4px;
+  margin-block: -4px;
+}
+.colophon a {
+  display: inline-block;
+  padding-block: 6px;
+  margin-block: -6px;
+}
+
+/* Proximity: a section's lead line and the paragraph or card under it sat
+   flush. Related things close, sections apart. */
+.lede + :is(.prose, .stance) {
+  margin-top: 0.9rem;
+}
+.block > :is(.lede, .prose, .offer-fine) + .offers {
+  margin-top: 1.5rem;
+}
+.offer-fine {
+  max-width: 62ch;
+}
+
+/* The terminal install: its own block with air above the tiles, the commands
+   in a framed code panel, and a Copy button (shown by site.js). */
+.cli {
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+}
+.cli-code {
+  position: relative;
+  max-width: 46rem;
+  margin-top: 1.1rem;
+  background: var(--abyss-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.cli-code pre {
+  margin: 0;
+  padding: 1rem 5.5rem 1rem 1.1rem;
+  overflow-x: auto;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--paper);
+}
+.cli-copy {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  min-height: 32px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-solid);
+  color: var(--paper);
+  font: 600 0.8rem/1 var(--sans);
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
+}
+.cli-copy:hover,
+.cli-copy:focus-visible {
+  color: var(--wave);
+  border-color: var(--wave);
+}
+
+/* Long list on a phone: the first four, then "Show all". */
+.list-more {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 1.1rem;
+  padding: 0 22px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--paper);
+  font: 600 0.92rem/1 var(--sans);
+  cursor: pointer;
+}
+.list-more:hover,
+.list-more:focus-visible {
+  border-color: var(--wave);
+}
+.list-more[hidden] {
+  display: none;
+}
+@media (max-width: 47.99rem) {
+  .why-list.is-collapsed > .is-extra {
+    display: none;
+  }
+}
+@media (min-width: 48rem) {
+  .list-more {
+    display: none;
+  }
+}
+
+/* Hero: the product on screen, and a quiet way to the other platforms once
+   site.js has narrowed the main button to this visitor's desktop. */
+.hero-alt {
+  margin: 0.9rem 0 0;
+  font-size: 0.88rem;
+  color: var(--mist);
+}
+.hero-alt a {
+  display: inline-block;
+  padding-block: 4px;
+}
+.masthead-media {
+  margin-top: 2.25rem;
+}
+/* Scaled whole rather than narrowed, so the mock screen keeps its layout. */
+.masthead-media .phone {
+  max-width: 290px;
+  zoom: 0.8;
+}
+@media (min-width: 60rem) {
+  .masthead-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+  }
+  .masthead-media {
+    margin-top: 0;
+  }
+  .masthead-media .phone {
+    zoom: 0.9;
+  }
+  .masthead:not(.masthead--sub) .identity {
+    font-size: clamp(4rem, 6.2vw, 6rem);
+  }
+}
+
+/* Floating button: hidden while the hero (and its own buttons) are on
+   screen, so the page has one primary action at a time. On a phone it is
+   gone: it covered body text, and the early access section and pinned tabs
+   are in reach. */
+.consult-fab {
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease,
+    visibility 240ms,
+    box-shadow 180ms ease;
+}
+.consult-fab.is-waiting {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+@media (max-width: 34rem) {
+  .consult-fab {
+    display: none;
+  }
+  .page--oscode {
+    padding-bottom: clamp(48px, 8vw, 88px);
   }
 }

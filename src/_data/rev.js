@@ -20,6 +20,7 @@ function rev(path) {
 export default {
   css: rev("src/static/styles.css"),
   appJs: rev("src/static/openshore-app.js"),
+  siteJs: rev("src/static/site.js"),
   productCss: rev("src/static/openshore.css"),
   // The Open Graph card. Social scrapers (iMessage, Slack, X, Facebook) cache
   // the og:image by full URL, so a new card at the same path would keep showing

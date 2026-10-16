@@ -239,7 +239,7 @@ export default {
         "Source on GitHub under Apache 2.0",
       ],
       cta: "Get OpenShore",
-      // No checkout: an early-access mailto until a public download exists.
+      // No checkout: the button goes to the download tiles.
       checkoutUrl: null,
     },
   ],
@@ -310,5 +310,7 @@ export default {
   earlyAccessSubject: "OpenShore early access",
   earlyAccessBody:
     "I would like early access to OpenShore. Tell me when it launches.",
-  fabLabel: "Get early access",
+  // The floating button is for the phone app's early access list (desktop is
+  // already a download), so its label says which.
+  fabLabel: "iPhone early access",
 };

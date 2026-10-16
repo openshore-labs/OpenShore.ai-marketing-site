@@ -4,6 +4,7 @@ permalink: /
 pageTitle: "OpenShore: Your machine, your models, your keys"
 pageDescription: "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free and open source, including the coding agent."
 ---
+{% import "viz.njk" as viz %}
 
 <div
   id="oscode-billing"
@@ -36,11 +37,20 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
   <div class="masthead-top">
     <div id="oscode-auth" class="oscode-auth"></div>
   </div>
+  <div class="masthead-grid">
+  <div class="masthead-copy">
   <h1 class="identity">{{ oscode.headline }}<span class="identity-coda identity-byline">{{ oscode.coda | replace(oscode.codaAccent, '<span class="coda-accent">' + oscode.codaAccent + '</span>') | safe }}</span></h1>
   <div class="horizon" role="presentation"></div>
   <div class="hero-actions">
-    <a class="block-cta hero-cta" href="#pricing">Get OpenShore <span aria-hidden="true">&rarr;</span></a>
+    {# site.js swaps this for "Download for Mac/Windows/Linux" on a desktop it
+       recognizes; without it (or on a phone) it goes to the platform tiles. #}
+    <a class="block-cta hero-cta" href="#get-app" data-download-cta>Get OpenShore <span aria-hidden="true">&rarr;</span></a>
     <a class="hero-cta-ghost" href="#how-heading">How it works</a>
+  </div>
+  <p class="hero-alt" data-download-alt hidden><a href="#get-app">Other platforms and the terminal version</a></p>
+  </div>
+  {# The product itself, near the top: the real app's model picker. #}
+  <div class="masthead-media" aria-hidden="true">{{ viz.marketplacePhone() }}</div>
   </div>
 </header>
 
@@ -95,10 +105,15 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
     </li>
     {% endfor %}
   </ul>
-  <p class="lede" id="cli">{{ oscode.cli.title }}</p>
-  <p class="prose">{{ oscode.cli.lede }}</p>
-  <pre class="prose"><code>{% for c in oscode.cli.commands %}{{ c }}
-{% endfor %}</code></pre>
+  <div class="cli" id="cli">
+    <p class="lede">{{ oscode.cli.title }}</p>
+    <p class="prose">{{ oscode.cli.lede }}</p>
+    <div class="cli-code">
+      <pre><code>{% for c in oscode.cli.commands %}{{ c }}{% if not loop.last %}
+{% endif %}{% endfor %}</code></pre>
+      <button type="button" class="cli-copy" data-copy hidden>Copy</button>
+    </div>
+  </div>
 </section>
 
 {# "What makes it different" carries the thesis on its own now; the mission
@@ -135,11 +150,14 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
 <section class="block" aria-labelledby="pieces-heading" id="everything">
   <h2 id="pieces-heading" class="eyebrow">{{ oscode.piecesLabel }}</h2>
   <p class="lede">{{ oscode.piecesIntro }}</p>
-  <ul class="why-list">
+  {# On a phone the list shows the first few and a "Show all" button
+     (site.js); without the script every item shows. #}
+  <ul class="why-list" id="pieces-list" data-collapsible>
     {% for piece in oscode.pieces %}
-    <li><strong>{{ piece.label }}</strong> {{ piece.body }}</li>
+    <li{% if loop.index > 4 %} class="is-extra"{% endif %}><strong>{{ piece.label }}</strong> {{ piece.body }}</li>
     {% endfor %}
   </ul>
+  <button type="button" class="list-more" data-expands="pieces-list" aria-controls="pieces-list" aria-expanded="false" hidden>Show all {{ oscode.pieces | length }}</button>
 </section>
 
 <section class="block" aria-labelledby="pricing-heading" id="pricing">
@@ -166,7 +184,7 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
             </ul>
           </div>
           {% if plan.id == 'free' %}
-          <a class="block-cta" href="mailto:{{ site.emails.oscode }}?subject={{ (plan.name + ' · OpenShore') | urlencode }}">{{ plan.cta }} <span aria-hidden="true">&rarr;</span></a>
+          <a class="block-cta" href="#get-app">{{ plan.cta }} <span aria-hidden="true">&rarr;</span></a>
           {% elif plan.buyable or plan.segment == 'For teams' %}
           <button type="button" class="block-cta" data-tier="{{ plan.id }}">{{ plan.cta }} <span aria-hidden="true">&rarr;</span></button>
           {% endif %}

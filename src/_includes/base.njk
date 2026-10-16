@@ -87,6 +87,7 @@
           <span class="source-label"><span class="source-label-long">Open source on </span>GitHub</span>
         </a>
       </div>
+      <div class="sitenav-row">
       <ul class="sitenav-tabs" role="list" aria-label="Sections">
         {% for t in nav.tabs %}
         <li>
@@ -98,9 +99,13 @@
         </li>
         {% endfor %}
       </ul>
+      {# Stays in reach while the header is pinned (desktop only). #}
+      <a class="nav-cta" href="/#get-app" data-download-cta>Download</a>
+      </div>
     </nav>
     <main class="page page--oscode">
       {{ content | safe }}
     </main>
+    <script src="/site.js?v={{ rev.siteJs }}" defer></script>
   </body>
 </html>
