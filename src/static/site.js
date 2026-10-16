@@ -1,7 +1,7 @@
 // Small, dependency-free page behaviors shared by every page. Each one is a
 // progressive enhancement: with this script blocked the page still works (the
 // download buttons go to the platform tiles, every list item shows, the
-// header pins whole, the floating button simply stays put).
+// header pins whole).
 (() => {
   const root = document.documentElement;
 
@@ -77,15 +77,5 @@
     measure();
     window.addEventListener('resize', measure, { passive: true });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
-  }
-
-  // ---- Floating button waits until the hero is behind you -----------------
-  const fab = document.querySelector('.consult-fab');
-  const hero = document.querySelector('.masthead');
-  if (fab && hero && 'IntersectionObserver' in window) {
-    fab.classList.add('is-waiting');
-    new IntersectionObserver(([e]) => {
-      fab.classList.toggle('is-waiting', e.isIntersecting);
-    }).observe(hero);
   }
 })();

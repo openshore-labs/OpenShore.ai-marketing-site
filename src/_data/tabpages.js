@@ -162,7 +162,7 @@ export default {
       },
     ],
     cta: {
-      label: "Get early access",
+      label: "Get OpenShore",
       note: "Free and open source. OpenShore runs on your machine, so when it sleeps or powers off, in-flight runs stop. No OpenShore cloud runner takes over yet.",
     },
   },

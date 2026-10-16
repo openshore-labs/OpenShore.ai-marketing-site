@@ -7,8 +7,8 @@
 //
 // Pricing model (2026-10-11): OpenShore is free and open source under the
 // Apache License 2.0, and nothing is sold to a person (the app's pay gate is
-// deleted). Team seat plans are a later tier and render no card. The card
-// carries an early-access mailto so nothing dead-ends before a download.
+// deleted). Team seat plans are a later tier and render no card. The card's
+// button goes to the download tiles.
 //
 // No em dashes anywhere a customer reads (Open Shore standing instruction).
 export default {
@@ -303,14 +303,4 @@ export default {
     privacy:
       "The screening runs on your device. Nothing is sent anywhere to check a prompt, so a local model stays local even though it is screened. A block records a category, a time, and a one-way hash. Your prompt is never stored and never sent. If you are signed in, the record (never the prompt) is kept on your account for 180 days so enforcement survives a reinstall.",
   },
-
-  close:
-    "OpenShore is in pre-release and getting ready for the App Store. Join the early access list and we will tell you the moment it is there.",
-
-  earlyAccessSubject: "OpenShore early access",
-  earlyAccessBody:
-    "I would like early access to OpenShore. Tell me when it launches.",
-  // The floating button is for the phone app's early access list (desktop is
-  // already a download), so its label says which.
-  fabLabel: "iPhone early access",
 };

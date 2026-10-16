@@ -1770,29 +1770,3 @@ html {
     font-size: clamp(4rem, 6.2vw, 6rem);
   }
 }
-
-/* Floating button: hidden while the hero (and its own buttons) are on
-   screen, so the page has one primary action at a time. On a phone it is
-   gone: it covered body text, and the early access section and pinned tabs
-   are in reach. */
-.consult-fab {
-  transition:
-    opacity 240ms ease,
-    transform 240ms ease,
-    visibility 240ms,
-    box-shadow 180ms ease;
-}
-.consult-fab.is-waiting {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(12px);
-  pointer-events: none;
-}
-@media (max-width: 34rem) {
-  .consult-fab {
-    display: none;
-  }
-  .page--oscode {
-    padding-bottom: clamp(48px, 8vw, 88px);
-  }
-}
