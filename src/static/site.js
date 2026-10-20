@@ -79,3 +79,43 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   }
 })();
+
+// ---- Launch film (home page) ----------------------------------------------
+// Plays muted on arrival; browsers allow sound only after a tap, and the film
+// has no soundtrack yet. One button pauses, resumes, and replays at the end.
+// With reduced motion asked for, it waits on its poster for a tap instead.
+(() => {
+  const section = document.querySelector('.film');
+  const video = section && section.querySelector('[data-film]');
+  const btn = section && section.querySelector('[data-film-toggle]');
+  if (!video || !btn) return;
+  const label = btn.querySelector('[data-film-label]');
+  const icons = {
+    pause: btn.querySelector('[data-icon="pause"]'),
+    play: btn.querySelector('[data-icon="play"]'),
+    replay: btn.querySelector('[data-icon="replay"]'),
+  };
+  const show = (state) => {
+    const text = { pause: 'Pause', play: 'Play', replay: 'Replay' }[state];
+    Object.keys(icons).forEach((k) => { if (icons[k]) icons[k].hidden = k !== state; });
+    if (label) label.textContent = text;
+    btn.setAttribute('aria-label', `${text} film`);
+    section.classList.toggle('is-ended', state === 'replay');
+    section.classList.toggle('is-paused', state === 'play');
+  };
+  const play = () => {
+    const p = video.play();
+    if (p && p.catch) p.catch(() => show('play'));
+  };
+  video.addEventListener('play', () => show('pause'));
+  video.addEventListener('pause', () => { if (!video.ended) show('play'); });
+  video.addEventListener('ended', () => show('replay'));
+  btn.addEventListener('click', () => {
+    if (video.ended) { video.currentTime = 0; play(); }
+    else if (video.paused) play();
+    else video.pause();
+  });
+  const still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (still) show('play');
+  else play();
+})();

@@ -27,4 +27,8 @@ export default {
   // the old preview. Hashing it into a `?v=` means a refreshed card is a URL the
   // scraper has never seen, so the new preview wins.
   ogImage: rev("src/static/og-openshore.png"),
+  // The launch film and its poster: a re-render ships as a URL the edge has
+  // never seen.
+  film: rev("src/static/film/openshore-film.mp4"),
+  filmPoster: rev("src/static/film/openshore-film-poster.jpg"),
 };
