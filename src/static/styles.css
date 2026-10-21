@@ -1863,11 +1863,11 @@ button.block-cta {
 }
 
 /* ---- Launch film (home page, first thing on screen) -------------------- */
-/* A framed card on the page's own ground, filling the first screen at 16:9;
-   the rest of the page follows below it. */
+/* A framed card on the page's own ground, under the tabs and above the
+   headline, at 16:9 and never taller than one screen. */
 .film {
   --film-pad: clamp(10px, 2vw, 28px);
-  padding: var(--film-pad);
+  margin: 0 0 clamp(28px, 5vw, 56px);
 }
 .film-frame {
   position: relative;
