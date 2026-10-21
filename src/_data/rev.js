@@ -32,4 +32,5 @@ export default {
   film: rev("src/static/film/openshore-film.mp4"),
   filmWebm: rev("src/static/film/openshore-film.webm"),
   filmPoster: rev("src/static/film/openshore-film-poster.jpg"),
+  filmTitle: rev("src/static/film/openshore-film-title.jpg"),
 };

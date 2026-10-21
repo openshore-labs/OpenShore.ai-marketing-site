@@ -1889,6 +1889,14 @@ button.block-cta {
   position: absolute;
   right: clamp(10px, 1.6vw, 24px);
   bottom: clamp(10px, 1.6vw, 24px);
+  display: flex;
+  gap: 8px;
+}
+.film-credit {
+  margin: 10px auto 0;
+  width: min(100%, calc((100svh - 2 * var(--film-pad)) * 16 / 9));
+  font-size: 0.78rem;
+  color: var(--ink-faint);
 }
 .film-btn {
   display: inline-flex;
@@ -1910,7 +1918,8 @@ button.block-cta {
 .film:hover .film-btn,
 .film-btn:focus-visible,
 .film.is-ended .film-btn,
-.film.is-paused .film-btn {
+.film.is-paused .film-btn,
+.film-btn[data-film-sound][aria-pressed="false"] {
   opacity: 1;
 }
 @media (hover: none) {

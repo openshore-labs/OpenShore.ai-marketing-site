@@ -81,9 +81,9 @@
 })();
 
 // ---- Launch film (home page) ----------------------------------------------
-// Plays muted on arrival; browsers allow sound only after a tap, and the film
-// has no soundtrack yet. One button pauses, resumes, and replays at the end.
-// With reduced motion asked for, it waits on its poster for a tap instead.
+// Plays muted on arrival; browsers allow sound only after a tap, so a Sound on
+// button carries the music. One button pauses, resumes, and replays at the
+// end. With reduced motion asked for, it waits on its poster for a tap.
 (() => {
   const section = document.querySelector('.film');
   const video = section && section.querySelector('[data-film]');
@@ -97,7 +97,8 @@
   };
   const show = (state) => {
     const text = { pause: 'Pause', play: 'Play', replay: 'Replay' }[state];
-    Object.keys(icons).forEach((k) => { if (icons[k]) icons[k].hidden = k !== state; });
+    // SVG elements have no .hidden property, so toggle the attribute itself.
+    Object.keys(icons).forEach((k) => { if (icons[k]) icons[k].toggleAttribute('hidden', k !== state); });
     if (label) label.textContent = text;
     btn.setAttribute('aria-label', `${text} film`);
     section.classList.toggle('is-ended', state === 'replay');
@@ -115,7 +116,35 @@
     else if (video.paused) play();
     else video.pause();
   });
+  const sound = section.querySelector('[data-film-sound]');
+  if (sound) {
+    const soundLabel = sound.querySelector('[data-film-sound-label]');
+    const muted = sound.querySelector('[data-icon="muted"]');
+    const loud = sound.querySelector('[data-icon="sound"]');
+    const paint = () => {
+      const on = !video.muted;
+      if (muted) muted.toggleAttribute('hidden', on);
+      if (loud) loud.toggleAttribute('hidden', !on);
+      if (soundLabel) soundLabel.textContent = on ? 'Sound off' : 'Sound on';
+      sound.setAttribute('aria-label', on ? 'Turn sound off' : 'Turn sound on');
+      sound.setAttribute('aria-pressed', on ? 'true' : 'false');
+    };
+    sound.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if (!video.muted && (video.paused || video.ended)) {
+        if (video.ended) video.currentTime = 0;
+        play();
+      }
+      paint();
+    });
+    video.addEventListener('volumechange', paint);
+    paint();
+  }
   const still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (still) show('play');
+  if (still) {
+    // Waiting still, show the film's title card rather than its blank opening.
+    if (video.dataset.titlePoster) video.poster = video.dataset.titlePoster;
+    show('play');
+  }
   else play();
 })();
