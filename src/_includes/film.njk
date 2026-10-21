@@ -5,13 +5,15 @@
   <div class="film-frame">
     <video
       class="film-video"
-      src="/film/openshore-film.mp4?v={{ rev.film }}"
       poster="/film/openshore-film-poster.jpg?v={{ rev.filmPoster }}"
       muted
       playsinline
       preload="auto"
       data-film
-    ></video>
+    >
+      <source src="/film/openshore-film.mp4?v={{ rev.film }}" type="video/mp4" />
+      <source src="/film/openshore-film.webm?v={{ rev.filmWebm }}" type="video/webm" />
+    </video>
     <div class="film-controls">
       <button class="film-btn" type="button" data-film-toggle aria-label="Pause film">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" data-icon="pause"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none" /></svg>

@@ -1863,42 +1863,49 @@ button.block-cta {
 }
 
 /* ---- Launch film (home page, first thing on screen) -------------------- */
-/* Full width, on the same paper as the film, so it has no edge. The frame
-   keeps 16:9 and never grows past one screen; the rest of the page follows. */
+/* A framed card on the page's own ground, filling the first screen at 16:9;
+   the rest of the page follows below it. */
 .film {
-  background: var(--paper);
+  --film-pad: clamp(10px, 2vw, 28px);
+  padding: var(--film-pad);
 }
 .film-frame {
   position: relative;
-  width: min(100%, calc(100svh * 16 / 9));
+  width: min(100%, calc((100svh - 2 * var(--film-pad)) * 16 / 9));
   margin: 0 auto;
   aspect-ratio: 16 / 9;
+  border-radius: clamp(12px, 1.6vw, 24px);
+  overflow: hidden;
+  background: #f6f4ef; /* the film's own paper, so the frame never flashes dark */
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 30px 80px rgba(0, 0, 0, 0.45);
 }
 .film-video {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: var(--paper);
 }
 .film-controls {
   position: absolute;
-  right: clamp(12px, 2vw, 28px);
-  bottom: clamp(12px, 2vw, 28px);
+  right: clamp(10px, 1.6vw, 24px);
+  bottom: clamp(10px, 1.6vw, 24px);
 }
 .film-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border: 1px solid var(--hairline);
+  gap: 7px;
+  padding: 7px 13px;
+  border: 1px solid rgba(28, 42, 51, 0.14);
   border-radius: 999px;
-  background: rgba(246, 244, 239, 0.86);
-  color: var(--ink);
-  font: 500 0.85rem/1 var(--sans);
+  background: rgba(246, 244, 239, 0.88);
+  color: #1c2a33;
+  font: 500 0.8rem/1 var(--sans);
   cursor: pointer;
-  opacity: 0.55;
+  opacity: 0.6;
   transition: opacity 0.4s ease;
+}
+.film-btn svg[hidden] {
+  display: none;
 }
 .film:hover .film-btn,
 .film-btn:focus-visible,
@@ -1907,5 +1914,9 @@ button.block-cta {
   opacity: 1;
 }
 @media (hover: none) {
-  .film-btn { opacity: 0.85; }
+  .film-btn { opacity: 0.9; }
+}
+@media (max-width: 560px) {
+  .film-btn-label { display: none; }
+  .film-btn { padding: 7px; }
 }

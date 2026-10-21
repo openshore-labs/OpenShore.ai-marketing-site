@@ -30,5 +30,6 @@ export default {
   // The launch film and its poster: a re-render ships as a URL the edge has
   // never seen.
   film: rev("src/static/film/openshore-film.mp4"),
+  filmWebm: rev("src/static/film/openshore-film.webm"),
   filmPoster: rev("src/static/film/openshore-film-poster.jpg"),
 };
