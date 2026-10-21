@@ -33,8 +33,6 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
   }
 </script>
 
-{% include "film.njk" %}
-
 <header class="masthead">
   <div class="masthead-top">
     <div id="oscode-auth" class="oscode-auth"></div>
@@ -51,8 +49,8 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
   </div>
   <p class="hero-alt" data-download-alt hidden><a href="#get-app">Other platforms and the terminal version</a></p>
   </div>
-  {# The product itself, near the top: the real app's model picker. #}
-  <div class="masthead-media" aria-hidden="true">{{ viz.marketplacePhone() }}</div>
+  {# The launch film, beside the headline: it plays muted on arrival. #}
+  <div class="masthead-media masthead-media--film">{% include "film.njk" %}</div>
   </div>
 </header>
 

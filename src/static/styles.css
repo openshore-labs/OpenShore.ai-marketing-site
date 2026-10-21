@@ -1863,11 +1863,10 @@ button.block-cta {
 }
 
 /* ---- Launch film (home page, first thing on screen) -------------------- */
-/* A framed card on the page's own ground, under the tabs and above the
-   headline, at 16:9 and never taller than one screen. */
+/* A framed card in the headline panel, where the app mock used to sit; at
+   16:9 and never taller than one screen. */
 .film {
   --film-pad: clamp(10px, 2vw, 28px);
-  margin: 0 0 clamp(28px, 5vw, 56px);
 }
 .film-frame {
   position: relative;
@@ -1922,4 +1921,19 @@ button.block-cta {
 @media (max-width: 560px) {
   .film-btn-label { display: none; }
   .film-btn { padding: 7px; }
+}
+
+/* In the headline panel the film takes the wider column on a desktop, so it
+   reads at a real size beside the type instead of shrinking to a thumbnail. */
+.masthead-media--film .film-frame {
+  border-radius: clamp(12px, 1.4vw, 18px);
+}
+@media (min-width: 60rem) {
+  .masthead-grid:has(.masthead-media--film) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  }
+  /* Smaller type beside the film, so each "Your ..." line stays whole. */
+  .masthead:has(.masthead-media--film):not(.masthead--sub) .identity {
+    font-size: clamp(2.9rem, 3.9vw, 4.1rem);
+  }
 }
