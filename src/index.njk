@@ -37,7 +37,6 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
   <div class="masthead-top">
     <div id="oscode-auth" class="oscode-auth"></div>
   </div>
-  <div class="masthead-grid">
   <div class="masthead-copy">
   <h1 class="identity">{{ oscode.headline }}<span class="identity-coda identity-byline">{{ oscode.coda | replace(oscode.codaAccent, '<span class="coda-accent">' + oscode.codaAccent + '</span>') | safe }}</span></h1>
   <div class="horizon" role="presentation"></div>
@@ -49,9 +48,9 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
   </div>
   <p class="hero-alt" data-download-alt hidden><a href="#get-app">Other platforms and the terminal version</a></p>
   </div>
-  {# The launch film, beside the headline: it plays muted on arrival. #}
-  <div class="masthead-media masthead-media--film">{% include "film.njk" %}</div>
-  </div>
+  {# The launch film, under the headline and as wide as the panel, the same
+     on a desktop as on a phone: it plays muted on arrival. #}
+  <div class="masthead-film">{% include "film.njk" %}</div>
 </header>
 
 <section class="block">
