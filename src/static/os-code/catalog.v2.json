@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "models": [
     {
       "id": "qwen2.5-coder-7b",
@@ -55,8 +55,8 @@
         }
       },
       "popularity": {
-        "downloads": 306996,
-        "likes": 594,
+        "downloads": 313911,
+        "likes": 599,
         "source": "huggingface"
       },
       "createdAt": "2024-09-18T11:40:39.000Z",
@@ -118,7 +118,7 @@
         }
       },
       "popularity": {
-        "downloads": 177825,
+        "downloads": 181312,
         "likes": 265,
         "source": "huggingface"
       },
@@ -181,8 +181,8 @@
         }
       },
       "popularity": {
-        "downloads": 42941,
-        "likes": 234,
+        "downloads": 43454,
+        "likes": 236,
         "source": "huggingface"
       },
       "createdAt": "2024-11-09T12:45:18.000Z",
@@ -241,7 +241,7 @@
         }
       },
       "popularity": {
-        "downloads": 512555,
+        "downloads": 444131,
         "likes": 426,
         "source": "huggingface"
       },
@@ -302,7 +302,7 @@
         }
       },
       "popularity": {
-        "downloads": 67788,
+        "downloads": 70507,
         "likes": 259,
         "source": "huggingface"
       },
@@ -399,8 +399,8 @@
         }
       },
       "popularity": {
-        "downloads": 2374120,
-        "likes": 1450,
+        "downloads": 2395156,
+        "likes": 1451,
         "source": "huggingface"
       },
       "createdAt": "2024-03-04T18:03:06.000Z",
@@ -439,7 +439,7 @@
         "MTEB": "strong open embedder"
       },
       "popularity": {
-        "downloads": 556327,
+        "downloads": 532790,
         "likes": 140,
         "source": "huggingface"
       },
@@ -495,8 +495,8 @@
         }
       },
       "popularity": {
-        "downloads": 225478,
-        "likes": 152,
+        "downloads": 235515,
+        "likes": 153,
         "source": "huggingface"
       },
       "createdAt": "2024-09-18T13:58:16.000Z",
@@ -552,7 +552,7 @@
         }
       },
       "popularity": {
-        "downloads": 376104,
+        "downloads": 390362,
         "likes": 188,
         "source": "huggingface"
       },
@@ -612,7 +612,7 @@
         }
       },
       "popularity": {
-        "downloads": 148593,
+        "downloads": 151176,
         "likes": 184,
         "source": "huggingface"
       },
@@ -668,7 +668,7 @@
         }
       },
       "popularity": {
-        "downloads": 12032,
+        "downloads": 12508,
         "likes": 56,
         "source": "huggingface"
       },
@@ -709,8 +709,8 @@
         "minRamGB": 4
       },
       "popularity": {
-        "downloads": 225478,
-        "likes": 152,
+        "downloads": 235515,
+        "likes": 153,
         "source": "huggingface"
       },
       "createdAt": "2024-09-18T13:58:16.000Z",
@@ -758,8 +758,8 @@
         }
       },
       "popularity": {
-        "downloads": 90904,
-        "likes": 179,
+        "downloads": 91791,
+        "likes": 180,
         "source": "huggingface"
       },
       "createdAt": "2024-11-09T12:46:15.000Z",
@@ -801,8 +801,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 2653004,
-        "likes": 1031,
+        "downloads": 2697832,
+        "likes": 1032,
         "source": "huggingface"
       },
       "createdAt": "2025-08-05T10:58:03.000Z",
@@ -842,8 +842,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 631948,
-        "likes": 203,
+        "downloads": 647061,
+        "likes": 204,
         "source": "huggingface"
       },
       "createdAt": "2024-09-17T13:58:24.000Z",
@@ -879,7 +879,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 35430,
+        "downloads": 36501,
         "likes": 78,
         "source": "huggingface"
       },
@@ -916,7 +916,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 9511,
+        "downloads": 9605,
         "likes": 56,
         "source": "huggingface"
       },
@@ -953,7 +953,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 44156,
+        "downloads": 44182,
         "likes": 50,
         "source": "huggingface"
       },
@@ -990,7 +990,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 29899,
+        "downloads": 30622,
         "likes": 136,
         "source": "huggingface"
       },
@@ -1064,8 +1064,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 33690,
-        "likes": 94,
+        "downloads": 34233,
+        "likes": 95,
         "source": "huggingface"
       },
       "createdAt": "2024-08-20T19:56:23.000Z",
@@ -1101,7 +1101,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 27965,
+        "downloads": 28468,
         "likes": 237,
         "source": "huggingface"
       },
@@ -1138,7 +1138,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 54386,
+        "downloads": 55345,
         "likes": 103,
         "source": "huggingface"
       },
@@ -1175,7 +1175,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 172006,
+        "downloads": 174181,
         "likes": 251,
         "source": "huggingface"
       },
@@ -1212,7 +1212,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 127725,
+        "downloads": 129815,
         "likes": 149,
         "source": "huggingface"
       },
@@ -1248,7 +1248,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 4524,
+        "downloads": 4730,
         "likes": 20,
         "source": "huggingface"
       },
@@ -1285,7 +1285,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 4973,
+        "downloads": 5045,
         "likes": 12,
         "source": "huggingface"
       },
@@ -1322,7 +1322,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 13061,
+        "downloads": 13797,
         "likes": 53,
         "source": "huggingface"
       },
@@ -1813,7 +1813,7 @@
             "license": "Apache-2.0"
           },
           {
-            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/be27b9cf1b7212b3a281c2abbd9ecf6985242bb8/split_files/vae/flux2-vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/9630c1b4b6e690497ae0c19bb6b1b35d4ebedcb7/split_files/vae/flux2-vae.safetensors",
             "sha256": "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5",
             "sizeGB": 0.32,
             "dest": "vae/flux2-vae.safetensors",
@@ -1840,7 +1840,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 444111,
+        "downloads": 458061,
         "likes": 94,
         "source": "huggingface"
       },
@@ -1900,8 +1900,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 9106664,
-        "likes": 1000,
+        "downloads": 9134745,
+        "likes": 1004,
         "source": "huggingface"
       },
       "createdAt": "2025-11-26T01:00:52.000Z",
@@ -1921,7 +1921,7 @@
         "pullCommand": "curl -L -o \"models/checkpoints/hidream_o1_image_dev_fp8_scaled.safetensors\" \"https://huggingface.co/Comfy-Org/HiDream-O1-Image/resolve/main/checkpoints/hidream_o1_image_dev_fp8_scaled.safetensors\"",
         "files": [
           {
-            "url": "https://huggingface.co/Comfy-Org/HiDream-O1-Image/resolve/377ec7124bc46a15736c68cd9e4ad6d7da7a7614/checkpoints/hidream_o1_image_dev_fp8_scaled.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/HiDream-O1-Image/resolve/7b75f4cd7e757d55d9bd1d30fb40375fb446f38c/checkpoints/hidream_o1_image_dev_fp8_scaled.safetensors",
             "sha256": "7cbf53a475e0a13f92f2ec08bcffdb9b9de4305ef3b6f35cdd784d09dcd8d0cc",
             "sizeGB": 7.51,
             "dest": "checkpoints/hidream_o1_image_dev_fp8_scaled.safetensors"
@@ -1947,12 +1947,12 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 58257,
-        "likes": 83,
+        "downloads": 59397,
+        "likes": 84,
         "source": "huggingface"
       },
       "createdAt": "2026-05-10T00:28:02.000Z",
-      "updatedAt": "2026-09-23T08:01:11.000Z"
+      "updatedAt": "2026-10-28T02:49:36.000Z"
     },
     {
       "id": "ernie-image-turbo",
@@ -1968,19 +1968,19 @@
         "pullCommand": "curl -L -o \"models/diffusion_models/ernie-image-turbo.safetensors\" \"https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/diffusion_models/ernie-image-turbo.safetensors\"\ncurl -L -o \"models/text_encoders/ministral-3-3b.safetensors\" \"https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/text_encoders/ministral-3-3b.safetensors\"\ncurl -L -o \"models/vae/flux2-vae.safetensors\" \"https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/vae/flux2-vae.safetensors\"",
         "files": [
           {
-            "url": "https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/82fe29a5cd056f8b1deebc50570f125bcd4f4bea/diffusion_models/ernie-image-turbo.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/50509a88bc4fb9e89583a98605f4c81dc221eb8c/diffusion_models/ernie-image-turbo.safetensors",
             "sha256": "741a4cc0467d4b9f04490d7faa9a5869ff4aa97eb2914927a1df9abb070e8e52",
             "sizeGB": 14.96,
             "dest": "diffusion_models/ernie-image-turbo.safetensors"
           },
           {
-            "url": "https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/82fe29a5cd056f8b1deebc50570f125bcd4f4bea/text_encoders/ministral-3-3b.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/50509a88bc4fb9e89583a98605f4c81dc221eb8c/text_encoders/ministral-3-3b.safetensors",
             "sha256": "49a750a128863854eac7d85e1a277a7b44bf6ec3646405b84686dfeeca3708ca",
             "sizeGB": 7.19,
             "dest": "text_encoders/ministral-3-3b.safetensors"
           },
           {
-            "url": "https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/82fe29a5cd056f8b1deebc50570f125bcd4f4bea/vae/flux2-vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/50509a88bc4fb9e89583a98605f4c81dc221eb8c/vae/flux2-vae.safetensors",
             "sha256": "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5",
             "sizeGB": 0.32,
             "dest": "vae/flux2-vae.safetensors"
@@ -2006,12 +2006,12 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 86994,
+        "downloads": 86412,
         "likes": 195,
         "source": "huggingface"
       },
       "createdAt": "2026-04-13T18:31:20.000Z",
-      "updatedAt": "2026-09-23T08:01:02.000Z"
+      "updatedAt": "2026-10-28T02:40:37.000Z"
     },
     {
       "id": "ming-image-design",
@@ -2065,7 +2065,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 169459,
+        "downloads": 164169,
         "likes": 65,
         "source": "huggingface"
       },
@@ -2113,8 +2113,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 313966,
-        "likes": 111,
+        "downloads": 322017,
+        "likes": 114,
         "source": "huggingface"
       },
       "createdAt": "2026-04-14T21:14:07.000Z",
@@ -2176,7 +2176,7 @@
         "pullCommand": "curl -L -o \"models/background_removal/birefnet.safetensors\" \"https://huggingface.co/Comfy-Org/BiRefNet/resolve/main/background_removal/birefnet.safetensors\"",
         "files": [
           {
-            "url": "https://huggingface.co/Comfy-Org/BiRefNet/resolve/25511f8787e51912e1480706b4e47b8f467fbf72/background_removal/birefnet.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/BiRefNet/resolve/884af709e9b795d89dafbf97f29c8d6a2386f5c6/background_removal/birefnet.safetensors",
             "sha256": "9ab37426bf4de0567af6b5d21b16151357149139362e6e8992021b8ce356a154",
             "sizeGB": 0.42,
             "dest": "background_removal/birefnet.safetensors"
@@ -2202,12 +2202,12 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 214428,
-        "likes": 56,
+        "downloads": 217754,
+        "likes": 57,
         "source": "huggingface"
       },
       "createdAt": "2026-04-27T01:39:42.000Z",
-      "updatedAt": "2026-09-23T08:03:16.000Z"
+      "updatedAt": "2026-10-28T02:38:00.000Z"
     },
     {
       "id": "realesrgan-x4plus",
@@ -2249,7 +2249,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 58641,
+        "downloads": 58761,
         "likes": 31,
         "source": "huggingface"
       },
@@ -2302,7 +2302,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 677546,
+        "downloads": 687451,
         "likes": 142,
         "source": "huggingface"
       },
@@ -2358,7 +2358,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 677546,
+        "downloads": 687451,
         "likes": 142,
         "source": "huggingface"
       },
@@ -2426,7 +2426,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 1731242,
+        "downloads": 1750405,
         "likes": 512,
         "source": "huggingface"
       },
@@ -2486,8 +2486,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 8498401,
-        "likes": 976,
+        "downloads": 8613370,
+        "likes": 978,
         "source": "huggingface"
       },
       "createdAt": "2025-07-27T06:56:12.000Z",
@@ -2552,8 +2552,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 8498401,
-        "likes": 976,
+        "downloads": 8613370,
+        "likes": 978,
         "source": "huggingface"
       },
       "createdAt": "2025-07-27T06:56:12.000Z",
@@ -2618,8 +2618,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 8498401,
-        "likes": 976,
+        "downloads": 8613370,
+        "likes": 978,
         "source": "huggingface"
       },
       "createdAt": "2025-07-27T06:56:12.000Z",
@@ -2639,7 +2639,7 @@
         "pullCommand": "curl -L -o \"models/checkpoints/ace_step_1.5_turbo_aio.safetensors\" \"https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/checkpoints/ace_step_1.5_turbo_aio.safetensors\"",
         "files": [
           {
-            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/6707deb277e9e0907fd9c14ce6b6f1d695c6a3fc/checkpoints/ace_step_1.5_turbo_aio.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/371bb1680f8c88d8c1083f6ffb6330d3d55bff76/checkpoints/ace_step_1.5_turbo_aio.safetensors",
             "sha256": "67b0f43aa5c51c840bd0228e6a935d8ff416ec87e5df2fc0637da17a561252bc",
             "sizeGB": 9.34,
             "dest": "checkpoints/ace_step_1.5_turbo_aio.safetensors"
@@ -2665,12 +2665,12 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 693995,
-        "likes": 178,
+        "downloads": 705572,
+        "likes": 179,
         "source": "huggingface"
       },
       "createdAt": "2026-02-03T04:57:10.000Z",
-      "updatedAt": "2026-09-23T08:00:33.000Z"
+      "updatedAt": "2026-10-28T02:14:02.000Z"
     },
     {
       "id": "ace-step-1.5-xl-turbo",
@@ -2686,25 +2686,25 @@
         "pullCommand": "curl -L -o \"models/diffusion_models/acestep_v1.5_xl_turbo_bf16.safetensors\" \"https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/diffusion_models/acestep_v1.5_xl_turbo_bf16.safetensors\"\ncurl -L -o \"models/text_encoders/qwen_0.6b_ace15.safetensors\" \"https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_0.6b_ace15.safetensors\"\ncurl -L -o \"models/text_encoders/qwen_4b_ace15.safetensors\" \"https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_4b_ace15.safetensors\"\ncurl -L -o \"models/vae/ace_1.5_vae.safetensors\" \"https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/vae/ace_1.5_vae.safetensors\"",
         "files": [
           {
-            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/6707deb277e9e0907fd9c14ce6b6f1d695c6a3fc/split_files/diffusion_models/acestep_v1.5_xl_turbo_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/371bb1680f8c88d8c1083f6ffb6330d3d55bff76/split_files/diffusion_models/acestep_v1.5_xl_turbo_bf16.safetensors",
             "sha256": "86a1afb0a1f711f0e3304ff65d874df3ae6783db683dcf982513fb9b6d14ae71",
             "sizeGB": 9.29,
             "dest": "diffusion_models/acestep_v1.5_xl_turbo_bf16.safetensors"
           },
           {
-            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/6707deb277e9e0907fd9c14ce6b6f1d695c6a3fc/split_files/text_encoders/qwen_0.6b_ace15.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/371bb1680f8c88d8c1083f6ffb6330d3d55bff76/split_files/text_encoders/qwen_0.6b_ace15.safetensors",
             "sha256": "fd4590c82153b8ddb67e15a2e7aaa8afa8b83a858c8a9b82a4831063156aa7a7",
             "sizeGB": 1.11,
             "dest": "text_encoders/qwen_0.6b_ace15.safetensors"
           },
           {
-            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/6707deb277e9e0907fd9c14ce6b6f1d695c6a3fc/split_files/text_encoders/qwen_4b_ace15.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/371bb1680f8c88d8c1083f6ffb6330d3d55bff76/split_files/text_encoders/qwen_4b_ace15.safetensors",
             "sha256": "ffe5ffb855086c2ab55e467e9859fb01894781020a0376484dd19de166b79873",
             "sizeGB": 7.8,
             "dest": "text_encoders/qwen_4b_ace15.safetensors"
           },
           {
-            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/6707deb277e9e0907fd9c14ce6b6f1d695c6a3fc/split_files/vae/ace_1.5_vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/371bb1680f8c88d8c1083f6ffb6330d3d55bff76/split_files/vae/ace_1.5_vae.safetensors",
             "sha256": "6de92e3a862acd287e08b024ac90f0783a8635451b728721a33ff03565bcb2bb",
             "sizeGB": 0.32,
             "dest": "vae/ace_1.5_vae.safetensors"
@@ -2730,12 +2730,12 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 693995,
-        "likes": 178,
+        "downloads": 705572,
+        "likes": 179,
         "source": "huggingface"
       },
       "createdAt": "2026-02-03T04:57:10.000Z",
-      "updatedAt": "2026-09-23T08:00:33.000Z"
+      "updatedAt": "2026-10-28T02:14:02.000Z"
     },
     {
       "id": "stable-audio-3-small-sfx",
@@ -2788,7 +2788,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 160521,
+        "downloads": 161922,
         "likes": 56,
         "source": "huggingface"
       },
@@ -2843,7 +2843,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 160521,
+        "downloads": 161922,
         "likes": 56,
         "source": "huggingface"
       },
@@ -2948,8 +2948,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 582354,
-        "likes": 1227,
+        "downloads": 586216,
+        "likes": 1233,
         "source": "huggingface"
       },
       "createdAt": "2025-08-04T13:34:09.000Z",
@@ -2988,7 +2988,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 185925,
+        "downloads": 186221,
         "likes": 168,
         "source": "huggingface"
       },
@@ -3028,8 +3028,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 3570799,
-        "likes": 6702,
+        "downloads": 3635359,
+        "likes": 6705,
         "source": "huggingface"
       },
       "createdAt": "2023-11-07T18:41:14.000Z",
@@ -3069,8 +3069,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 125502,
-        "likes": 811,
+        "downloads": 133118,
+        "likes": 816,
         "source": "huggingface"
       },
       "createdAt": "2026-09-01T13:16:57.000Z",
@@ -3110,8 +3110,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 10608154,
-        "likes": 7287,
+        "downloads": 10806481,
+        "likes": 7294,
         "source": "huggingface"
       },
       "createdAt": "2024-12-26T00:20:08.000Z",
@@ -3150,8 +3150,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 983377,
-        "likes": 1732,
+        "downloads": 996868,
+        "likes": 1733,
         "source": "huggingface"
       },
       "createdAt": "2026-04-03T05:25:50.000Z",
@@ -3191,8 +3191,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 1982575,
-        "likes": 1870,
+        "downloads": 2024973,
+        "likes": 1871,
         "source": "huggingface"
       },
       "createdAt": "2025-04-24T12:03:33.000Z",
