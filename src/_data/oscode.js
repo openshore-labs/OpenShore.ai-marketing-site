@@ -58,8 +58,8 @@ export default {
   // terminal, installed from npm. Plain markup for now; the founder styles it.
   cli: {
     title: "OS Code, in your terminal.",
-    lede: "The same agent as a command-line tool. With Node 22 or newer and a local model server such as Ollama, two commands set it up, and osc starts it in any project.",
-    commands: ["npm install -g @openshore/os-code", "osc init", "cd your-project && osc"],
+    lede: "The same agent as a command-line tool. With Node 22 or newer and a local model server such as Ollama, two commands set it up. Then type osc inside any project folder to start.",
+    commands: ["npm install -g @openshore/os-code", "osc init"],
   },
 
   getAppsLabel: "Get OpenShore",
