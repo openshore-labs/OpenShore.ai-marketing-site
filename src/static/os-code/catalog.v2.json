@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "models": [
     {
       "id": "qwen2.5-coder-7b",
@@ -55,8 +55,8 @@
         }
       },
       "popularity": {
-        "downloads": 325382,
-        "likes": 616,
+        "downloads": 327923,
+        "likes": 620,
         "source": "huggingface"
       },
       "createdAt": "2024-09-18T11:40:39.000Z",
@@ -118,8 +118,8 @@
         }
       },
       "popularity": {
-        "downloads": 193090,
-        "likes": 269,
+        "downloads": 179695,
+        "likes": 270,
         "source": "huggingface"
       },
       "createdAt": "2024-11-09T12:45:52.000Z",
@@ -181,7 +181,7 @@
         }
       },
       "popularity": {
-        "downloads": 44705,
+        "downloads": 44599,
         "likes": 238,
         "source": "huggingface"
       },
@@ -241,8 +241,8 @@
         }
       },
       "popularity": {
-        "downloads": 366340,
-        "likes": 428,
+        "downloads": 362462,
+        "likes": 429,
         "source": "huggingface"
       },
       "createdAt": "2024-07-23T15:36:34.000Z",
@@ -302,8 +302,8 @@
         }
       },
       "popularity": {
-        "downloads": 74005,
-        "likes": 259,
+        "downloads": 74685,
+        "likes": 260,
         "source": "huggingface"
       },
       "createdAt": "2025-01-20T14:53:41.000Z",
@@ -399,8 +399,8 @@
         }
       },
       "popularity": {
-        "downloads": 2429212,
-        "likes": 1451,
+        "downloads": 2432639,
+        "likes": 1450,
         "source": "huggingface"
       },
       "createdAt": "2024-03-04T18:03:06.000Z",
@@ -439,7 +439,7 @@
         "MTEB": "strong open embedder"
       },
       "popularity": {
-        "downloads": 536182,
+        "downloads": 541449,
         "likes": 140,
         "source": "huggingface"
       },
@@ -495,7 +495,7 @@
         }
       },
       "popularity": {
-        "downloads": 237373,
+        "downloads": 226653,
         "likes": 156,
         "source": "huggingface"
       },
@@ -552,7 +552,7 @@
         }
       },
       "popularity": {
-        "downloads": 426120,
+        "downloads": 429272,
         "likes": 191,
         "source": "huggingface"
       },
@@ -612,8 +612,8 @@
         }
       },
       "popularity": {
-        "downloads": 150412,
-        "likes": 184,
+        "downloads": 154088,
+        "likes": 185,
         "source": "huggingface"
       },
       "createdAt": "2024-09-25T18:35:25.000Z",
@@ -668,7 +668,7 @@
         }
       },
       "popularity": {
-        "downloads": 16909,
+        "downloads": 17041,
         "likes": 56,
         "source": "huggingface"
       },
@@ -709,7 +709,7 @@
         "minRamGB": 4
       },
       "popularity": {
-        "downloads": 237373,
+        "downloads": 226653,
         "likes": 156,
         "source": "huggingface"
       },
@@ -758,8 +758,8 @@
         }
       },
       "popularity": {
-        "downloads": 97322,
-        "likes": 186,
+        "downloads": 97002,
+        "likes": 187,
         "source": "huggingface"
       },
       "createdAt": "2024-11-09T12:46:15.000Z",
@@ -801,8 +801,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 2610894,
-        "likes": 1041,
+        "downloads": 2581729,
+        "likes": 1042,
         "source": "huggingface"
       },
       "createdAt": "2025-08-05T10:58:03.000Z",
@@ -842,8 +842,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 691536,
-        "likes": 206,
+        "downloads": 696105,
+        "likes": 207,
         "source": "huggingface"
       },
       "createdAt": "2024-09-17T13:58:24.000Z",
@@ -879,7 +879,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 41501,
+        "downloads": 41525,
         "likes": 79,
         "source": "huggingface"
       },
@@ -916,7 +916,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 9907,
+        "downloads": 9652,
         "likes": 56,
         "source": "huggingface"
       },
@@ -953,7 +953,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 43902,
+        "downloads": 43944,
         "likes": 51,
         "source": "huggingface"
       },
@@ -990,7 +990,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 35370,
+        "downloads": 35711,
         "likes": 136,
         "source": "huggingface"
       },
@@ -1027,7 +1027,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 11083,
+        "downloads": 11116,
         "likes": 65,
         "source": "huggingface"
       },
@@ -1064,7 +1064,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 35971,
+        "downloads": 36175,
         "likes": 95,
         "source": "huggingface"
       },
@@ -1101,7 +1101,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 27009,
+        "downloads": 26991,
         "likes": 237,
         "source": "huggingface"
       },
@@ -1138,7 +1138,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 58898,
+        "downloads": 59044,
         "likes": 103,
         "source": "huggingface"
       },
@@ -1175,8 +1175,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 175763,
-        "likes": 253,
+        "downloads": 178758,
+        "likes": 254,
         "source": "huggingface"
       },
       "createdAt": "2024-09-25T18:35:33.000Z",
@@ -1212,7 +1212,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 136516,
+        "downloads": 136535,
         "likes": 149,
         "source": "huggingface"
       },
@@ -1248,7 +1248,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 4916,
+        "downloads": 4957,
         "likes": 20,
         "source": "huggingface"
       },
@@ -1285,7 +1285,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 5165,
+        "downloads": 4976,
         "likes": 12,
         "source": "huggingface"
       },
@@ -1322,7 +1322,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 15078,
+        "downloads": 15371,
         "likes": 53,
         "source": "huggingface"
       },
@@ -1840,7 +1840,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 492215,
+        "downloads": 494956,
         "likes": 95,
         "source": "huggingface"
       },
@@ -1900,8 +1900,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 9441612,
-        "likes": 1007,
+        "downloads": 9521322,
+        "likes": 1010,
         "source": "huggingface"
       },
       "createdAt": "2025-11-26T01:00:52.000Z",
@@ -1947,7 +1947,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 62285,
+        "downloads": 60518,
         "likes": 84,
         "source": "huggingface"
       },
@@ -2006,7 +2006,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 101518,
+        "downloads": 102957,
         "likes": 196,
         "source": "huggingface"
       },
@@ -2065,7 +2065,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 115952,
+        "downloads": 105672,
         "likes": 65,
         "source": "huggingface"
       },
@@ -2113,8 +2113,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 349632,
-        "likes": 119,
+        "downloads": 352482,
+        "likes": 120,
         "source": "huggingface"
       },
       "createdAt": "2026-04-14T21:14:07.000Z",
@@ -2202,8 +2202,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 225463,
-        "likes": 59,
+        "downloads": 224942,
+        "likes": 60,
         "source": "huggingface"
       },
       "createdAt": "2026-04-27T01:39:42.000Z",
@@ -2249,7 +2249,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 59796,
+        "downloads": 60074,
         "likes": 31,
         "source": "huggingface"
       },
@@ -2302,8 +2302,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 731609,
-        "likes": 147,
+        "downloads": 738596,
+        "likes": 148,
         "source": "huggingface"
       },
       "createdAt": "2026-06-06T15:41:37.000Z",
@@ -2358,8 +2358,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 731609,
-        "likes": 147,
+        "downloads": 738596,
+        "likes": 148,
         "source": "huggingface"
       },
       "createdAt": "2026-06-06T15:41:37.000Z",
@@ -2426,7 +2426,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 1798658,
+        "downloads": 1848083,
         "likes": 515,
         "source": "huggingface"
       },
@@ -2486,8 +2486,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 9185113,
-        "likes": 987,
+        "downloads": 9326230,
+        "likes": 991,
         "source": "huggingface"
       },
       "createdAt": "2025-07-27T06:56:12.000Z",
@@ -2552,8 +2552,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 9185113,
-        "likes": 987,
+        "downloads": 9326230,
+        "likes": 991,
         "source": "huggingface"
       },
       "createdAt": "2025-07-27T06:56:12.000Z",
@@ -2618,8 +2618,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 9185113,
-        "likes": 987,
+        "downloads": 9326230,
+        "likes": 991,
         "source": "huggingface"
       },
       "createdAt": "2025-07-27T06:56:12.000Z",
@@ -2665,7 +2665,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 747718,
+        "downloads": 758863,
         "likes": 180,
         "source": "huggingface"
       },
@@ -2730,7 +2730,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 747718,
+        "downloads": 758863,
         "likes": 180,
         "source": "huggingface"
       },
@@ -2788,8 +2788,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 178384,
-        "likes": 59,
+        "downloads": 183864,
+        "likes": 61,
         "source": "huggingface"
       },
       "createdAt": "2026-05-12T23:23:44.000Z",
@@ -2843,8 +2843,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 178384,
-        "likes": 59,
+        "downloads": 183864,
+        "likes": 61,
         "source": "huggingface"
       },
       "createdAt": "2026-05-12T23:23:44.000Z",
@@ -2948,8 +2948,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 585523,
-        "likes": 1246,
+        "downloads": 585304,
+        "likes": 1250,
         "source": "huggingface"
       },
       "createdAt": "2025-08-04T13:34:09.000Z",
@@ -2988,7 +2988,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 180206,
+        "downloads": 180063,
         "likes": 168,
         "source": "huggingface"
       },
@@ -3028,8 +3028,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 3474365,
-        "likes": 6731,
+        "downloads": 3467516,
+        "likes": 6735,
         "source": "huggingface"
       },
       "createdAt": "2023-11-07T18:41:14.000Z",
@@ -3069,7 +3069,7 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 159692,
+        "downloads": 159900,
         "likes": 826,
         "source": "huggingface"
       },
@@ -3110,8 +3110,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 11247512,
-        "likes": 7320,
+        "downloads": 11366340,
+        "likes": 7327,
         "source": "huggingface"
       },
       "createdAt": "2024-12-26T00:20:08.000Z",
@@ -3150,8 +3150,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 989625,
-        "likes": 1746,
+        "downloads": 969017,
+        "likes": 1747,
         "source": "huggingface"
       },
       "createdAt": "2026-04-03T05:25:50.000Z",
@@ -3191,8 +3191,8 @@
       },
       "blessed": false,
       "popularity": {
-        "downloads": 2166054,
-        "likes": 1881,
+        "downloads": 2203606,
+        "likes": 1885,
         "source": "huggingface"
       },
       "createdAt": "2025-04-24T12:03:33.000Z",
