@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /
 pageTitle: "OpenShore: Your machine, your models, your keys"
-pageDescription: "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free and open source, including the coding agent."
+pageDescription: "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free for your own work, including the coding agent."
 ---
 {% import "viz.njk" as viz %}
 
@@ -47,7 +47,7 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
     <a class="block-cta hero-cta" href="#get-app" data-download-cta>Get OpenShore <span aria-hidden="true">&rarr;</span></a>
     <a class="hero-cta-ghost" href="#how-heading">How it works</a>
   </div>
-  <p class="hero-alt" data-download-alt hidden><a href="#get-app">Other platforms and the terminal version</a></p>
+  <p class="hero-alt" data-download-alt hidden><a href="#get-app">Other platforms</a></p>
   </div>
   {# The launch film, beside the headline: it plays muted on arrival. #}
   <div class="masthead-media masthead-media--film">{% include "film.njk" %}</div>
@@ -105,15 +105,6 @@ pageDescription: "OpenShore is a coding agent that runs on your own models, your
     </li>
     {% endfor %}
   </ul>
-  <div class="cli" id="cli">
-    <p class="lede">{{ oscode.cli.title }}</p>
-    <p class="prose">{{ oscode.cli.lede }}</p>
-    <div class="cli-code">
-      <pre><code>{% for c in oscode.cli.commands %}{{ c }}{% if not loop.last %}
-{% endif %}{% endfor %}</code></pre>
-      <button type="button" class="cli-copy" data-copy hidden>Copy</button>
-    </div>
-  </div>
 </section>
 
 {# "What makes it different" carries the thesis on its own now; the mission

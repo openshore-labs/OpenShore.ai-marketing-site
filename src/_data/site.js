@@ -11,15 +11,11 @@ export default {
   url: "https://openshore.ai",
 
   metaDescription:
-    "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free and open source under the Apache License 2.0.",
+    "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free for your own work.",
 
   // The parent company's site, credited from the OpenShore header and footer.
   parentUrl: "https://openshorellc.com",
   parentName: "Open Shore, LLC",
-
-  // The open source code (Apache 2.0), linked from the header on every page.
-  // Installers stay in openshore-releases (oscode.githubReleases).
-  sourceUrl: "https://github.com/openshore-labs/openshore.code.ai",
 
   emails: {
     // The one published address (founder F1, 2026-09-30), the same as the

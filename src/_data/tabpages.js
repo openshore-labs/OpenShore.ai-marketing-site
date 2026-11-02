@@ -43,7 +43,7 @@ export default {
         ],
       },
     ],
-    cta: { label: "Get OpenShore", href: "/#pricing", note: "Free and open source." },
+    cta: { label: "Get OpenShore", href: "/#pricing", note: "Free for your own work." },
   },
 
   privacy: {
@@ -163,7 +163,7 @@ export default {
     ],
     cta: {
       label: "Get OpenShore",
-      note: "Free and open source. OpenShore runs on your machine, so when it sleeps or powers off, in-flight runs stop. No OpenShore cloud runner takes over yet.",
+      note: "Free for your own work. OpenShore runs on your machine, so when it sleeps or powers off, in-flight runs stop. No OpenShore cloud runner takes over yet.",
     },
   },
 };
