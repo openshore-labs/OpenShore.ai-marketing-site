@@ -5,9 +5,10 @@
 // openshore-app.js / openshore.css) is internal plumbing only, kept as-is to
 // avoid a needless rename of working code.
 //
-// Pricing model (2026-10-11): OpenShore is free and open source under the
-// Apache License 2.0, and nothing is sold to a person (the app's pay gate is
-// deleted). Team seat plans are a later tier and render no card. The card's
+// Pricing model (2026-10-11): nothing is sold to a person (the app's pay gate
+// is deleted). OpenShore is proprietary software of Open Shore LLC since
+// 2026-11-02 (it was Apache 2.0 from 2026-10-11); copy never calls it open
+// source. Team seat plans are a later tier and render no card. The card's
 // button goes to the download tiles.
 //
 // No em dashes anywhere a customer reads (Open Shore standing instruction).
@@ -54,13 +55,6 @@ export default {
   // PWA manifest and service worker that do not exist yet. To take a platform
   // live: set its href, flip status to "live"; see .get-tile-live.
   githubReleases: "https://github.com/openshore-labs/openshore-releases/releases",
-  // OS Code, the terminal CLI (founder, 2026-10-11): the same agent in your
-  // terminal, installed from npm. Plain markup for now; the founder styles it.
-  cli: {
-    title: "OS Code, in your terminal.",
-    lede: "The same agent as a command-line tool. With Node 22 or newer and a local model server such as Ollama, two commands set it up. Then type osc inside any project folder to start.",
-    commands: ["npm install -g @openshore/os-code", "osc init"],
-  },
 
   getAppsLabel: "Get OpenShore",
   getAppsTitle: "One stack, every machine you own.",
@@ -215,9 +209,9 @@ export default {
     },
   ],
 
-  pricingLabel: "Free and open source.",
+  pricingLabel: "Free for your own work.",
   pricingIntro:
-    "OpenShore runs on your machine, on your models, on your keys. We never see your code. It costs nothing, and the code is open under the Apache License 2.0.",
+    "OpenShore runs on your machine, on your models, on your keys. We never see your code. It costs nothing.",
 
   // Mirrors app/src/lib/plans.ts: one plan for a person, free. Team plans
   // are a later tier; no card renders.
@@ -227,7 +221,7 @@ export default {
       segment: "For your own work",
       name: "OpenShore",
       price: "$0",
-      promise: "Everything, free. Open source under Apache 2.0.",
+      promise: "Everything, free.",
       includes: [
         "Chat with any local model, Harbor or Ollama",
         "The coding agent: reads your project, makes real changes you approve",
@@ -236,7 +230,6 @@ export default {
         "Your computer from your phone, while it is on",
         "Cloud models on your own keys. Your prompts never pass through us.",
         "No account to chat, no telemetry",
-        "Source on GitHub under Apache 2.0",
       ],
       cta: "Get OpenShore",
       // No checkout: the button goes to the download tiles.
@@ -248,7 +241,7 @@ export default {
   reassurance: [
     { label: "Local-first.", body: "Your models run on your hardware." },
     { label: "Private by default.", body: "Your code never reaches us, and a cloud model sees it only on the turns it answers. No telemetry." },
-    { label: "Open source.", body: "The code is public under the Apache License 2.0, and nothing is for sale." },
+    { label: "Nothing for sale.", body: "Every room is free for your own work. We take no payments." },
   ],
 
   // The ethical boundaries. This copy is the marketing-side mirror of the trust
