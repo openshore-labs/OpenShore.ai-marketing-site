@@ -13,8 +13,13 @@
 //
 // No em dashes anywhere a customer reads (Open Shore standing instruction).
 export default {
-  headline: "Your machine. Your models. Your keys.",
-  coda: "A coding companion you own, not one you rent.",
+  // The anchor copy (founder, 2026-11-03), OpenShore Personal's vision said
+  // one way everywhere. The app holds the same words in
+  // openshore.code.ai/app/src/lib/anchorCopy.ts; change both together, and
+  // only on a founder call. It is the launch film's title card with "open
+  // source" taken out (proprietary since 2026-11-02).
+  headline: "Independent AI for everyone.",
+  coda: "A chat and coding agent you own. Free and private by default.",
   // The one Fraunces line carries the thesis. This phrase inside the coda gets
   // the teal accent so ownership lands as a promise, not a whisper.
   codaAccent: "you own",
