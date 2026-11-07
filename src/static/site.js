@@ -18,6 +18,16 @@
   else if (/Mac/i.test(plat)) os = { id: 'mac', label: 'Mac' };
   else if (/Linux/i.test(plat) || /Linux|X11/.test(ua)) os = { id: 'linux', label: 'Linux' };
 
+  // A phone or tablet gets the web app itself, which installs to the home
+  // screen from the browser (a PWA, 2026-11-07); its Install door has the steps.
+  const phone = /Android|iPhone|iPad|iPod/i.test(ua) || touchMac;
+  if (phone) {
+    document.querySelectorAll('.hero-cta[data-download-cta]').forEach((a) => {
+      a.href = '/';
+      a.innerHTML = 'Open OpenShore.ai <span aria-hidden="true">&rarr;</span>';
+    });
+  }
+
   if (os) {
     document.querySelectorAll('.hero-cta[data-download-cta]').forEach((a) => {
       a.href = `/download/${os.id}`;

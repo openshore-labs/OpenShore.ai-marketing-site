@@ -12,6 +12,14 @@
     <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0b1417" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <!-- Installable from the browser (openshore.ai, 2026-11-07): the manifest
+         and the home-screen icon. The desktop and iPhone shells ignore them. -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./pwa/apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="OpenShore.ai" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <!-- The splash wordmark is set in Fraunces (declared in theme.css).
          Preloaded so the face is fetched as early as possible. -->
     <link
@@ -361,42 +369,44 @@
         }
       }
     </style>
-    <script type="module" crossorigin src="/assets/index-CTURK8Vc.js"></script>
+    <script type="module" crossorigin src="/assets/index-CbJFqqwc.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-hePW80VL.js">
     <link rel="modulepreload" crossorigin href="/assets/dist-N1OmPR4X.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-Czpn1I53.js">
+    <link rel="modulepreload" crossorigin href="/assets/definitions-BdWVgBTV.js">
+    <link rel="modulepreload" crossorigin href="/assets/jsx-runtime-BHh4-A0E.js">
     <link rel="modulepreload" crossorigin href="/assets/protocol-CTu2KFjd.js">
     <link rel="modulepreload" crossorigin href="/assets/error-D9MtuG9s.js">
     <link rel="modulepreload" crossorigin href="/assets/attachments-5rUlXp1u.js">
-    <link rel="modulepreload" crossorigin href="/assets/definitions-BdWVgBTV.js">
     <link rel="modulepreload" crossorigin href="/assets/definitions-DlpntO5o.js">
     <link rel="modulepreload" crossorigin href="/assets/icloudPlugin-BWzMXVea.js">
-    <link rel="modulepreload" crossorigin href="/assets/jsx-runtime-DGgw-HlJ.js">
-    <link rel="modulepreload" crossorigin href="/assets/Sheet-DrJTleIL.js">
-    <link rel="modulepreload" crossorigin href="/assets/SheetHead-lqzZLq9x.js">
-    <link rel="modulepreload" crossorigin href="/assets/useCompact-BXWQZ0PJ.js">
-    <link rel="modulepreload" crossorigin href="/assets/BackBar-BXMgraWS.js">
-    <link rel="modulepreload" crossorigin href="/assets/BrandMark-BEv-ExaU.js">
-    <link rel="modulepreload" crossorigin href="/assets/useSheetExit-yhLOJrQH.js">
-    <link rel="modulepreload" crossorigin href="/assets/useAuth-Ca81cgft.js">
-    <link rel="modulepreload" crossorigin href="/assets/ChatMenu-BQJ0dFFq.js">
-    <link rel="modulepreload" crossorigin href="/assets/webSite-d-exCAVe.js">
-    <link rel="modulepreload" crossorigin href="/assets/Sidebar-DB0ZJsLa.js">
-    <link rel="modulepreload" crossorigin href="/assets/SignInCard-CY5MMpKT.js">
+    <link rel="modulepreload" crossorigin href="/assets/store-CRrfG5Pu.js">
+    <link rel="modulepreload" crossorigin href="/assets/Sheet-Dwn40Noh.js">
+    <link rel="modulepreload" crossorigin href="/assets/SheetHead-BUcUsGzA.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCompact-B3E1Fkjf.js">
+    <link rel="modulepreload" crossorigin href="/assets/BackBar-BZaIN_PE.js">
+    <link rel="modulepreload" crossorigin href="/assets/BrandMark-C4Jvsnrj.js">
+    <link rel="modulepreload" crossorigin href="/assets/useSheetExit-LAHFqgtJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/useAuth-Ddu-4dMg.js">
+    <link rel="modulepreload" crossorigin href="/assets/ChatMenu-yfs742oC.js">
+    <link rel="modulepreload" crossorigin href="/assets/webSite-QNLAGfUQ.js">
+    <link rel="modulepreload" crossorigin href="/assets/webPrompt-BXWYORN8.js">
+    <link rel="modulepreload" crossorigin href="/assets/Sidebar-BWmrOnlu.js">
+    <link rel="modulepreload" crossorigin href="/assets/SignInCard-BnVaafpe.js">
     <link rel="modulepreload" crossorigin href="/assets/lib-BTILwdMm.js">
     <link rel="modulepreload" crossorigin href="/assets/clipboard-Bf0cHMZy.js">
-    <link rel="modulepreload" crossorigin href="/assets/CodeBlock-DHRd4JHM.js">
+    <link rel="modulepreload" crossorigin href="/assets/CodeBlock-CIziwRLW.js">
     <link rel="modulepreload" crossorigin href="/assets/projectFence-DGWmvoJl.js">
-    <link rel="modulepreload" crossorigin href="/assets/Markdown-BQI48FIY.js">
+    <link rel="modulepreload" crossorigin href="/assets/Markdown-BLHO0OjS.js">
     <link rel="modulepreload" crossorigin href="/assets/documentText-DAhg-0TG.js">
     <link rel="modulepreload" crossorigin href="/assets/pins-DcfVsWgB.js">
-    <link rel="modulepreload" crossorigin href="/assets/SwipeRow-Cgmu2CYK.js">
-    <link rel="modulepreload" crossorigin href="/assets/repoClone-CAmOYExt.js">
-    <link rel="modulepreload" crossorigin href="/assets/DockForm-DRFq8QeE.js">
-    <link rel="modulepreload" crossorigin href="/assets/ProjectRunsOn-CP3v44YP.js">
-    <link rel="modulepreload" crossorigin href="/assets/greetingDecks-BeF2UKnW.js">
+    <link rel="modulepreload" crossorigin href="/assets/SwipeRow-S3TpZARz.js">
+    <link rel="modulepreload" crossorigin href="/assets/repoClone-bgmNBWqr.js">
+    <link rel="modulepreload" crossorigin href="/assets/DockForm-BxOHGuE3.js">
+    <link rel="modulepreload" crossorigin href="/assets/ProjectRunsOn-DBOdQE2N.js">
+    <link rel="modulepreload" crossorigin href="/assets/greetingDecks-rftl0lp3.js">
     <link rel="modulepreload" crossorigin href="/assets/scrollMemory-BMa9W0zP.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-D72CH24o.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-BGtAotFN.css">
   </head>
   <body>
     <div id="boot-splash" role="img" aria-label="OpenShore.ai">

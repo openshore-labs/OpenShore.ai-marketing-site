@@ -35,6 +35,11 @@ the other way: the app's About link to `/about/`, this site's
   to Supabase's auth redirect URLs.
 - `/sign-in/continue/`, `/download/<platform>` and `/os-code/catalog*.json`
   keep their addresses; live clients use them.
+- The web app installs (a PWA): `manifest.webmanifest`, `pwa/` icons and
+  `sw.js` come with the bundle. The service worker caches only the app's own
+  files and passes `/about/`, `/download/` and the catalog straight through.
+  A phone's hero button and the iPhone and Android tiles open the app, whose
+  Install door has the steps; a Mac's hero downloads the Mac app.
 - The copy gate (`scripts/check-copy.mjs`) skips the app's `assets/`: that is
   not this site's copy, and the app's own em-dash test holds its source.
 

@@ -56,15 +56,17 @@ export default {
   // stays right, and a Mac build can land in a release after Linux and Windows;
   // the worker handles both.) `alt` offers the other file for the same
   // platform, and the GitHub link sits beside the button for anyone who wants
-  // the release notes and every file. iOS needs the App Store; Android needs a
-  // PWA manifest and service worker that do not exist yet. To take a platform
-  // live: set its href, flip status to "live"; see .get-tile-live.
+  // the release notes and every file. To take a platform live: set its href,
+  // flip status to "live"; see .get-tile-live. A tile with `web: true` is the
+  // web app at openshore.ai/ installed from the browser (a PWA, 2026-11-07):
+  // its button opens the app, which carries the install steps, and it has no
+  // GitHub link, since there is nothing to download.
   githubReleases: "https://github.com/openshore-labs/openshore-releases/releases",
 
   getAppsLabel: "Get OpenShore",
   getAppsTitle: "One stack, every machine you own.",
   getAppsLede:
-    "Linux, macOS, and Windows are direct downloads today. iPhone, iPad, and Android are next.",
+    "Linux, macOS, and Windows are direct downloads. On iPhone, iPad, and Android, OpenShore.ai installs from your browser to your home screen.",
   getApps: [
     {
       id: "linux",
@@ -89,8 +91,8 @@ export default {
       href: "/download/windows",
       status: "live",
     },
-    { id: "ios", label: "iPhone & iPad", sub: "App Store", status: "soon" },
-    { id: "android", label: "Android", sub: "Install from your browser", status: "soon" },
+    { id: "ios", label: "iPhone & iPad", sub: "In Safari, Share, then Add to Home Screen", href: "/", web: true, status: "live" },
+    { id: "android", label: "Android", sub: "Install from your browser", href: "/", web: true, status: "live" },
   ],
 
   // The mission used to live here as its own "Why OpenShore exists" section

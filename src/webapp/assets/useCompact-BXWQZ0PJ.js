@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime-hePW80VL.js";import{wh as t}from"./jsx-runtime-DGgw-HlJ.js";var n=e(t(),1);function r(){let[e,t]=(0,n.useState)(()=>window.innerWidth<900);return(0,n.useEffect)(()=>{let e=()=>t(window.innerWidth<900);return window.addEventListener(`resize`,e),()=>window.removeEventListener(`resize`,e)},[]),e}export{r as t};
