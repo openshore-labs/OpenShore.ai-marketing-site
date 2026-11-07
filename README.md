@@ -13,6 +13,31 @@ Shore, LLC corporate site). It moved here so `openshore.ai` can be a
 dedicated, standalone site for the product, at the site's root (`/`). See
 `_redirects` and "Runtime and keys" below for what that move touches.
 
+## The web app at the root, this site under `/about/` (2026-11-07)
+
+`openshore.ai/` is the OpenShore.ai app itself, in the browser, the way
+claude.ai is Claude. This site's pages live under `/about/`
+(`/about/llm-choice/`, `/about/privacy/` and the rest), and each header links
+the other way: the app's About link to `/about/`, this site's
+"Open OpenShore.ai" to `/`.
+
+- The app's built bundle sits in `src/webapp/` (its `index.html` and
+  `assets/`) and passes through to the site root. Do not edit it here: it is
+  built from `openshore.code.ai/app` (`pnpm build:web`) and committed by that
+  repo's **Publish web app** workflow (`.github/workflows/web.yml`), the same
+  way the catalog is published. The site's own favicon stays at the root.
+- Every page that used to sit at the root 301s to its `/about/` home
+  (`src/static/_redirects`), so old links, installed app builds and App Store
+  Connect's privacy and support URLs keep working.
+- `/auth-callback` is the one app route with no file behind it: the Worker
+  answers it with the app's page (`worker/appShell.js`), so an emailed
+  sign-in link returns into the app. Add `https://openshore.ai/auth-callback`
+  to Supabase's auth redirect URLs.
+- `/sign-in/continue/`, `/download/<platform>` and `/os-code/catalog*.json`
+  keep their addresses; live clients use them.
+- The copy gate (`scripts/check-copy.mjs`) skips the app's `assets/`: that is
+  not this site's copy, and the app's own em-dash test holds its source.
+
 ## Build
 
 ```
@@ -85,6 +110,6 @@ published here by the `Publish model catalog` GitHub Actions workflow in
 expects at exactly this path. Do not move or rename it without updating both
 that workflow and the app's default.
 
-`src/static/_redirects` sends `/os-code/` to `/` (301) because the Stripe
+`src/static/_redirects` sends `/os-code/` to `/about/` (301) because the Stripe
 checkout/portal edge functions still default their return URLs to
 `openshore.ai/os-code/`. See the comment in that file.

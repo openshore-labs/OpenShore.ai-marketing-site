@@ -6,6 +6,10 @@
 export default function (eleventyConfig) {
   // Verbatim assets (styles, fonts, favicon, robots.txt, og image) copy to root.
   eleventyConfig.addPassthroughCopy({ "src/static": "." });
+  // The web app at the site's root (index.html and its assets/), built from
+  // openshore.code.ai/app and published here by that repo's "Publish web app"
+  // workflow. The site's own pages live under /about/, so nothing collides.
+  eleventyConfig.addPassthroughCopy({ "src/webapp": "." });
 
   return {
     dir: {

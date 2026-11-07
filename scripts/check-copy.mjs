@@ -33,10 +33,20 @@ if (!siteExists) {
   process.exit(1);
 }
 
+// The web app's bundle (src/webapp, passed through to _site/assets) is not
+// this site's copy: it is built from openshore.code.ai/app, whose own
+// em-dash test holds every line of its source, and the minified bundle also
+// carries third-party library code (the Anthropic SDK's error strings) and
+// the app's own dash-replacing code, where the character is the point. So
+// the scan skips what the web app publishes and nothing else. Its
+// index.html, at the root, is still scanned.
+const WEB_APP_DIRS = new Set([join(ROOT, 'assets'), join(ROOT, 'app-icons')]);
+
 function walk(dir) {
   const out = [];
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
+    if (WEB_APP_DIRS.has(p)) continue;
     const s = statSync(p);
     if (s.isDirectory()) out.push(...walk(p));
     else if (EXTS.has(p.slice(p.lastIndexOf('.')))) out.push(p);

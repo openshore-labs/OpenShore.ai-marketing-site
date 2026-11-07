@@ -4,11 +4,11 @@
 // own. Labels stay short so the row fits a phone; it scrolls if it must.
 export default {
   tabs: [
-    { label: "Platform", url: "/" },
-    { label: "LLM Choice", url: "/llm-choice/" },
-    { label: "Privacy", url: "/privacy/" },
-    { label: "Sustainability", url: "/sustainability/" },
-    { label: "Ethical Standards", url: "/ethics/" },
-    { label: "Self-Hosting", url: "/self-hosting/" },
+    { label: "Platform", url: "/about/" },
+    { label: "LLM Choice", url: "/about/llm-choice/" },
+    { label: "Privacy", url: "/about/privacy/" },
+    { label: "Sustainability", url: "/about/sustainability/" },
+    { label: "Ethical Standards", url: "/about/ethics/" },
+    { label: "Self-Hosting", url: "/about/self-hosting/" },
   ],
 };

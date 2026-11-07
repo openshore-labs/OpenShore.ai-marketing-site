@@ -64,7 +64,7 @@
     <nav class="sitenav sitenav--oscode" aria-label="Primary">
       <div class="sitenav-top">
       <div class="brand brand--oscode">
-        <a class="brand-home" href="/" aria-label="OpenShore home">
+        <a class="brand-home" href="/about/" aria-label="About OpenShore.ai">
           <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
             <rect width="32" height="32" rx="7.5" fill="#1c2a33" />
             <!-- Mark nudged up 0.81 so it sits optically centered in the tile. -->
@@ -77,6 +77,9 @@
         </a>
         <a class="brand-sub" href="{{ site.parentUrl }}">Brought to you by {{ site.parentName }}</a>
       </div>
+      {# openshore.ai itself is the web app (2026-11-07); this site lives under
+         /about/, and this is the way back to the app, on every width. #}
+      <a class="app-link" href="/">Open OpenShore.ai <span aria-hidden="true">&rarr;</span></a>
       </div>
       <div class="sitenav-row">
       <ul class="sitenav-tabs" role="list" aria-label="Sections">
@@ -91,7 +94,7 @@
         {% endfor %}
       </ul>
       {# Stays in reach while the header is pinned (desktop only). #}
-      <a class="nav-cta" href="/#get-app" data-download-cta>Download</a>
+      <a class="nav-cta" href="/about/#get-app" data-download-cta>Download</a>
       </div>
     </nav>
     <main class="page page--oscode">

@@ -10,4 +10,26 @@
 # root, keep that path alive as a redirect rather than editing and redeploying
 # a live payments function; Cloudflare Pages forwards the query string, so
 # ?checkout=success still reaches the page.
-/os-code/  /  301
+# Since 2026-11-07 the root is the web app, so it lands on the site's home,
+# /about/, which still carries the checkout runtime.
+/os-code/  /about/  301
+
+# openshore.ai is the web app (founder, 2026-11-07, "like Claude.ai does"), and
+# this site moved under /about/. Every page it had at the root keeps working:
+# links on the web, the app builds already installed (Settings' Privacy and
+# Terms rows), and App Store Connect's privacy and support URLs all 301 to the
+# page's new home. The root itself is NOT redirected: it is the app.
+/llm-choice/      /about/llm-choice/      301
+/llm-choice       /about/llm-choice/      301
+/privacy/         /about/privacy/         301
+/privacy          /about/privacy/         301
+/terms/           /about/terms/           301
+/terms            /about/terms/           301
+/ethics/          /about/ethics/          301
+/ethics           /about/ethics/          301
+/sustainability/  /about/sustainability/  301
+/sustainability   /about/sustainability/  301
+/self-hosting/    /about/self-hosting/    301
+/self-hosting     /about/self-hosting/    301
+/support/         /about/support/         301
+/support          /about/support/         301

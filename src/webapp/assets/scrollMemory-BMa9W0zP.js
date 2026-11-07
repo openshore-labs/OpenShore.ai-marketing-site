@@ -1,0 +1,1 @@
+var e=new Map;function t(t,n){n>0?e.set(t,n):e.delete(t)}function n(t){return e.get(t)??0}function r(e){return e?.querySelector(`.screen`)??null}export{t as n,r,n as t};

@@ -4,9 +4,27 @@
     <loc>https://openshore.ai/</loc>
   </url>
   <url>
-    <loc>https://openshore.ai/ethics/</loc>
+    <loc>https://openshore.ai/about/</loc>
   </url>
   <url>
-    <loc>https://openshore.ai/terms/</loc>
+    <loc>https://openshore.ai/about/llm-choice/</loc>
+  </url>
+  <url>
+    <loc>https://openshore.ai/about/privacy/</loc>
+  </url>
+  <url>
+    <loc>https://openshore.ai/about/sustainability/</loc>
+  </url>
+  <url>
+    <loc>https://openshore.ai/about/ethics/</loc>
+  </url>
+  <url>
+    <loc>https://openshore.ai/about/self-hosting/</loc>
+  </url>
+  <url>
+    <loc>https://openshore.ai/about/support/</loc>
+  </url>
+  <url>
+    <loc>https://openshore.ai/about/terms/</loc>
   </url>
 </urlset>

@@ -3,6 +3,7 @@
 // file behind it reaches this script, and it handles one thing:
 //
 //   /download/<platform>  ->  302 to the newest release file for it
+//   /auth-callback        ->  the web app's own page (worker/appShell.js)
 //
 // so a "Download" button starts the download right there instead of sending
 // the person to GitHub to find the right file (worker/downloads.js has the
@@ -15,6 +16,7 @@
 // public repos only) lifts GitHub's anonymous rate limit. Not needed at this
 // traffic with the cache.
 import { PLATFORMS, RELEASES_PAGE, REPO, resolveDownload } from './downloads.js';
+import { appShellRequest, isAppRoute } from './appShell.js';
 
 const CACHE_SECONDS = 600;
 
@@ -49,6 +51,15 @@ async function releases(env, ctx) {
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    if (isAppRoute(url.pathname)) {
+      const shell = await env.ASSETS.fetch(appShellRequest(url));
+      const res = new Response(shell.body, shell);
+      // The address carries a one-time sign-in code: keep it out of caches and
+      // out of any Referer the page might send.
+      res.headers.set('cache-control', 'no-store');
+      res.headers.set('referrer-policy', 'no-referrer');
+      return res;
+    }
     const m = /^\/download\/([a-z-]+)\/?$/.exec(url.pathname);
     if (!m || !(m[1] in PLATFORMS)) return env.ASSETS.fetch(request);
     let target = RELEASES_PAGE;

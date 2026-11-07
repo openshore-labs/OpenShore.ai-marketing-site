@@ -43,7 +43,7 @@ export default {
         ],
       },
     ],
-    cta: { label: "Get OpenShore", href: "/#pricing", note: "Free for your own work." },
+    cta: { label: "Get OpenShore", href: "/about/#pricing", note: "Free for your own work." },
   },
 
   privacy: {
@@ -80,7 +80,7 @@ export default {
         ],
       },
     ],
-    cta: { label: "Read the ethical standards", href: "/ethics/", note: "The floor is on for everyone and cannot be turned down." },
+    cta: { label: "Read the ethical standards", href: "/about/ethics/", note: "The floor is on for everyone and cannot be turned down." },
   },
 
   sustainability: {
@@ -112,7 +112,7 @@ export default {
         body: "Local inference still uses power, and a large model on a big GPU is not free. This is about choice and proportion, not a zero-carbon claim. Long runs need the computer awake, and the figures are directional estimates, not a meter reading.",
       },
     ],
-    cta: { label: "See what is inside", href: "/#everything", note: "Stack Health arrives in a later release, computed on your device." },
+    cta: { label: "See what is inside", href: "/about/#everything", note: "Stack Health arrives in a later release, computed on your device." },
   },
 
   "self-hosting": {
