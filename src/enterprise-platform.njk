@@ -1,0 +1,60 @@
+---
+layout: ent-layout.njk
+permalink: /enterprise/platform/
+pageTitle: "How the Platform Works · OpenShore for Enterprise"
+pageDescription: "The OpenShore for Enterprise product tour: one chat for the model, your team and your workers, three phases for every piece of work, and AI workers for whole corporate functions."
+pageOgImage: "/enterprise/tour-poster.jpg"
+---
+{#- The platform page (founder, 2026-11-10): the product tour leads, and the
+    page stays light around it. -#}
+{%- set contact = "jack@openshore.ai" -%}
+      <section class="ent-hero ent-hero--tight">
+        <a class="ent-back" href="/enterprise/"><span aria-hidden="true">&larr;</span> OpenShore for Enterprise</a>
+        <h1>How the platform works.</h1>
+        <p class="ent-lede">Watch the product tour: the platform, end to end, in about three minutes.</p>
+      </section>
+
+      <section class="ent-films" aria-label="Product tour">
+        <a class="ent-film ent-film--wide" href="/enterprise/tour/">
+          <img src="/enterprise/tour-poster.jpg?v={{ rev.entTourPoster }}" alt="" width="960" height="540" />
+          <span class="ent-film-meta"><b>The product tour</b><span>Connections, chats, projects, tasks, reports, the owner’s view and workers</span></span>
+          <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
+        </a>
+        <p class="ent-note">Opens full screen, with sound. Press P to pause, and Next to move between parts.</p>
+      </section>
+
+      <section class="ent-sec" aria-labelledby="one-h">
+        <h2 class="ent-eyebrow" id="one-h">One chat</h2>
+        <h3 class="ent-h">The model, your team and your workers, in one conversation.</h3>
+        <p class="ent-body">Ask the model privately, @ a teammate to bring them in, or @ a worker and it answers like any teammate. In chats, channels, direct messages and projects, on desktop and phone.</p>
+      </section>
+
+      <section class="ent-sec" aria-labelledby="loop-h">
+        <h2 class="ent-eyebrow" id="loop-h">Three phases</h2>
+        <ol class="ent-phases ent-phases--light">
+          <li><span class="ent-step">Plan and build</span><h4>A chat becomes a project. A person approves before anything moves.</h4></li>
+          <li><span class="ent-step">Execute</span><h4>Every task has an owner. Repeat work becomes a workflow, with a check.</h4></li>
+          <li><span class="ent-step">Review and report</span><h4>Dashboards track the business. Reports answer one question.</h4></li>
+        </ol>
+      </section>
+
+      <section class="ent-sec" aria-labelledby="workers-h">
+        <h2 class="ent-eyebrow" id="workers-h">Workers</h2>
+        <p class="ent-body"><b>Workers</b> are AI agents, set up by real experts, that run whole corporate functions. Each answers to a person on your team who approves what matters.</p>
+        <ul class="ent-pills ent-pills--workers" role="list"><li class="core">Data Foundations</li><li>RevOps</li><li>Finance</li><li>Planning</li><li>Supply chain</li><li>Performance Analytics</li></ul>
+      </section>
+
+      <section class="ent-sec" aria-labelledby="trust-h">
+        <h2 class="ent-eyebrow" id="trust-h">Built to be trusted</h2>
+        <ul class="ent-checks" role="list">
+          <li>Workers propose. People approve anything that touches money, records or outbound messages.</li>
+          <li>Every number traces to its source, calculated by code, never by the model.</li>
+          <li>Each person sees only what they’re allowed to. No one sees another person’s pay or quota.</li>
+          <li>Any model, cloud or local, on your keys, in your cloud or on your own servers. No lock-in.</li>
+        </ul>
+      </section>
+
+      <section class="ent-cta" aria-labelledby="cta-h">
+        <h2 id="cta-h">Build the future of your business with us.</h2>
+        <p class="ent-lede">Coming in 2027. Now onboarding design partners. Email <a href="mailto:{{ contact }}?subject={{ 'OpenShore for Enterprise design partner' | urlencode }}">{{ contact }}</a>.</p>
+      </section>

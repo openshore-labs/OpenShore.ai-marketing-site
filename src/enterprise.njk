@@ -1,155 +1,37 @@
 ---
+layout: ent-layout.njk
 permalink: /enterprise/
 pageTitle: "OpenShore for Enterprise · Coming in 2027"
 pageDescription: "AI workers for RevOps, finance, planning and supply chain, working beside your team in one place, private by default. Coming in 2027. Now onboarding design partners."
 ---
-{#- OpenShore for Enterprise (founder, 2026-11-10): one light page of its own,
-    linked from the web app's header beside About. It is not part of the
-    personal app's /about/ site, so it carries its own small header and no
-    download or checkout runtime. The two films are full pages beside it
-    (/enterprise/promo/ and /enterprise/tour/), built from the film artifacts. -#}
+{#- OpenShore for Enterprise (founder, 2026-11-10), linked from the web app's
+    header beside About: the pitch and the ask. How the product works is the
+    platform page (/enterprise/platform/), led by the product tour. -#}
 {%- set contact = "jack@openshore.ai" -%}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>{{ pageTitle }}</title>
-    <meta name="description" content="{{ pageDescription }}" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta name="theme-color" content="#f6f4ef" />
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="{{ site.name }}" />
-    <meta property="og:title" content="{{ pageTitle }}" />
-    <meta property="og:description" content="{{ pageDescription }}" />
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-    <meta property="og:image" content="{{ site.url }}/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" href="/fonts/inter-standard.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/enterprise/enterprise.css?v={{ rev.entCss }}" />
-  </head>
-  <body>
-    <header class="ent-top">
-      <a class="ent-brand" href="/enterprise/" aria-label="OpenShore for Enterprise">
-        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
-          <rect width="32" height="32" rx="7.5" fill="#1c2a33" />
-          <g transform="translate(0 -0.81)">
-            <line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" />
-            <path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </g>
-        </svg>
-        <span><b>OpenShore</b> for Enterprise</span>
-      </a>
-      <a class="ent-toplink" href="/">Open OpenShore.ai <span aria-hidden="true">&rarr;</span></a>
-    </header>
-
-    <main>
       <section class="ent-hero">
         <p class="ent-badge"><span class="ent-dot" aria-hidden="true"></span>Coming in 2027 · Now onboarding design partners</p>
         <h1>Run like a big company. Stay a startup.</h1>
         <p class="ent-lede">OpenShore for Enterprise gives growing companies AI workers for RevOps, finance, planning and supply chain. They work beside your team in one place, private by default, and a person approves what matters.</p>
         <div class="ent-actions">
           <a class="ent-btn ent-btn--primary" href="#design-partners">Become a design partner</a>
+          <a class="ent-btn" href="/enterprise/platform/">Learn how the platform works <span aria-hidden="true">&rarr;</span></a>
         </div>
       </section>
 
-      <section class="ent-films" id="films" aria-labelledby="films-h">
+      <section class="ent-films" aria-labelledby="films-h">
         <h2 class="ent-eyebrow" id="films-h">See it</h2>
-        <div class="ent-film-grid">
-          <a class="ent-film" href="/enterprise/promo/">
-            <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" />
-            <span class="ent-film-meta"><b>Promo cut</b><span>The idea in under three minutes</span></span>
-            <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
-          </a>
-          <a class="ent-film" href="/enterprise/tour/">
-            <img src="/enterprise/tour-poster.jpg?v={{ rev.entTourPoster }}" alt="" width="960" height="540" />
-            <span class="ent-film-meta"><b>Product tour</b><span>The platform, end to end, in about three minutes</span></span>
-            <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
-          </a>
-        </div>
-        <p class="ent-note">Each film opens full screen, with sound. Press P to pause.</p>
+        <a class="ent-film ent-film--wide" href="/enterprise/promo/">
+          <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" />
+          <span class="ent-film-meta"><b>The promo cut</b><span>OpenShore for Enterprise in under three minutes</span></span>
+          <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
+        </a>
+        <p class="ent-note">Opens full screen, with sound. Press P to pause.</p>
       </section>
 
       <section class="ent-sec" aria-labelledby="who-h">
         <h2 class="ent-eyebrow" id="who-h">Who it’s for</h2>
         <p class="ent-statement">Fast-growing companies that aren’t software companies. Consumer brands at Series A to B, 50 to 300 people, running on Google Workspace or Microsoft 365, HubSpot, Shopify, QuickBooks and spreadsheets.</p>
         <p class="ent-body">You need RevOps, finance, planning and supply chain done properly years before you can hire those teams. OpenShore gives you those functions now, on the tools you already use.</p>
-      </section>
-
-      <section class="ent-sec" aria-labelledby="one-h">
-        <h2 class="ent-eyebrow" id="one-h">One place for the work</h2>
-        <h3 class="ent-h">The model, your team and your workers. One chat.</h3>
-        <div class="ent-three">
-          <div class="ent-card"><h4>The model</h4><p>Ask it anything, privately. Its answers show their sources.</p></div>
-          <div class="ent-card"><h4>Your team</h4><p>@ a teammate, and they join the same chat.</p></div>
-          <div class="ent-card"><h4>Your workers</h4><p>@ a worker, and it answers like any teammate.</p></div>
-        </div>
-        <p class="ent-body">In chats, channels, direct messages and projects, on desktop and phone.</p>
-      </section>
-
-      <section class="ent-sec" aria-labelledby="loop-h">
-        <h2 class="ent-eyebrow" id="loop-h">How the work gets done</h2>
-        <h3 class="ent-h">Every piece of work runs through three phases.</h3>
-        <ol class="ent-phases">
-          <li>
-            <span class="ent-step">Plan and build</span>
-            <h4>Talk it through. It becomes the plan.</h4>
-            <ul><li>A chat becomes a project, with milestones and owners.</li><li>A worker can propose a change.</li><li>A person approves before anything moves.</li></ul>
-          </li>
-          <li>
-            <span class="ent-step">Execute</span>
-            <h4>Every task has an owner, person or worker.</h4>
-            <ul><li>Repeat work becomes a workflow.</li><li>Every workflow has a check.</li><li>Nothing runs until a person confirms.</li></ul>
-          </li>
-          <li>
-            <span class="ent-step">Review and report</span>
-            <h4>See how the business is doing.</h4>
-            <ul><li>Dashboards track the business, every day.</li><li>Reports dig into one question, to make a decision.</li><li>Every number traces back to where it came from.</li></ul>
-          </li>
-        </ol>
-      </section>
-
-      <section class="ent-sec" aria-labelledby="workers-h">
-        <h2 class="ent-eyebrow" id="workers-h">Workers</h2>
-        <h3 class="ent-h">Scale your business, not your headcount.</h3>
-        <p class="ent-body"><b>Workers</b> are AI agents, set up by real experts, that run whole corporate functions. Each one answers to a person on your team, its worker admin, who approves what matters.</p>
-        <div class="ent-workers">
-          <div class="ent-worker ent-worker--core"><h4>Data Foundations</h4><p>Every system linked, every number defined once. Every worker works from it.</p></div>
-          <div class="ent-worker"><h4>RevOps</h4><p>Commissions, quotas, pipeline and CRM accuracy.</p></div>
-          <div class="ent-worker"><h4>Finance</h4><p>Forecast, month-end close, collections and retailer deductions.</p></div>
-          <div class="ent-worker"><h4>Planning</h4><p>Goals, budget and plan versus actual.</p></div>
-          <div class="ent-worker"><h4>Supply chain</h4><p>Suppliers, purchase orders and reorder points.</p></div>
-          <div class="ent-worker"><h4>Performance Analytics</h4><p>The weekly business review, built from every worker’s work.</p></div>
-        </div>
-      </section>
-
-      <section class="ent-sec" aria-labelledby="fix-h">
-        <h2 class="ent-eyebrow" id="fix-h">Call in a worker any time</h2>
-        <h3 class="ent-h">A commission comes up $2,140 short. Two minutes later, it’s fixed.</h3>
-        <p class="ent-body">A rep asks the RevOps worker in the sales channel. It traces the deal to its source, proposes the fix and tags its admin. She approves in the thread, and the statement re-runs. Then the fix becomes a rule, checked on every task from then on.</p>
-      </section>
-
-      <section class="ent-sec" aria-labelledby="trust-h">
-        <h2 class="ent-eyebrow" id="trust-h">Built to be trusted with the books</h2>
-        <div class="ent-grid2">
-          <div><h4>Workers propose. People approve.</h4><p>Anything that changes money, a record of truth or an outbound message waits for a person, and changes to pay wait for the person who owns pay.</p></div>
-          <div><h4>Every number traces to its source.</h4><p>Money is calculated by code from a definition, never by the model, and every figure opens to the system and field it came from.</p></div>
-          <div><h4>Each person sees only what they may.</h4><p>Permissions are enforced on the server. No one sees another person’s pay or quota.</p></div>
-          <div><h4>Every action is logged.</h4><p>What ran, on which model, who approved it and what changed, in one register you can export.</p></div>
-        </div>
-      </section>
-
-      <section class="ent-sec" aria-labelledby="models-h">
-        <h2 class="ent-eyebrow" id="models-h">Your models</h2>
-        <h3 class="ent-h">Your cloud. Your models. Your call.</h3>
-        <p class="ent-body">Any model, cloud or local, on your keys. Switch whenever cost or performance changes. It runs in your own cloud or on your own servers, local models are the default, and a cloud model is used only when an admin allows it.</p>
-        <ul class="ent-pills" role="list"><li>Your keys, any provider</li><li>Your cloud or your own servers</li><li>No lock-in</li></ul>
       </section>
 
       <section class="ent-sec" aria-labelledby="price-h">
@@ -163,11 +45,3 @@ pageDescription: "AI workers for RevOps, finance, planning and supply chain, wor
         <h2 id="cta-h">Build the future of your business with us.</h2>
         <p class="ent-lede">Now onboarding design partners. If you’re interested, email <a href="mailto:{{ contact }}?subject={{ 'OpenShore for Enterprise design partner' | urlencode }}">{{ contact }}</a>.</p>
       </section>
-    </main>
-
-    <footer class="ent-foot">
-      <span>OpenShore is a product of <a href="{{ site.parentUrl }}">{{ site.parentName }}</a>.</span>
-      <span><a href="/about/privacy/">Privacy</a> · <a href="/about/terms/">Terms</a></span>
-    </footer>
-  </body>
-</html>

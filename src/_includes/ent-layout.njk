@@ -1,0 +1,53 @@
+{#- The shared frame for the OpenShore for Enterprise pages (/enterprise/ and
+    /enterprise/platform/): its own small header, a strict same-origin policy,
+    the light stylesheet, and the footer. No download or checkout runtime. -#}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="{{ pageDescription }}" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="theme-color" content="#f6f4ef" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ site.name }}" />
+    <meta property="og:title" content="{{ pageTitle }}" />
+    <meta property="og:description" content="{{ pageDescription }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:image" content="{{ site.url }}{{ pageOgImage or (('/enterprise/promo-poster.jpg?v=') + rev.entPromoPoster) }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/inter-standard.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/enterprise/enterprise.css?v={{ rev.entCss }}" />
+  </head>
+  <body>
+    <header class="ent-top">
+      <a class="ent-brand" href="/enterprise/" aria-label="OpenShore for Enterprise">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+          <rect width="32" height="32" rx="7.5" fill="#1c2a33" />
+          <g transform="translate(0 -0.81)">
+            <line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" />
+            <path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+        </svg>
+        <span><b>OpenShore</b> for Enterprise</span>
+      </a>
+      <a class="ent-toplink" href="/">Open OpenShore.ai <span aria-hidden="true">&rarr;</span></a>
+    </header>
+
+    <main>
+{{ content | safe }}
+    </main>
+
+    <footer class="ent-foot">
+      <span>OpenShore is a product of <a href="{{ site.parentUrl }}">{{ site.parentName }}</a>.</span>
+      <span><a href="/about/privacy/">Privacy</a> · <a href="/about/terms/">Terms</a></span>
+    </footer>
+  </body>
+</html>

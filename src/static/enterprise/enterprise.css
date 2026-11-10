@@ -123,3 +123,20 @@ main, .ent-top, .ent-foot {
   .ent-workers { grid-template-columns: minmax(0, 1fr); }
   .ent-brand span { font-size: 15px; }
 }
+
+/* One film, full width, and the platform page's lighter sections. */
+.ent-film--wide { max-width: 880px; }
+.ent-film--wide .ent-play { width: 76px; height: 76px; top: 42%; }
+.ent-hero--tight { padding-block: 40px 28px; gap: 16px; }
+.ent-back { font-size: 15px; font-weight: 550; text-decoration: none; color: var(--ink-soft); }
+@media (hover: hover) { .ent-back:hover { color: var(--sea); } }
+.ent-phases--light > li { gap: 12px; }
+.ent-phases--light h4 { font-size: 18px; font-weight: 600; line-height: 1.35; }
+.ent-pills--workers li { font-size: 16px; padding: 9px 16px; background: var(--raised); color: var(--ink); box-shadow: 0 0 0 1px var(--rule); }
+.ent-pills--workers li.core { background: var(--ink); color: var(--paper); box-shadow: none; }
+.ent-checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 17px; color: var(--ink-soft); max-width: 70ch; }
+.ent-checks li { position: relative; padding-left: 30px; }
+.ent-checks li::before { content: ""; position: absolute; left: 4px; top: 0.45em; width: 12px; height: 7px; border-left: 2.4px solid var(--sea); border-bottom: 2.4px solid var(--sea); transform: rotate(-45deg); }
+/* The play button sits in the poster's top right corner, clear of its words. */
+.ent-play, .ent-film--wide .ent-play { left: auto; right: 18px; top: 18px; transform: none; width: 56px; height: 56px; }
+.ent-btn { gap: 8px; }
