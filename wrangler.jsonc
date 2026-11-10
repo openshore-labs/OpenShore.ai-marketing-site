@@ -26,6 +26,10 @@
     // /llm-choice -> /llm-choice/ -> llm-choice/index.html served as text/html.
     "html_handling": "auto-trailing-slash",
     // No 404.html in the build, so an unknown path is a plain 404.
-    "not_found_handling": "none"
+    "not_found_handling": "none",
+    // The enterprise platform page and the product tour sit behind a sign-in
+    // (worker/enterpriseAccess.js), so the script runs before the files are
+    // served on those paths, and only those.
+    "run_worker_first": ["/enterprise/platform*", "/enterprise/tour*"]
   }
 }

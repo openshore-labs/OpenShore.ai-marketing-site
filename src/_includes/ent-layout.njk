@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{{ pageTitle }}</title>
     <meta name="description" content="{{ pageDescription }}" />
+    {% if pageNoindex %}<meta name="robots" content="noindex, nofollow" />{% endif %}
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="theme-color" content="#f6f4ef" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
