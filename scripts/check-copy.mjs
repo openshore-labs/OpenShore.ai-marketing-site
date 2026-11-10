@@ -41,6 +41,12 @@ if (!siteExists) {
 // the scan skips what the web app publishes and nothing else. Its
 // index.html, at the root, is still scanned.
 const WEB_APP_DIRS = new Set([join(ROOT, 'assets'), join(ROOT, 'app-icons')]);
+// The two OpenShore for Enterprise films (/enterprise/promo/ and /enterprise/tour/)
+// show the founder's locked tagline, "Every Team (em dash) Every Agent. Working as
+// One.", exactly as written (founder, 2026-11-10: taglines do not change). Only that
+// line is allowed through, and only on those two pages; any other em dash there fails.
+const FILM_PAGES = new Set([join(ROOT, 'enterprise', 'promo', 'index.html'), join(ROOT, 'enterprise', 'tour', 'index.html')]);
+const TAGLINE = /Every Team \u2014 Every Agent\.|>\u2014<\/span>/g;
 
 function walk(dir) {
   const out = [];
@@ -56,8 +62,10 @@ function walk(dir) {
 
 const violations = [];
 for (const file of walk(ROOT)) {
+  const film = FILM_PAGES.has(file);
   const lines = readFileSync(file, 'utf8').split('\n');
-  lines.forEach((line, i) => {
+  lines.forEach((raw, i) => {
+    const line = film ? raw.replace(TAGLINE, (m) => m.replace(EM_DASH, '-')) : raw;
     let col = line.indexOf(EM_DASH);
     while (col !== -1) {
       violations.push({ file, line: i + 1, col: col + 1, text: line.trim().slice(0, 100) });

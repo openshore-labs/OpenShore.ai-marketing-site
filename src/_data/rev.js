@@ -33,4 +33,8 @@ export default {
   filmWebm: rev("src/static/film/openshore-film.webm"),
   filmPoster: rev("src/static/film/openshore-film-poster.jpg"),
   filmTitle: rev("src/static/film/openshore-film-title.jpg"),
+  // The enterprise page (/enterprise/): its stylesheet and the two film posters.
+  entCss: rev("src/static/enterprise/enterprise.css"),
+  entPromoPoster: rev("src/static/enterprise/promo-poster.jpg"),
+  entTourPoster: rev("src/static/enterprise/tour-poster.jpg"),
 };
