@@ -45,10 +45,11 @@ const WEB_APP_DIRS = new Set([join(ROOT, 'assets'), join(ROOT, 'app-icons')]);
 // show the founder's locked tagline, "Every Team (em dash) Every Agent. Working as
 // One.", exactly as written (founder, 2026-11-10: taglines do not change). Only that
 // line is allowed through, and only on those two pages and the /enterprise/ page,
-// which closes its pitch with it (founder, 2026-11-12, in sentence case there);
-// any other em dash on those pages fails.
+// which closes its pitch with it (founder, 2026-11-12). The tagline is always
+// written in exactly that case; the match is case-sensitive, so any other
+// spelling fails here. Any other em dash on those pages fails too.
 const FILM_PAGES = new Set([join(ROOT, 'enterprise', 'promo', 'index.html'), join(ROOT, 'enterprise', 'tour', 'index.html'), join(ROOT, 'enterprise', 'index.html')]);
-const TAGLINE = /Every Team \u2014 Every Agent\.|>\u2014<\/span>/gi;
+const TAGLINE = /Every Team \u2014 Every Agent\.|>\u2014<\/span>/g;
 
 function walk(dir) {
   const out = [];
