@@ -1,8 +1,8 @@
 <!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>OpenShore for Enterprise · Promo Cut</title>
+<title>OpenShore for Enterprise</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Source+Serif+4:opsz,wght@8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: one fixed 1920x1080 stage, scaled to the window. A film of about 4:52 plays,
    and its last frame is the first slide, so the film hands off with no cut.
@@ -26,6 +26,7 @@
   --rule: rgba(28, 42, 51, 0.12);
 
   --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* As on the marketing site: Fraunces for the OpenShore wordmark only, Inter for every heading. */
   --font-brand: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, monospace;
 
@@ -110,11 +111,15 @@ body.filming .slide { transition: none; }
 
 /* The splash letters spelling a word inside a line of type (Startups). */
 .sp.spell { position: relative; left: auto; right: auto; top: auto; display: inline-block; vertical-align: baseline; }
-.sp.spell .sp-word { color: var(--sea); }
+.sp.spell .sp-word { color: var(--sea); font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-variation-settings: 'opsz' 60; }
 .sp.spell .sp-crest { letter-spacing: -0.015em; }
 
 /* Shared type */
 .brand { font-family: var(--font-brand); font-weight: 500; letter-spacing: -0.015em; font-variation-settings: 'opsz' 144; }
+/* The words after the wordmark (for Enterprise, for Startups) are a heading, so Inter. */
+.brand .for, .brand.for { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; letter-spacing: -0.015em; font-variation-settings: 'opsz' 60; }
+/* The words after the wordmark (for Enterprise, for Startups) are Source Serif: a plain f beside Fraunces. */
+.brand .swap-word { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; letter-spacing: -0.015em; font-variation-settings: 'opsz' 60; }
 .kicker { font-size: 26px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sea); }
 .h1 { font-size: 80px; font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; text-wrap: balance; }
 .h2 { font-size: 64px; font-weight: 600; letter-spacing: -0.022em; line-height: 1.08; text-wrap: balance; }
@@ -185,7 +190,7 @@ body.script #viewport, body.script #hint { display: none; }
 body.script #script { display: block; }
 #script { padding-block: 56px 96px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 #script .wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
-#script h1 { font-family: var(--font-brand); font-weight: 500; font-size: clamp(36px, 6vw, 52px); letter-spacing: -0.015em; margin: 0; }
+#script h1 { font-family: var(--font); font-weight: 600; font-size: clamp(36px, 6vw, 52px); letter-spacing: -0.015em; margin: 0; }
 #script h2 { font-size: 15px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea); margin: 0 0 12px; }
 #script .beat { display: grid; grid-template-columns: 96px 1fr; gap: 6px 20px; padding-top: 20px; border-top: 2px solid var(--rule); }
 #script .t { font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: 4px; }
@@ -390,13 +395,13 @@ body.script #speedbadge { display: none; }
       <div style="position:absolute;left:1000px;top:800px;transform:rotate(-2deg)"><span class="k pill ink" data-fx="surface" data-at="3.42" data-d="1.8" data-out="8.0" style="font-size:48px;padding:20px 42px">Copilot</span></div>
       <div style="position:absolute;left:1340px;top:870px;transform:rotate(3deg)"><span class="k pill ink" data-fx="surface" data-at="3.58" data-d="1.8" data-out="8.0" style="font-size:48px;padding:20px 42px">Another AI tab</span></div>
       <div class="k" data-at="3.9" data-d="1.2" data-out="8.0" style="position:absolute;left:160px;right:160px;top:572px;text-align:center;font-size:56px;font-weight:500;letter-spacing:-0.02em;line-height:1.25;color:var(--ink-soft)">But the work is all over the place.</div>
-      <div class="k" data-at="8.5" data-d="1.2" style="position:absolute;left:160px;right:160px;top:572px;text-align:center;font-size:56px;font-weight:500;letter-spacing:-0.02em;line-height:1.25;color:var(--ink-soft);text-wrap:balance">And the experts you need to scale cost too much to hire.</div>
+      <div class="k" data-at="8.5" data-d="1.2" style="position:absolute;left:160px;right:160px;top:572px;text-align:center;font-size:56px;font-weight:500;letter-spacing:-0.02em;line-height:1.25;color:var(--ink-soft);text-wrap:balance">Scaling takes experts you can’t afford to hire.</div>
     </section>
 
     <!-- 2: the mission -->
     <section class="scene" id="sc-mission" data-s="13.3" data-e="28.1">
       <svg class="k" data-at="0.3" data-d="1.4" viewBox="0 0 32 32" aria-hidden="true" style="position:absolute;left:900px;top:178px;width:120px;height:120px;overflow:visible;filter:drop-shadow(0 12px 22px rgba(28,42,51,0.16))"><rect width="32" height="32" rx="7.5" fill="#1c2a33"/><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round"/><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
-      <div class="k brand" data-at="1.3" data-d="1.8" style="position:absolute;left:0;right:0;top:340px;text-align:center;font-size:124px;line-height:1;white-space:nowrap">OpenShore <span style="color:var(--ink-soft)">for <span style="display:inline-grid;vertical-align:baseline"><span class="k" data-fx="fade" data-at="1.3" data-d="1.8" data-out="3.9" style="grid-area:1/1;justify-self:start">Enterprise</span><span class="k sp spell" data-fx="spell" data-at="3.9" aria-label="Startups" role="img" style="grid-area:1/1;justify-self:start;--fs:124px"><span class="sp-word" aria-hidden="true"><span class="sp-letter" data-ch="S" style="--i:0;--dir:1"><span class="sp-crest"><span class="sp-glyph">S</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:-1"></i><i class="sp-drop sp-drop-b" style="--dx:1"></i></span><span class="sp-letter" data-ch="t" style="--i:1;--dir:-1"><span class="sp-crest"><span class="sp-glyph">t</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="a" style="--i:2;--dir:1"><span class="sp-crest"><span class="sp-glyph">a</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="r" style="--i:3;--dir:-1"><span class="sp-crest"><span class="sp-glyph">r</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="t" style="--i:4;--dir:1"><span class="sp-crest"><span class="sp-glyph">t</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="u" style="--i:5;--dir:-1"><span class="sp-crest"><span class="sp-glyph">u</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:-1"></i><i class="sp-drop sp-drop-b" style="--dx:1"></i></span><span class="sp-letter" data-ch="p" style="--i:6;--dir:1"><span class="sp-crest"><span class="sp-glyph">p</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="s" style="--i:7;--dir:-1"><span class="sp-crest"><span class="sp-glyph">s</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:-1"></i><i class="sp-drop sp-drop-b" style="--dx:1"></i></span></span></span></span></span></div>
+      <div class="k brand" data-at="1.3" data-d="1.8" style="position:absolute;left:0;right:0;top:340px;text-align:center;font-size:124px;line-height:1;white-space:nowrap">OpenShore <span class="for" style="color:var(--ink-soft);font-size:124px">for <span class="swap-word" style="font-size:124px;display:inline-grid;vertical-align:baseline"><span class="k" data-fx="fade" data-at="1.3" data-d="1.8" data-out="3.9" style="grid-area:1/1;justify-self:start">Enterprise</span><span class="k sp spell" data-fx="spell" data-at="3.9" aria-label="Startups" role="img" style="grid-area:1/1;justify-self:start;--fs:124px"><span class="sp-word" aria-hidden="true"><span class="sp-letter" data-ch="S" style="--i:0;--dir:1"><span class="sp-crest"><span class="sp-glyph">S</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:-1"></i><i class="sp-drop sp-drop-b" style="--dx:1"></i></span><span class="sp-letter" data-ch="t" style="--i:1;--dir:-1"><span class="sp-crest"><span class="sp-glyph">t</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="a" style="--i:2;--dir:1"><span class="sp-crest"><span class="sp-glyph">a</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="r" style="--i:3;--dir:-1"><span class="sp-crest"><span class="sp-glyph">r</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="t" style="--i:4;--dir:1"><span class="sp-crest"><span class="sp-glyph">t</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="u" style="--i:5;--dir:-1"><span class="sp-crest"><span class="sp-glyph">u</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:-1"></i><i class="sp-drop sp-drop-b" style="--dx:1"></i></span><span class="sp-letter" data-ch="p" style="--i:6;--dir:1"><span class="sp-crest"><span class="sp-glyph">p</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="s" style="--i:7;--dir:-1"><span class="sp-crest"><span class="sp-glyph">s</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:-1"></i><i class="sp-drop sp-drop-b" style="--dx:1"></i></span></span></span></span></span></div>
       <svg class="rip-fallback" aria-hidden="true" style="position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible" viewBox="0 0 1920 1080">
         <defs>
           <radialGradient id="ripGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#4b90a3" stop-opacity="0.22"/><stop offset="0.55" stop-color="#4b90a3" stop-opacity="0.08"/><stop offset="1" stop-color="#4b90a3" stop-opacity="0"/></radialGradient>
@@ -531,7 +536,7 @@ body.script #speedbadge { display: none; }
 <div style="position:relative;font-size:19px;padding:7px 12px;white-space:nowrap;color:var(--ink-soft)"><span class="k" data-fx="fade" data-at="8.50" data-d="0.45" data-out="9.20" style="position:absolute;inset:0;border-radius:12px;background:var(--raised);box-shadow:0 1px 3px rgba(28,42,51,0.08)"></span><span style="position:relative">Profile</span><span class="k" data-fx="fade" data-at="8.50" data-d="0.45" data-out="9.20" style="position:absolute;left:12px;top:7px;font-weight:600;color:var(--ink);white-space:nowrap">Profile</span></div>
 <div style="position:relative;font-size:19px;padding:7px 12px;white-space:nowrap;color:var(--ink-soft)"><span class="k" data-fx="fade" data-at="9.35" data-d="0.45" style="position:absolute;inset:0;border-radius:12px;background:var(--raised);box-shadow:0 1px 3px rgba(28,42,51,0.08)"></span><span style="position:relative">Enterprise Configuration</span><span class="k" data-fx="fade" data-at="9.35" data-d="0.45" style="position:absolute;left:12px;top:7px;font-weight:600;color:var(--ink);white-space:nowrap">Enterprise Configuration</span></div>
 </div><div></div></div>
-<div style="position:absolute;inset:0;transform:translate(160px,8px)">
+<div style="position:absolute;inset:0;transform:translate(160px,79px)">
         <svg style="position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible" viewBox="0 0 1920 1080" fill="none" aria-hidden="true">
           <path class="k" data-fx="draw" data-at="0.4" data-d="3.0" pathLength="1" d="M960 330 A270 270 0 0 1 960 870 A270 270 0 0 1 960 330" stroke="#4b90a3" stroke-width="3" stroke-linecap="round"/>
           <path class="k" data-fx="fade" data-at="0.9" d="M1181.7 463.9 L1197.8 471.9 L1199.0 453.9" stroke="#2f5a66" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="k" data-fx="fade" data-at="1.3" d="M967.0 860.0 L952.0 870.0 L967.0 880.0" stroke="#2f5a66" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="k" data-fx="fade" data-at="1.9" d="M731.3 476.1 L730.2 458.1 L714.0 466.1" stroke="#2f5a66" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -572,7 +577,7 @@ body.script #speedbadge { display: none; }
       <div class="film-cap k" data-fx="fade" data-at="0" data-d="0.01" data-out="4.8" style="top:84px;font-size:64px;z-index:4"><span class="k" data-at="0.4" style="display:inline-block">Plan and build.</span> <span class="k" data-at="0.8" style="display:inline-block">Execute.</span> <span class="k" data-at="1.15" style="display:inline-block">Review and report.</span></div>
       <div class="film-cap k" data-at="5.2" style="top:84px;font-size:64px;z-index:4">Scale your business, not your headcount.</div>
       <div class="kicker k" data-at="5.1" style="position:absolute;left:0;right:0;top:40px;text-align:center;z-index:4">Workers</div>
-      <div class="film-sub k" data-at="6.1" style="top:168px;font-size:36px;color:var(--ink-soft);z-index:4"><b style="color:var(--sea);font-weight:600">Workers</b> are AI agents, set up by real experts, that run whole corporate functions.</div>
+      <div class="film-sub k" data-at="6.1" style="top:168px;font-size:36px;color:var(--ink-soft);z-index:4"><b style="color:var(--sea);font-weight:600">Workers</b> are bots, set up by real experts, that run whole corporate functions.</div>
       <div class="push">
         <div class="k" data-fx="fade" data-at="-5" data-d="0.01" data-out="4.5" style="position:absolute;inset:0">
         <svg style="position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible" viewBox="0 0 1920 1080" fill="none" aria-hidden="true">
@@ -618,16 +623,17 @@ body.script #speedbadge { display: none; }
     
 
     <!-- 6: it learns the company -->
-    <section class="scene" data-s="110.38" data-e="124.071">
+    <section class="scene" data-s="110.38" data-e="125.161">
       <div class="kicker k" data-at="0.4" style="position:absolute;left:0;right:0;top:92px;text-align:center">Call in a worker any time</div>
-      <div class="film-cap k" data-at="0.6" style="top:140px;font-size:62px">A rep’s commission comes up short.</div>
+      <div class="film-cap k" data-at="0.6" data-out="8.3" style="top:140px;font-size:62px">Let’s say a rep’s commission comes up short.</div>
+      <div class="film-cap k" data-at="8.7" style="top:140px;font-size:60px;white-space:nowrap">Fixed in two minutes, without leaving the conversation.</div>
       <div class="push">
         <div class="k card pc-thread" data-at="0.9"><div class="ch"># sales</div><div class="k pc-msg" data-at="1.30"><span class="face">MC</span><div><div class="who">Maya Chen <span>Account rep · 10:02</span></div><div class="txt">My October commission looks $2,140 short. <span class="at">@RevOps</span> can you check?</div></div></div><div class="k pc-msg" data-at="3.40"><svg width="56" height="56" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33"/><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round"/><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg><div><div class="who">RevOps worker <span class="pill local" style="font-size:16px;padding:3px 10px">Worker</span> <span>10:03</span></div><div class="txt">Found it. The deal is in your territory but booked to someone else. Moving it needs <span class="at">@Dana Reyes</span> to approve.</div></div></div><div class="k pc-msg" data-at="6.60"><span class="face">DR</span><div><div class="who">Dana Reyes <span>Head of Revenue · 10:04</span></div><div class="txt">Approved.</div></div></div><div class="k pc-msg ok" data-at="8.00"><svg width="56" height="56" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33"/><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round"/><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg><div><div class="who">RevOps worker <span class="pill local" style="font-size:16px;padding:3px 10px">Worker</span> <span>10:04</span></div><div class="txt">Done. Your October statement is up $2,140.</div></div></div></div>
         <div class="pc-done"><span class="k pill local" data-at="9.4"><span class="dot"></span>Asked at 10:02. Fixed at 10:04.</span></div>
       </div>
     </section>
 
-    <section class="scene" data-s="124.071" data-e="135.571">
+    <section class="scene" data-s="125.161" data-e="138.843">
       <div class="push">
         <div class="k" data-at="0.6" style="position:absolute;left:200px;top:92px;width:1400px;font-size:38px;line-height:1.35;color:var(--muted);text-wrap:balance">And that approval did more than fix one statement.</div>
         <div class="kicker k" data-fx="fade" data-at="4.4" style="position:absolute;left:204px;top:350px">The loop</div>
@@ -652,7 +658,7 @@ body.script #speedbadge { display: none; }
     </section>
 
     <!-- 7: independence, any model -->
-    <section class="scene" data-s="134.971" data-e="144.571">
+    <section class="scene" data-s="138.243" data-e="149.480">
       <div class="push">
         <div class="k" data-at="0.48" style="position:absolute;left:200px;top:150px;font-size:38px;color:var(--muted)">Most AI runs on someone else’s servers. Yours doesn’t have to.</div>
         <div style="position:absolute;left:200px;top:250px;display:flex;flex-direction:column;gap:14px">
@@ -670,7 +676,7 @@ body.script #speedbadge { display: none; }
       </div>
     </section>
 
-    <section class="scene" data-s="143.971" data-e="150.471">
+    <section class="scene" data-s="148.880" data-e="155.380">
       <div class="push">
         <div class="k" data-at="0.5" style="position:absolute;left:0;right:0;top:290px;text-align:center;font-size:110px;font-weight:600;letter-spacing:-0.04em;line-height:1.05"><span style="display:block">Build the future of</span><span style="display:block">your business with us.</span></div>
         <div class="k" data-at="1.6" style="position:absolute;left:0;right:0;top:570px;text-align:center;font-size:44px;color:var(--ink-soft)">Now onboarding design partners.</div>
@@ -684,12 +690,12 @@ body.script #speedbadge { display: none; }
   <div class="layer" id="deck">
 
     <!-- The film's last scene is the title card: same element, so there is no seam. -->
-    <section class="slide scene" id="end" data-s="149.871" data-e="9999">
+    <section class="slide scene" id="end" data-s="154.780" data-e="9999">
       <div class="sp" id="splash" role="img" aria-label="OpenShore">
         <svg class="sp-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33"/><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round"/><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
         <div class="sp-word" aria-hidden="true"><span class="sp-letter" data-ch="O" style="--i:0;--dir:1"><span class="sp-crest"><span class="sp-glyph">O</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:-1"></i><i class="sp-drop sp-drop-b" style="--dx:1"></i></span><span class="sp-letter" data-ch="p" style="--i:1;--dir:-1"><span class="sp-crest"><span class="sp-glyph">p</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="e" style="--i:2;--dir:1"><span class="sp-crest"><span class="sp-glyph">e</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="n" style="--i:3;--dir:-1"><span class="sp-crest"><span class="sp-glyph">n</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter sp-accent" data-ch="S" style="--i:4;--dir:1"><span class="sp-crest"><span class="sp-glyph">S</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:1"></i><i class="sp-drop sp-drop-b" style="--dx:-1"></i></span><span class="sp-letter sp-accent" data-ch="h" style="--i:5;--dir:-1"><span class="sp-crest"><span class="sp-glyph">h</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter sp-accent" data-ch="o" style="--i:6;--dir:1"><span class="sp-crest"><span class="sp-glyph">o</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter sp-accent" data-ch="r" style="--i:7;--dir:-1"><span class="sp-crest"><span class="sp-glyph">r</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter sp-accent" data-ch="e" style="--i:8;--dir:1"><span class="sp-crest"><span class="sp-glyph">e</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:1"></i></span></div>
       </div>
-      <div class="k brand" data-at="3.6" data-d="1.4" style="position:absolute;left:0;right:0;top:665px;text-align:center;font-size:72px;line-height:1;color:var(--ink-soft)">for <span style="display:inline-grid;vertical-align:baseline"><span class="k" data-fx="fade" data-at="3.6" data-d="1.4" data-out="5.4" style="grid-area:1/1;justify-self:start">Enterprise</span><span class="k sp spell" data-fx="spell" data-at="5.4" aria-label="Startups" role="img" style="grid-area:1/1;justify-self:start;--fs:72px"><span class="sp-word" aria-hidden="true"><span class="sp-letter" data-ch="S" style="--i:0;--dir:1"><span class="sp-crest"><span class="sp-glyph">S</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:-1"></i><i class="sp-drop sp-drop-b" style="--dx:1"></i></span><span class="sp-letter" data-ch="t" style="--i:1;--dir:-1"><span class="sp-crest"><span class="sp-glyph">t</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="a" style="--i:2;--dir:1"><span class="sp-crest"><span class="sp-glyph">a</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="r" style="--i:3;--dir:-1"><span class="sp-crest"><span class="sp-glyph">r</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="t" style="--i:4;--dir:1"><span class="sp-crest"><span class="sp-glyph">t</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="u" style="--i:5;--dir:-1"><span class="sp-crest"><span class="sp-glyph">u</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:-1"></i><i class="sp-drop sp-drop-b" style="--dx:1"></i></span><span class="sp-letter" data-ch="p" style="--i:6;--dir:1"><span class="sp-crest"><span class="sp-glyph">p</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i></span><span class="sp-letter" data-ch="s" style="--i:7;--dir:-1"><span class="sp-crest"><span class="sp-glyph">s</span></span><i class="sp-rip sp-rip-a"></i><i class="sp-rip sp-rip-b"></i><i class="sp-rip sp-rip-c"></i><i class="sp-rip sp-rip-d"></i><i class="sp-drop" style="--dx:-1"></i><i class="sp-drop sp-drop-b" style="--dx:1"></i></span></span></span></span></div>
+      <div class="k brand for" data-at="3.6" data-d="1.4" style="position:absolute;left:0;right:0;top:665px;text-align:center;font-size:72px;line-height:1;color:var(--ink-soft)">for <span style="display:inline-grid;vertical-align:baseline"><span class="k" data-fx="fade" data-at="3.6" data-d="1.4" data-out="5.4" style="grid-area:1/1;justify-self:start">Enterprise</span><span class="k" data-fx="fade" data-swap data-at="5.6" data-d="1.2" style="grid-area:1/1;justify-self:start;color:var(--sea)">Startups</span></span></div>
       <div class="k" data-at="7.3" data-d="1.4" style="position:absolute;left:0;right:0;top:780px;text-align:center;font-size:60px;font-weight:600;letter-spacing:-0.025em;color:var(--sea)">Every Team — Every Agent. Working as One.</div>
       
     </section>
@@ -711,12 +717,11 @@ body.script #speedbadge { display: none; }
 <!-- ============ NOTES (#script) ============ -->
 
 
-
 <script>
 (function () {
   'use strict';
-  var FILM_END = 160.271;
-  var SPLASH_AT = 149.871 + 0.7;
+  var FILM_END = 165.180;
+  var SPLASH_AT = 154.780 + 0.7;
   var stage = document.getElementById('stage');
   var body = document.body;
   var standby = document.getElementById('standby');
@@ -1338,6 +1343,14 @@ body.script #speedbadge { display: none; }
             var sms = reduce ? 1e6 : Math.max(0, (t - k.at) * 1000);
             k.el.getAnimations({ subtree: true }).forEach(function (a) { a.pause(); a.currentTime = sms; });
             st.opacity = 1;
+            // The line stays centered: the word's slot narrows from the outgoing
+            // word's width to this one's as the swap happens, on the film clock.
+            var swapFrom = k.el.previousElementSibling;
+            if (swapFrom) {
+              var wFrom = swapFrom.offsetWidth, wTo = k.el.offsetWidth;
+              var sq = reduce ? (t >= k.at ? 1 : 0) : glide(clamp((t - k.at + 0.3) / 0.9));
+              k.el.parentNode.style.width = (wFrom + (wTo - wFrom) * sq).toFixed(1) + 'px';
+            }
             break;
           case 'surface':
             // Floats up from under the water: rises out of a blur, overshoots
@@ -1356,7 +1369,15 @@ body.script #speedbadge { display: none; }
             k.ring.style.transform = 'scale(' + (1 + rp * 0.18).toFixed(4) + ',' + (1 + rp * 0.9).toFixed(4) + ')';
             break;
           case 'fade':
-            st.opacity = p * o; break;
+            st.opacity = p * o;
+            // A word fading in over another (the closing card's Startups) narrows
+            // the slot to its own width, so the line stays centered.
+            if (k.el.hasAttribute('data-swap')) {
+              var fFrom = k.el.previousElementSibling.offsetWidth, fTo = k.el.offsetWidth;
+              var fq = reduce ? (t >= k.at ? 1 : 0) : glide(clamp((t - k.at + 0.2) / 0.9));
+              k.el.parentNode.style.width = (fFrom + (fTo - fFrom) * fq).toFixed(1) + 'px';
+            }
+            break;
           case 'draw':
             // A dash of 1 with a gap of 2 leaves nothing past the end of the path, so a round cap
             // can't show as a stray dot there; hide the stroke entirely until it starts drawing.
@@ -1482,9 +1503,21 @@ body.script #speedbadge { display: none; }
   // as the browser's own preservesPitch does. Where Web Audio is missing, the
   // <audio> element plays with preservesPitch and seeks at the join instead.
   var score = document.getElementById('score');
-  var MUSIC = [[0, 0]];
+  // Part two (the song's big section, 110 BPM) enters on the Workers slide and
+  // plays twice back to back. The first pass runs 49 beats (its 12 bars plus one) and the second pass skips its first beat; it loops into the
+  // second just after "Asked at 10:02. Fixed at 10:04." lands; the commission
+  // slide hands over to "Every fix becomes a rule" there too. Everything after
+  // moved with it (visuals and music together), so the closing lands as before.
+  // The second pass also repeats bars 3-4 once (jumping back 8 beats on the
+  // first 4-bar phrase line, during "Every fix"), which gives "Every fix" and
+  // "Your call" 4 beats (2.18 s) more each; the closing lands as before.
+  var MUSIC = [[0, 0], [97.088, 123.815], [123.815, 124.36], [131.9973, 128.1786]];
   var XF = 0.12;
   var SCORE_FADE = 3.5;
+  // The song now runs out a little before the film does, so the closing fade
+  // finishes where the song ends instead of cutting it off mid-fade.
+  var SONG_LEN = 160.5;
+  var FADE_END = Math.min(FILM_END, MUSIC[MUSIC.length - 1][0] + SONG_LEN - MUSIC[MUSIC.length - 1][1]);
   var SPEEDS = [1, 1.1, 1.25];
   function segAt(t) { var i = 0; while (i + 1 < MUSIC.length && t >= MUSIC[i + 1][0]) i++; return i; }
   function musicAt(t) { var i = segAt(t); return t - MUSIC[i][0] + MUSIC[i][1]; }
@@ -1747,8 +1780,19 @@ body.script #speedbadge { display: none; }
         if (!ctx || !on || ctx.state !== 'running') return null;
         var r = track[rate] ? rate : 1;
         var ts = ctx.getOutputTimestamp ? ctx.getOutputTimestamp() : null;
-        if (ts && ts.contextTime > 0 && ts.performanceTime > 0) return (ts.contextTime + (performance.now() - ts.performanceTime) / 1000 - base) * r;
-        return (ctx.currentTime - (ctx.outputLatency || ctx.baseLatency || 0) - base) * r;
+        var plain = (ctx.currentTime - (ctx.outputLatency || ctx.baseLatency || 0) - base) * r;
+        // Safari reports performanceTime on a different footing (it runs ahead of
+        // performance.now() by the context time), which froze the film at the
+        // start while the music played. Trust the timestamp only when it is fresh
+        // and agrees with the context clock; otherwise use the context clock.
+        if (ts && ts.contextTime > 0 && ts.performanceTime > 0) {
+          var lag = performance.now() - ts.performanceTime;
+          if (lag >= 0 && lag < 500) {
+            var v = (ts.contextTime + lag / 1000 - base) * r;
+            if (Math.abs(v - plain) < 0.5) return v;
+          }
+        }
+        return plain;
       },
       // The end fade: a volume the film sets each frame.
       level: function (v) {
@@ -1840,7 +1884,7 @@ body.script #speedbadge { display: none; }
   // Only the volume follows the film each frame.
   function scoreAt(t) {
     if (!score) return;
-    var v = 1 - Math.max(0, Math.min(1, (t - (FILM_END - SCORE_FADE)) / SCORE_FADE));
+    var v = 1 - Math.max(0, Math.min(1, (t - (FADE_END - SCORE_FADE)) / SCORE_FADE));
     music.level(Math.max(0, Math.min(1, v)));
   }
 
@@ -2422,5 +2466,6 @@ body.script #speedbadge { display: none; }
 })();
 </script>
 
+</body></html>
 </body></html>
 </body></html>
