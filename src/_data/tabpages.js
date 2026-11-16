@@ -80,7 +80,7 @@ export default {
         ],
       },
     ],
-    cta: { label: "Read the ethical standards", href: "/about/ethics/", note: "The floor is on for everyone and cannot be turned down." },
+    cta: { label: "Read the ethical standards", href: "/os-code/ethics/", note: "The floor is on for everyone and cannot be turned down." },
   },
 
   sustainability: {

@@ -28,29 +28,43 @@
 /enterprise/      /               301
 # The page that sat at /about/ (the personal product's home, 2026-11-07 to
 # 2026-11-16) is /os-code/ now, and the company About page was retired
-# (founder, 2026-11-16). Only /about/ itself moves: the pages under it
-# (privacy, terms, support and the tabs) keep their addresses.
+# (founder, 2026-11-16).
 /about            /os-code/       301
 /about/           /os-code/       301
 
-# From 2026-11-07 openshore.ai/ was the web app and this site's pages moved
-# under /about/, where the personal product's privacy policy, terms and
-# support still live. Every page it had at the root keeps working: links on
-# the web, the app builds already installed (Settings' Privacy and Terms
-# rows), and App Store Connect's privacy and support URLs all 301 to the
-# page's home. The root itself is NOT redirected: it is OpenShore for
-# Enterprise.
-/llm-choice/      /about/llm-choice/      301
-/llm-choice       /about/llm-choice/      301
-/privacy/         /about/privacy/         301
-/privacy          /about/privacy/         301
-/terms/           /about/terms/           301
-/terms            /about/terms/           301
-/ethics/          /about/ethics/          301
-/ethics           /about/ethics/          301
-/sustainability/  /about/sustainability/  301
-/sustainability   /about/sustainability/  301
-/self-hosting/    /about/self-hosting/    301
-/self-hosting     /about/self-hosting/    301
-/support/         /about/support/         301
-/support          /about/support/         301
+# Every page of OS Code by OpenShore lives under /os-code/ since 2026-11-16
+# (founder: these pages belong to the personal product alone; OpenShore for
+# Enterprise will get its own). They sat under /about/ from 2026-11-07 and at
+# the root before that. Both old address families go straight to the page's
+# home in one hop, so links on the web, the app builds already installed
+# (Settings' Privacy and Terms rows) and App Store Connect's privacy and
+# support URLs keep working. The root itself is NOT redirected: it is
+# OpenShore for Enterprise.
+/about/llm-choice/        /os-code/llm-choice/  301
+/about/llm-choice         /os-code/llm-choice/  301
+/llm-choice/              /os-code/llm-choice/  301
+/llm-choice               /os-code/llm-choice/  301
+/about/privacy/           /os-code/privacy/  301
+/about/privacy            /os-code/privacy/  301
+/privacy/                 /os-code/privacy/  301
+/privacy                  /os-code/privacy/  301
+/about/terms/             /os-code/terms/  301
+/about/terms              /os-code/terms/  301
+/terms/                   /os-code/terms/  301
+/terms                    /os-code/terms/  301
+/about/ethics/            /os-code/ethics/  301
+/about/ethics             /os-code/ethics/  301
+/ethics/                  /os-code/ethics/  301
+/ethics                   /os-code/ethics/  301
+/about/sustainability/    /os-code/sustainability/  301
+/about/sustainability     /os-code/sustainability/  301
+/sustainability/          /os-code/sustainability/  301
+/sustainability           /os-code/sustainability/  301
+/about/self-hosting/      /os-code/self-hosting/  301
+/about/self-hosting       /os-code/self-hosting/  301
+/self-hosting/            /os-code/self-hosting/  301
+/self-hosting             /os-code/self-hosting/  301
+/about/support/           /os-code/support/  301
+/about/support            /os-code/support/  301
+/support/                 /os-code/support/  301
+/support                  /os-code/support/  301

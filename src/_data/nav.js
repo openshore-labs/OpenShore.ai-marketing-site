@@ -7,10 +7,10 @@
 export default {
   tabs: [
     { label: "Overview", url: "/os-code/" },
-    { label: "LLM Choice", url: "/about/llm-choice/" },
-    { label: "Privacy", url: "/about/privacy/" },
-    { label: "Sustainability", url: "/about/sustainability/" },
-    { label: "Ethical Standards", url: "/about/ethics/" },
-    { label: "Self-Hosting", url: "/about/self-hosting/" },
+    { label: "LLM Choice", url: "/os-code/llm-choice/" },
+    { label: "Privacy", url: "/os-code/privacy/" },
+    { label: "Sustainability", url: "/os-code/sustainability/" },
+    { label: "Ethical Standards", url: "/os-code/ethics/" },
+    { label: "Self-Hosting", url: "/os-code/self-hosting/" },
   ],
 };

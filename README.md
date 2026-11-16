@@ -24,10 +24,15 @@ The founder repositioned the site on 2026-11-16:
   the platform page, the tour and the promo film keep their addresses.
 - `openshore.ai/os-code/` is **OS Code by OpenShore**, the free personal
   coding agent (`src/os-code.njk`, the dark frame `base.njk`), always by its
-  full name on the site. Its tab pages, privacy policy, terms and support
-  keep their `/about/...` addresses, so App Store Connect and the installed
-  apps keep working. `/oscode/` 301s to `/os-code/`. Stripe's return
-  addresses (`/os-code/?checkout=success`) land on this page directly.
+  full name on the site. Every page of it sits under `/os-code/`: its tabs
+  (`/os-code/llm-choice/`, `/os-code/sustainability/`, `/os-code/ethics/`,
+  `/os-code/self-hosting/`), its privacy policy (`/os-code/privacy/`), terms
+  (`/os-code/terms/`) and support (`/os-code/support/`). They were under
+  `/about/` until 2026-11-16 and at the root before that; both old address
+  families 301 here, so App Store Connect and the installed apps keep
+  working. These are the personal product's own: OpenShore for Enterprise
+  will get its own policy and terms. `/oscode/` 301s to `/os-code/`. Stripe's
+  return addresses (`/os-code/?checkout=success`) land on this page directly.
 - The web app (the OpenShore.ai app in a browser) is at
   **`openshore.ai/os-code/app/`**. Its bundle sits in `src/webapp/` and
   passes through to that folder. Do not edit it here: it is built from
