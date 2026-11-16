@@ -1725,3 +1725,23 @@ html {
     padding: 0;
   }
 }
+
+/* ---- The foot line on every page (sitefoot.njk) --------------------- */
+/* The way to OS Code by OpenShore, the free personal coding agent (founder,
+   2026-11-16). Quiet, centered, under each page's own colophon. */
+.sitefoot {
+  margin: 0;
+  padding: 8px var(--gutter, 20px) 40px;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+.sitefoot a {
+  color: var(--wave);
+}
+/* The full product name is longer than the old wordmark: let it shrink on a
+   phone instead of crowding the web app pill. */
+.brand--oscode .brand-word {
+  font-size: clamp(1.1rem, 4.6vw, 1.5rem);
+}

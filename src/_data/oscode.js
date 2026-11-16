@@ -13,6 +13,14 @@
 //
 // No em dashes anywhere a customer reads (Open Shore standing instruction).
 export default {
+  // The product's name on this site (founder, 2026-11-16): the free personal
+  // coding agent is "OS Code by OpenShore", always the full name, never "OS
+  // Code" alone. openshore.ai/ is OpenShore for Enterprise; this product's
+  // page is /os-code/. The app inside keeps its own name, OpenShore.ai.
+  productName: "OS Code by OpenShore",
+  subtitle: "Your personal coding agent",
+  tagline: "Free and private by default.",
+
   // The anchor copy (founder, 2026-11-03), OpenShore Personal's vision said
   // one way everywhere. The app holds the same words in
   // openshore.code.ai/app/src/lib/anchorCopy.ts; change both together, and
@@ -36,7 +44,7 @@ export default {
   },
 
   lede:
-    "OpenShore is a coding agent that runs on your own models, your machine, and your keys. Chat and build on your desktop, on Linux, macOS, and Windows, and on your iPhone and iPad, your phone reaching your computer over your own private network. Cloud stays one deliberate tap away, always on your own account.",
+    "OS Code by OpenShore is a coding agent that runs on your own models, your machine, and your keys. Chat and build on your desktop, on Linux, macOS, and Windows, and on your iPhone and iPad, your phone reaching your computer over your own private network. Cloud stays one deliberate tap away, always on your own account.",
   summary:
     "It is built the way software should be: local first, private by construction, and yours. One model runs the show and hands each task to the specialist that fits. Each API key is stored only on the device you add it to and sent only to the provider it belongs to. Your chats and settings are encrypted at rest; your notes and code stay plain files you own.",
 
@@ -58,15 +66,15 @@ export default {
   // platform, and the GitHub link sits beside the button for anyone who wants
   // the release notes and every file. To take a platform live: set its href,
   // flip status to "live"; see .get-tile-live. A tile with `web: true` is the
-  // web app at openshore.ai/ installed from the browser (a PWA, 2026-11-07):
+  // web app at openshore.ai/os-code/app/ (2026-11-16; openshore.ai/ until then) installed from the browser (a PWA, 2026-11-07):
   // its button opens the app, which carries the install steps, and it has no
   // GitHub link, since there is nothing to download.
   githubReleases: "https://github.com/openshore-labs/openshore-releases/releases",
 
-  getAppsLabel: "Get OpenShore",
+  getAppsLabel: "Get OS Code by OpenShore",
   getAppsTitle: "One stack, every machine you own.",
   getAppsLede:
-    "Linux, macOS, and Windows are direct downloads. On iPhone, iPad, and Android, OpenShore.ai installs from your browser to your home screen.",
+    "Linux, macOS, and Windows are direct downloads. On iPhone, iPad, and Android, the web app installs from your browser to your home screen.",
   getApps: [
     {
       id: "linux",
@@ -91,8 +99,8 @@ export default {
       href: "/download/windows",
       status: "live",
     },
-    { id: "ios", label: "iPhone & iPad", sub: "In Safari, Share, then Add to Home Screen", href: "/", web: true, status: "live" },
-    { id: "android", label: "Android", sub: "Install from your browser", href: "/", web: true, status: "live" },
+    { id: "ios", label: "iPhone & iPad", sub: "In Safari, Share, then Add to Home Screen", href: "/os-code/app/", web: true, status: "live" },
+    { id: "android", label: "Android", sub: "Install from your browser", href: "/os-code/app/", web: true, status: "live" },
   ],
 
   // The mission used to live here as its own "Why OpenShore exists" section
@@ -218,7 +226,7 @@ export default {
 
   pricingLabel: "Free for your own work.",
   pricingIntro:
-    "OpenShore runs on your machine, on your models, on your keys. We never see your code. It costs nothing.",
+    "OS Code by OpenShore runs on your machine, on your models, on your keys. We never see your code. It costs nothing.",
 
   // Mirrors app/src/lib/plans.ts: one plan for a person, free. Team plans
   // are a later tier; no card renders.
@@ -226,7 +234,7 @@ export default {
     {
       id: "free",
       segment: "For your own work",
-      name: "OpenShore",
+      name: "OS Code by OpenShore",
       price: "$0",
       promise: "Everything, free.",
       includes: [
@@ -238,7 +246,7 @@ export default {
         "Cloud models on your own keys. Your prompts never pass through us.",
         "No account to chat, no telemetry",
       ],
-      cta: "Get OpenShore",
+      cta: "Get OS Code by OpenShore",
       // No checkout: the button goes to the download tiles.
       checkoutUrl: null,
     },

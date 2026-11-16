@@ -10,8 +10,19 @@ export default {
   domain: "openshore.ai",
   url: "https://openshore.ai",
 
+  // The site's home is OpenShore for Enterprise (founder, 2026-11-16); a page
+  // with no description of its own falls back to this one.
   metaDescription:
-    "Independent AI for everyone. OpenShore is a chat and coding agent you own, free and private by default. It runs on your own models, your machine, and your keys. Build on Linux, macOS, Windows, iPhone, and iPad, your phone reaching your computer over your own private network, with cloud one deliberate tap away on your own keys. Free for your own work.",
+    "OpenShore for Enterprise is one workspace where a growing startup's teams and AI workers work together. Now looking for design partners.",
+
+  // The free personal coding agent's name and page (founder, 2026-11-16):
+  // always the full name. Every page's footer links to it.
+  personalName: "OS Code by OpenShore",
+  personalUrl: "/os-code/",
+  personalLine: "free personal coding agent",
+
+  // The design-partner address, the one the Enterprise pages have used.
+  enterpriseContact: "jack@openshore.ai",
 
   // The parent company's site, credited from the OpenShore header and footer.
   parentUrl: "https://openshorellc.com",

@@ -10,15 +10,30 @@
 # root, keep that path alive as a redirect rather than editing and redeploying
 # a live payments function; Cloudflare Pages forwards the query string, so
 # ?checkout=success still reaches the page.
-# Since 2026-11-07 the root is the web app, so it lands on the site's home,
-# /about/, which still carries the checkout runtime.
-/os-code/  /about/  301
+# Since 2026-11-16 /os-code/ is a page again: OS Code by OpenShore, the
+# personal product's home, which carries the checkout runtime, so those
+# return addresses land on it directly and need no rule here. (From
+# 2026-11-07 to 2026-11-16 it redirected to /about/.)
 
-# openshore.ai is the web app (founder, 2026-11-07, "like Claude.ai does"), and
-# this site moved under /about/. Every page it had at the root keeps working:
-# links on the web, the app builds already installed (Settings' Privacy and
-# Terms rows), and App Store Connect's privacy and support URLs all 301 to the
-# page's new home. The root itself is NOT redirected: it is the app.
+# The site's layout since 2026-11-16 (founder): openshore.ai/ is OpenShore
+# for Enterprise, /os-code/ is OS Code by OpenShore, the free personal coding
+# agent, and the web app is /os-code/app/. Old addresses for the personal
+# product and the old Enterprise page move with it.
+/oscode           /os-code/       301
+/oscode/          /os-code/       301
+/os-code          /os-code/       301
+/app              /os-code/app/   301
+/app/             /os-code/app/   301
+/enterprise       /               301
+/enterprise/      /               301
+
+# From 2026-11-07 openshore.ai/ was the web app and this site's pages moved
+# under /about/, where the personal product's privacy policy, terms and
+# support still live. Every page it had at the root keeps working: links on
+# the web, the app builds already installed (Settings' Privacy and Terms
+# rows), and App Store Connect's privacy and support URLs all 301 to the
+# page's home. The root itself is NOT redirected: it is OpenShore for
+# Enterprise.
 /llm-choice/      /about/llm-choice/      301
 /llm-choice       /about/llm-choice/      301
 /privacy/         /about/privacy/         301

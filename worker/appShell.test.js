@@ -10,8 +10,8 @@ test('only the sign-in return path is the app', () => {
   }
 });
 
-test('the shell request is the root, without the code', () => {
+test('the shell request is the app folder, without the code', () => {
   const req = appShellRequest(new URL('https://openshore.ai/auth-callback?code=secret'));
-  assert.equal(req.url, 'https://openshore.ai/');
+  assert.equal(req.url, 'https://openshore.ai/os-code/app/');
   assert.equal(req.method, 'GET');
 });

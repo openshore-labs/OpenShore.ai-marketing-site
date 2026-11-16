@@ -40,7 +40,9 @@ if (!siteExists) {
 // the app's own dash-replacing code, where the character is the point. So
 // the scan skips what the web app publishes and nothing else. Its
 // index.html, at the root, is still scanned.
-const WEB_APP_DIRS = new Set([join(ROOT, 'assets'), join(ROOT, 'app-icons')]);
+// The web app sits at /os-code/app/ since 2026-11-16.
+const WEB_APP = join(ROOT, 'os-code', 'app');
+const WEB_APP_DIRS = new Set([join(WEB_APP, 'assets'), join(WEB_APP, 'app-icons')]);
 // The two OpenShore for Enterprise films (/enterprise/promo/ and /enterprise/tour/)
 // show the founder's locked tagline, "Every Team (em dash) Every Agent. Working as
 // One.", exactly as written (founder, 2026-11-10: taglines do not change). Only that
@@ -48,7 +50,9 @@ const WEB_APP_DIRS = new Set([join(ROOT, 'assets'), join(ROOT, 'app-icons')]);
 // which closes its pitch with it (founder, 2026-11-12). The tagline is always
 // written in exactly that case; the match is case-sensitive, so any other
 // spelling fails here. Any other em dash on those pages fails too.
-const FILM_PAGES = new Set([join(ROOT, 'enterprise', 'promo', 'index.html'), join(ROOT, 'enterprise', 'tour', 'index.html'), join(ROOT, 'enterprise', 'index.html')]);
+// Since 2026-11-16 the Enterprise page is the site's home (/), whose byline
+// is the tagline, and /enterprise/ redirects there.
+const FILM_PAGES = new Set([join(ROOT, 'enterprise', 'promo', 'index.html'), join(ROOT, 'enterprise', 'tour', 'index.html'), join(ROOT, 'index.html')]);
 const TAGLINE = /Every Team \u2014 Every Agent\.|>\u2014<\/span>/g;
 
 function walk(dir) {

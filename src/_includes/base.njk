@@ -1,3 +1,6 @@
+{#- The frame for the OS Code by OpenShore pages (/os-code/ and its tabs,
+    the privacy policy, terms and support under /about/). OpenShore for
+    Enterprise, the site's home, has its own frame (ent-layout.njk). -#}
 <!doctype html>
 <html lang="en">
   <head>
@@ -28,7 +31,7 @@
     <meta property="og:image" content="{{ pageOgImage or (site.url + '/og-openshore.png?v=' + rev.ogImage) }}" />
     <meta property="og:image:width" content="2400" />
     <meta property="og:image:height" content="1260" />
-    <meta property="og:image:alt" content="OpenShore. Independent AI for everyone. A chat and coding agent you own. Free and private by default." />
+    <meta property="og:image:alt" content="OS Code by OpenShore. Your personal coding agent. Free and private by default." />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -64,7 +67,7 @@
     <nav class="sitenav sitenav--oscode" aria-label="Primary">
       <div class="sitenav-top">
       <div class="brand brand--oscode">
-        <a class="brand-home" href="/about/" aria-label="About OpenShore.ai">
+        <a class="brand-home" href="{{ site.personalUrl }}" aria-label="{{ site.personalName }}">
           <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
             <rect width="32" height="32" rx="7.5" fill="#1c2a33" />
             <!-- Mark nudged up 0.81 so it sits optically centered in the tile. -->
@@ -73,13 +76,13 @@
               <path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </g>
           </svg>
-          <span class="brand-word">OpenShore</span>
+          <span class="brand-word">{{ site.personalName }}</span>
         </a>
-        <a class="brand-sub" href="{{ site.parentUrl }}">Brought to you by {{ site.parentName }}</a>
+        <a class="brand-sub" href="/"><span aria-hidden="true">&larr;</span> OpenShore for Enterprise</a>
       </div>
-      {# openshore.ai itself is the web app (2026-11-07); this site lives under
-         /about/, and this is the way back to the app, on every width. #}
-      <a class="app-link" href="/">Open OpenShore.ai <span aria-hidden="true">&rarr;</span></a>
+      {# The web app lives at /os-code/app/ (2026-11-16; at / from 2026-11-07),
+         and this is the way to it, on every width. #}
+      <a class="app-link" href="/os-code/app/">Open the web app <span aria-hidden="true">&rarr;</span></a>
       </div>
       <div class="sitenav-row">
       <ul class="sitenav-tabs" role="list" aria-label="Sections">
@@ -94,12 +97,13 @@
         {% endfor %}
       </ul>
       {# Stays in reach while the header is pinned (desktop only). #}
-      <a class="nav-cta" href="/about/#get-app" data-download-cta>Download</a>
+      <a class="nav-cta" href="/os-code/#get-app" data-download-cta>Download</a>
       </div>
     </nav>
     <main class="page page--oscode">
       {{ content | safe }}
     </main>
+    {% include "sitefoot.njk" %}
     <!-- A quiet way to reach us from any page: the envelope alone. -->
     <a class="consult-fab consult-fab--glyph" href="mailto:{{ site.emails.oscode }}?subject={{ 'OpenShore' | urlencode }}" aria-label="Email OpenShore at {{ site.emails.oscode }}" title="Email us">
       <svg class="consult-fab-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">

@@ -1,0 +1,32 @@
+---
+layout: ent-layout.njk
+permalink: /about/
+pageTitle: "About OpenShore"
+pageDescription: "OpenShore builds workspaces and products for startups: OpenShore for Enterprise, and OS Code by OpenShore, a free personal coding agent."
+---
+{#- About OpenShore, the company (founder, 2026-11-16). This address was the
+    personal app's home until then; that page is /os-code/ now, and its
+    privacy policy, terms and support pages keep their /about/ addresses. -#}
+      <section class="ent-hero ent-hero--tight">
+        <h1>About OpenShore</h1>
+        <p class="ent-lede">OpenShore builds workspaces and products for startups. Our mission is to be Earth’s most startup-obsessed company, building the workspaces and products that spark startup innovation and carry it to scale. We win only when our customers win, so we grow with them.</p>
+      </section>
+
+      <section class="ent-sec" aria-labelledby="products-h">
+        <h2 class="ent-eyebrow" id="products-h">What we make</h2>
+        <div class="ent-grid2">
+          <div>
+            <h3><a href="/">OpenShore for Enterprise</a></h3>
+            <p>One workspace where a startup’s teams and AI workers work together. Now looking for design partners.</p>
+          </div>
+          <div>
+            <h3><a href="{{ site.personalUrl }}">{{ site.personalName }}</a></h3>
+            <p>Your personal coding agent. Free and private by default.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="ent-sec ent-sec--last" aria-labelledby="company-h">
+        <h2 class="ent-eyebrow" id="company-h">The company</h2>
+        <p class="ent-body">OpenShore is a product of <a href="{{ site.parentUrl }}">{{ site.parentName }}</a>. Write to <a href="mailto:{{ site.enterpriseContact }}">{{ site.enterpriseContact }}</a> about OpenShore for Enterprise, or to <a href="mailto:{{ site.emails.oscode }}">{{ site.emails.oscode }}</a> for help with {{ site.personalName }}.</p>
+      </section>

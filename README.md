@@ -13,35 +13,38 @@ Shore, LLC corporate site). It moved here so `openshore.ai` can be a
 dedicated, standalone site for the product, at the site's root (`/`). See
 `_redirects` and "Runtime and keys" below for what that move touches.
 
-## The web app at the root, this site under `/about/` (2026-11-07)
+## Layout: OpenShore for Enterprise at the root (2026-11-16)
 
-`openshore.ai/` is the OpenShore.ai app itself, in the browser, the way
-claude.ai is Claude. This site's pages live under `/about/`
-(`/about/llm-choice/`, `/about/privacy/` and the rest), and each header links
-the other way: the app's About link to `/about/`, this site's
-"Open OpenShore.ai" to `/`.
+The founder repositioned the site on 2026-11-16:
 
-- The app's built bundle sits in `src/webapp/` (its `index.html` and
-  `assets/`) and passes through to the site root. Do not edit it here: it is
-  built from `openshore.code.ai/app` (`pnpm build:web`) and committed by that
-  repo's **Publish web app** workflow (`.github/workflows/web.yml`), the same
-  way the catalog is published. The site's own favicon stays at the root.
-- Every page that used to sit at the root 301s to its `/about/` home
-  (`src/static/_redirects`), so old links, installed app builds and App Store
-  Connect's privacy and support URLs keep working.
-- `/auth-callback` is the one app route with no file behind it: the Worker
-  answers it with the app's page (`worker/appShell.js`), so an emailed
-  sign-in link returns into the app. Add `https://openshore.ai/auth-callback`
-  to Supabase's auth redirect URLs.
+- `openshore.ai/` is **OpenShore for Enterprise**, a page for design partners
+  (`src/index.njk`, the light frame `ent-layout.njk`). It names no price and
+  no sign-up: the product is not available yet. `/about/` is a short page
+  about OpenShore, the company (`src/about.njk`). `/enterprise/` 301s to `/`;
+  the platform page, the tour and the promo film keep their addresses.
+- `openshore.ai/os-code/` is **OS Code by OpenShore**, the free personal
+  coding agent (`src/os-code.njk`, the dark frame `base.njk`), always by its
+  full name on the site. Its tab pages, privacy policy, terms and support
+  keep their `/about/...` addresses, so App Store Connect and the installed
+  apps keep working. `/oscode/` 301s to `/os-code/`. Stripe's return
+  addresses (`/os-code/?checkout=success`) land on this page directly.
+- The web app (the OpenShore.ai app in a browser) is at
+  **`openshore.ai/os-code/app/`**. Its bundle sits in `src/webapp/` and
+  passes through to that folder. Do not edit it here: it is built from
+  `openshore.code.ai/app` (`pnpm build:web`, base `/os-code/app/`) and
+  committed by that repo's **Publish web app** workflow
+  (`.github/workflows/web.yml`). Its service worker is scoped to its folder.
+  `/sw.js` at the root retires the worker the app registered there while it
+  lived at `/` (2026-11-07 to 2026-11-16).
+- `/auth-callback` stays at the root, the address the account backend
+  allows: the Worker answers it with the app's page from `/os-code/app/`
+  (`worker/appShell.js`), so an emailed sign-in link returns into the app.
+- Every page carries one foot line to `/os-code/` (`_includes/sitefoot.njk`).
 - `/sign-in/continue/`, `/download/<platform>` and `/os-code/catalog*.json`
   keep their addresses; live clients use them.
-- The web app installs (a PWA): `manifest.webmanifest`, `pwa/` icons and
-  `sw.js` come with the bundle. The service worker caches only the app's own
-  files and passes `/about/`, `/download/` and the catalog straight through.
-  A phone's hero button and the iPhone and Android tiles open the app, whose
-  Install door has the steps; a Mac's hero downloads the Mac app.
 - The copy gate (`scripts/check-copy.mjs`) skips the app's `assets/`: that is
-  not this site's copy, and the app's own em-dash test holds its source.
+  not this site's copy, and the app's own em-dash test holds its source. The
+  founder's tagline is the one em dash it lets through, on `/` and the films.
 
 ## Build
 
@@ -115,6 +118,6 @@ published here by the `Publish model catalog` GitHub Actions workflow in
 expects at exactly this path. Do not move or rename it without updating both
 that workflow and the app's default.
 
-`src/static/_redirects` sends `/os-code/` to `/about/` (301) because the Stripe
-checkout/portal edge functions still default their return URLs to
-`openshore.ai/os-code/`. See the comment in that file.
+The Stripe checkout/portal edge functions still default their return URLs to
+`openshore.ai/os-code/`, which is the OS Code by OpenShore page again
+(2026-11-16), so they need no redirect.
