@@ -12,6 +12,8 @@
 //
 // Web Crypto only, so the same code runs in the Worker and in Node.
 
+import entTabs from '../src/_data/entTabs.js';
+
 const enc = new TextEncoder();
 const B32 = 'ABCDEFGHJKMNPQRSTVWXYZ23456789'; // no I, L, O, U, 0 or 1: easy to read out loud
 export const COOKIE = 'os_ent';
@@ -122,6 +124,8 @@ export function lockedPage({ failed = false, username = '', next = '/enterprise/
 </head>
 <body class="ent-locked">
 <div class="ent-locked-bg" aria-hidden="true"></div>
+<header class="ent-top ent-top--locked"><a class="ent-brand" href="/" aria-label="OpenShore for Enterprise, home"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg><span><b>OpenShore</b></span></a></header>
+<nav class="ent-tabs ent-tabs--locked" aria-label="OpenShore for Enterprise"><div class="ent-tabs-row">${entTabs.map((t) => `<a href="${t.href}"${t.locked ? ' aria-current="page"' : ''}>${esc(t.label)}</a>`).join('')}</div></nav>
 <main class="ent-lock">
   <form class="ent-lock-card" method="post" action="/enterprise/platform/">
     <svg viewBox="0 0 32 32" width="36" height="36" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>
@@ -135,7 +139,6 @@ export function lockedPage({ failed = false, username = '', next = '/enterprise/
     <input type="hidden" name="next" value="${esc(next)}" />
     <button class="ent-btn ent-btn--primary" type="submit">Sign in</button>
     <p class="ent-lock-ask">No login yet? Email <a href="mailto:jack@openshore.ai?subject=OpenShore%20for%20Enterprise%20product%20tour">jack@openshore.ai</a>.</p>
-    <a class="ent-back" href="/"><span aria-hidden="true">&larr;</span> OpenShore for Enterprise</a>
   </form>
 </main>
 </body>

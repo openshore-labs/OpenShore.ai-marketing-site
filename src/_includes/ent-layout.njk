@@ -7,7 +7,8 @@
     was retired the same day: /about/ redirects to /os-code/. The privacy
     policy and terms under /os-code/ are OS Code by OpenShore's; OpenShore
     for Enterprise has its own at /privacy/, /terms/ and /support/
-    (2026-11-16), which this footer links to. -#}
+    (2026-11-16), which this footer links to. Under the header sit the tabs
+    (src/_data/entTabs.js): Solutions, Product Tour and Grow with Us. -#}
 <!doctype html>
 <html lang="en">
   <head>
@@ -47,6 +48,11 @@
         <span><b>OpenShore</b></span>
       </a>
     </header>
+    <nav class="ent-tabs" aria-label="OpenShore for Enterprise"><div class="ent-tabs-row">
+{%- for t in entTabs %}
+      <a href="{{ t.href }}"{% if page.url == t.href %} aria-current="page"{% endif %}>{{ t.label }}{% if t.locked %}<svg class="ent-tab-lock" viewBox="0 0 12 14" width="11" height="13" aria-label="sign-in needed" role="img"><rect x="1" y="6" width="10" height="7.5" rx="2" fill="currentColor"/><path d="M3.5 6V4.2a2.5 2.5 0 0 1 5 0V6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>{% endif %}</a>
+{%- endfor %}
+    </div></nav>
 
     <main>
 {{ content | safe }}

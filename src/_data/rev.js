@@ -37,4 +37,6 @@ export default {
   entCss: rev("src/static/enterprise/enterprise.css"),
   entPromoPoster: rev("src/static/enterprise/promo-poster.jpg"),
   entTourPoster: rev("src/static/enterprise/tour-poster.jpg"),
+  // The founder's photo on Grow with Us, once it is added.
+  entFounder: rev("src/static/enterprise/founder.jpg"),
 };

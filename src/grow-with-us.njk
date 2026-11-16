@@ -1,0 +1,50 @@
+---
+layout: ent-layout.njk
+permalink: /grow-with-us/
+pageTitle: "Grow with Us · OpenShore for Enterprise"
+pageDescription: "Why OpenShore exists: our mission, the principles we build by, and the founder behind it."
+---
+{#- Grow with Us (founder, 2026-11-16): the mission, the principles from the
+    business plan's appendix, then the founder. The words live in
+    src/_data/growWithUs.js; an empty section is left off the page. -#}
+{%- set g = growWithUs -%}
+      <section class="ent-hero ent-hero--tight">
+        <h1>Grow with us.</h1>
+        <p class="ent-lede">Why OpenShore exists, how we build it, and who is building it.</p>
+      </section>
+
+      <section class="ent-sec" aria-labelledby="mission-h">
+        <h2 class="ent-eyebrow" id="mission-h">Our mission</h2>
+        <p class="ent-statement">{{ g.mission }}</p>
+        <p class="ent-body">{{ g.missionLine }}</p>
+      </section>
+{% if g.principles.length %}
+      <section class="ent-sec" aria-labelledby="principles-h">
+        <h2 class="ent-eyebrow" id="principles-h">Our principles</h2>
+        <ol class="ent-principles">
+{%- for p in g.principles %}
+          <li><h3>{{ p.title }}</h3>{% if p.body %}<p>{{ p.body }}</p>{% endif %}</li>
+{%- endfor %}
+        </ol>
+      </section>
+{% endif %}
+{%- if g.founder.paragraphs.length %}
+      <section class="ent-sec" aria-labelledby="founder-h">
+        <h2 class="ent-eyebrow" id="founder-h">The founder</h2>
+        <div class="ent-founder">
+          {% if g.founder.photo %}<img class="ent-founder-photo" src="/enterprise/founder.jpg?v={{ rev.entFounder }}" alt="{{ g.founder.alt }}" width="480" height="600" />{% endif %}
+          <div class="ent-founder-text">
+            <h3 class="ent-h">{{ g.founder.name }}</h3>
+            <p class="ent-founder-role">{{ g.founder.role }}</p>
+{%- for para in g.founder.paragraphs %}
+            <p class="ent-body">{{ para }}</p>
+{%- endfor %}
+          </div>
+        </div>
+      </section>
+{% endif %}
+      <section class="ent-cta" aria-labelledby="cta-h">
+        <p class="ent-badge"><span class="ent-dot" aria-hidden="true"></span>Coming in 2027</p>
+        <h2 id="cta-h">Build the future of your business with us.</h2>
+        <p class="ent-lede">Now onboarding design partners. If you’re interested, email <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'OpenShore for Enterprise design partner' | urlencode }}">{{ site.enterpriseContact }}</a>.</p>
+      </section>

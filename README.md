@@ -22,6 +22,13 @@ The founder repositioned the site on 2026-11-16:
   that sat at `/enterprise/` (founder: a one-to-one replica). `/about/` itself 301s to
   `/os-code/` (the pages under it stay). `/enterprise/` 301s to `/`;
   the platform page, the tour and the promo film keep their addresses.
+- Under the Enterprise header sit three tabs (`src/_data/entTabs.js`):
+  **Solutions** (`/`), **Product Tour** (the gated platform page) and **Grow
+  with Us** (`/grow-with-us/`, `src/grow-with-us.njk`). The Worker's sign-in
+  page draws the same tabs. Grow with Us reads its words from
+  `src/_data/growWithUs.js`: the mission, the principles from the business
+  plan's appendix and the founder's profile and photo
+  (`src/static/enterprise/founder.jpg`); an empty section is left off.
 - OpenShore for Enterprise has its own **Privacy Policy** (`/privacy/`),
   **Terms of Use** (`/terms/`) and **Support** (`/support/`), on the same
   frame (`src/ent-privacy.njk`, `ent-terms.njk`, `ent-support.njk`), linked
