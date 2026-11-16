@@ -265,3 +265,29 @@ main, .ent-top, .ent-foot {
 .ent-principles-lede { max-width: 64ch; }
 .ent-decides { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 15px !important; line-height: 1.5; color: var(--ink) !important; }
 .ent-decides b { display: block; margin-bottom: 2px; font-size: 12px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea); }
+
+/* ---- Why we build it: the two charts on Grow with Us (2026-11-16) ------ */
+.ent-charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 6px; }
+.ent-chart { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.ent-chart-title { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 18px; font-weight: 650; color: var(--ink); }
+.ent-chart-frame { border-radius: 18px; background: var(--raised); box-shadow: 0 0 0 1px var(--rule); padding: 12px 8px 4px; }
+.ent-chart svg { display: block; width: 100%; height: auto; font-family: var(--sans); }
+.ent-chart .ent-body { font-size: 16px; }
+.ent-tag { font-size: 11px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea); padding: 3px 9px; border-radius: 999px; box-shadow: 0 0 0 1px var(--rule); }
+.c-axis { stroke: var(--rule); stroke-width: 1.5; }
+.c-guide { stroke: rgba(28, 42, 51, 0.18); stroke-width: 1.2; stroke-dasharray: 3 5; }
+.c-line { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.c-line--sea { stroke: var(--sea); }
+.c-wedge { fill: rgba(162, 106, 67, 0.1); }
+.c-halo { fill: var(--raised); stroke: rgba(47, 90, 102, 0.35); stroke-width: 1.5; }
+.c-dot { fill: var(--sea); }
+.c-leader { stroke: var(--muted); stroke-width: 1.2; }
+.c-phase { font-size: 13px; letter-spacing: 0.14em; fill: var(--muted); }
+.c-crisis { font-size: 16px; font-weight: 600; fill: #9a5f36; }
+.c-note { font-size: 15px; fill: var(--muted); }
+.c-mark { font-size: 16px; font-weight: 650; fill: var(--ink); }
+.c-label { font-size: 16px; font-weight: 650; fill: var(--ink); }
+.c-wedge-text { font-size: 14.5px; fill: #8a5532; }
+.ent-why-close { margin-top: 10px; max-width: 40ch; }
+.ent-source { font-size: 13px; line-height: 1.5; color: var(--muted); max-width: 72ch; }
+@media (max-width: 760px) { .ent-charts { grid-template-columns: minmax(0, 1fr); } }
