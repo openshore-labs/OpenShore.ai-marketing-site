@@ -239,3 +239,21 @@ main, .ent-top, .ent-foot {
 /* The sign-in page carries the header and tabs above its card. */
 .ent-top--locked, .ent-tabs--locked { position: relative; z-index: 1; }
 .ent-locked .ent-lock { min-height: calc(100dvh - 130px); align-items: flex-start; padding-top: 32px; }
+
+/* The badge on the header row, beside OpenShore (2026-11-16). It takes the
+   room the row has left and scrolls where its text would not fit. */
+.ent-brand { flex: none; }
+.ent-badge--top { min-width: 0; font-size: 13px; padding: 6px 12px; gap: 8px; }
+.ent-badge--top .ent-dot { width: 7px; height: 7px; }
+@media (max-width: 640px) {
+  .ent-top { gap: 14px; }
+  .ent-badge--top .ent-ticker { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8px, #000 calc(100% - 18px), transparent); mask-image: linear-gradient(90deg, transparent, #000 8px, #000 calc(100% - 18px), transparent); }
+  .ent-badge--top .ent-ticker-track { display: inline-flex; animation: ent-ticker 16s linear infinite; will-change: transform; }
+  .ent-badge--top .ent-ticker-track > span { padding-right: 2.5em; }
+  .ent-badge--top .ent-ticker-copy { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ent-badge--top .ent-ticker { white-space: nowrap; text-overflow: ellipsis; }
+  .ent-badge--top .ent-ticker-track { animation: none; }
+  .ent-badge--top .ent-ticker-copy { display: none !important; }
+}
