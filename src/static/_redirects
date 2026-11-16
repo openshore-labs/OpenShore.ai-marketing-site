@@ -36,22 +36,20 @@
 # (founder: these pages belong to the personal product alone; OpenShore for
 # Enterprise will get its own). They sat under /about/ from 2026-11-07 and at
 # the root before that. Both old address families go straight to the page's
-# home in one hop, so links on the web, the app builds already installed
-# (Settings' Privacy and Terms rows) and App Store Connect's privacy and
-# support URLs keep working. The root itself is NOT redirected: it is
-# OpenShore for Enterprise.
+# home in one hop, so links on the web and the app builds already installed
+# keep working. The root itself is NOT redirected: it is OpenShore for
+# Enterprise. Since 2026-11-16 (founder) /privacy/, /terms/ and /support/ are
+# OpenShore for Enterprise's own pages, so they no longer redirect: App Store
+# Connect's privacy and support URLs must name /os-code/privacy/ and
+# /os-code/support/.
 /about/llm-choice/        /os-code/llm-choice/  301
 /about/llm-choice         /os-code/llm-choice/  301
 /llm-choice/              /os-code/llm-choice/  301
 /llm-choice               /os-code/llm-choice/  301
 /about/privacy/           /os-code/privacy/  301
 /about/privacy            /os-code/privacy/  301
-/privacy/                 /os-code/privacy/  301
-/privacy                  /os-code/privacy/  301
 /about/terms/             /os-code/terms/  301
 /about/terms              /os-code/terms/  301
-/terms/                   /os-code/terms/  301
-/terms                    /os-code/terms/  301
 /about/ethics/            /os-code/ethics/  301
 /about/ethics             /os-code/ethics/  301
 /ethics/                  /os-code/ethics/  301
@@ -66,5 +64,3 @@
 /self-hosting             /os-code/self-hosting/  301
 /about/support/           /os-code/support/  301
 /about/support            /os-code/support/  301
-/support/                 /os-code/support/  301
-/support                  /os-code/support/  301

@@ -1,0 +1,46 @@
+---
+layout: ent-layout.njk
+permalink: /privacy/
+pageTitle: "Privacy Policy · OpenShore for Enterprise"
+pageDescription: "How OpenShore handles what reaches it through the OpenShore for Enterprise pages and design-partner conversations: no analytics, no ads, no tracking, and email kept only to reply."
+---
+{#- OpenShore for Enterprise's own privacy policy (founder, 2026-11-16). OS
+    Code by OpenShore keeps its own at /os-code/privacy/. Every sentence is
+    what the site does: the Enterprise pages carry no analytics or forms
+    (ent-layout.njk's CSP is same-origin only), the one cookie is the invited
+    guests' sign-in (worker/enterpriseAccess.js, os_ent), and the two film
+    pages load Google Fonts (src/static/enterprise/promo and tour). Change
+    this page in the same piece of work as any of those. -#}
+{%- set contact = site.enterpriseContact -%}
+      <section class="ent-hero ent-hero--tight">
+        <h1>Privacy Policy</h1>
+        <p class="ent-lede">How OpenShore handles what reaches us through these pages and our conversations with design partners.</p>
+        <p class="ent-note">Last updated 16 November 2026</p>
+      </section>
+
+      <article class="ent-doc">
+        <h2>What this covers</h2>
+        <p>This policy covers the OpenShore for Enterprise pages on openshore.ai (this site’s home page, these policy pages, and the pages under openshore.ai/enterprise) and the email we exchange with companies interested in becoming design partners. Open Shore, LLC runs them.</p>
+        <p>OpenShore for Enterprise is not available yet, so this policy does not describe a product. The product will have its own privacy terms before anyone uses it, and design partners agree to written terms first.</p>
+        <p>OS Code by OpenShore, our free personal coding agent, has its own policy at <a href="/os-code/privacy/">openshore.ai/os-code/privacy</a>.</p>
+
+        <h2>What we collect when you visit</h2>
+        <ul>
+          <li><b>No analytics, ads or tracking.</b> These pages have no analytics, no advertising, no tracking pixels, no forms and no accounts.</li>
+          <li><b>No cookies, with one exception.</b> If we give you a username and password to see the platform page or the product tour, signing in sets one cookie, <code>os_ent</code>, that holds your username and a signature, so you stay signed in. It is limited to those pages, cannot be read by scripts, and ends on your username’s last day, at most 7 days after we issue it. We do not keep a record of your sign-ins or store passwords.</li>
+          <li><b>Hosting.</b> Cloudflare serves this site. Like any web host, it handles each request, which carries your IP address and the details your browser sends. We do not use those requests to measure or profile visitors.</li>
+          <li><b>Google Fonts on the two film pages.</b> The promo film (openshore.ai/enterprise/promo) and the product tour (openshore.ai/enterprise/tour) load fonts from Google, so Google receives your IP address and browser details when you open them. Every other page uses fonts served from openshore.ai itself.</li>
+        </ul>
+
+        <h2>When you email us</h2>
+        <p>If you write to <a href="mailto:{{ contact }}">{{ contact }}</a>, we keep your messages and the contact details in them so we can reply and continue the conversation. Our email provider stores them for us. We do not add you to a mailing list, and we do not sell your details or share them for advertising.</p>
+
+        <h2>How long we keep it</h2>
+        <p>We keep email for as long as the conversation is useful to both of us, and delete it when you ask, unless the law requires us to keep it.</p>
+
+        <h2>Your choices</h2>
+        <p>You can ask us for a copy of what we hold about you, ask us to correct it, or ask us to delete it. Write to <a href="mailto:{{ contact }}?subject={{ 'Privacy request' | urlencode }}">{{ contact }}</a>. A person reads every message.</p>
+
+        <h2>Changes</h2>
+        <p>When this policy changes, we update this page and its date. Before OpenShore for Enterprise is available, we will publish the product’s own privacy terms.</p>
+      </article>

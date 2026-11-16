@@ -5,8 +5,9 @@
     OpenShore for Enterprise; OS Code by OpenShore stays out of it and is
     reached from the footer (founder, 2026-11-16). The company About page
     was retired the same day: /about/ redirects to /os-code/. The privacy
-    policy and terms under /os-code/ are OS Code by OpenShore's; the
-    Enterprise product will get its own, so this footer links to neither. -#}
+    policy and terms under /os-code/ are OS Code by OpenShore's; OpenShore
+    for Enterprise has its own at /privacy/, /terms/ and /support/
+    (2026-11-16), which this footer links to. -#}
 <!doctype html>
 <html lang="en">
   <head>
@@ -53,6 +54,7 @@
 
     <footer class="ent-foot">
       <span>OpenShore is a product of <a href="{{ site.parentUrl }}">{{ site.parentName }}</a>.</span>
+      <nav aria-label="Policies">{% for l in [["Privacy", "/privacy/"], ["Terms", "/terms/"], ["Support", "/support/"]] %}{% if not loop.first %} · {% endif %}<a href="{{ l[1] }}"{% if page.url == l[1] %} aria-current="page"{% endif %}>{{ l[0] }}</a>{% endfor %}</nav>
     </footer>
     {% include "sitefoot.njk" %}
   </body>

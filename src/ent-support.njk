@@ -1,0 +1,27 @@
+---
+layout: ent-layout.njk
+permalink: /support/
+pageTitle: "Support · OpenShore for Enterprise"
+pageDescription: "How to reach OpenShore about becoming a design partner, invited access to the platform page and product tour, and privacy requests."
+---
+{#- OpenShore for Enterprise's support page (founder, 2026-11-16). OS Code by
+    OpenShore keeps its own at /os-code/support/. -#}
+{%- set contact = site.enterpriseContact -%}
+      <section class="ent-hero ent-hero--tight">
+        <h1>Support</h1>
+        <p class="ent-lede">Write to us. A person reads every message.</p>
+      </section>
+
+      <article class="ent-doc">
+        <h2>Becoming a design partner</h2>
+        <p>We’re building OpenShore for Enterprise with a small group of startups. To talk about joining them, write to <a href="mailto:{{ contact }}?subject={{ 'Design partner: OpenShore for Enterprise' | urlencode }}">{{ contact }}</a>.</p>
+
+        <h2>Signing in to the platform page or the product tour</h2>
+        <p>Each username we give out works for up to 7 days. If yours has ended or does not work, write to <a href="mailto:{{ contact }}?subject={{ 'Platform access' | urlencode }}">{{ contact }}</a> and we’ll send a new one.</p>
+
+        <h2>Privacy requests</h2>
+        <p>To ask for a copy of what we hold about you, or to have it corrected or deleted, write to <a href="mailto:{{ contact }}?subject={{ 'Privacy request' | urlencode }}">{{ contact }}</a>. Our <a href="/privacy/">Privacy Policy</a> explains what we collect.</p>
+
+        <h2>Help with OS Code by OpenShore</h2>
+        <p>OS Code by OpenShore, our free personal coding agent, has its own <a href="/os-code/support/">support page</a>.</p>
+      </article>

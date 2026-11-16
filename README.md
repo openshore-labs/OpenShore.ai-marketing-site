@@ -22,15 +22,24 @@ The founder repositioned the site on 2026-11-16:
   no sign-up: the product is not available yet. `/about/` itself 301s to
   `/os-code/` (the pages under it stay). `/enterprise/` 301s to `/`;
   the platform page, the tour and the promo film keep their addresses.
+- OpenShore for Enterprise has its own **Privacy Policy** (`/privacy/`),
+  **Terms of Use** (`/terms/`) and **Support** (`/support/`), on the same
+  frame (`src/ent-privacy.njk`, `ent-terms.njk`, `ent-support.njk`), linked
+  from its footer. They cover the Enterprise pages and design-partner email,
+  not a product. Each claim matches the code: the one cookie is the invited
+  guests' sign-in (`worker/enterpriseAccess.js`), and the two film pages load
+  Google Fonts. Change the policy with either. Until 2026-11-16 these
+  addresses redirected to the personal product's pages, so App Store
+  Connect's privacy and support URLs must name `/os-code/privacy/` and
+  `/os-code/support/`.
 - `openshore.ai/os-code/` is **OS Code by OpenShore**, the free personal
   coding agent (`src/os-code.njk`, the dark frame `base.njk`), always by its
   full name on the site. Every page of it sits under `/os-code/`: its tabs
   (`/os-code/llm-choice/`, `/os-code/sustainability/`, `/os-code/ethics/`,
   `/os-code/self-hosting/`), its privacy policy (`/os-code/privacy/`), terms
   (`/os-code/terms/`) and support (`/os-code/support/`). They were under
-  `/about/` until 2026-11-16 and at the root before that; both old address
-  families 301 here, so App Store Connect and the installed apps keep
-  working. These are the personal product's own: OpenShore for Enterprise
+  `/about/` until 2026-11-16 and at the root before that; `/about/...` and
+  the old tab addresses 301 here. These are the personal product's own: OpenShore for Enterprise
   will get its own policy and terms. `/oscode/` 301s to `/os-code/`. Stripe's
   return addresses (`/os-code/?checkout=success`) land on this page directly.
 - The web app (the OpenShore.ai app in a browser) is at
