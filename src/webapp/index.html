@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" href="/os-code/app/pwa/apple-touch-icon.png" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="OpenShore.ai" />
+    <meta name="apple-mobile-web-app-title" content="OS Code" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <!-- The splash wordmark is set in Fraunces (declared in theme.css).
          Preloaded so the face is fetched as early as possible. -->
@@ -38,10 +38,10 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src *"
     />
-    <title>OpenShore.ai</title>
+    <title>OS Code</title>
     <!--
       Boot splash. Painted the instant the document parses, before the bundle
-      loads and React mounts, so opening OpenShore never shows a blank window
+      loads and React mounts, so opening OS Code never shows a blank window
       (desktop Electron) or the gap between the iOS launch image and the first
       React frame. Deliberately unhurried, modeled on the Claude iOS app's
       opening: the mark scales and fades in, HOLDS for a beat (main.tsx enforces
@@ -103,6 +103,86 @@
       }
       #boot-splash .boot-wordmark .boot-accent {
         color: #2f5a66;
+      }
+      /* The gap between OS and Code: an empty letter-width, since the
+         container's font-size 0 swallows a typed space. */
+      #boot-splash .boot-wordmark .boot-space {
+        display: inline-block;
+        width: 9px;
+      }
+      /* The name and its maker, stacked beside the mark (founder, 2026-11-16:
+         the app is OS Code, and "by OpenShore" is revealed beneath it by a
+         wave). */
+      #boot-splash .boot-lockup {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+      /* "by OpenShore": a small wave crosses under the name, left to right,
+         and the words surface behind it, through a soft edge that travels
+         with the wave. Starts as the last letter settles; done inside the
+         2.7s hold (SPLASH_MIN_MS in main.tsx). */
+      #boot-splash .boot-by {
+        position: relative;
+        /* Clear of the letters' reflection under the waterline. */
+        margin-top: 10px;
+        padding-left: 2px;
+        font-family: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+        font-style: italic;
+        font-size: 15px;
+        letter-spacing: 0.01em;
+        color: #2f5a66;
+      }
+      #boot-splash .boot-by-text {
+        display: inline-block;
+        -webkit-mask-image: linear-gradient(90deg, #000 40%, transparent 60%);
+        mask-image: linear-gradient(90deg, #000 40%, transparent 60%);
+        -webkit-mask-size: 250% 100%;
+        mask-size: 250% 100%;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: 100% 0;
+        mask-position: 100% 0;
+        animation: boot-by-reveal 0.95s cubic-bezier(0.37, 0, 0.63, 1) 1.5s both;
+      }
+      @keyframes boot-by-reveal {
+        from {
+          -webkit-mask-position: 100% 0;
+          mask-position: 100% 0;
+          transform: translateY(3px);
+        }
+        to {
+          -webkit-mask-position: 0% 0;
+          mask-position: 0% 0;
+          transform: translateY(0);
+        }
+      }
+      #boot-splash .boot-by-wave {
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 30px;
+        height: 8px;
+        opacity: 0;
+        pointer-events: none;
+        animation: boot-by-wave 1.05s cubic-bezier(0.37, 0, 0.63, 1) 1.45s both;
+      }
+      @keyframes boot-by-wave {
+        0% {
+          opacity: 0;
+          transform: translateX(-12px);
+        }
+        15% {
+          opacity: 0.9;
+        }
+        80% {
+          opacity: 0.75;
+        }
+        100% {
+          opacity: 0;
+          transform: translateX(92px);
+        }
       }
       /* The wordmark surfaces mostly one letter at a time through a REAL water
          surface, not an implied one. Each letter is a small stage:
@@ -367,52 +447,62 @@
         #boot-splash.boot-splash-hidden {
           transform: none;
         }
+        /* The byline simply shows; its wave stays still and out of sight. */
+        #boot-splash .boot-by-text {
+          animation: none;
+          -webkit-mask-image: none;
+          mask-image: none;
+        }
+        #boot-splash .boot-by-wave {
+          animation: none;
+          opacity: 0;
+        }
       }
     </style>
-    <script type="module" crossorigin src="/os-code/app/assets/index-BT7eLN2S.js"></script>
+    <script type="module" crossorigin src="/os-code/app/assets/index-myfHSuCC.js"></script>
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/rolldown-runtime-hePW80VL.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/dist-N1OmPR4X.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/preload-helper-DAQ3dgAv.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/definitions-BdWVgBTV.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/jsx-runtime-DgOjgdlr.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/deviceNoun-6jgjlZTO.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/deviceNoun-DdWkwuGH.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/protocol-B6k_KKmG.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/documentText-CKlPzQ8M.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/setupGuides-D3dQZFvp.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/setupGuides-DcLE0WgU.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/projectEnv-CFGh3dOL.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/error-D9MtuG9s.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/attachments-5rUlXp1u.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/definitions-DlpntO5o.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/icloudPlugin-BWzMXVea.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/store-9D2U3n3t.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/store-Qpx25EzM.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/Sheet-YKaQf50c.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/SheetHead-cQV1Q5YG.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/webSite-DrmEpLUw.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/webSite-COA3WtLI.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/useCompact-CyKqhWa_.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/BackBar-X6l3xbF3.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/BrandMark-C0Gy8sDW.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/BackBar-CAZFVFz1.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/BrandMark-C4dBQUU2.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/useSheetExit-yNnfqstn.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/useAuth-BCPQfExD.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/ChatMenu--QLYoUyE.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/Sidebar-DZoUTxzr.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/greetingDecks-C-BXFwAT.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/SignInCard-6wqOJspI.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/useAuth-CynI6cRp.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/ChatMenu-C5BHNOO5.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/Sidebar-CgYTEHoa.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/greetingDecks-DCDk9KYN.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/SignInCard-kUNb6V2C.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/lib-BTILwdMm.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/clipboard-Bf0cHMZy.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/CodeBlock-BnHLJ0cN.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/CodeBlock-BwFXOLce.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/projectFence-DGWmvoJl.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/Markdown-BJdRbd1C.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/Markdown-DeYu7zwD.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/pins-DcfVsWgB.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/SwipeRow-BItZcQEF.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/repoClone-BkJY1Gbq.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/DockForm-ROGVtj7H.js">
-    <link rel="modulepreload" crossorigin href="/os-code/app/assets/ProjectRunsOn-B4mu0chV.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/repoClone-BFiR_IKE.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/DockForm-GPHIel3v.js">
+    <link rel="modulepreload" crossorigin href="/os-code/app/assets/ProjectRunsOn-DF4MF618.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/anchorCopy-CgSqQcgf.js">
     <link rel="modulepreload" crossorigin href="/os-code/app/assets/scrollMemory-BMa9W0zP.js">
     <link rel="stylesheet" crossorigin href="/os-code/app/assets/index-LmY2LkLR.css">
   </head>
   <body>
-    <div id="boot-splash" role="img" aria-label="OpenShore.ai">
+    <div id="boot-splash" role="img" aria-label="OS Code by OpenShore">
       <svg class="boot-mark" viewBox="0 0 32 32" focusable="false" aria-hidden="true">
         <rect width="32" height="32" rx="7.5" fill="#1c2a33" />
         <g transform="translate(0 -0.81)">
@@ -435,57 +525,64 @@
           />
         </g>
       </svg>
+      <div class="boot-lockup">
       <div class="boot-wordmark" aria-hidden="true">
         <span class="boot-letter" data-ch="O" style="--i: 0; --dir: 1">
           <span class="boot-crest"><span class="boot-glyph">O</span></span>
           <i class="boot-rip boot-rip-a"></i><i class="boot-rip boot-rip-b"></i
           ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i
           ><i class="boot-drop" style="--dx: -1"></i
-          ><i class="boot-drop boot-drop-b" style="--dx: 1"></i>
+          ><i class="boot-drop boot-drop-b" style="--dx: 1"></i
+          >
         </span>
-        <span class="boot-letter" data-ch="p" style="--i: 1; --dir: -1">
-          <span class="boot-crest"><span class="boot-glyph">p</span></span>
-          <i class="boot-rip boot-rip-a"></i><i class="boot-rip boot-rip-b"></i
-          ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i>
-        </span>
-        <span class="boot-letter" data-ch="e" style="--i: 2; --dir: 1">
-          <span class="boot-crest"><span class="boot-glyph">e</span></span>
-          <i class="boot-rip boot-rip-a"></i><i class="boot-rip boot-rip-b"></i
-          ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i>
-        </span>
-        <span class="boot-letter" data-ch="n" style="--i: 3; --dir: -1">
-          <span class="boot-crest"><span class="boot-glyph">n</span></span>
-          <i class="boot-rip boot-rip-a"></i><i class="boot-rip boot-rip-b"></i
-          ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i>
-        </span>
-        <span class="boot-letter boot-accent" data-ch="S" style="--i: 4; --dir: 1">
+        <span class="boot-letter" data-ch="S" style="--i: 1; --dir: -1">
           <span class="boot-crest"><span class="boot-glyph">S</span></span>
           <i class="boot-rip boot-rip-a"></i><i class="boot-rip boot-rip-b"></i
           ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i
-          ><i class="boot-drop" style="--dx: 1"></i
-          ><i class="boot-drop boot-drop-b" style="--dx: -1"></i>
+          >
         </span>
-        <span class="boot-letter boot-accent" data-ch="h" style="--i: 5; --dir: -1">
-          <span class="boot-crest"><span class="boot-glyph">h</span></span>
+        <span class="boot-space"></span>
+        <span class="boot-letter boot-accent" data-ch="C" style="--i: 2; --dir: 1">
+          <span class="boot-crest"><span class="boot-glyph">C</span></span>
           <i class="boot-rip boot-rip-a"></i><i class="boot-rip boot-rip-b"></i
-          ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i>
+          ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i
+          ><i class="boot-drop" style="--dx: 1"></i
+          ><i class="boot-drop boot-drop-b" style="--dx: -1"></i
+          >
         </span>
-        <span class="boot-letter boot-accent" data-ch="o" style="--i: 6; --dir: 1">
+        <span class="boot-letter boot-accent" data-ch="o" style="--i: 3; --dir: -1">
           <span class="boot-crest"><span class="boot-glyph">o</span></span>
           <i class="boot-rip boot-rip-a"></i><i class="boot-rip boot-rip-b"></i
-          ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i>
+          ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i
+          >
         </span>
-        <span class="boot-letter boot-accent" data-ch="r" style="--i: 7; --dir: -1">
-          <span class="boot-crest"><span class="boot-glyph">r</span></span>
+        <span class="boot-letter boot-accent" data-ch="d" style="--i: 4; --dir: 1">
+          <span class="boot-crest"><span class="boot-glyph">d</span></span>
           <i class="boot-rip boot-rip-a"></i><i class="boot-rip boot-rip-b"></i
-          ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i>
+          ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i
+          >
         </span>
-        <span class="boot-letter boot-accent" data-ch="e" style="--i: 8; --dir: 1">
+        <span class="boot-letter boot-accent" data-ch="e" style="--i: 5; --dir: -1">
           <span class="boot-crest"><span class="boot-glyph">e</span></span>
           <i class="boot-rip boot-rip-a"></i><i class="boot-rip boot-rip-b"></i
           ><i class="boot-rip boot-rip-c"></i><i class="boot-rip boot-rip-d"></i
-          ><i class="boot-drop" style="--dx: 1"></i>
+          ><i class="boot-drop" style="--dx: 1"></i
+          >
         </span>
+      </div>
+      <div class="boot-by" aria-hidden="true">
+        <span class="boot-by-text">by OpenShore</span>
+        <svg class="boot-by-wave" viewBox="0 0 30 8" focusable="false">
+          <path
+            d="M1 5q3.5-3.3 7 0t7 0t7 0t7 0"
+            fill="none"
+            stroke="#4b90a3"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
       </div>
     </div>
     <div id="root"></div>

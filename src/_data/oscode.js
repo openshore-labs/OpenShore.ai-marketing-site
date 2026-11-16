@@ -16,7 +16,7 @@ export default {
   // The product's name on this site (founder, 2026-11-16): the free personal
   // coding agent is "OS Code by OpenShore", always the full name, never "OS
   // Code" alone. openshore.ai/ is OpenShore for Enterprise; this product's
-  // page is /os-code/. The app inside keeps its own name, OpenShore.ai.
+  // page is /os-code/. The app itself is named OS Code (founder, 2026-11-16).
   productName: "OS Code by OpenShore",
   subtitle: "Your personal coding agent",
   tagline: "Free and private by default.",

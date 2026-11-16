@@ -1,7 +1,7 @@
 {
   "id": "/",
-  "name": "OpenShore.ai",
-  "short_name": "OpenShore",
+  "name": "OS Code",
+  "short_name": "OS Code",
   "description": "Independent AI for everyone. A chat and coding agent you own.",
   "start_url": "./",
   "scope": "./",
