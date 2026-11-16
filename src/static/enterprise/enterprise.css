@@ -257,3 +257,7 @@ main, .ent-top, .ent-foot {
   .ent-badge--top .ent-ticker-track { animation: none; }
   .ent-badge--top .ent-ticker-copy { display: none !important; }
 }
+
+/* A page that opens straight on a section: the tabs carry the rule above it. */
+.ent-sec--first { border-top: 0; padding-top: 56px; }
+@media (max-width: 760px) { .ent-sec--first { padding-top: 40px; } }

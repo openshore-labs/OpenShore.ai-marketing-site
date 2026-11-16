@@ -8,13 +8,8 @@ pageDescription: "Why OpenShore exists: our mission, the principles we build by,
     business plan's appendix, then the founder. The words live in
     src/_data/growWithUs.js; an empty section is left off the page. -#}
 {%- set g = growWithUs -%}
-      <section class="ent-hero ent-hero--tight">
-        <h1>Grow with us.</h1>
-        <p class="ent-lede">Why OpenShore exists, how we build it, and who is building it.</p>
-      </section>
-
-      <section class="ent-sec" aria-labelledby="mission-h">
-        <h2 class="ent-eyebrow" id="mission-h">Our mission</h2>
+      <section class="ent-sec ent-sec--first" aria-labelledby="mission-h">
+        <h1 class="ent-eyebrow" id="mission-h">Our mission</h1>
         <p class="ent-statement">{{ g.mission }}</p>
         <p class="ent-body">{{ g.missionLine }}</p>
       </section>
