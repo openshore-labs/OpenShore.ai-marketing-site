@@ -15,10 +15,15 @@ pageDescription: "Why OpenShore exists: our mission, the principles we build by,
       </section>
 {% if g.principles.length %}
       <section class="ent-sec" aria-labelledby="principles-h">
-        <h2 class="ent-eyebrow" id="principles-h">Our principles</h2>
+        <h2 class="ent-eyebrow" id="principles-h">{{ g.principlesTitle }}</h2>
+        <p class="ent-body ent-principles-lede">{{ g.principlesLede }}</p>
         <ol class="ent-principles">
 {%- for p in g.principles %}
-          <li><h3>{{ p.title }}</h3>{% if p.body %}<p>{{ p.body }}</p>{% endif %}</li>
+          <li>
+            <h3>{{ p.title }}</h3>
+            <p>{{ p.body }}</p>
+            <p class="ent-decides"><b>Decides</b> {{ p.decides }}</p>
+          </li>
 {%- endfor %}
         </ol>
       </section>
