@@ -18,12 +18,10 @@ dedicated, standalone site for the product, at the site's root (`/`). See
 The founder repositioned the site on 2026-11-16:
 
 - `openshore.ai/` is **OpenShore for Enterprise**, a page for design partners
-  (`src/index.njk`, the light frame `ent-layout.njk`). It names no price and
-  no sign-up: the product is not available yet. `/about/` itself 301s to
+  (`src/index.njk`, the light frame `ent-layout.njk`), word for word the page
+  that sat at `/enterprise/` (founder: a one-to-one replica). `/about/` itself 301s to
   `/os-code/` (the pages under it stay). `/enterprise/` 301s to `/`;
-  the platform page, the tour and the promo film keep their addresses, and
-  the home shows the promo film as it did on /enterprise/, and its hero
-  links the platform page and its tour (behind the invited guests' sign-in).
+  the platform page, the tour and the promo film keep their addresses.
 - OpenShore for Enterprise has its own **Privacy Policy** (`/privacy/`),
   **Terms of Use** (`/terms/`) and **Support** (`/support/`), on the same
   frame (`src/ent-privacy.njk`, `ent-terms.njk`, `ent-support.njk`), linked

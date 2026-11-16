@@ -1,29 +1,26 @@
 ---
 layout: ent-layout.njk
 permalink: /
-pageTitle: "OpenShore for Enterprise · Every Team, Every Agent, Working as One"
-pageDescription: "OpenShore for Enterprise is one workspace where a growing startup's teams and AI workers work together, built for startups of about 50 to 300 people. Now looking for design partners."
+pageTitle: "OpenShore for Enterprise · The AI workspace for startups"
+pageDescription: "The AI workspace where a startup's team and expert AI workers run the company together, on the models it already uses, with a person approving every change. Coming in 2027. Now onboarding design partners."
 ---
-{#- The site's home (founder, 2026-11-16): OpenShore for Enterprise, as a
-    page for design partners, not a launch. It is not available yet, so this
-    page names no price, no sign-up and nothing beyond the vision. Written for
-    a startup founder, not a developer. The byline is the founder's locked
-    tagline, the one em dash scripts/check-copy.mjs lets through here. -#}
-      <section class="ent-hero ent-hero--home">
-        <h1 class="ent-product">OpenShore for Enterprise</h1>
-        <p class="ent-byline">Every Team — Every Agent. Working as <em>One</em>.</p>
-        <p class="ent-lede">One workspace where a startup’s teams and AI workers get the work done together. Built for growing startups, roughly 50 to 300 people, that need corporate functions they can’t afford to hire for yet.</p>
+{#- OpenShore for Enterprise (founder, 2026-11-10): the pitch and the ask.
+    The site's home since 2026-11-16, word for word as it was at /enterprise/
+    (founder: "a one-to-one replica"). How the product works is the platform
+    page (/enterprise/platform/), led by the product tour. The tagline's em
+    dash is the one scripts/check-copy.mjs lets through here. -#}
+{%- set contact = "jack@openshore.ai" -%}
+      <section class="ent-hero">
+        <p class="ent-badge"><span class="ent-dot" aria-hidden="true"></span>Coming in 2027 · Now onboarding design partners</p>
+        <h1>The AI workspace for startups</h1>
+        <p class="ent-lede">OpenShore is the workspace where a startup’s team and expert AI workers run the company together, so it can scale the business, not its headcount or its cap table.</p>
         <div class="ent-actions">
-          <a class="ent-btn ent-btn--primary" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Design partner: OpenShore for Enterprise' | urlencode }}">Become a design partner</a>
+          <a class="ent-btn ent-btn--primary" href="#design-partners">Become a design partner</a>
           <a class="ent-btn" href="/enterprise/platform/">Learn how the platform works <span aria-hidden="true">&rarr;</span></a>
         </div>
-        <p class="ent-note">The platform tour is open to design partners and invited guests. <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'Product tour login: OpenShore for Enterprise' | urlencode }}">Ask for a login.</a></p>
+        <p class="ent-note">The platform tour is open to design partners and invited guests. <a href="#design-partners">Ask for a login.</a></p>
       </section>
 
-      {#- The promo film, as it sat on /enterprise/ (founder, 2026-11-16: brought
-          back after the move). Open to anyone. The product tour is the hero's
-          second button, behind the invited guests' sign-in
-          (worker/enterpriseAccess.js). -#}
       <section class="ent-films" aria-label="The promo film">
         <a class="ent-film ent-film--wide" href="/enterprise/promo/">
           <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" />
@@ -33,31 +30,22 @@ pageDescription: "OpenShore for Enterprise is one workspace where a growing star
         <p class="ent-note">Opens full screen, with sound. Press P to pause.</p>
       </section>
 
-      <section class="ent-sec" aria-labelledby="pillars-h">
-        <h2 class="ent-eyebrow" id="pillars-h">How it works</h2>
-        <div class="ent-three">
-          <div class="ent-card">
-            <h3>Workers you message like teammates</h3>
-            <p>AI workers sit in your DMs and channels and fill the roles you can’t hire for yet. They work beside your people, not in place of them.</p>
-          </div>
-          <div class="ent-card">
-            <h3>One shared workspace</h3>
-            <p>Your teams, founders and AI workers work in one place, with one shared view of the customer and context that never gets lost.</p>
-          </div>
-          <div class="ent-card">
-            <h3>Your choice</h3>
-            <p>Bring your own tools, data, models and keys. OpenShore connects them.</p>
-          </div>
-        </div>
+      <section class="ent-sec" aria-labelledby="who-h">
+        <h2 class="ent-eyebrow" id="who-h">Who it’s for</h2>
+        <p class="ent-statement">Work is being reorganized around AI, and growing companies feel it first. They need revenue ops, finance and planning before they can afford to hire for them, while their people already use AI on their own, scattered across a dozen tools with no one steering it.</p>
+        <p class="ent-body">OpenShore brings it into one place. Your team and expert workers share the same chats and projects. You message a worker like an employee, it does the work with sources, and a person approves every change. It runs on whatever models the company already uses, on its own keys.</p>
+        <p class="ent-body">Our bet is that every company will soon divide its work between people and agents. Startups can build that way from day one, so we start there and grow with them.</p>
+        <p class="ent-statement">Every Team — Every Agent. Working as One.</p>
       </section>
 
-      <section class="ent-sec" aria-labelledby="mission-h">
-        <h2 class="ent-eyebrow" id="mission-h">Our mission</h2>
-        <p class="ent-statement">To be Earth’s most startup-obsessed company, building the workspaces and products that spark startup innovation and carry it to scale.</p>
-        <p class="ent-body">We win only when our customers win, so we grow with them.</p>
+      <section class="ent-sec" aria-labelledby="price-h">
+        <h2 class="ent-eyebrow" id="price-h">Pricing</h2>
+        <h3 class="ent-h">Priced per seat. No per-task billing.</h3>
+        <p class="ent-body">One plan covers every worker. Model usage runs on your own keys, with your provider. Full pricing comes with launch in 2027.</p>
       </section>
 
-      <section class="ent-sec ent-sec--last" aria-labelledby="partners-h">
-        <h2 class="ent-eyebrow" id="partners-h">Design partners</h2>
-        <p class="ent-body">We’re building OpenShore for Enterprise with a small group of startups. To talk about joining them, write to <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'Design partner: OpenShore for Enterprise' | urlencode }}">{{ site.enterpriseContact }}</a>.</p>
+      <section class="ent-cta" id="design-partners" aria-labelledby="cta-h">
+        <p class="ent-badge"><span class="ent-dot" aria-hidden="true"></span>Coming in 2027</p>
+        <h2 id="cta-h">Build the future of your business with us.</h2>
+        <p class="ent-lede">Now onboarding design partners. If you’re interested, email <a href="mailto:{{ contact }}?subject={{ 'OpenShore for Enterprise design partner' | urlencode }}">{{ contact }}</a>.</p>
       </section>
