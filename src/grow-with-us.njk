@@ -34,6 +34,7 @@ pageDescription: "Why OpenShore exists: our mission, the principles we build by,
 {%- for para in g.founder.paragraphs %}
             <p class="ent-body">{{ para }}</p>
 {%- endfor %}
+            {% if g.founder.linkedin %}<p class="ent-founder-links"><a href="{{ g.founder.linkedin }}" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&#8599;</span></a></p>{% endif %}
           </div>
         </div>
       </section>
