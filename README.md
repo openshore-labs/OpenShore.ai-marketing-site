@@ -21,7 +21,9 @@ The founder repositioned the site on 2026-11-16:
   (`src/index.njk`, the light frame `ent-layout.njk`). It names no price and
   no sign-up: the product is not available yet. `/about/` itself 301s to
   `/os-code/` (the pages under it stay). `/enterprise/` 301s to `/`;
-  the platform page, the tour and the promo film keep their addresses.
+  the platform page, the tour and the promo film keep their addresses, and
+  the home's See it section links the promo film and the product tour (the
+  tour behind the invited guests' sign-in).
 - OpenShore for Enterprise has its own **Privacy Policy** (`/privacy/`),
   **Terms of Use** (`/terms/`) and **Support** (`/support/`), on the same
   frame (`src/ent-privacy.njk`, `ent-terms.njk`, `ent-support.njk`), linked

@@ -135,7 +135,7 @@ export function lockedPage({ failed = false, username = '', next = '/enterprise/
     <input type="hidden" name="next" value="${esc(next)}" />
     <button class="ent-btn ent-btn--primary" type="submit">Sign in</button>
     <p class="ent-lock-ask">No login yet? Email <a href="mailto:jack@openshore.ai?subject=OpenShore%20for%20Enterprise%20product%20tour">jack@openshore.ai</a>.</p>
-    <a class="ent-back" href="/enterprise/"><span aria-hidden="true">&larr;</span> OpenShore for Enterprise</a>
+    <a class="ent-back" href="/"><span aria-hidden="true">&larr;</span> OpenShore for Enterprise</a>
   </form>
 </main>
 </body>
