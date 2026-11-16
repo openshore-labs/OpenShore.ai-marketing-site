@@ -39,4 +39,6 @@ export default {
   entTourPoster: rev("src/static/enterprise/tour-poster.jpg"),
   // The founder's photo on Grow with Us, once it is added.
   entFounder: rev("src/static/enterprise/founder.jpg"),
+  // The chart animation on Grow with Us.
+  entCharts: rev("src/static/enterprise/charts.js"),
 };
