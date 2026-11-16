@@ -20,7 +20,8 @@ export default {
   founder: {
     name: "Jack Bigelow",
     role: "Founder",
-    photo: false,
+    // From the founder's LinkedIn profile photo (2026-11-16), round as there.
+    photo: true,
     alt: "Jack Bigelow",
     linkedin: "https://www.linkedin.com/in/jackbigelow",
     paragraphs: [

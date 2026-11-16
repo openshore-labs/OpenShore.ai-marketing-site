@@ -226,15 +226,15 @@ main, .ent-top, .ent-foot {
 .ent-principles li::before { content: counter(p, decimal-leading-zero); font-size: 13px; font-weight: 650; letter-spacing: 0.08em; color: var(--sea); }
 .ent-principles h3 { font-size: 18px; font-weight: 650; line-height: 1.3; }
 .ent-principles p { font-size: 16px; line-height: 1.55; color: var(--ink-soft); }
-.ent-founder { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 36px; align-items: start; }
-.ent-founder-photo { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px; box-shadow: var(--shadow), 0 0 0 1px var(--rule); }
+.ent-founder { display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); gap: 40px; align-items: start; }
+.ent-founder-photo { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: var(--shadow), 0 0 0 1px var(--rule); }
 .ent-founder-text { display: flex; flex-direction: column; gap: 14px; }
 .ent-founder-role { font-size: 15px; font-weight: 600; color: var(--sea); margin-top: -8px; }
 .ent-founder:not(:has(.ent-founder-photo)) { grid-template-columns: minmax(0, 1fr); }
 @media (max-width: 760px) {
   .ent-principles { grid-template-columns: minmax(0, 1fr); }
   .ent-founder { grid-template-columns: minmax(0, 1fr); gap: 22px; }
-  .ent-founder-photo { max-width: 280px; }
+  .ent-founder-photo { max-width: 148px; }
 }
 /* The sign-in page carries the header and tabs above its card. */
 .ent-top--locked, .ent-tabs--locked { position: relative; z-index: 1; }
