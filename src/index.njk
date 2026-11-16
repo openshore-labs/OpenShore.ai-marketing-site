@@ -15,28 +15,23 @@ pageDescription: "OpenShore for Enterprise is one workspace where a growing star
         <p class="ent-lede">One workspace where a startup’s teams and AI workers get the work done together. Built for growing startups, roughly 50 to 300 people, that need corporate functions they can’t afford to hire for yet.</p>
         <div class="ent-actions">
           <a class="ent-btn ent-btn--primary" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Design partner: OpenShore for Enterprise' | urlencode }}">Become a design partner</a>
+          <a class="ent-btn" href="/enterprise/platform/">Learn how the platform works <span aria-hidden="true">&rarr;</span></a>
         </div>
+        <p class="ent-note">The platform tour is open to design partners and invited guests. <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'Product tour login: OpenShore for Enterprise' | urlencode }}">Ask for a login.</a></p>
       </section>
 
-      {#- The two films (founder, 2026-11-16: brought back after the move from
-          /enterprise/). The promo is open to anyone; the product tour sits
-          behind the invited guests' sign-in (worker/enterpriseAccess.js),
-          which returns the person to the tour. -#}
+      {#- The promo film, as it sat on /enterprise/ (founder, 2026-11-16: brought
+          back after the move). Open to anyone. The product tour is the hero's
+          second button, behind the invited guests' sign-in
+          (worker/enterpriseAccess.js). -#}
       <section class="ent-films" aria-labelledby="films-h">
         <h2 class="ent-eyebrow" id="films-h">See it</h2>
-        <div class="ent-film-grid">
-          <a class="ent-film" href="/enterprise/promo/">
-            <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" />
-            <span class="ent-film-meta"><b>OpenShore for Enterprise</b><span>In under three minutes</span></span>
-            <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
-          </a>
-          <a class="ent-film" href="/enterprise/tour/">
-            <img src="/enterprise/tour-poster.jpg?v={{ rev.entTourPoster }}" alt="" width="960" height="540" />
-            <span class="ent-film-meta"><b>The product tour</b><span>For design partners and invited guests</span></span>
-            <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
-          </a>
-        </div>
-        <p class="ent-note">Each opens full screen, with sound. Press P to pause. The tour asks for the sign-in we send to design partners; <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'Product tour login: OpenShore for Enterprise' | urlencode }}">ask for one</a>.</p>
+        <a class="ent-film ent-film--wide" href="/enterprise/promo/">
+          <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" />
+          <span class="ent-film-meta"><b>OpenShore for Enterprise</b><span>In under three minutes</span></span>
+          <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
+        </a>
+        <p class="ent-note">Opens full screen, with sound. Press P to pause.</p>
       </section>
 
       <section class="ent-sec" aria-labelledby="pillars-h">
