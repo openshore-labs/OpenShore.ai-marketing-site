@@ -26,6 +26,12 @@
 /app/             /os-code/app/   301
 /enterprise       /               301
 /enterprise/      /               301
+# The page that sat at /about/ (the personal product's home, 2026-11-07 to
+# 2026-11-16) is /os-code/ now, and the company About page was retired
+# (founder, 2026-11-16). Only /about/ itself moves: the pages under it
+# (privacy, terms, support and the tabs) keep their addresses.
+/about            /os-code/       301
+/about/           /os-code/       301
 
 # From 2026-11-07 openshore.ai/ was the web app and this site's pages moved
 # under /about/, where the personal product's privacy policy, terms and

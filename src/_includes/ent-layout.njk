@@ -1,9 +1,10 @@
-{#- The shared frame for OpenShore for Enterprise, the site's home (/), the
-    About page (/about/) and the platform page (/enterprise/platform/): its
+{#- The shared frame for OpenShore for Enterprise, the site's home (/), and
+    the platform page (/enterprise/platform/): its
     own small header, a strict same-origin policy, the light stylesheet, and
     the footer. No download or checkout runtime. The header leads with
     OpenShore for Enterprise; OS Code by OpenShore stays out of it and is
-    reached from the footer (founder, 2026-11-16). -#}
+    reached from the footer (founder, 2026-11-16). The company About page
+    was retired the same day: /about/ redirects to /os-code/. -#}
 <!doctype html>
 <html lang="en">
   <head>
@@ -42,7 +43,6 @@
         </svg>
         <span><b>OpenShore</b> for Enterprise</span>
       </a>
-      <nav aria-label="Primary"><a class="ent-toplink" href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a></nav>
     </header>
 
     <main>
@@ -51,7 +51,7 @@
 
     <footer class="ent-foot">
       <span>OpenShore is a product of <a href="{{ site.parentUrl }}">{{ site.parentName }}</a>.</span>
-      <span><a href="/about/">About</a> · <a href="/about/privacy/">Privacy</a> · <a href="/about/terms/">Terms</a></span>
+      <span><a href="/about/privacy/">Privacy</a> · <a href="/about/terms/">Terms</a></span>
     </footer>
     {% include "sitefoot.njk" %}
   </body>

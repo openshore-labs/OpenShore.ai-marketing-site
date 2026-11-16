@@ -19,8 +19,8 @@ The founder repositioned the site on 2026-11-16:
 
 - `openshore.ai/` is **OpenShore for Enterprise**, a page for design partners
   (`src/index.njk`, the light frame `ent-layout.njk`). It names no price and
-  no sign-up: the product is not available yet. `/about/` is a short page
-  about OpenShore, the company (`src/about.njk`). `/enterprise/` 301s to `/`;
+  no sign-up: the product is not available yet. `/about/` itself 301s to
+  `/os-code/` (the pages under it stay). `/enterprise/` 301s to `/`;
   the platform page, the tour and the promo film keep their addresses.
 - `openshore.ai/os-code/` is **OS Code by OpenShore**, the free personal
   coding agent (`src/os-code.njk`, the dark frame `base.njk`), always by its
