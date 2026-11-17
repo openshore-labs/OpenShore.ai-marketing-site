@@ -14,7 +14,7 @@ export default {
   mission:
     "To be the world’s best place for people and AI to work together, connecting every company to the tools and expertise it needs to grow.",
   missionLine:
-    "We start with startups, because they’ll be the first to work this way. We build with them and for them, and we grow as they grow.",
+    "We start with startups because they’ll build that future first. We build it with them and for them, and we grow as they grow.",
 
   // The Growth Principles: from the business plan, Appendix A (founder,
   // 2026-11-16; the plan calls them Business Principles). The second was
