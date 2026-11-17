@@ -51,31 +51,35 @@ pageDescription: "The AI workspace where a startup's team and expert AI workers 
           <figure class="ent-chart">
             <figcaption class="ent-chart-title">The scaling points are predictable <button class="ent-replay" type="button" hidden aria-label="Replay the chart">Replay</button></figcaption>
             <div class="ent-chart-frame">
-              <svg viewBox="0 0 640 320" role="img" aria-labelledby="c1-t c1-d" data-stops="254:1700:1100,456:1500:700,612:1100:500" data-morph="1100">
+              <svg viewBox="0 0 640 320" role="img" aria-labelledby="c1-t c1-d" data-stops="254:1500:700,456:1500:800,612:1100:500" data-snaps="1000:1700,1000:0">
                 <title id="c1-t">Phases of growth</title>
-                <desc id="c1-d">A company grows through three phases, creativity, direction and delegation. Usually growth breaks at a crisis of leadership between the first two and a crisis of autonomy between the last two, shown as faint dips. A marker on the first crisis reads: where we come in. From there the line climbs straight through both crises, and an arrow from the marker to the second crisis reads: delegation built in.</desc>
+                <desc id="c1-d">A company grows through three phases, creativity, direction and delegation. Usually growth breaks at a crisis of leadership between the first two and a crisis of autonomy between the last two, and at each break a company can stall or fail. A marker on the first crisis reads: where we come in. From there the line climbs straight through both crises, with the usual breaks left as faint dips, and an arrow from the marker to the second crisis reads: avoided, delegation built in.</desc>
                 <line class="c-guide c-rv" data-x="262" x1="270" y1="36" x2="270" y2="272" />
                 <line class="c-guide c-rv" data-x="448" x1="456" y1="36" x2="456" y2="272" />
                 <line class="c-axis" x1="30" y1="274" x2="620" y2="274" />
-                <path class="c-ghost" data-after d="M44 256 Q170 244 254 194 L266 214 L279 178 L292 189 L442 124 L452 144 L464 110 L476 120 L612 58" />
-                <path class="c-line c-draw" data-from="M44 256 Q170 244 254 194 L266 214 L279 178 L292 189 L442 124 L452 144 L464 110 L476 120 L612 58" d="M44 256 Q170 244 254 194 L266 189.4 L279 184.5 L292 179.6 L442 122.6 L452 118.8 L464 114.2 L476 109.7 L612 58" />
+                <path class="c-collapse c-rv" data-x="266" data-fade="1" d="M266 214 C278 238 298 258 326 268" />
+                <text class="c-collapse-label c-rv c-pop" data-x="266" data-fade="1" x="332" y="264">stall or fail</text>
+                <path class="c-collapse c-rv" data-x="452" data-fade="2" d="M452 144 C462 182 482 240 510 268" />
+                <text class="c-collapse-label c-rv c-pop" data-x="452" data-fade="2" x="516" y="264">stall or fail</text>
+                <path class="c-ghost" data-snap="1" d="M44 256 Q170 244 254 194 L266 214 L279 178 L292 189 L442 124 L452 144 L464 110 L476 120 L612 58" />
+                <path class="c-line c-draw" data-shapes="M44 256 Q170 244 254 194 L266 214 L279 178 L292 189 L442 124 L452 144 L464 110 L476 120 L612 58|M44 256 Q170 244 254 194 L266 189.5 L279 184.7 L292 179.9 L442 124 L452 144 L464 110 L476 120 L612 58" d="M44 256 Q170 244 254 194 L266 189.4 L279 184.5 L292 179.6 L442 122.6 L452 118.8 L464 114.2 L476 109.7 L612 58" />
                 <text class="c-crisis c-rv c-pop" data-x="252" x="274" y="124" text-anchor="middle">crisis of leadership</text>
                 <text class="c-note c-rv c-pop" data-x="450" x="452" y="80" text-anchor="middle">crisis of autonomy</text>
-                <line class="c-leader c-rv c-late" data-x="252" x1="190" y1="176" x2="242" y2="190" />
-                <text class="c-mark c-rv c-pop c-late" data-x="252" x="186" y="172" text-anchor="end">Where we come in</text>
-                <circle class="c-ripple" data-x="252" cx="254" cy="194" r="13" />
-                <circle class="c-halo c-rv" data-x="252" cx="254" cy="194" r="13" />
-                <circle class="c-dot c-rv" data-x="252" cx="254" cy="194" r="6" />
-                                <path class="c-arc" data-after pathLength="1" d="M262 205 Q356 262 449 135" />
-                <path class="c-arrowhead" data-after d="M440.5 137.9 L449 135 L448.8 144" />
-                <text class="c-arc-label c-rv c-pop" data-after x="356" y="246" text-anchor="middle">delegation built in</text>
-                <circle class="c-ripple c-ripple--again" data-after cx="254" cy="194" r="13" />
+                <line class="c-leader c-rv c-late" data-snap="1" x1="190" y1="176" x2="242" y2="190" />
+                <text class="c-mark c-rv c-pop c-late" data-snap="1" x="186" y="172" text-anchor="end">Where we come in</text>
+                <circle class="c-ripple" data-snap="1" cx="254" cy="194" r="13" />
+                <circle class="c-halo c-rv" data-snap="1" cx="254" cy="194" r="13" />
+                <circle class="c-dot c-rv" data-snap="1" cx="254" cy="194" r="6" />
+                <circle class="c-ripple c-ripple--again" data-snap="2" cx="254" cy="194" r="13" />
+                <path class="c-arc" data-snap="2" pathLength="1" d="M262 205 Q356 262 449 135" />
+                <path class="c-arrowhead c-rv" data-snap="2" d="M440.5 137.9 L449 135 L448.8 144" />
+                <text class="c-arc-label c-rv c-pop" data-snap="2" x="360" y="250" text-anchor="middle">Avoided: delegation built in</text>
                 <text class="c-phase c-dim" data-x="44" x="150" y="302" text-anchor="middle">CREATIVITY</text>
                 <text class="c-phase c-dim" data-x="270" x="363" y="302" text-anchor="middle">DIRECTION</text>
                 <text class="c-phase c-dim" data-x="456" x="540" y="302" text-anchor="middle">DELEGATION</text>
               </svg>
             </div>
-            <p class="ent-body">Growth arrives in phases, and each phase ends in a predictable crisis. Age runs left to right, company size runs up. The first crisis is leadership: the founder-led phase ends when the founders become the constraint. The way through is direction, where management structure, systems and standards go in, and delegation follows once those standards exist. That first crisis is where the startups we build for are, and it is where OpenShore comes in. Greiner’s study shows each fix sets up the next crisis: the control that ends the crisis of leadership is what sparks the crisis of autonomy. OpenShore puts direction in with delegation built in, where people and workers act within approvals the founder can see, so both breaks can become one steady climb.</p>
+            <p class="ent-body">Growth arrives in phases, and each phase ends in a predictable crisis. Age runs left to right, company size runs up. Each crisis is a fork: get through it and growth carries on, get stuck and the company stalls, or worse. The first is leadership: the founder-led phase ends when the founders become the constraint, and the way through is direction, where structure, systems and standards go in. Greiner’s study shows each fix sets up the next crisis: the control that ends the crisis of leadership is what sparks the crisis of autonomy. That first crisis is where the startups we build for are, and where OpenShore comes in. It puts direction in with delegation built in, where people and workers act within approvals the founder can see, so both breaks can become one steady climb.</p>
           </figure>
           <figure class="ent-chart">
             <figcaption class="ent-chart-title">Waiting costs more every month <span class="ent-tag">Illustrative</span> <button class="ent-replay" type="button" hidden aria-label="Replay the chart">Replay</button></figcaption>

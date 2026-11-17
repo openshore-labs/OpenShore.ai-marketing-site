@@ -336,10 +336,17 @@ main, .ent-top, .ent-foot {
 .c-arc { fill: none; stroke: var(--sea); stroke-width: 1.6; }
 .c-arrowhead { fill: none; stroke: var(--sea); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .c-arc-label { font-size: 15px; font-weight: 600; fill: var(--sea); }
-.c-anim [data-after]:not(.c-arc):not(.c-ripple) { opacity: 0; transition: opacity 700ms ease 200ms, transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1) 200ms; }
-.c-anim [data-after].on:not(.c-arc):not(.c-ripple) { opacity: 1; }
+.c-anim [data-snap]:not(.c-arc):not(.c-ripple):not(.c-rv) { opacity: 0; transition: opacity 700ms ease 200ms, transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1) 200ms; }
+.c-anim [data-snap].on:not(.c-arc):not(.c-ripple):not(.c-rv) { opacity: 1; }
 .c-anim .c-arc { stroke-dasharray: 1 1; stroke-dashoffset: 1; opacity: 0; transition: stroke-dashoffset 1100ms cubic-bezier(0.4, 0, 0.2, 1) 350ms, opacity 200ms ease 350ms; }
 .c-anim .c-arc.on { stroke-dashoffset: 0; opacity: 1; }
 .c-anim .c-arc-label.on, .c-anim .c-arrowhead.on { transition-delay: 1300ms; }
 .c-ripple--again { stroke: var(--sea); }
 .c-anim .c-ripple--again.on { animation: c-ripple 1.3s cubic-bezier(0.2, 0.7, 0.3, 1) 1; }
+
+/* The forks where a company can stall or fail (2026-11-17). They appear as
+   the line breaks and leave as each break snaps straight; the finished
+   picture, and the page without the script, does not show them. */
+.c-collapse { fill: none; stroke: #9a5f36; stroke-width: 1.8; stroke-dasharray: 2 5; stroke-linecap: round; opacity: 0; }
+.c-collapse-label { font-size: 13.5px; font-weight: 600; fill: #9a5f36; opacity: 0; }
+.c-anim .c-rv.gone { opacity: 0; transition: opacity 500ms ease; transition-delay: 0ms; }
