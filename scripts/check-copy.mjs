@@ -51,9 +51,8 @@ const WEB_APP_DIRS = new Set([join(WEB_APP, 'assets'), join(WEB_APP, 'app-icons'
 // written in exactly that case; the match is case-sensitive, so any other
 // spelling fails here. Any other em dash on those pages fails too.
 // Since 2026-11-16 the Enterprise page is the site's home (/), whose byline
-// is the tagline, and /enterprise/ redirects there. Grow with Us (/grow-with-us/)
-// closes its sixth Growth Principle with it (founder, 2026-11-16).
-const FILM_PAGES = new Set([join(ROOT, 'enterprise', 'promo', 'index.html'), join(ROOT, 'enterprise', 'tour', 'index.html'), join(ROOT, 'index.html'), join(ROOT, 'grow-with-us', 'index.html')]);
+// is the tagline, and /enterprise/ redirects there.
+const FILM_PAGES = new Set([join(ROOT, 'enterprise', 'promo', 'index.html'), join(ROOT, 'enterprise', 'tour', 'index.html'), join(ROOT, 'index.html')]);
 const TAGLINE = /Every Team \u2014 Every Agent\.|>\u2014<\/span>/g;
 
 function walk(dir) {

@@ -17,8 +17,9 @@ export default {
   // rewritten for the site on 2026-11-17 (founder): stay close, feedback
   // loops, prove it, then scale it to customers with the same need. The six
   // turn as one flywheel. Each keeps its tie-breaking line (decides) from the
-  // plan, not shown on the site (founder, 2026-11-17). The
-  // sixth closes on the founder's tagline, the em dash the copy gate allows.
+  // plan, not shown on the site (founder, 2026-11-17). Working as one was
+  // rewritten as a belief about people and AI and moved above Private by
+  // default (founder, 2026-11-17).
   principlesTitle: "Growth Principles",
   principlesLede:
     "Six principles guide every decision at OpenShore, from what we build to who we hire. Each one starts with the customer and feeds the next, so together they turn a flywheel of continuous growth, for our customers and for us.",
@@ -44,14 +45,14 @@ export default {
       decides: "Before anything ships, we ask whether it keeps the customer free to change their mind.",
     },
     {
+      title: "Working as one.",
+      body: "The future of work is people and AI together, but people still make the company. We design every part of OpenShore so teams and AI work side by side seamlessly. AI is a tool that sharpens our customers’ thinking, never a replacement for it, so their judgment, relationships and ideas stay at the center of the business.",
+      decides: "When a feature trades team autonomy against founder visibility, we redesign it until it gives both.",
+    },
+    {
       title: "Private by default.",
       body: "Some customers lead with privacy, and others haven’t thought about where their customer data goes. Both get the same high bar. Their data stays in their own cloud with their keys, nothing moves without their yes, and every action is in plain view. The strictest setting is the default, so the customer who doesn’t ask is protected too.",
       decides: "When convenience and protection conflict, we protect the customer’s business.",
-    },
-    {
-      title: "Working as one.",
-      body: "We build human and AI communication into one platform. Founders, teams and AI teammates share the same chats, projects and approvals, in tight circles with fast feedback. The agent inventory shows every piece of work, by people and agents, in one place. Every Team — Every Agent. Working as One.",
-      decides: "When a feature trades team autonomy against founder visibility, we redesign it until it gives both.",
     },
   ],
 
