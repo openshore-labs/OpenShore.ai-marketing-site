@@ -8,11 +8,13 @@
 //   founder     name, role, paragraphs (strings), and photo once the file is at
 //               src/static/enterprise/founder.jpg (set photo: true, and alt)
 export default {
-  // The mission (founder, 2026-11-17).
+  // The mission (founder, 2026-11-17), written from a study of the fastest-
+  // growing companies' missions and how HBS teaches mission writing: an
+  // Amazon-style ambition, then the concrete promise underneath it.
   mission:
-    "To shape how the world works next: people and AI building together, with people at the center.",
+    "To be the world’s best place for people and AI to work together, connecting every company to the tools and expertise it needs to grow.",
   missionLine:
-    "We start with startups because they’ll build that future first. We build it with them and for them, and we grow as they grow.",
+    "We start with startups, because they’ll be the first to work this way. We build with them and for them, and we grow as they grow.",
 
   // The Growth Principles: from the business plan, Appendix A (founder,
   // 2026-11-16; the plan calls them Business Principles). The second was
