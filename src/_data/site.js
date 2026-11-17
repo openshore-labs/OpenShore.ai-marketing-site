@@ -25,8 +25,9 @@ export default {
   enterpriseContact: "jack@openshore.ai",
 
   // General availability, stated once on the site, in Pricing (founder,
-  // 2026-11-17). FOUNDER TO FILL IN before this ships, e.g. "Q2 2027".
-  gaTarget: "[GA target: fill in]",
+  // 2026-11-17). Founder to fill in, e.g. "Q2 2027"; while it is empty the
+  // sentence is left off the page rather than showing a placeholder.
+  gaTarget: "",
 
   // The parent company's site, credited from the OpenShore header and footer.
   parentUrl: "https://openshorellc.com",

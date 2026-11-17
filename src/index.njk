@@ -117,7 +117,7 @@ pageDescription: "Every company will run on people and AI. OpenShore is the work
       <section class="ent-sec" aria-labelledby="price-h">
         <h2 class="ent-eyebrow" id="price-h">Pricing</h2>
         <h3 class="ent-h">Packages sized to your team.</h3>
-        <p class="ent-body">Plans scale with the size of your team, and some services, like ticket triage, are priced by the work done. Your AI usage runs on your own model keys and is billed by your provider at cost. We never mark it up. Design partners see the packages first. General availability: {{ site.gaTarget }}.</p>
+        <p class="ent-body">Plans scale with the size of your team, and some services, like ticket triage, are priced by the work done. Your AI usage runs on your own model keys and is billed by your provider at cost. We never mark it up. Design partners see the packages first.{% if site.gaTarget %} General availability: {{ site.gaTarget }}.{% endif %}</p>
         <div class="ent-actions">
           <a class="ent-btn" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Pricing: OpenShore for Enterprise' | urlencode }}">Ask about pricing <span aria-hidden="true">&rarr;</span></a>
         </div>
