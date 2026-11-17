@@ -343,3 +343,7 @@ main, .ent-top, .ent-foot {
 .c-anim .c-arc-label.on, .c-anim .c-arrowhead.on { transition-delay: 1300ms; }
 .c-ripple--again { stroke: var(--sea); }
 .c-anim .c-ripple--again.on { animation: c-ripple 1.3s cubic-bezier(0.2, 0.7, 0.3, 1) 1; }
+
+/* The hero's headline and its why line (2026-11-17). */
+.ent-hero .ent-h1--wide { max-width: 16ch; }
+.ent-hero-why { max-width: 60ch; margin-top: -6px; }
