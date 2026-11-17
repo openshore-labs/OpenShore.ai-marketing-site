@@ -46,7 +46,7 @@ export default {
     },
     {
       title: "Working as one.",
-      body: "The future of work is people and AI together, but people still make the company. We design every part of OpenShore so teams and AI work side by side seamlessly. AI is a tool that sharpens our customers’ thinking, never a replacement for it, so their judgment, relationships and ideas stay at the center of the business.",
+      body: "The future of work is people and AI together, but people still make the company. We build to enable teams and AI to work side by side seamlessly. AI is a tool that sharpens our customers’ thinking, never a replacement for it, so their judgment, relationships and ideas stay at the center of the business.",
       decides: "When a feature trades team autonomy against founder visibility, we redesign it until it gives both.",
     },
     {
