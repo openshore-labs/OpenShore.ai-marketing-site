@@ -34,8 +34,8 @@ export default {
     },
     {
       title: "Be creative.",
-      body: "We make it a priority to think deeply and have fun doing it. Our creative spirit gives what we deliver an identity no one can replicate. Every lower price and new solution feeds the energy and fulfillment in the work we do. It’s magnetic, and our customers feel it.",
-      decides: "Before we accept the usual way, we try a new one.",
+      body: "We make it a priority to think deeply and have fun doing it. We own what we make and put our stamp on it, and that creative spirit gives what we deliver an identity no one can replicate. Every lower price and new solution feeds the energy and fulfillment in the work we do. It’s magnetic, and our customers feel it.",
+      decides: "We don’t ship it until we’re proud of it and it carries our stamp.",
     },
     {
       title: "Build for choice.",
