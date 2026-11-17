@@ -18,12 +18,8 @@ dedicated, standalone site for the product, at the site's root (`/`). See
 The founder repositioned the site on 2026-11-16:
 
 - `openshore.ai/` is **OpenShore for Enterprise**, a page for design partners
-  first and investors second (`src/index.njk`, the light frame
-  `ent-layout.njk`). Revised 2026-11-17: the hero leads with the thesis, Who
-  it's for names companies whose business isn't software, The workers
-  (`_includes/ent-workers.njk`) shows four phase 1 workers and a labelled,
-  static product preview, and general availability is stated once, in
-  Pricing, from `gaTarget` in `src/_data/site.js`. `/about/` itself 301s to
+  (`src/index.njk`, the light frame `ent-layout.njk`), word for word the page
+  that sat at `/enterprise/` (founder: a one-to-one replica). `/about/` itself 301s to
   `/os-code/` (the pages under it stay). `/enterprise/` 301s to `/`;
   the platform page, the tour and the promo film keep their addresses.
 - Under the Enterprise header sit three tabs (`src/_data/entTabs.js`):
