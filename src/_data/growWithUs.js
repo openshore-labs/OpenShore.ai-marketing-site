@@ -12,8 +12,10 @@ export default {
     "To be Earth’s most startup-obsessed company, building the workspaces and products that spark startup innovation and carry it to scale.",
   missionLine: "We win only when our customers win, so we grow with them.",
 
-  // The Growth Principles: word for word from the business plan, Appendix A
-  // (founder, 2026-11-16; the plan calls them Business Principles). The six
+  // The Growth Principles: from the business plan, Appendix A (founder,
+  // 2026-11-16; the plan calls them Business Principles). The second was
+  // rewritten for the site on 2026-11-17 (founder): stay close, feedback
+  // loops, prove it, then scale it to customers with the same need. The six
   // turn as one flywheel; each ends with the line that breaks a tie. The
   // sixth closes on the founder's tagline, the em dash the copy gate allows.
   principlesTitle: "Growth Principles",
@@ -27,7 +29,7 @@ export default {
     },
     {
       title: "Build together.",
-      body: "We build as one team, and every customer is part of it. We treat each one as a design partner, experimenting continuously and listening rigorously to deliver exactly what they need. No two businesses are alike, but every success becomes a standard we can build and share with the next.",
+      body: "We build as one team, and every customer is part of it. We stay close to each one, treat them as a design partner and build tight feedback loops, so what we deliver is exactly what their business needs. Once a solution has proven itself, we find the customers who share that need and scale it to them. No two businesses are alike, but every success becomes a standard we can share with the next.",
       decides: "When we’re unsure, we test it with a customer before we build it for everyone.",
     },
     {
