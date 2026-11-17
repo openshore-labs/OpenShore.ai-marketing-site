@@ -12,7 +12,7 @@ export default {
   // growing companies' missions and how HBS teaches mission writing: an
   // Amazon-style ambition, then the concrete promise underneath it.
   mission:
-    "To be the world’s best place for people and AI to work together, connecting every company to the tools and expertise it needs to grow.",
+    "To build the world’s best products for people and AI working together, connecting every company to the tools and expertise it needs to scale.",
   missionLine:
     "We believe startups will build the future of work, so that’s where we focus. We think like one too: we build with them and for them, and we grow as they grow.",
 
