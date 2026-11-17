@@ -37,6 +37,9 @@ export default {
   entCss: rev("src/static/enterprise/enterprise.css"),
   entPromoPoster: rev("src/static/enterprise/promo-poster.jpg"),
   entTourPoster: rev("src/static/enterprise/tour-poster.jpg"),
+  // The link-preview image for the Enterprise pages (2026-11-17): the film's
+  // title frame without "for Startups".
+  entOg: rev("src/static/enterprise/og-enterprise.jpg"),
   // The founder's photo on Grow with Us, once it is added.
   entFounder: rev("src/static/enterprise/founder.jpg"),
   // The chart animation on Grow with Us.
