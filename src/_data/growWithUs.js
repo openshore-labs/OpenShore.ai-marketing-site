@@ -8,9 +8,11 @@
 //   founder     name, role, paragraphs (strings), and photo once the file is at
 //               src/static/enterprise/founder.jpg (set photo: true, and alt)
 export default {
+  // The mission (founder, 2026-11-17).
   mission:
-    "To be Earth’s most startup-obsessed company, building the workspaces and products that spark startup innovation and carry it to scale.",
-  missionLine: "We win only when our customers win, so we grow with them.",
+    "To shape how the world works next: people and AI building together, with people at the center.",
+  missionLine:
+    "We start with startups because they’ll build that future first. We build it with them and for them, and we grow as they grow.",
 
   // The Growth Principles: from the business plan, Appendix A (founder,
   // 2026-11-16; the plan calls them Business Principles). The second was

@@ -13,7 +13,7 @@ export default {
   // The site's home is OpenShore for Enterprise (founder, 2026-11-16); a page
   // with no description of its own falls back to this one.
   metaDescription:
-    "OpenShore for Enterprise is one workspace where a growing startup's teams and AI workers work together. Now looking for design partners.",
+    "Every company will run on people and AI. OpenShore for Enterprise is the workspace where your team and expert AI workers run the company together. Now piloting with design partners.",
 
   // The free personal coding agent's name and page (founder, 2026-11-16):
   // always the full name. Every page's footer links to it.
@@ -23,6 +23,10 @@ export default {
 
   // The design-partner address, the one the Enterprise pages have used.
   enterpriseContact: "jack@openshore.ai",
+
+  // General availability, stated once on the site, in Pricing (founder,
+  // 2026-11-17). FOUNDER TO FILL IN before this ships, e.g. "Q2 2027".
+  gaTarget: "[GA target: fill in]",
 
   // The parent company's site, credited from the OpenShore header and footer.
   parentUrl: "https://openshorellc.com",

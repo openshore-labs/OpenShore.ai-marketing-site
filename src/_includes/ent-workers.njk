@@ -1,0 +1,91 @@
+{#- The workers (founder, 2026-11-17): the one section the revision adds,
+    right after Who it's for. Four of the phase 1 workers (the plan's RevOps,
+    Finance and Planning, Supply chain, and Performance Analytics packs), each
+    with one example request, then how a request moves: Ask, Work, Approve.
+
+    The preview is a static mock, not a screenshot: the app has no worker
+    chats or approvals to capture yet, so it is built here in the app's own
+    colours and labelled "Product preview", with made-up names and figures.
+    It shows only what the phase 1 plan builds: an @mention in a chat, a
+    worker's answer with its sources, and a change that waits for a person's
+    approval, with every action logged. -#}
+      <section class="ent-sec" aria-labelledby="workers-h">
+        <p class="ent-eyebrow">The workers</p>
+        <h2 class="ent-h" id="workers-h">Expert workers for the jobs you can’t hire for yet.</h2>
+        <p class="ent-body">Each worker is set up by OpenShore’s experts for one business function. You message it like a teammate, it does the work with sources, and a person approves every change.</p>
+
+        <ul class="ent-wcards">
+          <li class="ent-wcard">
+            <h3>Revenue Ops</h3>
+            <p class="ent-wcard-ex">Example request</p>
+            <p class="ent-wcard-q">“Build Monday’s pipeline review from the CRM and flag deals at risk.”</p>
+          </li>
+          <li class="ent-wcard">
+            <h3>Finance &amp; Planning</h3>
+            <p class="ent-wcard-ex">Example request</p>
+            <p class="ent-wcard-q">“Roll the forecast forward and explain what changed.”</p>
+          </li>
+          <li class="ent-wcard">
+            <h3>Supply Chain &amp; Logistics</h3>
+            <p class="ent-wcard-ex">Example request</p>
+            <p class="ent-wcard-q">“Match inventory to open orders and flag shortfalls.”</p>
+          </li>
+          <li class="ent-wcard">
+            <h3>Performance &amp; Analytics</h3>
+            <p class="ent-wcard-ex">Example request</p>
+            <p class="ent-wcard-q">“Turn last quarter into a board-ready summary, every figure sourced.”</p>
+          </li>
+        </ul>
+
+        <ol class="ent-steps" aria-label="How a request works">
+          <li><span class="ent-step-n" aria-hidden="true">1</span><h3>Ask</h3><p>@mention a worker in any chat or project.</p></li>
+          <li><span class="ent-step-n" aria-hidden="true">2</span><h3>Work</h3><p>It pulls from connected systems and shows its sources.</p></li>
+          <li><span class="ent-step-n" aria-hidden="true">3</span><h3>Approve</h3><p>Nothing changes until a person signs off, and every action is logged.</p></li>
+        </ol>
+
+        <figure class="ent-preview">
+          <figcaption class="ent-preview-cap"><span class="ent-tag">Product preview</span><span>Names and figures are made up.</span></figcaption>
+          <div class="pv" role="img" aria-label="Product preview: in the sales channel, Maya asks the Revenue Ops worker for Monday's pipeline review. The worker answers with three deals at risk and its sources. It proposes moving two close dates, which waits for Dana, the Revenue Ops owner, to approve, and notes that every action is logged.">
+            <div class="pv-bar" aria-hidden="true">
+              <span class="pv-dots"><i></i><i></i><i></i></span>
+              <span class="pv-chan"># sales</span>
+              <span class="pv-people">Maya, Dana and the Revenue Ops worker</span>
+            </div>
+            <div class="pv-thread" aria-hidden="true">
+              <div class="pv-msg">
+                <span class="pv-step">1</span>
+                <span class="pv-av">MC</span>
+                <div class="pv-body">
+                  <p class="pv-name">Maya Chen <span>9:02</span></p>
+                  <p><span class="pv-mention">@Revenue Ops</span> Build Monday’s pipeline review from the CRM and flag deals at risk.</p>
+                </div>
+              </div>
+              <div class="pv-msg">
+                <span class="pv-step">2</span>
+                <span class="pv-av pv-av--worker"><svg viewBox="0 0 32 32" width="18" height="18"><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2.4" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#7fb8c8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></g></svg></span>
+                <div class="pv-body">
+                  <p class="pv-name">Revenue Ops <span class="pv-badge">Worker</span> <span>9:03</span></p>
+                  <p>Monday’s review is ready. 3 of 41 open deals are at risk:</p>
+                  <ul class="pv-list">
+                    <li><b>Northwind Foods</b> $48,000 · close date passed</li>
+                    <li><b>Harbor Supply</b> $31,500 · no reply in 16 days</li>
+                    <li><b>Kestrel Goods</b> $22,000 · buyer changed roles</li>
+                  </ul>
+                  <p class="pv-sources"><span>CRM · Deals</span><span>CRM · Activity</span><span>Q4 plan</span></p>
+                </div>
+              </div>
+              <div class="pv-msg pv-msg--card">
+                <span class="pv-step">3</span>
+                <div class="pv-card">
+                  <p class="pv-card-head"><b>Proposed change</b> Move 2 close dates to next quarter</p>
+                  <p class="pv-diff"><span>Northwind Foods</span><s>Nov 14</s><span class="pv-arrow">&rarr;</span><b>Jan 9</b></p>
+                  <p class="pv-diff"><span>Harbor Supply</span><s>Nov 21</s><span class="pv-arrow">&rarr;</span><b>Jan 16</b></p>
+                  <p class="pv-wait">Waiting for Dana Reyes, Revenue Ops owner</p>
+                  <p class="pv-actions"><span class="pv-btn pv-btn--primary">Approve</span><span class="pv-btn">Review</span></p>
+                  <p class="pv-log">Nothing changes until it’s approved. Every action is logged.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </section>
