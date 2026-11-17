@@ -6,9 +6,11 @@
     The preview is a static mock, not a screenshot: the app has no worker
     chats or approvals to capture yet, so it is built here in the app's own
     colours and labelled "Product preview", with made-up names and figures.
-    It shows only what the phase 1 plan builds: an @mention in a chat, a
-    worker's answer with its sources, and a change that waits for a person's
-    approval, with every action logged. -#}
+    The scene is the founder's own (his investor one-pager, 2026-11-12, and
+    the plan's demo hero): a commission that came up short, fixed in the
+    sales channel. It shows only what the phase 1 plan builds: the desktop's
+    rooms, an @mention, a worker's proposal with its checks, the Revenue Ops
+    owner's approval (pay changes need it), and every action logged. -#}
       <section class="ent-sec" aria-labelledby="workers-h">
         <p class="ent-eyebrow">The workers</p>
         <h2 class="ent-h" id="workers-h">Expert workers for the jobs you can’t hire for yet.</h2>
@@ -45,47 +47,66 @@
 
         <figure class="ent-preview">
           <figcaption class="ent-preview-cap"><span class="ent-tag">Product preview</span><span>Names and figures are made up.</span></figcaption>
-          <div class="pv" role="img" aria-label="Product preview: in the sales channel, Maya asks the Revenue Ops worker for Monday's pipeline review. The worker answers with three deals at risk and its sources. It proposes moving two close dates, which waits for Dana, the Revenue Ops owner, to approve, and notes that every action is logged.">
+          <div class="pv" role="img" aria-label="Product preview of the desktop app. In the sales channel, Maya says her October commission looks 2,140 dollars short and asks the RevOps worker to check. The worker finds the deal is in her territory but booked to someone else, and proposes rebooking it, which needs Dana, the head of revenue, to approve. The proposal shows its checks: territory rule, comp plan rate, math run in code, and logged. Dana approves, and the worker confirms Maya's October statement is up 2,140 dollars. Asked at 10:02, fixed at 10:04.">
             <div class="pv-bar" aria-hidden="true">
               <span class="pv-dots"><i></i><i></i><i></i></span>
-              <span class="pv-chan"># sales</span>
-              <span class="pv-people">Maya, Dana and the Revenue Ops worker</span>
+              <span class="pv-search">Search Alder &amp; Pine</span>
             </div>
-            <div class="pv-thread" aria-hidden="true">
-              <div class="pv-msg">
-                <span class="pv-step">1</span>
-                <span class="pv-av">MC</span>
-                <div class="pv-body">
-                  <p class="pv-name">Maya Chen <span>9:02</span></p>
-                  <p><span class="pv-mention">@Revenue Ops</span> Build Monday’s pipeline review from the CRM and flag deals at risk.</p>
-                </div>
+            <div class="pv-app" aria-hidden="true">
+              <div class="pv-side">
+                <p class="pv-org"><b>OpenShore</b><span>Alder &amp; Pine</span></p>
+                <p class="pv-nav pv-nav--on">Chats</p><p class="pv-nav">Projects</p><p class="pv-nav">Tasks</p><p class="pv-nav">Workflows</p><p class="pv-nav">Reports</p><p class="pv-nav">Dashboards</p>
+                <p class="pv-group">Channels</p>
+                <p class="pv-nav pv-nav--chan">sales</p><p class="pv-nav">finance</p><p class="pv-nav">cedar-grove</p>
+                <p class="pv-group">Direct messages</p>
+                <p class="pv-nav"><span class="pv-dm"></span>Dana Reyes</p>
+                <p class="pv-nav"><span class="pv-dm pv-dm--w"><svg viewBox="0 0 32 32" width="12" height="12"><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="3" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#7fb8c8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></g></svg></span>RevOps <span class="pv-badge">Worker</span></p>
+                <p class="pv-nav"><span class="pv-dm pv-dm--w"><svg viewBox="0 0 32 32" width="12" height="12"><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="3" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#7fb8c8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></g></svg></span>Finance <span class="pv-badge">Worker</span></p>
               </div>
-              <div class="pv-msg">
-                <span class="pv-step">2</span>
-                <span class="pv-av pv-av--worker"><svg viewBox="0 0 32 32" width="18" height="18"><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2.4" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#7fb8c8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></g></svg></span>
-                <div class="pv-body">
-                  <p class="pv-name">Revenue Ops <span class="pv-badge">Worker</span> <span>9:03</span></p>
-                  <p>Monday’s review is ready. 3 of 41 open deals are at risk:</p>
-                  <ul class="pv-list">
-                    <li><b>Northwind Foods</b> $48,000 · close date passed</li>
-                    <li><b>Harbor Supply</b> $31,500 · no reply in 16 days</li>
-                    <li><b>Kestrel Goods</b> $22,000 · buyer changed roles</li>
-                  </ul>
-                  <p class="pv-sources"><span>CRM · Deals</span><span>CRM · Activity</span><span>Q4 plan</span></p>
+              <div class="pv-main">
+                <div class="pv-head"><b># sales</b><span>9 people, 2 workers</span><span class="pv-model"><i></i>Your model, Cloud</span></div>
+                <div class="pv-thread">
+                  <div class="pv-msg">
+                    <span class="pv-step">1</span>
+                    <span class="pv-av">MC</span>
+                    <div class="pv-body">
+                      <p class="pv-name">Maya Chen <span>Account rep, 10:02</span></p>
+                      <p>My October commission looks $2,140 short. <span class="pv-mention">@RevOps</span> can you check?</p>
+                    </div>
+                  </div>
+                  <div class="pv-msg">
+                    <span class="pv-step">2</span>
+                    <span class="pv-av pv-av--worker"><svg viewBox="0 0 32 32" width="18" height="18"><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2.4" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#7fb8c8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></g></svg></span>
+                    <div class="pv-body">
+                      <p class="pv-name">RevOps worker <span class="pv-badge">Worker</span> <span>10:03</span></p>
+                      <p>Found it. The deal is in your territory but booked to someone else. Moving it needs <span class="pv-mention">@Dana Reyes</span> to approve.</p>
+                      <div class="pv-card">
+                        <p class="pv-card-head"><b>Proposal: rebook the deal to Maya</b><span class="pv-ok">Approved by Dana, 10:04</span></p>
+                        <p class="pv-checks"><span>Territory rule</span><span>Comp plan rate</span><span>Math run in code</span><span>Logged</span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pv-msg">
+                    <span class="pv-step">3</span>
+                    <span class="pv-av">DR</span>
+                    <div class="pv-body">
+                      <p class="pv-name">Dana Reyes <span>Head of Revenue, 10:04</span></p>
+                      <p>Approved.</p>
+                    </div>
+                  </div>
+                  <div class="pv-msg">
+                    <span class="pv-step pv-step--blank"></span>
+                    <span class="pv-av pv-av--worker"><svg viewBox="0 0 32 32" width="18" height="18"><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2.4" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#7fb8c8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></g></svg></span>
+                    <div class="pv-body">
+                      <p class="pv-name">RevOps worker <span class="pv-badge">Worker</span> <span>10:04</span></p>
+                      <p class="pv-done">Done. Your October statement is up $2,140.</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="pv-msg pv-msg--card">
-                <span class="pv-step">3</span>
-                <div class="pv-card">
-                  <p class="pv-card-head"><b>Proposed change</b> Move 2 close dates to next quarter</p>
-                  <p class="pv-diff"><span>Northwind Foods</span><s>Nov 14</s><span class="pv-arrow">&rarr;</span><b>Jan 9</b></p>
-                  <p class="pv-diff"><span>Harbor Supply</span><s>Nov 21</s><span class="pv-arrow">&rarr;</span><b>Jan 16</b></p>
-                  <p class="pv-wait">Waiting for Dana Reyes, Revenue Ops owner</p>
-                  <p class="pv-actions"><span class="pv-btn pv-btn--primary">Approve</span><span class="pv-btn">Review</span></p>
-                  <p class="pv-log">Nothing changes until it’s approved. Every action is logged.</p>
-                </div>
+                <div class="pv-compose">Message #sales, or @ a teammate or a worker</div>
               </div>
             </div>
           </div>
+          <p class="pv-stamp"><i></i>Asked at 10:02. Fixed at 10:04.</p>
         </figure>
       </section>
