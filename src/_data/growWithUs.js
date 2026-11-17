@@ -14,7 +14,7 @@ export default {
   mission:
     "To build the world’s best products for people and AI working together, connecting every company to the tools and expertise it needs to scale.",
   missionLine:
-    "We believe startups will build the future of work, so that’s where we focus. We think like one too: we build with them and for them, and we grow as they grow.",
+    "Startups will build the future of work, so we build with them and for them. When they win, we grow.",
 
   // The Growth Principles: from the business plan, Appendix A (founder,
   // 2026-11-16; the plan calls them Business Principles). The second was
