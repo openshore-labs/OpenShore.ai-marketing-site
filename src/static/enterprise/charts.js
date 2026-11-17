@@ -11,9 +11,6 @@
 //   path.c-draw      a line to draw; its x must only increase
 //   [data-x="n"]     shown once the point passes x = n
 //   rect.c-clip      the clip that reveals an area up to the point
-//   path[data-from]  a line drawn along data-from, then snapped to its own d
-//                    over the svg's data-morph ms (both with the same commands)
-//   [data-after]     shown as that snap begins
 //   .ent-replay      the figure's button that plays it again
 (function () {
   'use strict';
@@ -27,12 +24,6 @@
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   }
 
-  function easeBack(t) {
-    var c1 = 1.4;
-    var c3 = c1 + 1;
-    return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
-  }
-
   function circle(r, cls) {
     var c = document.createElementNS(NS, 'circle');
     c.setAttribute('r', r);
@@ -42,9 +33,6 @@
 
   function setup(svg) {
     var lines = Array.prototype.map.call(svg.querySelectorAll('.c-draw'), function (p) {
-      var toD = p.getAttribute('d');
-      var fromD = p.getAttribute('data-from');
-      if (fromD) p.setAttribute('d', fromD);
       var L = p.getTotalLength();
       var xs = [];
       var ls = [];
@@ -59,14 +47,11 @@
       var head = circle(5.5, 'c-head' + sea);
       svg.appendChild(glow);
       svg.appendChild(head);
-      return { p: p, L: L, xs: xs, ls: ls, head: head, glow: glow, fromD: fromD, toD: toD };
+      return { p: p, L: L, xs: xs, ls: ls, head: head, glow: glow };
     });
     if (!lines.length) return;
 
     var reveals = Array.prototype.slice.call(svg.querySelectorAll('[data-x]'));
-    var afters = Array.prototype.slice.call(svg.querySelectorAll('[data-after]'));
-    var morphMs = Number(svg.getAttribute('data-morph')) || 0;
-    var morphing = lines.filter(function (o) { return o.fromD; });
     var clip = svg.querySelector('.c-clip');
     var x0 = Math.min.apply(null, lines.map(function (o) { return o.xs[0]; }));
     var stops = svg.getAttribute('data-stops').split(',').map(function (s) {
@@ -108,8 +93,7 @@
     function reset() {
       cancelAnimationFrame(frame);
       svg.classList.remove('c-run', 'c-done');
-      reveals.concat(afters).forEach(function (el) { el.classList.remove('on'); });
-      morphing.forEach(function (o) { o.p.setAttribute('d', o.fromD); });
+      reveals.forEach(function (el) { el.classList.remove('on'); });
       draw(x0 - 1);
     }
 
@@ -140,44 +124,10 @@
           }
           draw(4000);
           svg.classList.remove('c-run');
-          if (morphing.length && morphMs) {
-            snap();
-            return;
-          }
           svg.classList.add('c-done');
         };
         frame = requestAnimationFrame(tick);
       });
-    }
-
-    // The snap: each line moves from its first shape to its final one with a
-    // little overshoot, and the parts that explain it arrive.
-    var NUM = /-?\d*\.?\d+/g;
-    function snap() {
-      afters.forEach(function (el) { el.classList.add('on'); });
-      var pairs = morphing.map(function (o) {
-        return { o: o, a: o.fromD.match(NUM).map(Number), b: o.toD.match(NUM).map(Number) };
-      });
-      var start = performance.now();
-      var step = function (now) {
-        var t = Math.min(1, (now - start) / morphMs);
-        var k = easeBack(t);
-        pairs.forEach(function (q) {
-          var i = 0;
-          q.o.p.setAttribute('d', q.o.fromD.replace(NUM, function () {
-            var v = q.a[i] + (q.b[i] - q.a[i]) * k;
-            i++;
-            return String(Math.round(v * 10) / 10);
-          }));
-        });
-        if (t < 1) {
-          frame = requestAnimationFrame(step);
-          return;
-        }
-        pairs.forEach(function (q) { q.o.p.setAttribute('d', q.o.toD); });
-        svg.classList.add('c-done');
-      };
-      frame = requestAnimationFrame(step);
     }
 
     svg.classList.add('c-anim');
