@@ -16,11 +16,12 @@ export default {
   // 2026-11-16; the plan calls them Business Principles). The second was
   // rewritten for the site on 2026-11-17 (founder): stay close, feedback
   // loops, prove it, then scale it to customers with the same need. The six
-  // turn as one flywheel; each ends with the line that breaks a tie. The
+  // turn as one flywheel. Each keeps its tie-breaking line (decides) from the
+  // plan, not shown on the site (founder, 2026-11-17). The
   // sixth closes on the founder's tagline, the em dash the copy gate allows.
   principlesTitle: "Growth Principles",
   principlesLede:
-    "Six principles guide every decision at OpenShore, from what we build to who we hire. Each one starts with the customer and feeds the next, so together they turn a flywheel of continuous growth, for our customers and for us. Each ends with the line we use to break a tie.",
+    "Six principles guide every decision at OpenShore, from what we build to who we hire. Each one starts with the customer and feeds the next, so together they turn a flywheel of continuous growth, for our customers and for us.",
   principles: [
     {
       title: "Embrace the energy. Harness it.",

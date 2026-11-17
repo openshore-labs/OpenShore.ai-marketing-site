@@ -263,8 +263,6 @@ main, .ent-top, .ent-foot {
 @media (max-width: 760px) { .ent-sec--first { padding-top: 40px; } }
 .ent-founder-links a { font-size: 15px; font-weight: 600; color: var(--sea); }
 .ent-principles-lede { max-width: 64ch; }
-.ent-decides { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 15px !important; line-height: 1.5; color: var(--ink) !important; }
-.ent-decides b { display: block; margin-bottom: 2px; font-size: 12px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea); }
 
 /* ---- Why we build it: the two charts on Grow with Us (2026-11-16) ------ */
 .ent-charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 6px; }
