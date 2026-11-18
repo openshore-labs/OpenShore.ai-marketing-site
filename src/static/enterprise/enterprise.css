@@ -446,3 +446,95 @@ main, .ent-top, .ent-foot {
 @media (max-width: 760px) {
   .mk-three { grid-template-columns: minmax(0, 1fr); gap: 12px; }
 }
+
+/* ==== Commission demo (2026-11-18) ===================================== */
+/* The promo film's commission scene and its loop, on the home page
+   (ent-commission.njk, commission.js). Shapes follow the film's .pc-thread
+   and loop scene, drawn in this sheet's own tokens and type. Mobile first:
+   the chat and the loop stack, and sit side by side from 960px. Until
+   commission.js adds .cd-anim (and always with Reduce Motion) everything
+   shows, still and complete. The motion is transforms and opacity only. */
+.cd-cap { display: flex; align-items: center; gap: 10px; margin-top: 2px; }
+.cd-stage { display: flex; flex-direction: column; gap: 36px; }
+.cd-chat-col { display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; }
+.cd-chat { width: 100%; border-radius: 18px; background: var(--raised); box-shadow: var(--shadow), 0 0 0 1px var(--rule); overflow: hidden; }
+.cd-ch { padding: 11px 16px; border-bottom: 1px solid var(--rule); font-size: 14px; font-weight: 600; color: var(--muted); }
+.cd-thread { list-style: none; margin: 0; padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 18px; }
+.cd-msg { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: start; }
+.cd-av { width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: #e6dfd2; box-shadow: inset 0 0 0 1px var(--rule); font-size: 12px; font-weight: 700; color: var(--ink-soft); }
+.cd-av--worker { border-radius: 8px; background: none; box-shadow: none; }
+.cd-av svg { display: block; width: 34px; height: 34px; }
+.cd-body { position: relative; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.cd-who { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; font-size: 14px; font-weight: 650; line-height: 1.4; }
+.cd-who span { font-size: 12.5px; font-weight: 400; color: var(--muted); }
+.cd-who .cd-badge { padding: 1px 8px; border-radius: 999px; background: var(--sea-soft); color: var(--sea); font-size: 11.5px; font-weight: 600; }
+.cd-txt { font-size: 15.5px; line-height: 1.45; color: var(--ink); }
+.cd-at { padding: 0 4px; border-radius: 5px; background: var(--sea-soft); color: var(--sea); font-weight: 600; white-space: nowrap; }
+.cd-msg--done .cd-txt { color: var(--sea); font-weight: 600; }
+.cd-chip { align-self: flex-start; margin-top: 6px; display: inline-flex; align-items: center; gap: 7px; padding: 4px 12px 4px 5px; border-radius: 999px; background: var(--sea-soft); color: var(--sea); font-size: 13px; font-weight: 600; }
+.cd-chip-check { display: block; width: 18px; height: 18px; flex: none; }
+.cd-stmt { margin-top: 8px; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 12px; background: var(--paper); box-shadow: 0 0 0 1px var(--rule); }
+.cd-stmt span { font-size: 13.5px; font-weight: 550; color: var(--ink-soft); }
+.cd-stmt b { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; color: var(--sea); font-variant-numeric: tabular-nums; }
+.cd-dots { position: absolute; left: 0; top: 25px; display: inline-flex; gap: 4px; padding: 9px 11px; border-radius: 999px; background: rgba(28, 42, 51, 0.07); opacity: 0; pointer-events: none; }
+.cd-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); }
+.cd-stamp { align-self: center; }
+
+.cd-loop { container-type: inline-size; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.cd-lead { font-size: 18px; }
+.cd-loop-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 10px; }
+.cd-cycle { display: flex; flex-direction: column; gap: 12px; }
+.cd-ring { position: relative; padding-left: 34px; }
+.cd-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.cd-step { display: flex; flex-direction: column; align-items: flex-start; }
+.cd-arrow { display: block; width: 14px; height: 20px; margin: 3px 0 3px 18px; }
+.cd-pill { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 7px 15px; border-radius: 999px; background: rgba(28, 42, 51, 0.08); color: var(--ink); font-size: 15px; font-weight: 550; white-space: nowrap; }
+.cd-step--rule .cd-pill { background: var(--sea-soft); color: var(--sea); font-weight: 600; }
+.cd-pill::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 0 2px var(--sea); opacity: 0; pointer-events: none; }
+/* The way back, from A new rule up to Someone asks: its arrow points in. */
+.cd-return { position: absolute; left: 10px; top: 18px; bottom: 18px; width: 18px; border: 2px solid var(--sea); border-right: 0; border-radius: 14px 0 0 14px; }
+.cd-return::after { content: ""; position: absolute; right: -1px; top: -6px; width: 8px; height: 8px; border-top: 2px solid var(--sea); border-right: 2px solid var(--sea); transform: rotate(45deg); }
+.cd-again { padding-left: 2px; font-size: 14.5px; font-weight: 600; color: var(--sea); }
+.cd-rule { border-radius: 16px; padding: 18px 20px; background: var(--raised); box-shadow: var(--shadow), 0 0 0 1px var(--rule); display: flex; flex-direction: column; gap: 8px; }
+.cd-rule-k { font-size: 12px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea); }
+.cd-rule-t { font-size: 18px; font-weight: 600; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink); }
+.cd-rule-run { display: flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--sea); }
+.cd-tick { display: block; width: 20px; height: 20px; flex: none; }
+@container (min-width: 560px) {
+  .cd-loop-body { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 36px; }
+}
+@media (min-width: 960px) {
+  .cd-stage { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 44px; align-items: start; }
+  .cd-loop { padding-top: 6px; }
+  .cd-txt { font-size: 16px; }
+}
+
+/* The motion, once commission.js has taken the section over. Messages
+   arrive after a typing pause; the loop waits faintly, then lights in
+   order. The curves are the charts'. */
+.cd-anim .cd-msg { opacity: 0; transform: translateY(10px); transition: opacity 500ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.cd-anim .cd-msg.is-typing, .cd-anim .cd-msg.on { opacity: 1; transform: none; }
+.cd-anim .cd-txt { opacity: 0; transform: translateY(5px); transition: opacity 450ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.cd-anim .cd-msg.on .cd-txt { opacity: 1; transform: none; }
+.cd-anim .cd-msg.is-typing:not(.on) .cd-dots { opacity: 1; transition: opacity 250ms ease; }
+.cd-anim .cd-msg.on .cd-dots { transition: opacity 150ms ease; }
+.cd-anim .cd-msg.is-typing .cd-dots i { animation: cd-typing 1.1s ease-in-out infinite; }
+.cd-anim .cd-msg.is-typing .cd-dots i:nth-child(2) { animation-delay: 0.15s; }
+.cd-anim .cd-msg.is-typing .cd-dots i:nth-child(3) { animation-delay: 0.3s; }
+.cd-anim .cd-msg.on .cd-dots i { animation: none; }
+.cd-anim .cd-chip { opacity: 0; transform: scale(0.7); transform-origin: left center; transition: opacity 300ms ease, transform 520ms cubic-bezier(0.3, 1.5, 0.5, 1); }
+.cd-anim .cd-chip.on { opacity: 1; transform: none; }
+.cd-anim .cd-stmt, .cd-anim .cd-stamp { opacity: 0; transform: translateY(8px); transition: opacity 500ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.cd-anim .cd-stmt.on, .cd-anim .cd-stamp.on { opacity: 1; transform: none; }
+.cd-anim .cd-beat, .cd-anim .cd-step { opacity: 0.22; transition: opacity 600ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.cd-anim .cd-beat.on, .cd-anim .cd-step.on { opacity: 1; }
+.cd-anim .cd-step.on .cd-pill::after { animation: cd-light 1.1s cubic-bezier(0.2, 0.7, 0.3, 1) 1; }
+.cd-anim .cd-return { opacity: 0; transform: scaleY(0.5); transform-origin: bottom; }
+.cd-anim .cd-return.on { opacity: 1; transform: none; }
+.cd-anim .cd-tick { opacity: 0; transform: scale(0.3); transition: opacity 250ms ease, transform 520ms cubic-bezier(0.3, 1.5, 0.5, 1); }
+.cd-anim .cd-tick.on { opacity: 1; transform: none; }
+@keyframes cd-typing { 0%, 60%, 100% { opacity: 0.35; transform: none; } 30% { opacity: 1; transform: translateY(-3px); } }
+@keyframes cd-light { 0% { opacity: 0.8; transform: none; } 100% { opacity: 0; transform: scale(1.07, 1.32); } }
+@media (prefers-reduced-motion: reduce) {
+  .cd-dots { display: none; }
+}

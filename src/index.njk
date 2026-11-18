@@ -22,6 +22,8 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
         <p class="ent-note">The platform tour is open to design partners and invited guests. <a href="#design-partners">Ask for a login.</a></p>
       </section>
 
+{% include "ent-commission.njk" %}
+
       <section class="ent-films" aria-label="The promo film">
         <a class="ent-film ent-film--wide" href="/enterprise/promo/">
           <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" />
@@ -122,3 +124,4 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
         <p class="ent-lede">Now onboarding design partners. If you’re interested, email <a href="mailto:{{ contact }}?subject={{ 'OpenShore for Enterprise design partner' | urlencode }}">{{ contact }}</a>.</p>
       </section>
       <script src="/enterprise/charts.js?v={{ rev.entCharts }}" defer></script>
+      <script src="/enterprise/commission.js?v={{ rev.entCommission }}" defer></script>

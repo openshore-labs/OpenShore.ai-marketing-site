@@ -44,4 +44,6 @@ export default {
   entFounder: rev("src/static/enterprise/founder.jpg"),
   // The chart animation on Grow with Us.
   entCharts: rev("src/static/enterprise/charts.js"),
+  // The commission demo on the home page.
+  entCommission: rev("src/static/enterprise/commission.js"),
 };

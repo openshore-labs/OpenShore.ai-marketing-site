@@ -1,0 +1,86 @@
+{#- The commission demo (founder, 2026-11-18): the promo film's commission
+    scene and its loop, word for word, played once on the home page when the
+    chat scrolls into view (/enterprise/commission.js). Without the script,
+    or with Reduce Motion, it stays still and complete. Every message is
+    real text from the start; the timings are data-type (typing starts) and
+    data-at (it lands), in ms, the loop's counted from its own data-at. -#}
+{%- set mark -%}
+<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>
+{%- endset -%}
+{%- set dots %}<span class="cd-dots" aria-hidden="true"><i></i><i></i><i></i></span>{% endset -%}
+      <section class="ent-sec cd" aria-labelledby="cd-h" data-cd>
+        <h2 class="ent-eyebrow" id="cd-h">Let’s say a rep’s commission comes up short.</h2>
+        <h3 class="ent-h">Fixed in two minutes, without leaving the conversation.</h3>
+        <div class="cd-cap">
+          <span class="ent-tag">Example</span>
+          <button class="ent-replay" type="button" hidden aria-label="Replay the conversation">Replay</button>
+        </div>
+        <div class="cd-stage" aria-live="off">
+          <div class="cd-chat-col">
+            <div class="cd-chat">
+              <p class="cd-ch"># sales</p>
+              <ol class="cd-thread" aria-label="The conversation in # sales">
+                <li class="cd-msg" data-type="400" data-at="1200">
+                  <span class="cd-av" aria-hidden="true">MC</span>
+                  <div class="cd-body">
+                    <p class="cd-who">Maya Chen <span>Account rep · 10:02</span></p>
+                    <p class="cd-txt">My October commission looks $2,140 short. <span class="cd-at">@RevOps</span> can you check?</p>
+                    {{ dots | safe }}
+                  </div>
+                </li>
+                <li class="cd-msg" data-type="1900" data-at="3300">
+                  <span class="cd-av cd-av--worker" aria-hidden="true">{{ mark | safe }}</span>
+                  <div class="cd-body">
+                    <p class="cd-who">RevOps worker <span class="cd-badge">Worker</span> <span>10:03</span></p>
+                    <p class="cd-txt">Found it. The deal is in your territory but booked to someone else. Moving it needs <span class="cd-at">@Dana Reyes</span> to approve.</p>
+                    {{ dots | safe }}
+                  </div>
+                </li>
+                <li class="cd-msg" data-type="4300" data-at="5000">
+                  <span class="cd-av" aria-hidden="true">DR</span>
+                  <div class="cd-body">
+                    <p class="cd-who">Dana Reyes <span>Head of Revenue · 10:04</span></p>
+                    <p class="cd-txt">Approved.</p>
+                    <p class="cd-chip" data-at="5450"><svg class="cd-chip-check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#2f5a66" /><path d="M5.8 10.4l2.8 2.8 5.6-5.8" fill="none" stroke="#f6f4ef" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg>Rebook the deal to Maya</p>
+                    {{ dots | safe }}
+                  </div>
+                </li>
+                <li class="cd-msg cd-msg--done" data-type="6000" data-at="6800">
+                  <span class="cd-av cd-av--worker" aria-hidden="true">{{ mark | safe }}</span>
+                  <div class="cd-body">
+                    <p class="cd-who">RevOps worker <span class="cd-badge">Worker</span> <span>10:04</span></p>
+                    <p class="cd-txt">Done. Your October statement is up $2,140.</p>
+                    <p class="cd-stmt" data-at="7100"><span>October statement</span><b data-count="0:2140:7300:1300">+$2,140</b></p>
+                    {{ dots | safe }}
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <p class="ent-badge cd-stamp" data-at="8900"><span class="ent-dot" aria-hidden="true"></span>Asked at 10:02. Fixed at 10:04.</p>
+          </div>
+
+          <div class="cd-loop" data-at="9300">
+            <p class="ent-body cd-lead cd-beat" data-at="0">And that approval did more than fix one statement.</p>
+            <p class="ent-statement cd-title cd-beat" data-at="600">Every fix becomes a rule.</p>
+            <div class="cd-loop-body">
+              <div class="cd-cycle">
+                <div class="cd-ring">
+                  <span class="cd-return cd-beat" data-at="3200" aria-hidden="true"></span>
+                  <ol class="cd-steps" aria-label="The loop">
+                    <li class="cd-step" data-at="1300"><span class="cd-pill">Someone asks</span></li>
+                    <li class="cd-step" data-at="1750"><svg class="cd-arrow" viewBox="0 0 14 20" aria-hidden="true"><path d="M7 2v15m-5-5l5 5 5-5" fill="none" stroke="#2f5a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="cd-pill">A worker proposes</span></li>
+                    <li class="cd-step" data-at="2200"><svg class="cd-arrow" viewBox="0 0 14 20" aria-hidden="true"><path d="M7 2v15m-5-5l5 5 5-5" fill="none" stroke="#2f5a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="cd-pill">An admin approves</span></li>
+                    <li class="cd-step cd-step--rule" data-at="2650"><svg class="cd-arrow" viewBox="0 0 14 20" aria-hidden="true"><path d="M7 2v15m-5-5l5 5 5-5" fill="none" stroke="#2f5a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="cd-pill"><span class="ent-dot" aria-hidden="true"></span>A new rule</span></li>
+                  </ol>
+                </div>
+                <p class="cd-again cd-beat" data-at="3200">Checked on every task, from then on</p>
+              </div>
+              <div class="cd-rule cd-beat" data-at="3800">
+                <p class="cd-rule-k">Rule saved · from Dana’s approval</p>
+                <p class="cd-rule-t">Deals count toward the rep who owns the territory.</p>
+                <p class="cd-rule-run"><svg class="cd-tick" data-at="4300" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#2f5a66" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>Runs before any pay change</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
