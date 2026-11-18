@@ -29,7 +29,8 @@
     "not_found_handling": "none",
     // The enterprise platform page and the product tour sit behind a sign-in
     // (worker/enterpriseAccess.js), so the script runs before the files are
-    // served on those paths, and only those.
-    "run_worker_first": ["/enterprise/platform*", "/enterprise/tour*"]
+    // served on those paths, and only those. /enterprise/issue makes a tour
+    // login for the holder of the admin token.
+    "run_worker_first": ["/enterprise/platform*", "/enterprise/tour*", "/enterprise/issue"]
   }
 }

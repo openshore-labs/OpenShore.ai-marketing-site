@@ -4,6 +4,7 @@
 //
 //   /download/<platform>  ->  302 to the newest release file for it
 //   /auth-callback        ->  the web app's own page (worker/appShell.js)
+//   /enterprise/issue      ->  a new tour login, admin token only
 //   /enterprise/platform/ and /enterprise/tour/  ->  only after sign-in
 //                            (worker/enterpriseAccess.js; these two paths run
 //                            the script first, see wrangler.jsonc)
@@ -20,7 +21,7 @@
 // traffic with the cache.
 import { PLATFORMS, RELEASES_PAGE, REPO, resolveDownload } from './downloads.js';
 import { appShellRequest, isAppRoute } from './appShell.js';
-import { PROTECTED, handleProtected } from './enterpriseAccess.js';
+import { PROTECTED, handleProtected, ISSUE_PATH, handleIssue } from './enterpriseAccess.js';
 
 const CACHE_SECONDS = 600;
 
@@ -58,6 +59,8 @@ export default {
     // The enterprise platform page and the product tour: only with a username
     // and password from the founder (worker/enterpriseAccess.js).
     if (PROTECTED.test(url.pathname)) return handleProtected(request, env);
+    // Issuing a tour login, for the holder of the admin token only.
+    if (url.pathname === ISSUE_PATH) return handleIssue(request, env);
     if (isAppRoute(url.pathname)) {
       const shell = await env.ASSETS.fetch(appShellRequest(url));
       const res = new Response(shell.body, shell);

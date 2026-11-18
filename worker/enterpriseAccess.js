@@ -170,3 +170,38 @@ export async function handleProtected(request, env, now = new Date()) {
   const next = url.pathname.startsWith('/enterprise/tour') ? '/enterprise/tour/' : '/enterprise/platform/';
   return page(lockedPage({ next }), 401);
 }
+
+// Issuing a login without the access key leaving Cloudflare (founder,
+// 2026-11-18): POST /enterprise/issue with a JSON body {"name": "..."} and the
+// header "Authorization: Bearer <ENTERPRISE_ADMIN_TOKEN>" answers with a new
+// username, password and last day, exactly what scripts/enterprise-access.mjs
+// prints. ENTERPRISE_ADMIN_TOKEN is a second Worker secret, separate from the
+// access key, at least 32 characters; without it (or the access key) the
+// endpoint answers 503 and issues nothing. Changing it revokes only this door,
+// not the logins already given out.
+export const ISSUE_PATH = '/enterprise/issue';
+
+async function sameToken(given, expected) {
+  const digest = async (s) => new Uint8Array(await crypto.subtle.digest('SHA-256', enc.encode(String(s))));
+  const [a, b] = await Promise.all([digest(given), digest(expected)]);
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a[i] ^ b[i];
+  return diff === 0;
+}
+
+/** Answer POST /enterprise/issue: a new login for a name, for the holder of the admin token only. */
+export async function handleIssue(request, env, now = new Date()) {
+  const json = (body, status, extra = {}) =>
+    new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-robots-tag': 'noindex', ...extra } });
+  if (request.method !== 'POST') return json({ error: 'Use POST.' }, 405, { allow: 'POST' });
+  const token = env.ENTERPRISE_ADMIN_TOKEN;
+  const secret = env.ENTERPRISE_ACCESS_SECRET;
+  if (!secret || !token || String(token).length < 32) return json({ error: 'Not set up.' }, 503);
+  const given = (request.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
+  if (!given || !(await sameToken(given, token))) return json({ error: 'Not allowed.' }, 401);
+  const body = await request.json().catch(() => null);
+  const name = body && typeof body.name === 'string' ? body.name.trim() : '';
+  if (!name || name.length > 80) return json({ error: 'Send {"name": "..."} (1 to 80 characters).' }, 400);
+  const { username, password, lastDay: end } = await issue(secret, name, now);
+  return json({ username, password, goodThrough: end.toISOString().slice(0, 10), signIn: 'https://openshore.ai/enterprise/platform/' }, 200);
+}

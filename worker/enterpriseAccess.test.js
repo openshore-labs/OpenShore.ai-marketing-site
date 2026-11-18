@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { PROTECTED, issue, checkSignIn, hasAccess, setCookieHeader, handleProtected, lastDay } from './enterpriseAccess.js';
+import { PROTECTED, issue, checkSignIn, hasAccess, setCookieHeader, handleProtected, lastDay, handleIssue, ISSUE_PATH } from './enterpriseAccess.js';
 
 const SECRET = 'test-secret-not-real';
 const NOW = new Date(Date.UTC(2026, 10, 10, 12));
@@ -63,4 +63,24 @@ test('with no secret set, nobody gets in', async () => {
   const env = { ASSETS: { fetch: async () => new Response('the platform page') } };
   const res = await handleProtected(new Request('https://openshore.ai/enterprise/platform/'), env, NOW);
   assert.equal(res.status, 401);
+});
+
+test('issuing a login needs POST, the admin token and both secrets', async () => {
+  const TOKEN = 'admin-token-for-tests-only-0123456789abcdef';
+  const env = { ENTERPRISE_ACCESS_SECRET: SECRET, ENTERPRISE_ADMIN_TOKEN: TOKEN };
+  const req = (opts) => new Request('https://openshore.ai' + ISSUE_PATH, opts);
+  const post = (headers, body) => req({ method: 'POST', headers: { 'content-type': 'application/json', ...headers }, body: JSON.stringify(body) });
+  assert.equal((await handleIssue(req({ method: 'GET' }), env, NOW)).status, 405);
+  assert.equal((await handleIssue(post({}, { name: 'Matt' }), env, NOW)).status, 401);
+  assert.equal((await handleIssue(post({ authorization: 'Bearer wrong' }, { name: 'Matt' }), env, NOW)).status, 401);
+  assert.equal((await handleIssue(post({ authorization: 'Bearer ' + TOKEN }, { name: 'Matt' }), { ENTERPRISE_ACCESS_SECRET: SECRET }, NOW)).status, 503);
+  assert.equal((await handleIssue(post({ authorization: 'Bearer short' }, { name: 'Matt' }), { ENTERPRISE_ACCESS_SECRET: SECRET, ENTERPRISE_ADMIN_TOKEN: 'short' }, NOW)).status, 503);
+  assert.equal((await handleIssue(post({ authorization: 'Bearer ' + TOKEN }, {}), env, NOW)).status, 400);
+  const ok = await handleIssue(post({ authorization: 'Bearer ' + TOKEN }, { name: 'Matthew Clevenger' }), env, NOW);
+  assert.equal(ok.status, 200);
+  assert.equal(ok.headers.get('cache-control'), 'no-store');
+  const got = await ok.json();
+  assert.equal(got.username, 'matthew-clevenger-20261117');
+  assert.equal(got.goodThrough, '2026-11-17');
+  assert.ok(await checkSignIn(SECRET, got.username, got.password, NOW));
 });
