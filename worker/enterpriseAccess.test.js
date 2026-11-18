@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { PROTECTED, issue, checkSignIn, hasAccess, setCookieHeader, handleProtected, lastDay, handleIssue, ISSUE_PATH } from './enterpriseAccess.js';
+import { PROTECTED, issue, checkSignIn, hasAccess, setCookieHeader, handleProtected, lastDay, handleIssue, ISSUE_PATH, isOwner } from './enterpriseAccess.js';
 
 const SECRET = 'test-secret-not-real';
 const NOW = new Date(Date.UTC(2026, 10, 10, 12));
@@ -83,4 +83,19 @@ test('issuing a login needs POST, the admin token and both secrets', async () =>
   assert.equal(got.username, 'matthew-clevenger-20261117');
   assert.equal(got.goodThrough, '2026-11-17');
   assert.ok(await checkSignIn(SECRET, got.username, got.password, NOW));
+});
+
+test('the owner login does not expire, and needs both owner secrets', async () => {
+  const env = { ENTERPRISE_ACCESS_SECRET: SECRET, ENTERPRISE_OWNER_USERNAME: 'owner@example.com', ENTERPRISE_OWNER_PASSWORD: 'test-owner-pass', ASSETS: { fetch: async () => new Response('tour') } };
+  assert.ok(await isOwner(env, ' Owner@Example.com ', 'test-owner-pass'));
+  assert.ok(!(await isOwner(env, 'owner@example.com', 'wrong')));
+  assert.ok(!(await isOwner({ ENTERPRISE_OWNER_USERNAME: 'owner@example.com' }, 'owner@example.com', 'test-owner-pass')));
+  const later = new Date(Date.UTC(2031, 0, 1, 12));
+  const post = (u, p) => new Request('https://openshore.ai/enterprise/platform/', { method: 'POST', body: new URLSearchParams({ username: u, password: p }) });
+  const ok = await handleProtected(post('owner@example.com', 'test-owner-pass'), env, later);
+  assert.equal(ok.status, 303);
+  const cookie = ok.headers.get('set-cookie').split(';')[0];
+  assert.ok(await hasAccess(SECRET, cookie, later));
+  assert.equal((await handleProtected(new Request('https://openshore.ai/enterprise/tour/', { headers: { cookie } }), env, later)).status, 200);
+  assert.equal((await handleProtected(post('owner@example.com', 'nope'), env, later)).status, 401);
 });

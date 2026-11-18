@@ -154,11 +154,15 @@ export async function handleProtected(request, env, now = new Date()) {
   if (request.method === 'POST') {
     const form = await request.formData().catch(() => null);
     const username = normalizeUsername(form && form.get('username'));
-    const ok = form && (await checkSignIn(secret, username, form.get('password'), now));
-    if (!ok) return page(lockedPage({ failed: true, username }), 401);
+    const owner = form && (await isOwner(env, username, form.get('password')));
+    const ok = owner || (form && (await checkSignIn(secret, username, form.get('password'), now)));
+    if (!ok || !secret) return page(lockedPage({ failed: true, username }), 401);
     const next = String(form.get('next') || '');
     const to = PROTECTED.test(next) ? next : '/enterprise/platform/';
-    return new Response(null, { status: 303, headers: { location: to, 'set-cookie': await setCookieHeader(secret, username, now), 'cache-control': 'no-store' } });
+    // The owner's cookie is signed for a dated stand-in name, so the cookie
+    // check stays the same; it lasts OWNER_DAYS and signing in again renews it.
+    const cookieUser = owner ? `owner-${ymdIn(now, OWNER_DAYS)}` : username;
+    return new Response(null, { status: 303, headers: { location: to, 'set-cookie': await setCookieHeader(secret, cookieUser, now), 'cache-control': 'no-store' } });
   }
   if (await hasAccess(secret, request.headers.get('cookie'), now)) {
     const res = await env.ASSETS.fetch(request);
@@ -204,4 +208,25 @@ export async function handleIssue(request, env, now = new Date()) {
   if (!name || name.length > 80) return json({ error: 'Send {"name": "..."} (1 to 80 characters).' }, 400);
   const { username, password, lastDay: end } = await issue(secret, name, now);
   return json({ username, password, goodThrough: end.toISOString().slice(0, 10), signIn: 'https://openshore.ai/enterprise/platform/' }, 200);
+}
+
+// The owner's own login (founder, 2026-11-18): a username and password that do
+// not expire, both Worker secrets (ENTERPRISE_OWNER_USERNAME,
+// ENTERPRISE_OWNER_PASSWORD), never in this repo. Unset, there is no owner
+// login. The username is matched without case; the password exactly, in
+// constant time. A signed-in owner gets a cookie good for OWNER_DAYS.
+export const OWNER_DAYS = 30;
+
+function ymdIn(now, days) {
+  const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + days));
+  return `${d.getUTCFullYear()}${String(d.getUTCMonth() + 1).padStart(2, '0')}${String(d.getUTCDate()).padStart(2, '0')}`;
+}
+
+export async function isOwner(env, rawUser, password) {
+  const user = env.ENTERPRISE_OWNER_USERNAME;
+  const pass = env.ENTERPRISE_OWNER_PASSWORD;
+  if (!user || !pass || !password) return false;
+  const a = await sameToken(String(rawUser || '').trim().toLowerCase(), String(user).trim().toLowerCase());
+  const b = await sameToken(String(password), String(pass));
+  return a && b;
 }
