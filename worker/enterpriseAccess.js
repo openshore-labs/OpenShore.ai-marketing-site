@@ -118,7 +118,7 @@ export function lockedPage({ failed = false, username = '', next = '/enterprise/
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="robots" content="noindex, nofollow" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; base-uri 'none'; form-action 'self'" />
-<title>How the Platform Works · OpenShore for Enterprise</title>
+<title>How the Platform Works · OpenShore</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="/enterprise/enterprise.css" />
 </head>
