@@ -1,0 +1,20 @@
+{#- The flywheel (founder, 2026-11-19): the six Growth Principles as the
+    flywheel the lede describes, each feeding the next. A light travels the
+    ring and each principle brightens as it passes, while in view
+    (/enterprise/illus.js); still and complete without it. -#}
+{%- set names = ["Embrace the energy", "Build together", "Be creative", "Build for choice", "Working as one", "Private by default"] -%}
+{#- Six points on a 150px ring around (240, 210), from the top, clockwise. -#}
+{%- set pts = [[240, 60], [369.9, 135], [369.9, 285], [240, 360], [110.1, 285], [110.1, 135]] -%}
+<figure class="ill ill-wheel" data-illus role="img" aria-label="The six Growth Principles as one flywheel: embrace the energy, build together, be creative, build for choice, working as one, private by default, and back to the start.">
+  <svg viewBox="0 0 480 420" aria-hidden="true">
+    <circle class="ill-wheel-ring" cx="240" cy="210" r="150" />
+    <g class="ill-wheel-spin"><circle class="ill-wheel-glow" cx="240" cy="60" r="16" /><circle class="ill-wheel-dot" cx="240" cy="60" r="6" /></g>
+    <g data-stagger>
+{%- for n in names %}
+
+      <g class="ill-wheel-node" transform="translate({{ pts[loop.index0][0] }} {{ pts[loop.index0][1] }})"><rect x="-82" y="-17" width="164" height="34" rx="17" /><text text-anchor="middle" y="5">{{ n }}</text></g>
+{%- endfor %}
+    </g>
+    <svg x="212" y="182" width="56" height="56" viewBox="0 0 32 32"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>
+  </svg>
+</figure>

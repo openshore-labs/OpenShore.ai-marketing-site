@@ -50,4 +50,6 @@ export default {
   entHub: rev("src/static/enterprise/hub.js"),
   // The tab row's scroll on a phone, on every page.
   entNav: rev("src/static/enterprise/nav.js"),
+  // The illustrations on Pricing, Security and About.
+  entIllus: rev("src/static/enterprise/illus.js"),
 };

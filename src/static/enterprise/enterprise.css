@@ -687,3 +687,108 @@ a.ent-badge--top:focus-visible { outline: 2px solid var(--sea); outline-offset: 
 .ent-tabs-row.is-right { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent); }
 .ent-tabs-row.is-left { -webkit-mask-image: linear-gradient(90deg, transparent, #000 36px); mask-image: linear-gradient(90deg, transparent, #000 36px); }
 .ent-tabs-row.is-left.is-right { -webkit-mask-image: linear-gradient(90deg, transparent, #000 36px, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(90deg, transparent, #000 36px, #000 calc(100% - 36px), transparent); }
+
+/* ---- The tab row stays in reach (founder, 2026-11-19) --------------------- */
+/* The tabs stick to the top while the page scrolls, so the other pages are
+   always one tap away; anchors land below them. */
+.ent-tabs { position: sticky; top: 0; z-index: 30; background: var(--paper); }
+/* The sign-in page is short and sits on the blurred tour, so its row stays put. */
+.ent-tabs.ent-tabs--locked { position: relative; z-index: 1; background: none; }
+html { scroll-padding-top: 64px; }
+
+/* ---- The sign-in page's preview (founder, 2026-11-19) -------------------- */
+/* What the tour covers and the public film, under the sign-in, so a visitor
+   without a login still has somewhere to go. */
+.ent-locked .ent-lock { flex-direction: column; align-items: center; gap: 18px; }
+.ent-lock-preview { position: relative; width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 8px; padding: 18px 20px 20px; border-radius: 22px; background: var(--raised); box-shadow: var(--shadow), 0 0 0 1px var(--rule); }
+.ent-lock-preview-k { font-size: 12px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea); }
+.ent-lock-preview p { font-size: 15px; color: var(--ink-soft); }
+.ent-lock-preview .ent-film { margin-top: 4px; }
+
+/* ---- Illustrations (founder, 2026-11-19) --------------------------------- */
+/* Pricing's bill, Security's cloud and About's flywheel. Each is still and
+   complete until illus.js adds .illus-anim; .is-seen plays the entrance once,
+   .is-in runs the loops while on screen. Transforms and opacity only. */
+.ill { margin: 6px 0 0; }
+.ill b { font-weight: 650; }
+.ill small { display: block; font-size: 12.5px; color: var(--muted); }
+.ill-k { font-size: 11.5px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea); }
+
+/* Pricing: the bill. */
+.ent-split { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; align-items: start; }
+@media (min-width: 900px) { .ent-split { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; } }
+.ent-split > div { display: flex; flex-direction: column; gap: 18px; }
+.ill-bill { max-width: 440px; border-radius: 18px; padding: 18px 20px; background: var(--raised); box-shadow: var(--shadow), 0 0 0 1px var(--rule); display: flex; flex-direction: column; gap: 14px; }
+.ill-bill-row { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
+.ill-people { display: grid; grid-template-columns: repeat(10, 6px); gap: 3px; }
+.ill-people i { width: 6px; height: 6px; border-radius: 50%; background: var(--wave); }
+.ill-bot svg { display: block; width: 40px; height: 40px; }
+.ill-bill-l { display: flex; flex-direction: column; font-size: 15px; line-height: 1.35; }
+.ill-bill-l span { font-size: 13px; color: var(--muted); }
+.ill-bill-v { font-size: 18px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.ill-bill-total { display: flex; justify-content: space-between; align-items: baseline; }
+.ill-bill-total span { font-size: 13px; font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sea); }
+.ill-bill-total b { font-size: 30px; letter-spacing: -0.02em; color: var(--sea); font-variant-numeric: tabular-nums; }
+.illus-anim .ill-people i { opacity: 0; transform: scale(0.3); }
+.illus-anim.is-seen .ill-people i { animation: ill-pop 420ms cubic-bezier(0.3, 1.5, 0.5, 1) both; animation-delay: calc(var(--i, 0) * 22ms); }
+.illus-anim .ill-bill-row--bot, .illus-anim .ill-bill-total, .illus-anim .ill-bill-v { opacity: 0; transform: translateY(6px); }
+.illus-anim.is-seen .ill-bill-row .ill-bill-v { animation: ill-rise 500ms cubic-bezier(0.2, 0.8, 0.2, 1) 1200ms both; }
+.illus-anim.is-seen .ill-bill-row--bot { animation: ill-rise 500ms cubic-bezier(0.2, 0.8, 0.2, 1) 1500ms both; }
+.illus-anim.is-seen .ill-bill-row--bot .ill-bill-v { animation-delay: 1900ms; }
+.illus-anim.is-seen .ill-bill-total { animation: ill-rise 600ms cubic-bezier(0.3, 1.5, 0.5, 1) 2400ms both; }
+
+/* Security: the cloud. */
+.ill-sec { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; justify-items: stretch; }
+.ill-cloud { border: 1.5px dashed rgba(47, 90, 102, 0.5); border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 12px; background: rgba(47, 90, 102, 0.04); }
+.ill-cloud-in { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.ill-node { border-radius: 14px; padding: 12px 14px; background: var(--raised); box-shadow: 0 0 0 1px var(--rule); font-size: 14.5px; line-height: 1.35; }
+.ill-server, .ill-model, .ill-approve { display: flex; align-items: center; gap: 12px; }
+.ill-mark svg { display: block; width: 36px; height: 36px; }
+.ill-approve svg { width: 22px; height: 22px; flex: none; }
+.ill-approve { background: var(--sea-soft); box-shadow: none; color: var(--sea); }
+.ill-log ol { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; color: var(--ink-soft); }
+.ill-log li { display: flex; align-items: center; gap: 8px; }
+.ill-log li i { width: 6px; height: 6px; border-radius: 50%; background: var(--sea); flex: none; }
+.ill-model svg { width: 30px; height: 30px; flex: none; fill: none; stroke: var(--sea); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ill-wire { position: relative; justify-self: center; width: 2px; height: 34px; background: var(--wave); opacity: 0.6; }
+.ill-wire i { position: absolute; left: -3px; top: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--sea); opacity: 0; }
+@media (min-width: 900px) {
+  .ill-sec { grid-template-columns: minmax(0, 1fr) 72px 240px; align-items: center; }
+  .ill-cloud-in { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .ill-cloud-in .ill-approve { grid-column: 1 / -1; }
+  .ill-wire { justify-self: stretch; width: auto; height: 2px; }
+  .ill-wire i { left: 0; top: -3px; }
+}
+.illus-anim .ill-log li { opacity: 0; }
+.illus-anim.is-in .ill-log li { animation: ill-log 6s ease-in-out infinite; animation-delay: calc(var(--i, 0) * 700ms); }
+.illus-anim.is-in .ill-wire i { animation: ill-wire-v 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+.illus-anim.is-in .ill-approve svg { animation: ill-tick 6s ease-in-out 1.4s infinite; }
+@media (min-width: 900px) { .illus-anim.is-in .ill-wire i { animation-name: ill-wire-h; } }
+.illus-anim:not(.is-in) .ill-log li { opacity: 1; }
+
+/* About: the flywheel. */
+.ill-wheel { max-width: 520px; width: 100%; align-self: center; }
+.ill-wheel svg { display: block; width: 100%; height: auto; font-family: var(--sans); }
+.ill-wheel-ring { fill: none; stroke: rgba(47, 90, 102, 0.28); stroke-width: 2; stroke-dasharray: 2 7; stroke-linecap: round; }
+.ill-wheel-node rect { fill: var(--raised); stroke: var(--rule); stroke-width: 1.5; }
+.ill-wheel-node text { font-size: 15px; font-weight: 600; fill: var(--ink); }
+.ill-wheel-dot { fill: var(--sea); }
+.ill-wheel-glow { fill: var(--sea); opacity: 0.16; }
+.ill-wheel-spin { transform-origin: 240px 210px; transform-box: view-box; opacity: 0; }
+.ill-wheel-node { transition: opacity 400ms ease; }
+.illus-anim.is-in .ill-wheel-spin { opacity: 1; animation: ill-spin 12s linear infinite; }
+.illus-anim.is-in .ill-wheel-node rect { animation: ill-node 12s ease-in-out infinite; animation-delay: calc(var(--i, 0) * 2s - 0.6s); }
+.illus-anim .ill-wheel-node { opacity: 0; }
+.illus-anim.is-seen .ill-wheel-node { opacity: 1; transition-delay: calc(var(--i, 0) * 120ms); }
+
+@keyframes ill-pop { from { opacity: 0; transform: scale(0.3); } to { opacity: 1; transform: none; } }
+@keyframes ill-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes ill-log { 0%, 8% { opacity: 0; transform: translateX(-6px); } 16%, 78% { opacity: 1; transform: none; } 90%, 100% { opacity: 0; } }
+@keyframes ill-wire-v { 0% { opacity: 0; transform: translateY(0); } 15% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translateY(26px); } }
+@keyframes ill-wire-h { 0% { opacity: 0; transform: translateX(0); } 15% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translateX(64px); } }
+@keyframes ill-tick { 0%, 20%, 100% { transform: scale(1); } 10% { transform: scale(1.2); } }
+@keyframes ill-spin { to { transform: rotate(360deg); } }
+@keyframes ill-node { 0%, 10%, 100% { fill: var(--raised); stroke: var(--rule); } 4% { fill: var(--sea-soft); stroke: var(--sea); } }
+@media (prefers-reduced-motion: reduce) {
+  .ill-wire i, .ill-wheel-spin { display: none; }
+}

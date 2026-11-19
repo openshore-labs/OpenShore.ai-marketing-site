@@ -8,7 +8,7 @@
     policy and terms under /os-code/ are OS Code by OpenShore's; OpenShore
     has its own at /privacy/, /terms/ and /support/
     (2026-11-16), which this footer links to. Under the header sit the tabs
-    (src/_data/entTabs.js): Solutions, Product Tour and Grow with Us. -#}
+    (src/_data/entTabs.js): Overview, Product Tour, Pricing, Security and About. -#}
 <!doctype html>
 <html lang="en">
   <head>
@@ -65,5 +65,6 @@
       <nav aria-label="Policies">{% for l in [["Privacy", "/privacy/"], ["Terms", "/terms/"], ["Support", "/support/"]] %}{% if not loop.first %} · {% endif %}<a href="{{ l[1] }}"{% if page.url == l[1] %} aria-current="page"{% endif %}>{{ l[0] }}</a>{% endfor %}</nav>
     </footer>
     <script src="/enterprise/nav.js?v={{ rev.entNav }}" defer></script>
+    <script src="/enterprise/illus.js?v={{ rev.entIllus }}" defer></script>
   </body>
 </html>

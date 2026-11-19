@@ -1,7 +1,7 @@
 ---
 layout: ent-layout.njk
 permalink: /grow-with-us/
-pageTitle: "Grow with Us · OpenShore"
+pageTitle: "About · OpenShore"
 pageDescription: "Why OpenShore exists: our mission, the principles we build by, and the founder behind it."
 ---
 {#- Grow with Us (founder, 2026-11-16): the mission, the principles from the
@@ -18,6 +18,7 @@ pageDescription: "Why OpenShore exists: our mission, the principles we build by,
       <section class="ent-sec" aria-labelledby="principles-h">
         <h2 class="ent-eyebrow" id="principles-h">{{ g.principlesTitle }}</h2>
         <p class="ent-body ent-principles-lede">{{ g.principlesLede }}</p>
+{% include "ill-flywheel.njk" %}
         <ol class="ent-principles">
 {%- for p in g.principles %}
           <li>

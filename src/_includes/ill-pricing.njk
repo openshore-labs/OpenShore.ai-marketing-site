@@ -1,0 +1,16 @@
+{#- The bill builds itself (founder, 2026-11-19): the page's own example, a
+    50-person company with one bot at $900 a month, drawn as a bill. Plays
+    once in view (/enterprise/illus.js); still and complete without it. -#}
+<figure class="ill ill-bill" data-illus role="img" aria-label="The example bill: 50 people at $8 is $400, one bot is $500, $900 a month.">
+  <div class="ill-bill-row">
+    <div class="ill-people" data-stagger aria-hidden="true">{% for i in range(50) %}<i></i>{% endfor %}</div>
+    <div class="ill-bill-l"><b>50 people</b><span>× $8 a month</span></div>
+    <div class="ill-bill-v">$400</div>
+  </div>
+  <div class="ill-bill-row ill-bill-row--bot">
+    <div class="ill-bot" aria-hidden="true">{% include "ill-mark.njk" %}</div>
+    <div class="ill-bill-l"><b>1 bot</b><span>× $500 a month</span></div>
+    <div class="ill-bill-v">$500</div>
+  </div>
+  <div class="ill-bill-total"><span>A month</span><b>$900</b></div>
+</figure>
