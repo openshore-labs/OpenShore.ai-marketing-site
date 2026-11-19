@@ -11,6 +11,9 @@
 //   chip      what the approval approved, shown under it
 //   stmt      the done message's figure: label, from, to, and how it reads
 //             (format, with {n} for the number; without one, "+$n")
+//   why       the line under the example (founder, 2026-11-19): the evidence
+//             that the problem is common, and who usually handles it. Only
+//             a figure checked against its source goes here.
 //
 // Revenue ops (founder, 2026-11-18) is the promo film's commission scene,
 // word for word. Finance, Planning, Analytics and Data (founder, 2026-11-19:
@@ -18,10 +21,11 @@
 //
 // Every example is a documented, common problem that companies usually staff
 // a role or build a process for (founder, 2026-11-19). Each one's sources and
-// the people who traditionally handle it are noted above it; the vendor
-// surveys among them are directional, and none of their figures is on the
-// page. Change an example only for another problem that is just as
-// documented, and note its sources here.
+// the people who traditionally handle it are noted above it, and its why line
+// on the page carries one checked figure (Data has none, by the founder's
+// call). The vendor surveys among the notes are directional. Change an
+// example only for another problem that is just as documented, and note its
+// sources here.
 
 const at = (name) => `<span class="cd-at">@${name}</span>`;
 
@@ -51,6 +55,7 @@ export default [
     ruleFrom: "Rule saved · from Dana’s approval",
     rule: "Deals count toward the rep who owns the territory.",
     runs: "Runs before any pay change",
+    why: "56% of companies have error-prone commission calculations (Palette, The State of Sales Compensation, 2023). Catching them usually takes sales operations and a commission analyst.",
   },
   // A stockout that is really a wrong inventory record (a receipt booked to
   // the wrong warehouse). DeHoratius and Raman, "Inventory Record Inaccuracy:
@@ -76,6 +81,7 @@ export default [
     ruleFrom: "Rule saved · from Marcus’s approval",
     rule: "Receipts are checked against the order’s ship-to before they count as stock.",
     runs: "Runs on every receipt",
+    why: "At one retailer, 65% of nearly 370,000 inventory records were wrong (DeHoratius and Raman, Management Science, 2008). Keeping counts right usually takes inventory control and regular cycle counts.",
   },
   // A retailer short-pays an invoice with a promotion deduction that no
   // agreed promotion backs. Deductions are a standing cost of selling into
@@ -102,6 +108,7 @@ export default [
     ruleFrom: "Rule saved · from Nia’s approval",
     rule: "A deduction is matched to an agreed promotion before it’s accepted.",
     runs: "Runs on every payment",
+    why: "For suppliers selling mainly to retailers, deductions take about 2% of sales at the median (Credit Research Foundation deduction survey, 2012). Checking each one usually takes a deductions team in accounts receivable.",
   },
   // A budget line running over plan partway through a quarter. Comparing
   // actuals with budget and reforecasting is the core routine of financial
@@ -127,6 +134,7 @@ export default [
     ruleFrom: "Rule saved · from Sam’s approval",
     rule: "A budget line running 10% over plan is flagged the week it happens.",
     runs: "Runs every Monday",
+    why: "In finance review meetings, 69% of the time goes to financial results, and nearly half of that to actual against budget (AFP survey of 606 financial planning professionals, 2017). The work usually sits with a financial planning analyst.",
   },
   // A margin dip nobody can explain, here freight: UPS and FedEx add holiday
   // demand surcharges to home deliveries from late October to mid-January
@@ -152,6 +160,7 @@ export default [
     ruleFrom: "Rule saved · from Ava’s approval",
     rule: "Any margin move of a point or more is explained in the weekly review.",
     runs: "Runs on every weekly review",
+    why: "UPS and FedEx add holiday surcharges to home deliveries every peak season, this year from late October to mid-January (the carriers’ 2026 peak schedules). Explaining what that does to margin usually takes an analyst who builds the weekly review.",
   },
   // Two reports disagree because they measure different things under one
   // name: the deck shows revenue earned (ASC 606 recognizes revenue as it is

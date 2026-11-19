@@ -599,6 +599,9 @@ main, .ent-top, .ent-foot {
    (commission.js sets the two edge classes). */
 .cd-tabs { position: relative; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
 .cd-tabs::-webkit-scrollbar { display: none; }
+/* The line under each example: why it is a common problem, with its source. */
+.cd-why { margin-top: 4px; max-width: 80ch; }
+.cd-why b { font-weight: 600; color: var(--ink-soft); }
 .cd-tabs button { flex: none; white-space: nowrap; }
 .cd-tabs--right { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); }
 .cd-tabs--left { -webkit-mask-image: linear-gradient(90deg, transparent, #000 40px); mask-image: linear-gradient(90deg, transparent, #000 40px); }
