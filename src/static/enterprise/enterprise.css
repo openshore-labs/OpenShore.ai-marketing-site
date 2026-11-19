@@ -496,6 +496,9 @@ main, .ent-top, .ent-foot {
 
 .cd-loop { container-type: inline-size; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .cd-lead { font-size: 18px; }
+/* Each example's headline (founder, 2026-11-19): bold, at the size of the
+   copy around it rather than a heading's. */
+.cd-h { font-size: 18px; line-height: 1.5; font-weight: 650; color: var(--ink); max-width: 64ch; }
 .cd-loop-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 10px; }
 .cd-cycle { display: flex; flex-direction: column; gap: 12px; }
 .cd-ring { position: relative; padding-left: 34px; }
