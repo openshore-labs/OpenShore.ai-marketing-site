@@ -13,7 +13,7 @@ export default {
   // The site's home is OpenShore for Enterprise (founder, 2026-11-16); a page
   // with no description of its own falls back to this one.
   metaDescription:
-    "OpenShore for Enterprise is one workspace where a growing startup's teams and AI workers work together. Now looking for design partners.",
+    "OpenShore for Enterprise is one workspace where a growing startup's teams and AI bots work together. Now looking for design partners.",
 
   // The free personal coding agent's name and page (founder, 2026-11-16):
   // always the full name. Every page's footer links to it.
