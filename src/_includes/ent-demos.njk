@@ -15,7 +15,8 @@
 {%- set check %}<svg class="cd-chip-check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#2f5a66" /><path d="M5.8 10.4l2.8 2.8 5.6-5.8" fill="none" stroke="#f6f4ef" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg>{% endset -%}
 {%- set arrow %}<svg class="cd-arrow" viewBox="0 0 14 20" aria-hidden="true"><path d="M7 2v15m-5-5l5 5 5-5" fill="none" stroke="#2f5a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>{% endset -%}
 {%- set times = [[400, 1200], [1900, 3300], [4300, 5000], [6000, 6800]] -%}
-      <section class="ent-sec cd-demos" aria-label="Worked examples">
+      <section class="ent-sec cd-demos" aria-labelledby="bots-h">
+        <h2 class="ent-eyebrow" id="bots-h">Expert AI bots</h2>
         <div class="cd-tabs" role="tablist" aria-label="Pick an example" data-cd-tabs hidden>
 {%- for d in entDemos %}
           <button type="button" role="tab" id="cd-tab-{{ d.id }}" aria-controls="cd-{{ d.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}"{% if not loop.first %} tabindex="-1"{% endif %}>{{ d.tab }}</button>
@@ -23,8 +24,8 @@
         </div>
 {%- for d in entDemos %}
       <div class="cd cd-panel" id="cd-{{ d.id }}" role="tabpanel" aria-labelledby="cd-{{ d.id }}-h" data-cd>
-        <h2 class="ent-eyebrow" id="cd-{{ d.id }}-h">{{ d.eyebrow }}</h2>
-        <h3 class="cd-h">{{ d.heading }}</h3>
+        <p class="ent-eyebrow">{{ d.eyebrow }}</p>
+        <h3 class="cd-h" id="cd-{{ d.id }}-h">{{ d.heading }}</h3>
         <div class="cd-cap">
           <span class="ent-tag">Example</span>
           <button class="ent-replay" type="button" hidden aria-label="Replay the conversation">Replay</button>

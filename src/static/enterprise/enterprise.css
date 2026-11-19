@@ -56,7 +56,7 @@ main, .ent-top, .ent-foot {
 @media (hover: hover) { .ent-toplink:hover { color: var(--sea); } }
 
 .ent-hero { padding-block: 72px 56px; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
-.ent-hero h1 { font-size: clamp(40px, 7vw, 76px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 650; max-width: 14ch; }
+.ent-hero h1 { font-size: clamp(24px, 2.4vw, 28px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 650; max-width: 24ch; }
 .ent-lede { font-size: clamp(18px, 2.2vw, 22px); line-height: 1.5; color: var(--ink-soft); max-width: 62ch; }
 .ent-badge { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 999px; background: var(--sea-soft); color: var(--sea); font-size: 14px; font-weight: 600; }
 .ent-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
@@ -67,8 +67,8 @@ main, .ent-top, .ent-foot {
 @media (hover: hover) { .ent-btn:hover { background: rgba(28, 42, 51, 0.12); } .ent-btn--primary:hover { background: var(--ink); } }
 
 .ent-eyebrow { font-size: 13px; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sea); }
-.ent-h { font-size: clamp(26px, 3.6vw, 38px); line-height: 1.15; letter-spacing: -0.025em; font-weight: 650; max-width: 26ch; }
-.ent-statement { font-size: clamp(22px, 3vw, 30px); line-height: 1.3; letter-spacing: -0.015em; font-weight: 550; max-width: 32ch; }
+.ent-h { font-size: clamp(21px, 1.9vw, 24px); line-height: 1.25; letter-spacing: -0.015em; font-weight: 650; max-width: 40ch; }
+.ent-statement { font-size: clamp(20px, 1.8vw, 22px); line-height: 1.35; letter-spacing: -0.01em; font-weight: 550; max-width: 40ch; }
 .ent-body { font-size: 18px; color: var(--ink-soft); max-width: 64ch; }
 .ent-body b { color: var(--sea); }
 .ent-note { font-size: 14px; color: var(--muted); }
@@ -106,7 +106,7 @@ main, .ent-top, .ent-foot {
 .ent-pills li { padding: 7px 14px; border-radius: 999px; background: var(--sea-soft); color: var(--sea); font-size: 15px; font-weight: 600; }
 
 .ent-cta { margin-block: 0 24px; padding: 48px clamp(22px, 5vw, 56px); border-radius: 24px; background: var(--ink); color: var(--paper); display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-.ent-cta h2 { font-size: clamp(32px, 5vw, 56px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 650; }
+.ent-cta h2 { font-size: clamp(24px, 2.4vw, 28px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 650; }
 .ent-cta .ent-lede { color: #d5dcdc; }
 .ent-cta .ent-badge { background: rgba(127, 184, 200, 0.16); color: #9ccbd8; }
 .ent-cta a { color: #9ccbd8; font-weight: 600; word-break: break-word; }
@@ -163,7 +163,9 @@ main, .ent-top, .ent-foot {
    rather than wrapping. */
 .ent-hero .ent-product { font-size: clamp(18px, 6.2vw, 72px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 650; white-space: nowrap; max-width: none; }
 /* The byline leans on its last word, One. */
-.ent-byline { font-size: clamp(17px, 2.8vw, 28px); line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--ink-soft); }
+.ent-byline { font-size: clamp(18px, 1.7vw, 20px); line-height: 1.35; letter-spacing: -0.01em; font-weight: 500; color: var(--ink-soft); }
+/* Under the home headline (founder, 2026-11-19): the tagline, close to it. */
+.ent-hero .ent-h1--wide + .ent-byline { margin-top: -10px; }
 .ent-byline em { font-style: normal; font-weight: 750; color: var(--sea); }
 .ent-hero--home { gap: 18px; }
 .ent-card h3 { font-size: 18px; font-weight: 650; }
@@ -356,10 +358,10 @@ main, .ent-top, .ent-foot {
 .c-anim .c-ripple--again.on { animation: c-ripple 1.3s cubic-bezier(0.2, 0.7, 0.3, 1) 1; }
 
 /* The hero's headline and its why line (2026-11-17). */
-/* The home headline sits one step above its lede (founder, 2026-11-19:
-   "just a little bigger than the subtext"), and still above the section
-   headings below it. */
-.ent-hero .ent-h1--wide { font-size: clamp(28px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.028em; max-width: 24ch; }
+/* Headlines sit one step above the copy around them (founder, 2026-11-19:
+   "slightly bigger than the normal copy"): a page headline 24 to 28px, a
+   section headline 21 to 24px, a statement 20 to 22px, beside 18px copy
+   (the rules above). */
 .ent-hero-why { max-width: 60ch; margin-top: -6px; }
 
 /* The mockup on the Product Tour page (2026-11-18): the founder's
