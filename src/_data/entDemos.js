@@ -13,16 +13,26 @@
 //             (format, with {n} for the number; without one, "+$n")
 //
 // Revenue ops (founder, 2026-11-18) is the promo film's commission scene,
-// word for word. Supply chain (2026-11-18) is the stockout that was really a
-// receipt booked to the wrong warehouse, chosen because stockouts and wrong
-// inventory counts are the headache companies report most. Finance, Planning,
-// Analytics and Data (founder, 2026-11-19: "add the other planned workers")
-// each take the job the plan gives that bot: a retailer deduction, a budget
-// line over plan, the weekly business review, and one definition of a number.
+// word for word. Finance, Planning, Analytics and Data (founder, 2026-11-19:
+// "add the other planned workers") each take the job the plan gives that bot.
+//
+// Every example is a documented, common problem that companies usually staff
+// a role or build a process for (founder, 2026-11-19). Each one's sources and
+// the people who traditionally handle it are noted above it; the vendor
+// surveys among them are directional, and none of their figures is on the
+// page. Change an example only for another problem that is just as
+// documented, and note its sources here.
 
 const at = (name) => `<span class="cd-at">@${name}</span>`;
 
 export default [
+  // A commission paid short because a deal was credited to the wrong rep.
+  // Commission errors are routine: Palette's State of Sales Compensation 2023
+  // found 56% of companies have error-prone commission calculations, and
+  // CaptivateIQ reports 77% of sales professionals have had a payout error
+  // and 66% of companies have over- or underpaid commissions. Crediting and
+  // territory disputes are a standard category. Traditionally: sales
+  // operations and a commission analyst who works the dispute queue.
   {
     id: "rev",
     tab: "Revenue ops",
@@ -42,6 +52,12 @@ export default [
     rule: "Deals count toward the rep who owns the territory.",
     runs: "Runs before any pay change",
   },
+  // A stockout that is really a wrong inventory record (a receipt booked to
+  // the wrong warehouse). DeHoratius and Raman, "Inventory Record Inaccuracy:
+  // An Empirical Analysis", Management Science 54(4), 2008: 65% of nearly
+  // 370,000 records at one retailer were wrong, with the distribution
+  // structure among the causes. Traditionally: inventory control, receiving
+  // checks and cycle counts.
   {
     id: "inv",
     tab: "Supply chain",
@@ -61,6 +77,13 @@ export default [
     rule: "Receipts are checked against the order’s ship-to before they count as stock.",
     runs: "Runs on every receipt",
   },
+  // A retailer short-pays an invoice with a promotion deduction that no
+  // agreed promotion backs. Deductions are a standing cost of selling into
+  // retail (the Credit Research Foundation's deduction survey, presented at
+  // the Minneapolis Fed in 2012, put them near 2% of sales at the median),
+  // and vendors that recover them put the invalid share at 10% to 25% or
+  // more. Traditionally: a deductions team in accounts receivable that
+  // matches each deduction to its promotion and disputes the rest.
   {
     id: "fin",
     tab: "Finance",
@@ -80,6 +103,12 @@ export default [
     rule: "A deduction is matched to an agreed promotion before it’s accepted.",
     runs: "Runs on every payment",
   },
+  // A budget line running over plan partway through a quarter. Comparing
+  // actuals with budget and reforecasting is the core routine of financial
+  // planning: AFP surveys find most of a finance review meeting goes to
+  // results, about half of that to actual against budget, and a reforecast
+  // often takes a week or more. Traditionally: an FP&A analyst and the
+  // monthly budget review.
   {
     id: "plan",
     tab: "Planning",
@@ -99,6 +128,12 @@ export default [
     rule: "A budget line running 10% over plan is flagged the week it happens.",
     runs: "Runs every Monday",
   },
+  // A margin dip nobody can explain, here freight: UPS and FedEx add holiday
+  // demand surcharges to home deliveries from late October to mid-January
+  // every year (on top of an average 5.9% annual rate rise for 2026), a
+  // documented hit to shipping-heavy margins. A one-point move is what a
+  // surcharge of that size can do. Traditionally: an analyst who builds the
+  // weekly business review and chases each variance.
   {
     id: "pa",
     tab: "Analytics",
@@ -108,7 +143,7 @@ export default [
     bot: "Performance Analytics bot",
     messages: [
       { name: "Dana Reyes", initials: "DR", role: "Head of Revenue", time: "8:30", text: `Gross margin dipped last week. ${at("Performance")} do we know why?` },
-      { time: "8:31", text: `Freight. Our West Coast carrier raised its rates on November 1, which took margin from 42% to 39%. It’s in this week’s business review, which needs ${at("Ava Morgan")} to approve.` },
+      { time: "8:31", text: `Freight. Our carriers’ holiday surcharges are on every home delivery until mid-January, which took margin from 42% to 41%. It’s in this week’s business review, which needs ${at("Ava Morgan")} to approve.` },
       { name: "Ava Morgan", initials: "AM", role: "Founder", time: "8:33", text: "Approved.", chip: "Week 46 business review" },
       { time: "8:33", text: "Done. The review is in #leadership, and every number in it links to its source.", stmt: { label: "Numbers traced to their source", from: 0, to: 24, format: "{n} of 24", text: "24 of 24" } },
     ],
@@ -118,23 +153,31 @@ export default [
     rule: "Any margin move of a point or more is explained in the weekly review.",
     runs: "Runs on every weekly review",
   },
+  // Two reports disagree because they measure different things under one
+  // name: the deck shows revenue earned (ASC 606 recognizes revenue as it is
+  // earned, not when a deal is signed or invoiced), the dashboard shows deals
+  // signed, which are bookings. Bookings, billings and revenue rarely match
+  // at a growing company (the SaaS finance guides from Zuora, ChartMogul and
+  // Drivetrain all warn of it), and one name with two meanings is the usual
+  // cause of reports that disagree. Traditionally: a finance or data team
+  // that owns the metric definitions and a data dictionary.
   {
     id: "df",
     tab: "Data",
     eyebrow: "Let’s say two reports disagree on revenue.",
-    heading: "Settled in three minutes, and one number everywhere after.",
+    heading: "Settled in three minutes, with one meaning in every report after.",
     channel: "finance",
     bot: "Data Foundations bot",
     messages: [
       { name: "Nia Brooks", initials: "NB", role: "Controller", time: "11:20", text: `The board deck says October revenue was $1.42M. The sales dashboard says $1.51M. ${at("Data Foundations")} which is right?` },
-      { time: "11:21", text: `Both, by their own definitions. The deck counts revenue when it’s invoiced, the dashboard when a deal closes. Making invoiced revenue the one definition needs ${at("Dana Reyes")} to approve.` },
-      { name: "Dana Reyes", initials: "DR", role: "Head of Revenue", time: "11:22", text: "Approved.", chip: "Revenue means invoiced, everywhere" },
-      { time: "11:23", text: "Done. Every report and dashboard now shows October revenue as $1.42M, linked to its source.", stmt: { label: "Reports that agree", from: 7, to: 12, format: "{n} of 12", text: "12 of 12" } },
+      { time: "11:21", text: `Both, for different things. The deck shows revenue earned in October. The dashboard shows deals signed, which are bookings. Labelling that one as bookings needs ${at("Dana Reyes")} to approve.` },
+      { name: "Dana Reyes", initials: "DR", role: "Head of Revenue", time: "11:22", text: "Approved.", chip: "Signed deals are bookings, everywhere" },
+      { time: "11:23", text: "Done. Every report now shows $1.42M as revenue and $1.51M as bookings, each linked to its source.", stmt: { label: "Reports that agree", from: 7, to: 12, format: "{n} of 12", text: "12 of 12" } },
     ],
     stamp: "Asked at 11:20. One number by 11:23.",
     lead: "And that approval did more than settle one number.",
     ruleFrom: "Rule saved · from Dana’s approval",
-    rule: "Revenue is counted when it’s invoiced, in every report and dashboard.",
+    rule: "Revenue means revenue earned. Signed deals are reported as bookings.",
     runs: "Checked on every report",
   },
 ];
