@@ -594,6 +594,15 @@ main, .ent-top, .ent-foot {
 .cd-tabs button:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
 .cd-tabs button:active { transform: scale(0.97); }
 @media (hover: hover) { .cd-tabs button:hover { color: var(--ink); } }
+/* Six tabs (2026-11-19): where the row is wider than the screen it scrolls
+   sideways inside its track, and fades at the edge that has more
+   (commission.js sets the two edge classes). */
+.cd-tabs { position: relative; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+.cd-tabs::-webkit-scrollbar { display: none; }
+.cd-tabs button { flex: none; white-space: nowrap; }
+.cd-tabs--right { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); }
+.cd-tabs--left { -webkit-mask-image: linear-gradient(90deg, transparent, #000 40px); mask-image: linear-gradient(90deg, transparent, #000 40px); }
+.cd-tabs--left.cd-tabs--right { -webkit-mask-image: linear-gradient(90deg, transparent, #000 40px, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(90deg, transparent, #000 40px, #000 calc(100% - 40px), transparent); }
 .ent-partner-ask { margin-top: 4px; }
 
 /* ---- Connections and setup, the CFO and founder lines (2026-11-18) ---- */

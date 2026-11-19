@@ -1,13 +1,92 @@
-{#- The worked examples on the home page (founder, 2026-11-18): Revenue ops
-    (the commission fix) and Supply chain (the stock that went to the wrong
-    warehouse), one panel at a time behind two tabs. The tabs belong to
-    /enterprise/commission.js: without it both panels show, one after the
-    other, still and complete, and the tab row stays hidden. -#}
+{#- The worked examples on the home page (founder, 2026-11-18; six since
+    2026-11-19): one conversation per planned bot, from src/_data/entDemos.js,
+    one panel at a time behind a row of tabs. Each panel plays once when its
+    chat scrolls into view, then holds its last frame, and Replay plays it
+    again (/enterprise/commission.js). Without the script, or with Reduce
+    Motion, every panel stays still and complete; without the script they
+    all show, one after the other, and the tab row stays hidden. Every
+    message is real text from the start. The timings are the same in every
+    panel: data-type (typing starts) and data-at (it lands), in ms, the
+    loop's counted from its own data-at. -#}
+{%- set mark -%}
+<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>
+{%- endset -%}
+{%- set dots %}<span class="cd-dots" aria-hidden="true"><i></i><i></i><i></i></span>{% endset -%}
+{%- set check %}<svg class="cd-chip-check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#2f5a66" /><path d="M5.8 10.4l2.8 2.8 5.6-5.8" fill="none" stroke="#f6f4ef" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg>{% endset -%}
+{%- set arrow %}<svg class="cd-arrow" viewBox="0 0 14 20" aria-hidden="true"><path d="M7 2v15m-5-5l5 5 5-5" fill="none" stroke="#2f5a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>{% endset -%}
+{%- set times = [[400, 1200], [1900, 3300], [4300, 5000], [6000, 6800]] -%}
       <section class="ent-sec cd-demos" aria-label="Worked examples">
         <div class="cd-tabs" role="tablist" aria-label="Pick an example" data-cd-tabs hidden>
-          <button type="button" role="tab" id="cd-tab-rev" aria-controls="cd-rev" aria-selected="true">Revenue ops</button>
-          <button type="button" role="tab" id="cd-tab-inv" aria-controls="cd-inv" aria-selected="false" tabindex="-1">Supply chain</button>
+{%- for d in entDemos %}
+          <button type="button" role="tab" id="cd-tab-{{ d.id }}" aria-controls="cd-{{ d.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}"{% if not loop.first %} tabindex="-1"{% endif %}>{{ d.tab }}</button>
+{%- endfor %}
         </div>
-{% include "ent-commission.njk" %}
-{% include "ent-inventory.njk" %}
+{%- for d in entDemos %}
+      <div class="cd cd-panel" id="cd-{{ d.id }}" role="tabpanel" aria-labelledby="cd-{{ d.id }}-h" data-cd>
+        <h2 class="ent-eyebrow" id="cd-{{ d.id }}-h">{{ d.eyebrow }}</h2>
+        <h3 class="ent-h">{{ d.heading }}</h3>
+        <div class="cd-cap">
+          <span class="ent-tag">Example</span>
+          <button class="ent-replay" type="button" hidden aria-label="Replay the conversation">Replay</button>
+        </div>
+        <div class="cd-stage" aria-live="off">
+          <div class="cd-chat-col">
+            <div class="cd-chat">
+              <p class="cd-ch"># {{ d.channel }}</p>
+              <ol class="cd-thread" aria-label="The conversation in # {{ d.channel }}">
+{%- for m in d.messages %}
+                <li class="cd-msg{% if m.stmt %} cd-msg--done{% endif %}" data-type="{{ times[loop.index0][0] }}" data-at="{{ times[loop.index0][1] }}">
+{%- if m.name %}
+                  <span class="cd-av" aria-hidden="true">{{ m.initials }}</span>
+{%- else %}
+                  <span class="cd-av cd-av--worker" aria-hidden="true">{{ mark | safe }}</span>
+{%- endif %}
+                  <div class="cd-body">
+{%- if m.name %}
+                    <p class="cd-who">{{ m.name }} <span>{{ m.role }} · {{ m.time }}</span></p>
+{%- else %}
+                    <p class="cd-who">{{ d.bot }} <span class="cd-badge">Bot</span> <span>{{ m.time }}</span></p>
+{%- endif %}
+                    <p class="cd-txt">{{ m.text | safe }}</p>
+{%- if m.chip %}
+                    <p class="cd-chip" data-at="5450">{{ check | safe }}{{ m.chip }}</p>
+{%- endif %}
+{%- if m.stmt %}
+                    <p class="cd-stmt" data-at="7100"><span>{{ m.stmt.label }}</span><b data-count="{{ m.stmt.from }}:{{ m.stmt.to }}:7300:1300"{% if m.stmt.unit %} data-unit="{{ m.stmt.unit }}"{% endif %}{% if m.stmt.format %} data-format="{{ m.stmt.format }}"{% endif %}>{{ m.stmt.text }}</b></p>
+{%- endif %}
+                    {{ dots | safe }}
+                  </div>
+                </li>
+{%- endfor %}
+              </ol>
+            </div>
+            <p class="ent-badge cd-stamp" data-at="8900"><span class="ent-dot" aria-hidden="true"></span>{{ d.stamp }}</p>
+          </div>
+
+          <div class="cd-loop" data-at="9300">
+            <p class="ent-body cd-lead cd-beat" data-at="0">{{ d.lead }}</p>
+            <p class="ent-statement cd-title cd-beat" data-at="600">Every fix becomes a rule.</p>
+            <div class="cd-loop-body">
+              <div class="cd-cycle">
+                <div class="cd-ring">
+                  <span class="cd-return cd-beat" data-at="3200" aria-hidden="true"></span>
+                  <ol class="cd-steps" aria-label="The loop">
+                    <li class="cd-step" data-at="1300"><span class="cd-pill">Someone asks</span></li>
+                    <li class="cd-step" data-at="1750">{{ arrow | safe }}<span class="cd-pill">A bot proposes</span></li>
+                    <li class="cd-step" data-at="2200">{{ arrow | safe }}<span class="cd-pill">An admin approves</span></li>
+                    <li class="cd-step cd-step--rule" data-at="2650">{{ arrow | safe }}<span class="cd-pill"><span class="ent-dot" aria-hidden="true"></span>A new rule</span></li>
+                  </ol>
+                </div>
+                <p class="cd-again cd-beat" data-at="3200">Checked on every task, from then on</p>
+              </div>
+              <div class="cd-rule cd-beat" data-at="3800">
+                <p class="cd-rule-k">{{ d.ruleFrom }}</p>
+                <p class="cd-rule-t">{{ d.rule }}</p>
+                <p class="cd-rule-run"><svg class="cd-tick" data-at="4300" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#2f5a66" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>{{ d.runs }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{%- endfor %}
       </section>

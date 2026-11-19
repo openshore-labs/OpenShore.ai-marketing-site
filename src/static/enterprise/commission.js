@@ -4,7 +4,9 @@
 // Every [data-cd] panel runs on its own clock.
 //
 // The tabs ([data-cd-tabs]) show one panel at a time. They work with Reduce
-// Motion too; without this script both panels show and the tabs stay hidden.
+// Motion too; without this script every panel shows and the tabs stay hidden.
+// Where the row is wider than the screen it scrolls sideways, fades at the
+// edge that has more, and keeps the chosen tab in view.
 // A panel shown by its tab plays when it is first seen, like the other.
 //
 // Without this script, or with Reduce Motion on, the section stays still and
@@ -15,17 +17,32 @@
 //                      loop's own data-at)
 //   .cd-loop           waits at its start until it is on screen, so a phone
 //                      reader sees the loop light rather than finding it lit
-//   [data-count]       "from:to:start ms:length ms", a figure that counts up,
-//                      in dollars, or in data-unit when it has one
+//   [data-count]       "from:to:start ms:length ms", a figure that counts,
+//                      read through data-format ({n} is the number) when it
+//                      has one, else in data-unit, else in dollars
 //
 // The clock stops while the tab is hidden and picks up where it left off.
 (function () {
   'use strict';
 
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // The tabs: one panel at a time, arrow keys move between tabs.
   Array.prototype.forEach.call(document.querySelectorAll('[data-cd-tabs]'), function (list) {
     var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
     function panelOf(tab) { return document.getElementById(tab.getAttribute('aria-controls')); }
+    function edges() {
+      var max = list.scrollWidth - list.clientWidth;
+      list.classList.toggle('cd-tabs--left', list.scrollLeft > 2);
+      list.classList.toggle('cd-tabs--right', list.scrollLeft < max - 2);
+    }
+    function reveal(tab) {
+      var room = 28; // keep the chosen tab clear of the faded edge
+      var l = tab.offsetLeft - room;
+      var r = tab.offsetLeft + tab.offsetWidth + room - list.clientWidth;
+      var to = list.scrollLeft < r ? r : list.scrollLeft > l ? l : list.scrollLeft;
+      if (to !== list.scrollLeft) list.scrollTo({ left: Math.max(0, to), behavior: still ? 'auto' : 'smooth' });
+    }
     function select(tab, focus) {
       tabs.forEach(function (t) {
         var on = t === tab;
@@ -34,7 +51,8 @@
         var panel = panelOf(t);
         if (panel) panel.hidden = !on;
       });
-      if (focus) tab.focus();
+      if (focus) tab.focus({ preventScroll: true });
+      reveal(tab);
     }
     tabs.forEach(function (tab, i) {
       tab.addEventListener('click', function () { select(tab, false); });
@@ -47,11 +65,13 @@
       });
     });
     list.hidden = false;
+    list.addEventListener('scroll', edges, { passive: true });
+    window.addEventListener('resize', edges);
     select(tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0] || tabs[0], false);
+    edges();
   });
 
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || !('IntersectionObserver' in window) || !window.requestAnimationFrame) return;
+  if (still || !('IntersectionObserver' in window) || !window.requestAnimationFrame) return;
   Array.prototype.forEach.call(document.querySelectorAll('[data-cd]'), setup);
 
   function setup(root) {
@@ -74,10 +94,11 @@
 
     var counters = Array.prototype.map.call(root.querySelectorAll('[data-count]'), function (el) {
       var v = el.getAttribute('data-count').split(':').map(Number);
-      return { el: el, from: v[0], to: v[1], at: v[2], ms: v[3] || 1, unit: el.getAttribute('data-unit') };
+      return { el: el, from: v[0], to: v[1], at: v[2], ms: v[3] || 1, unit: el.getAttribute('data-unit'), format: el.getAttribute('data-format') };
     });
     function figure(c, n) {
       var whole = Math.round(n).toLocaleString('en-US');
+      if (c.format) return c.format.replace('{n}', whole);
       return c.unit ? '+' + whole + ' ' + c.unit : '+$' + whole;
     }
     function easeOut(x) {
