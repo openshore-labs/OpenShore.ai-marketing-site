@@ -361,6 +361,7 @@ main, .ent-top, .ent-foot {
    headings below it. */
 .ent-hero .ent-h1--wide { font-size: clamp(28px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.028em; max-width: 24ch; }
 .ent-hero-why { max-width: 60ch; margin-top: -6px; }
+.ent-hero-what { max-width: 60ch; margin-top: -6px; }
 
 /* The mockup on the Product Tour page (2026-11-18): the founder's
    commission scene, drawn in the app's own colours, labelled a mockup. */
