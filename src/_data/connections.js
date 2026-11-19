@@ -4,9 +4,11 @@
 // HubSpot, Salesforce, Shopify and QuickBooks Online from milestone 4b;
 // Google Workspace, Microsoft 365, Slack, Teams, SPS Commerce, Amazon, NetSuite
 // and ShipBob from 4c; Zendesk, Gorgias and Jira Service Management with ticket
-// triage; sign-in through Google Workspace, Microsoft Entra ID, Okta or any
-// SAML or OIDC provider). Anything else connects through an MCP connection or
-// a connector built for that company. Add a name only when the plan has it.
+// triage). Anything else connects through an MCP connection or a connector
+// built for that company. Add a name only when the plan has it. Sign-in
+// (Google Workspace, Microsoft Entra ID, Okta or any SAML or OIDC provider)
+// is not an app the bots work in, so it is named in the Security section's
+// sign-in card instead (founder, 2026-11-19).
 //
 // Names only, no logos: a vendor's logo goes on the page only from its own
 // brand kit and under its terms.
@@ -16,5 +18,4 @@ export default [
   { group: "Commerce and inventory", items: ["Shopify", "Amazon Seller Central", "Amazon Vendor Central", "ShipBob", "SPS Commerce"] },
   { group: "Email, files and chat", items: ["Google Workspace", "Microsoft 365", "Slack", "Microsoft Teams"] },
   { group: "Support", items: ["Zendesk", "Gorgias", "Jira Service Management"] },
-  { group: "Sign-in", items: ["Google Workspace", "Microsoft Entra ID", "Okta", "Any SAML or OIDC provider"] },
 ];

@@ -1,26 +1,43 @@
 {#- What OpenShore connects to, and how it gets set up (founder,
     2026-11-18): the out-of-the-box connectors from src/_data/connections.js,
     the promise to connect anything else, and the hands-on setup line for
-    companies with no CTO or CIO. -#}
+    companies with no CTO or CIO.
+
+    Drawn as one hub since 2026-11-19 (founder: "better visual appeal"):
+    the company's own OpenShore server in the middle, each group of apps
+    around it, joined by lines /enterprise/hub.js draws and plays once (a
+    point travels from each group into the hub). Side by side from 720px,
+    a spine down the left on a phone. Without the script the groups show
+    as a plain list around the hub, with no lines. -#}
+{%- set mark -%}
+<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>
+{%- endset -%}
       <section class="ent-sec" id="connections" aria-labelledby="conn-h">
         <h2 class="ent-eyebrow" id="conn-h">Connections</h2>
         <h3 class="ent-h">Built for the tools your business runs on today.</h3>
         <p class="ent-body">OpenShore connects to the systems you already use, out of the box, and to any other app you rely on. Your bots read from them, cite them, and change them only with a person’s approval.</p>
-        <div class="ent-conn">
+        <div class="hub" data-hub>
+          <svg class="hub-lines" aria-hidden="true" focusable="false"></svg>
+          <div class="hub-core">
+            <span class="hub-mark">{{ mark | safe }}</span>
+            <span class="hub-name"><b>OpenShore</b><span>Your own server</span></span>
+          </div>
+          <ul class="hub-nodes" role="list">
 {%- for g in connections %}
-          <div class="ent-conn-group">
-            <h4>{{ g.group }}</h4>
-            <ul role="list">
+            <li class="hub-node">
+              <h4>{{ g.group }}</h4>
+              <ul class="hub-apps" role="list">
 {%- for item in g.items %}
-              <li>{{ item }}</li>
+                <li>{{ item }}</li>
 {%- endfor %}
-            </ul>
-          </div>
+              </ul>
+            </li>
 {%- endfor %}
-          <div class="ent-conn-group ent-conn-group--any">
-            <h4>Anything else</h4>
-            <p>Run something that isn’t listed? We connect it for you, from an in-house database to the one tool only your industry uses.</p>
-          </div>
+            <li class="hub-node hub-node--any">
+              <h4>Anything else</h4>
+              <p>We connect it for you, from an in-house database to the one tool only your industry uses.</p>
+            </li>
+          </ul>
         </div>
         <div class="ent-setup">
           <p class="ent-setup-k">No CTO or CIO needed</p>

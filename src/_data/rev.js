@@ -46,4 +46,6 @@ export default {
   entCharts: rev("src/static/enterprise/charts.js"),
   // The commission demo on the home page.
   entCommission: rev("src/static/enterprise/commission.js"),
+  // The connections hub on the home page.
+  entHub: rev("src/static/enterprise/hub.js"),
 };

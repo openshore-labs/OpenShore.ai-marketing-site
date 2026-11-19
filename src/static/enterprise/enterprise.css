@@ -614,20 +614,56 @@ main, .ent-top, .ent-foot {
 .ent-partner-ask { margin-top: 4px; }
 
 /* ---- Connections and setup, the CFO and founder lines (2026-11-18) ---- */
-.ent-conn { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 4px; }
-.ent-conn-group { background: var(--raised); border-radius: 16px; padding: 18px 20px; box-shadow: 0 0 0 1px var(--rule); display: flex; flex-direction: column; gap: 10px; }
-.ent-conn-group h4 { font-size: 12.5px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea); }
-.ent-conn-group ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.ent-conn-group li { padding: 6px 12px; border-radius: 10px; background: var(--paper); box-shadow: 0 0 0 1px var(--rule); font-size: 15px; font-weight: 600; color: var(--ink); }
-.ent-conn-group p { font-size: 15.5px; color: var(--ink-soft); }
-.ent-conn-group--any { grid-column: 1 / -1; background: var(--sea-soft); box-shadow: none; }
-.ent-conn-group--any p { max-width: 70ch; }
 .ent-setup { margin-top: 8px; border-radius: 18px; padding: 22px 24px; background: var(--ink); color: var(--paper); display: flex; flex-direction: column; gap: 6px; max-width: 760px; }
 .ent-setup-k { font-size: 19px; font-weight: 650; letter-spacing: -0.01em; }
 .ent-setup-t { font-size: 16.5px; line-height: 1.55; color: #d5dcdc; }
-@media (max-width: 900px) { .ent-conn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .ent-conn { grid-template-columns: minmax(0, 1fr); } }
 
 .ent-cfo, .ent-founder-line { max-width: 70ch; font-size: 16.5px; line-height: 1.55; color: #d5dcdc; }
 .ent-cfo b { color: var(--paper); font-weight: 650; }
 .ent-founder-line { padding-top: 14px; border-top: 1px solid rgba(246, 244, 239, 0.14); width: 100%; }
+
+/* ---- Connections as one hub (founder, 2026-11-19) ---------------------- */
+/* The company's own OpenShore server in the middle, each group of apps
+   around it (ent-connections.njk). hub.js draws the lines behind them and
+   plays them once; --hub-layout tells it which shape to draw. A phone gets
+   a spine down the left, a wider screen a wheel. */
+.hub { position: relative; display: flex; flex-direction: column; gap: 14px; margin-top: 6px; --hub-layout: spine; }
+.hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.hub-wires path { fill: none; stroke: var(--sea); stroke-width: 1.6; stroke-linecap: round; }
+.hub-wires path.hub-wire--any { stroke-dasharray: 4 5; }
+.hub-dot { fill: var(--sea); }
+.hub-core { position: relative; z-index: 1; align-self: flex-start; display: flex; align-items: center; gap: 12px; padding: 10px 18px 10px 10px; border-radius: 16px; background: var(--raised); box-shadow: var(--shadow), 0 0 0 1px var(--rule); }
+.hub-mark svg { display: block; width: 44px; height: 44px; }
+.hub-name { display: flex; flex-direction: column; line-height: 1.25; }
+.hub-name b { font-size: 16px; font-weight: 650; color: var(--ink); }
+.hub-name span { font-size: 13px; color: var(--muted); }
+.hub-nodes { list-style: none; margin: 0; padding: 0 0 0 50px; display: flex; flex-direction: column; gap: 10px; }
+.hub-node { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 14px; background: var(--raised); box-shadow: 0 0 0 1px var(--rule); }
+.hub-node h4 { font-size: 12px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea); }
+.hub-apps { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; font-size: 15px; font-weight: 550; line-height: 1.45; color: var(--ink); }
+.hub-apps li:not(:last-child)::after { content: "\00b7"; padding: 0 7px; font-weight: 400; color: var(--muted); }
+.hub-node--any { background: transparent; box-shadow: none; border: 1.5px dashed rgba(47, 90, 102, 0.45); }
+.hub-node--any p { font-size: 15px; line-height: 1.5; color: var(--ink-soft); }
+@media (min-width: 720px) {
+  .hub { --hub-layout: wheel; display: grid; grid-template-columns: minmax(0, 1fr) 176px minmax(0, 1fr); column-gap: clamp(36px, 6vw, 72px); row-gap: 16px; align-items: center; margin-top: 12px; }
+  .hub-nodes { display: contents; }
+  .hub-core { grid-column: 2; grid-row: 1 / span 3; align-self: center; justify-self: center; flex-direction: column; gap: 8px; width: 176px; height: 176px; padding: 0; justify-content: center; border-radius: 50%; text-align: center; box-shadow: var(--shadow), 0 0 0 1px var(--rule), 0 0 0 12px var(--sea-soft); }
+  .hub-mark svg { width: 52px; height: 52px; }
+  .hub-node { gap: 6px; padding: 14px 16px; }
+  .hub-apps { font-size: 15.5px; line-height: 1.5; }
+  .hub-node:nth-child(-n+3) { grid-column: 1; }
+  .hub-node:nth-child(n+4) { grid-column: 3; }
+  .hub-node:nth-child(1), .hub-node:nth-child(4) { grid-row: 1; }
+  .hub-node:nth-child(2), .hub-node:nth-child(5) { grid-row: 2; }
+  .hub-node:nth-child(3), .hub-node:nth-child(6) { grid-row: 3; }
+}
+/* The play, once hub.js has taken the drawing over: the lines draw in, then
+   a point runs from each group into the hub, which answers with a ring. */
+.hub-anim .hub-wires path:not(.hub-wire--any) { stroke-dasharray: 1 1; stroke-dashoffset: 1; transition: stroke-dashoffset 900ms cubic-bezier(0.4, 0, 0.2, 1); transition-delay: calc(var(--i, 0) * 90ms); }
+.hub-anim .hub-wires path.hub-wire--any { opacity: 0; transition: opacity 600ms ease 700ms; }
+.hub-anim.hub-drawn .hub-wires path:not(.hub-wire--any) { stroke-dashoffset: 0; }
+.hub-anim.hub-drawn .hub-wires path.hub-wire--any { opacity: 1; }
+.hub-core::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 0 2px var(--sea); opacity: 0; pointer-events: none; }
+.hub-core.hub-hit::after { animation: hub-ring 900ms cubic-bezier(0.2, 0.7, 0.3, 1) 1; }
+@keyframes hub-ring { 0% { opacity: 0.55; transform: scale(1); } 100% { opacity: 0; transform: scale(1.18); } }
+@media (prefers-reduced-motion: reduce) { .hub-core.hub-hit::after { animation: none; } }
