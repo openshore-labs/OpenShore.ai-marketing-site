@@ -556,11 +556,8 @@ main, .ent-top, .ent-foot {
 /* The usual path's travelling point (2026-11-18), after .c-head so it wins. */
 .c-head.c-head--risk, .c-head-glow.c-head--risk { fill: #9a5f36; }
 
-/* ---- Trust line, security and the design partner offer (2026-11-18) --- */
+/* ---- Security and the design partner offer (2026-11-18) -------------- */
 
-.ent-trust { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; font-weight: 550; color: var(--ink-soft); }
-.ent-trust li { position: relative; padding-left: 24px; }
-.ent-trust li::before { content: ""; position: absolute; left: 3px; top: 0.42em; width: 11px; height: 6px; border-left: 2.2px solid var(--sea); border-bottom: 2.2px solid var(--sea); transform: rotate(-45deg); }
 
 .ent-secgrid { list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .ent-secgrid li { background: var(--raised); border-radius: 16px; padding: 20px 22px; box-shadow: var(--shadow), 0 0 0 1px var(--rule); display: flex; flex-direction: column; gap: 8px; }
