@@ -1,0 +1,42 @@
+{#- The three-question design partner form and the call link (founder,
+    2026-11-18). It sits in the dark closing section of each page. With
+    /enterprise/apply.js it sends without leaving the page and then offers
+    a call; without the script it posts to the Worker
+    (worker/leads.js, POST /design-partners/apply) and lands on /thanks/.
+    If the Worker cannot send yet, the script opens an email with the same
+    three answers, so nothing is lost. Nothing is stored on this site: the
+    answers go to the founder by email (the privacy policy says so). -#}
+        <div class="ent-apply" id="apply">
+          <form class="ent-form" method="post" action="/design-partners/apply" data-apply data-contact="{{ site.enterpriseContact }}">
+            <p class="ent-form-title">Apply in three questions</p>
+            <label for="ap-email">Your work email</label>
+            <input id="ap-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" required placeholder="you@company.com" />
+            <label for="ap-size">How many people work at your company?</label>
+            <select id="ap-size" name="size" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Under 50</option>
+              <option>50 to 150</option>
+              <option>150 to 300</option>
+              <option>Over 300</option>
+            </select>
+            <label for="ap-focus">Where would a bot help you first?</label>
+            <select id="ap-focus" name="focus" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Revenue ops and commissions</option>
+              <option>Finance and accounting</option>
+              <option>Planning and forecasting</option>
+              <option>Supply chain and logistics</option>
+              <option>Support and ticket triage</option>
+              <option>Something else</option>
+            </select>
+            <div class="ent-hp" aria-hidden="true"><label for="ap-site">Leave this empty</label><input id="ap-site" name="website" type="text" tabindex="-1" autocomplete="off" /></div>
+            <button class="ent-btn ent-btn--primary" type="submit">Apply to be a design partner</button>
+            <p class="ent-form-fine">Jack reads every one and replies personally. No mailing list. <a href="/privacy/">Privacy</a></p>
+            <p class="ent-form-status" role="status" aria-live="polite" hidden></p>
+          </form>
+          <div class="ent-call">
+            <p class="ent-call-k">Rather talk it through?</p>
+            <p class="ent-call-t">Book 20 minutes with the founder. Bring one workflow that keeps breaking, and we’ll walk through how a bot would handle it.</p>
+            <a class="ent-btn ent-btn--ghost" href="{{ booking.href }}"{{ booking.attrs | safe }}>Book a call <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>

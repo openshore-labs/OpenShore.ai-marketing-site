@@ -8,7 +8,10 @@
     policy and terms under /os-code/ are OS Code by OpenShore's; OpenShore
     has its own at /privacy/, /terms/ and /support/
     (2026-11-16), which this footer links to. Under the header sit the tabs
-    (src/_data/entTabs.js): Solutions, Product Tour and Grow with Us. -#}
+    (src/_data/entTabs.js): Solutions, Product Tour and Grow with Us. The
+    header's Book a call (src/_data/booking.js) rides every page, and the
+    policy allows one form target, this site, for the design partner form
+    (2026-11-18). -#}
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,7 +25,7 @@
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'"
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="{{ site.name }}" />
@@ -47,7 +50,10 @@
         </svg>
         <span><b>OpenShore</b></span>
       </a>
-      <p class="ent-badge ent-badge--ticker ent-badge--top"><span class="ent-dot" aria-hidden="true"></span><span class="ent-ticker"><span class="ent-ticker-track"><span>Now piloting with design partners</span><span class="ent-ticker-copy" aria-hidden="true">Now piloting with design partners</span></span></span></p>
+      <div class="ent-top-end">
+        <p class="ent-badge ent-badge--ticker ent-badge--top"><span class="ent-dot" aria-hidden="true"></span><span class="ent-ticker"><span class="ent-ticker-track"><span>Now piloting with design partners</span><span class="ent-ticker-copy" aria-hidden="true">Now piloting with design partners</span></span></span></p>
+        <a class="ent-btn ent-btn--sm ent-btn--primary" href="{{ booking.href }}"{{ booking.attrs | safe }}>Book a call</a>
+      </div>
     </header>
     <nav class="ent-tabs" aria-label="OpenShore"><div class="ent-tabs-row">
 {%- for t in entTabs %}

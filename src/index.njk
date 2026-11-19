@@ -15,15 +15,15 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
         <p class="ent-lede">OpenShore is the workspace where your team and expert AI bots run the company together, so you can scale the business, not your headcount or your cap table.</p>
         <p class="ent-body ent-hero-why">Every startup is sailing for an open shore. We build the instruments and the crew to get them there.</p>
         <div class="ent-actions">
-          <a class="ent-btn ent-btn--primary" href="#design-partners">Become a design partner</a>
-          <a class="ent-btn" href="/enterprise/platform/">Learn how the platform works <span aria-hidden="true">&rarr;</span></a>
+          <a class="ent-btn ent-btn--primary" href="#apply">Become a design partner</a>
+          <a class="ent-btn" href="{{ booking.href }}"{{ booking.attrs | safe }}>Book a 20-minute call</a>
         </div>
         <ul class="ent-trust" role="list" aria-label="How OpenShore keeps your data">
           <li>Runs in your own cloud</li>
           <li>Your models, your keys</li>
           <li>A person approves every change</li>
         </ul>
-        <p class="ent-note">The platform tour is open to design partners and invited guests. <a href="#design-partners">Ask for a login.</a></p>
+        <p class="ent-note">The <a href="/enterprise/platform/">platform tour</a> is open to design partners and invited guests. <a href="#apply">Ask for a login.</a></p>
       </section>
 
 {% include "ent-demos.njk" %}
@@ -173,7 +173,8 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
             </ul>
           </div>
         </div>
-        <p class="ent-lede ent-partner-ask">To apply, email <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'OpenShore design partner' | urlencode }}">{{ site.enterpriseContact }}</a>. Jack reads every message and replies personally.</p>
+{% include "ent-apply.njk" %}
       </section>
       <script src="/enterprise/charts.js?v={{ rev.entCharts }}" defer></script>
       <script src="/enterprise/commission.js?v={{ rev.entCommission }}" defer></script>
+      <script src="/enterprise/apply.js?v={{ rev.entApply }}" defer></script>

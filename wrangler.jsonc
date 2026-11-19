@@ -31,6 +31,12 @@
     // (worker/enterpriseAccess.js), so the script runs before the files are
     // served on those paths, and only those. /enterprise/issue makes a tour
     // login for the holder of the admin token.
-    "run_worker_first": ["/enterprise/platform*", "/enterprise/tour*", "/enterprise/issue"]
+    "run_worker_first": ["/enterprise/platform*", "/enterprise/tour*", "/enterprise/issue", "/design-partners/apply"]
   }
+  // The design partner form (2026-11-18, worker/leads.js) emails each
+  // application to the founder. To turn it on: enable Email Routing for
+  // openshore.ai in Cloudflare, verify the destination address, then add
+  //   "send_email": [{ "name": "LEADS", "destination_address": "jack@openshore.ai" }]
+  // here (and LEADS_FROM as a var if partners@openshore.ai is not the sender).
+  // Until then the form opens a prefilled email instead, so nothing is lost.
 }

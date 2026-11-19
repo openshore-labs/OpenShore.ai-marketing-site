@@ -6,8 +6,9 @@ pageDescription: "How OpenShore handles what reaches it through the OpenShore pa
 ---
 {#- OpenShore's own privacy policy (founder, 2026-11-16). OS
     Code by OpenShore keeps its own at /os-code/privacy/. Every sentence is
-    what the site does: the pages carry no analytics or forms
-    (ent-layout.njk's CSP is same-origin only), the one cookie is the invited
+    what the site does: the pages carry no analytics, and one form, the
+    design partner form (worker/leads.js: emailed to the founder, never
+    stored; ent-layout.njk's CSP is same-origin only), the one cookie is the invited
     guests' sign-in (worker/enterpriseAccess.js, os_ent), and the two film
     pages load Google Fonts (src/static/enterprise/promo and tour). Change
     this page in the same piece of work as any of those. -#}
@@ -26,14 +27,20 @@ pageDescription: "How OpenShore handles what reaches it through the OpenShore pa
 
         <h2>What we collect when you visit</h2>
         <ul>
-          <li><b>No analytics, ads or tracking.</b> These pages have no analytics, no advertising, no tracking pixels, no forms and no accounts.</li>
+          <li><b>No analytics, ads or tracking.</b> These pages have no analytics, no advertising, no tracking pixels and no accounts. The one form is the design partner application, below.</li>
           <li><b>No cookies, with one exception.</b> If we give you a username and password to see the platform page or the product tour, signing in sets one cookie, <code>os_ent</code>, that holds your username and a signature, so you stay signed in. It is limited to those pages, cannot be read by scripts, and ends on your username’s last day, at most 7 days after we issue it. We do not keep a record of your sign-ins or store passwords.</li>
           <li><b>Hosting.</b> Cloudflare serves this site. Like any web host, it handles each request, which carries your IP address and the details your browser sends. We do not use those requests to measure or profile visitors.</li>
           <li><b>Google Fonts on the two film pages.</b> The promo film (openshore.ai/enterprise/promo) and the product tour (openshore.ai/enterprise/tour) load fonts from Google, so Google receives your IP address and browser details when you open them. Every other page uses fonts served from openshore.ai itself.</li>
         </ul>
 
+        <h2>When you apply to be a design partner</h2>
+        <p>The application asks three things: your work email, your company’s size and where a bot would help you first. When you send it, our site emails your answers to the founder through Cloudflare, which hosts it. The site itself does not store them, and nothing else about you is added. If the site cannot send, your own email app opens with the answers filled in, and nothing leaves until you send that email yourself.</p>
+
+        <h2>When you book a call</h2>
+        <p>“Book a call” is a link. It either opens your email app or takes you to a scheduling page run by another company, whose own privacy policy covers what you enter there. Nothing from that service loads on these pages.</p>
+
         <h2>When you email us</h2>
-        <p>If you write to <a href="mailto:{{ contact }}">{{ contact }}</a>, we keep your messages and the contact details in them so we can reply and continue the conversation. Our email provider stores them for us. We do not add you to a mailing list, and we do not sell your details or share them for advertising.</p>
+        <p>If you write to <a href="mailto:{{ contact }}">{{ contact }}</a> or send an application, we keep your messages and the contact details in them so we can reply and continue the conversation. Our email provider stores them for us. We do not add you to a mailing list, and we do not sell your details or share them for advertising.</p>
 
         <h2>How long we keep it</h2>
         <p>We keep email for as long as the conversation is useful to both of us, and delete it when you ask, unless the law requires us to keep it.</p>

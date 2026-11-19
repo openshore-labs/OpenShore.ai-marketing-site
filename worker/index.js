@@ -5,6 +5,8 @@
 //   /download/<platform>  ->  302 to the newest release file for it
 //   /auth-callback        ->  the web app's own page (worker/appShell.js)
 //   /enterprise/issue      ->  a new tour login, admin token only
+//   /design-partners/apply ->  the design partner form, emailed to the
+//                            founder (worker/leads.js; 2026-11-18)
 //   /enterprise/platform/ and /enterprise/tour/  ->  only after sign-in
 //                            (worker/enterpriseAccess.js; these two paths run
 //                            the script first, see wrangler.jsonc)
@@ -22,6 +24,7 @@
 import { PLATFORMS, RELEASES_PAGE, REPO, resolveDownload } from './downloads.js';
 import { appShellRequest, isAppRoute } from './appShell.js';
 import { PROTECTED, handleProtected, ISSUE_PATH, handleIssue } from './enterpriseAccess.js';
+import { APPLY_PATH, handleApply } from './leads.js';
 
 const CACHE_SECONDS = 600;
 
@@ -61,6 +64,19 @@ export default {
     if (PROTECTED.test(url.pathname)) return handleProtected(request, env);
     // Issuing a tour login, for the holder of the admin token only.
     if (url.pathname === ISSUE_PATH) return handleIssue(request, env);
+    // The design partner form. LEADS is Cloudflare's send_email binding; with
+    // none configured the route says so and the page opens an email instead.
+    if (url.pathname === APPLY_PATH) {
+      const from = env.LEADS_FROM || 'partners@openshore.ai';
+      const to = env.LEADS_TO || 'jack@openshore.ai';
+      const send = env.LEADS
+        ? async (raw) => {
+            const { EmailMessage } = await import('cloudflare:email');
+            await env.LEADS.send(new EmailMessage(from, to, raw));
+          }
+        : null;
+      return handleApply(request, { send, from, to });
+    }
     if (isAppRoute(url.pathname)) {
       const shell = await env.ASSETS.fetch(appShellRequest(url));
       const res = new Response(shell.body, shell);

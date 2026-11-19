@@ -25,6 +25,12 @@ export default {
   // The design-partner address, the one the Enterprise pages have used.
   enterpriseContact: "jack@openshore.ai",
 
+  // The booking page for a call with the founder (Cal.com, Google Calendar
+  // appointment page or similar). Empty until the founder sets it: every
+  // "Book a call" then opens an email asking for a time instead, so no
+  // button dead-ends. A link only: nothing from the booking service loads on
+  // this site, so the privacy policy names it as a link.
+  bookingUrl: "",
 
   // The parent company's site, credited from the OpenShore header and footer.
   parentUrl: "https://openshorellc.com",

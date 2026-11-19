@@ -79,9 +79,14 @@ The founder repositioned the site on 2026-11-16:
 - The design partner offer sits in the closing section: at cost, with no
   margin, until general availability, in exchange for installing in the
   partner's systems and structured and ad hoc feedback.
-- Applying is by email for now. A three-question form and a Book a call
-  link are built and deferred (founder, 2026-11-18) on the
-  `site-form-and-calendar` branch.
+- **The form** (`_includes/ent-apply.njk`, `static/enterprise/apply.js`) asks
+  three things and posts to `/design-partners/apply` (`worker/leads.js`),
+  which emails the answers to the founder through Cloudflare's `send_email`
+  binding and stores nothing. Turn it on in `wrangler.jsonc` (see the
+  comment there). Until then the page opens a prefilled email instead.
+- **Book a call** goes to `site.bookingUrl` (`src/_data/site.js`), in the
+  header, the hero and beside the form. Empty, it opens an email asking for
+  a time (`src/_data/booking.js`).
 - The OS Code by OpenShore foot line is off the OpenShore pages.
 - The worked examples sit behind two tabs (`_includes/ent-demos.njk`):
   Revenue ops (the commission fix) and Supply chain (`ent-inventory.njk`,

@@ -46,4 +46,6 @@ export default {
   entCharts: rev("src/static/enterprise/charts.js"),
   // The commission demo on the home page.
   entCommission: rev("src/static/enterprise/commission.js"),
+  // The design partner form's script (2026-11-18).
+  entApply: rev("src/static/enterprise/apply.js"),
 };
