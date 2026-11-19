@@ -1,11 +1,12 @@
-// The worked examples on the home page (ent-demos.njk), one per planned bot,
-// in the tab order. Each is one conversation: someone asks, the bot finds the
+// The worked examples on the home page (ent-demos.njk), one per bot that does
+// a company's operations work, in the tab order. Each is one conversation: someone asks, the bot finds the
 // cause and proposes a fix, the bot's admin approves, the bot reports it done
 // with a figure that counts, then the fix becomes a rule. Every one is an
 // example, labelled so on the page: the people, companies and figures are
-// made up. The bots and their admins follow the product plan's six packs
-// (Data Foundations, RevOps, Finance, Planning, Supply chain and Performance
-// Analytics, each with one bot admin).
+// made up. The bots and their admins follow the product plan's packs (RevOps,
+// Finance, Planning, Supply chain and Performance Analytics, each with one
+// bot admin). Data Foundations, the sixth, has no example (founder,
+// 2026-11-19: "remove the data example entirely").
 //
 //   text      a message's words; html, for the @mentions (at())
 //   chip      what the approval approved, shown under it
@@ -16,16 +17,15 @@
 //             a figure checked against its source goes here.
 //
 // Revenue ops (founder, 2026-11-18) is the promo film's commission scene,
-// word for word. Finance, Planning, Analytics and Data (founder, 2026-11-19:
-// "add the other planned workers") each take the job the plan gives that bot.
+// word for word. Finance, Planning and Analytics (founder, 2026-11-19: "add
+// the other planned workers") each take the job the plan gives that bot.
 //
 // Every example is a documented, common problem that companies usually staff
 // a role or build a process for (founder, 2026-11-19). Each one's sources and
 // the people who traditionally handle it are noted above it, and its why line
-// on the page carries one checked figure (Data has none, by the founder's
-// call). The vendor surveys among the notes are directional. Change an
-// example only for another problem that is just as documented, and note its
-// sources here.
+// on the page carries one checked figure. The vendor surveys among the notes
+// are directional. Change an example only for another problem that is just as
+// documented, and note its sources here.
 
 const at = (name) => `<span class="cd-at">@${name}</span>`;
 
@@ -161,32 +161,5 @@ export default [
     rule: "Any margin move of a point or more is explained in the weekly review.",
     runs: "Runs on every weekly review",
     why: "UPS and FedEx add holiday surcharges to home deliveries every peak season, this year from late October to mid-January (the carriers’ 2026 peak schedules). Explaining what that does to margin usually takes an analyst who builds the weekly review.",
-  },
-  // Two reports disagree because they measure different things under one
-  // name: the deck shows revenue earned (ASC 606 recognizes revenue as it is
-  // earned, not when a deal is signed or invoiced), the dashboard shows deals
-  // signed, which are bookings. Bookings, billings and revenue rarely match
-  // at a growing company (the SaaS finance guides from Zuora, ChartMogul and
-  // Drivetrain all warn of it), and one name with two meanings is the usual
-  // cause of reports that disagree. Traditionally: a finance or data team
-  // that owns the metric definitions and a data dictionary.
-  {
-    id: "df",
-    tab: "Data",
-    eyebrow: "Let’s say two reports disagree on revenue.",
-    heading: "Settled in three minutes, with one meaning in every report after.",
-    channel: "finance",
-    bot: "Data Foundations bot",
-    messages: [
-      { name: "Nia Brooks", initials: "NB", role: "Controller", time: "11:20", text: `The board deck says October revenue was $1.42M. The sales dashboard says $1.51M. ${at("Data Foundations")} which is right?` },
-      { time: "11:21", text: `Both, for different things. The deck shows revenue earned in October. The dashboard shows deals signed, which are bookings. Labelling that one as bookings needs ${at("Dana Reyes")} to approve.` },
-      { name: "Dana Reyes", initials: "DR", role: "Head of Revenue", time: "11:22", text: "Approved.", chip: "Signed deals are bookings, everywhere" },
-      { time: "11:23", text: "Done. Every report now shows $1.42M as revenue and $1.51M as bookings, each linked to its source.", stmt: { label: "Reports that agree", from: 7, to: 12, format: "{n} of 12", text: "12 of 12" } },
-    ],
-    stamp: "Asked at 11:20. Settled by 11:23.",
-    lead: "And that approval did more than relabel one dashboard.",
-    ruleFrom: "Rule saved · from Dana’s approval",
-    rule: "Revenue means revenue earned. Signed deals are reported as bookings.",
-    runs: "Checked on every report",
   },
 ];
