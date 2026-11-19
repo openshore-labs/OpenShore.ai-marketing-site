@@ -1,0 +1,29 @@
+{#- What OpenShore connects to, and how it gets set up (founder,
+    2026-11-18): the out-of-the-box connectors from src/_data/connections.js,
+    the promise to connect anything else, and the hands-on setup line for
+    companies with no CTO or CIO. -#}
+      <section class="ent-sec" id="connections" aria-labelledby="conn-h">
+        <h2 class="ent-eyebrow" id="conn-h">Connections</h2>
+        <h3 class="ent-h">Built for the tools your business runs on today.</h3>
+        <p class="ent-body">OpenShore connects to the systems you already use, out of the box, and to any other app you rely on. Your bots read from them, cite them, and change them only with a person’s approval.</p>
+        <div class="ent-conn">
+{%- for g in connections %}
+          <div class="ent-conn-group">
+            <h4>{{ g.group }}</h4>
+            <ul role="list">
+{%- for item in g.items %}
+              <li>{{ item }}</li>
+{%- endfor %}
+            </ul>
+          </div>
+{%- endfor %}
+          <div class="ent-conn-group ent-conn-group--any">
+            <h4>Anything else</h4>
+            <p>Run something that isn’t listed? We connect it for you, from an in-house database to the one tool only your industry uses.</p>
+          </div>
+        </div>
+        <div class="ent-setup">
+          <p class="ent-setup-k">No CTO or CIO needed</p>
+          <p class="ent-setup-t">OpenShore is built for founders and operators to run without an IT team. We stay hands on: we set it up with you, live in about two weeks with a few hours of your team’s time, and when you need a change, we make it for you, remotely.</p>
+        </div>
+      </section>
