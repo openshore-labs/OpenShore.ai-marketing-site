@@ -1,9 +1,10 @@
 // The connections hub on the home page (founder, 2026-11-19): draws a line
 // from each group of apps to the company's own OpenShore server in the
-// middle, and plays it once when the hub scrolls into view: the lines draw
-// in, then a point runs from each group into the hub, which answers with a
-// ring. With Reduce Motion the lines are simply there. Without this script
-// the groups show around the hub with no lines.
+// middle. When the hub first scrolls into view the lines draw in, then
+// points keep flowing from every group into the hub (the first wave rings
+// it), while the hub is on screen. With Reduce Motion the lines are simply
+// there and nothing moves. Without this script the groups show around the
+// hub with no lines.
 //
 // The CSS says which shape to draw (--hub-layout on .hub): "wheel", groups
 // on both sides of a round hub, or "spine", a line down the left from the
@@ -100,50 +101,103 @@
       return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     }
 
-    // A point runs along one path, then the hub rings.
-    function run(path, delay) {
+    // The flow (founder, 2026-11-19: "continuously traveling up to
+    // openshore"): after the lines draw, points keep running from every
+    // group into the hub, each line on its own steady beat. The first wave
+    // rings the hub; after that the points just arrive. One clock runs them
+    // all, and it stops while the hub is off screen or the tab is hidden.
+    var FIRST = 1150;   // when the first wave leaves, once the lines are in
+    var SPEED = 0.17;   // px per ms, so a long line takes longer
+    var flows = paths.map(function (p, i) {
+      return { p: p, next: FIRST + i * 140, every: 2400 + ((i * 370) % 900), first: true };
+    });
+    var live = [];
+    var clock = 0;      // ms of flow so far
+    var last = null;
+    var frame = 0;
+    var started = false;
+    var onScreen = false;
+
+    function ring() {
+      core.classList.remove('hub-hit');
+      void core.offsetWidth; // restart the ring
+      core.classList.add('hub-hit');
+    }
+
+    function spawn(f) {
       var dot = document.createElementNS(NS, 'circle');
       dot.setAttribute('r', '4.5');
       dot.setAttribute('class', 'hub-dot');
       dot.setAttribute('opacity', '0');
       dots.appendChild(dot);
-      var ms = 1000;
-      setTimeout(function () {
-        var start = performance.now();
-        var step = function (now) {
-          var t = Math.min(1, (now - start) / ms);
-          var L = path.getTotalLength();
-          var pt = path.getPointAtLength(L * ease(t));
-          dot.setAttribute('cx', pt.x);
-          dot.setAttribute('cy', pt.y);
-          dot.setAttribute('opacity', String(t < 0.1 ? t * 10 : t > 0.9 ? (1 - t) * 10 : 1));
-          if (t < 1) {
-            requestAnimationFrame(step);
-            return;
-          }
-          dots.removeChild(dot);
-          core.classList.remove('hub-hit');
-          void core.offsetWidth; // restart the ring
-          core.classList.add('hub-hit');
-        };
-        requestAnimationFrame(step);
-      }, delay);
+      var L = f.p.getTotalLength();
+      live.push({ dot: dot, p: f.p, from: clock, ms: Math.min(3200, Math.max(1100, L / SPEED)), first: f.first });
+      f.first = false;
     }
 
-    function play() {
-      hub.classList.add('hub-drawn');
-      paths.forEach(function (p, i) { run(p, 1150 + i * 140); });
-    }
-
-    var seen = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          seen.disconnect();
-          // One frame first, so the undrawn lines paint before they draw.
-          requestAnimationFrame(function () { requestAnimationFrame(play); });
+    function tick(now) {
+      frame = 0;
+      if (last !== null) clock += Math.min(now - last, 64);
+      last = now;
+      flows.forEach(function (f) {
+        if (clock >= f.next) {
+          spawn(f);
+          f.next += f.every;
         }
       });
-    }, { threshold: 0.35 });
-    seen.observe(hub);
+      live = live.filter(function (d) {
+        var k = Math.min(1, (clock - d.from) / d.ms);
+        var L = d.p.getTotalLength();
+        var pt = d.p.getPointAtLength(L * ease(k));
+        d.dot.setAttribute('cx', pt.x);
+        d.dot.setAttribute('cy', pt.y);
+        d.dot.setAttribute('opacity', String(k < 0.1 ? k * 10 : k > 0.9 ? (1 - k) * 10 : 1));
+        if (k < 1) return true;
+        dots.removeChild(d.dot);
+        if (d.first) ring();
+        return false;
+      });
+      frame = requestAnimationFrame(tick);
+    }
+
+    function go() {
+      if (started && onScreen && !document.hidden && !frame) {
+        last = null;
+        frame = requestAnimationFrame(tick);
+      }
+    }
+
+    function halt() {
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+      last = null;
+    }
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) halt();
+      else go();
+    });
+
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        onScreen = e.isIntersecting;
+        if (!onScreen) {
+          halt();
+          return;
+        }
+        if (!started && e.intersectionRatio >= 0.35) {
+          started = true;
+          // One frame first, so the undrawn lines paint before they draw.
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              hub.classList.add('hub-drawn');
+              go();
+            });
+          });
+          return;
+        }
+        go();
+      });
+    }, { threshold: [0, 0.35] }).observe(hub);
   });
 })();
