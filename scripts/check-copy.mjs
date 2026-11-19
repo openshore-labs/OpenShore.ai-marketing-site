@@ -43,7 +43,7 @@ if (!siteExists) {
 // The web app sits at /os-code/app/ since 2026-11-16.
 const WEB_APP = join(ROOT, 'os-code', 'app');
 const WEB_APP_DIRS = new Set([join(WEB_APP, 'assets'), join(WEB_APP, 'app-icons')]);
-// The two OpenShore for Enterprise films (/enterprise/promo/ and /enterprise/tour/)
+// The two OpenShore films (/enterprise/promo/ and /enterprise/tour/)
 // show the founder's locked tagline, "Every Team (em dash) Every Agent. Working as
 // One.", exactly as written (founder, 2026-11-10: taglines do not change). Only that
 // line is allowed through, and only on those two pages and the /enterprise/ page,

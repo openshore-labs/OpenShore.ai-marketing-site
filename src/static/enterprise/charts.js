@@ -15,6 +15,12 @@
 //                    over the svg's data-morph ms (both with the same commands)
 //   [data-after]     shown as that snap begins
 //   .ent-replay      the figure's button that plays it again
+//
+// A line may start partway across (a branch, 2026-11-18): its point stays
+// hidden until the journey reaches its first x, then sets off from there.
+// Lines may sit in a group with a transform (g.c-plot, which squeezes the
+// plot to leave room for end labels); every x above is in the lines' own
+// units, and the travelling point is placed through the group's transform.
 (function () {
   'use strict';
   var NS = 'http://www.w3.org/2000/svg';
@@ -54,12 +60,16 @@
         ls.push(l);
       }
       p.setAttribute('stroke-dasharray', L + ' ' + L);
-      var sea = p.classList.contains('c-line--sea') ? ' c-head--sea' : '';
+      var sea = p.classList.contains('c-line--sea') ? ' c-head--sea' : p.classList.contains('c-line--risk') ? ' c-head--risk' : '';
       var glow = circle(13, 'c-head-glow' + sea);
       var head = circle(5.5, 'c-head' + sea);
       svg.appendChild(glow);
       svg.appendChild(head);
-      return { p: p, L: L, xs: xs, ls: ls, head: head, glow: glow, fromD: fromD, toD: toD };
+      var g = p.parentNode;
+      var m = g && g.transform && g.transform.baseVal && g.transform.baseVal.numberOfItems
+        ? g.transform.baseVal.consolidate().matrix
+        : null;
+      return { p: p, L: L, xs: xs, ls: ls, head: head, glow: glow, fromD: fromD, toD: toD, m: m };
     });
     if (!lines.length) return;
 
@@ -92,11 +102,16 @@
       lines.forEach(function (o) {
         var l = lengthAt(o, x);
         o.p.setAttribute('stroke-dashoffset', String(o.L - l));
+        var away = x < o.xs[0] ? '0' : '';
+        o.head.style.opacity = away;
+        o.glow.style.opacity = away;
         var pt = o.p.getPointAtLength(l);
-        o.head.setAttribute('cx', pt.x);
-        o.head.setAttribute('cy', pt.y);
-        o.glow.setAttribute('cx', pt.x);
-        o.glow.setAttribute('cy', pt.y);
+        var px = o.m ? o.m.a * pt.x + o.m.c * pt.y + o.m.e : pt.x;
+        var py = o.m ? o.m.b * pt.x + o.m.d * pt.y + o.m.f : pt.y;
+        o.head.setAttribute('cx', px);
+        o.head.setAttribute('cy', py);
+        o.glow.setAttribute('cx', px);
+        o.glow.setAttribute('cy', py);
       });
       if (clip) clip.setAttribute('width', String(Math.min(Math.max(0, x), 4000)));
       reveals.forEach(function (el) {

@@ -1,12 +1,12 @@
-{#- The shared frame for OpenShore for Enterprise, the site's home (/), and
+{#- The shared frame for OpenShore, the site's home (/), and
     the platform page (/enterprise/platform/): its
     own small header, a strict same-origin policy, the light stylesheet, and
     the footer. No download or checkout runtime. The header leads with
-    OpenShore for Enterprise; OS Code by OpenShore stays out of it and is
-    reached from the footer (founder, 2026-11-16). The company About page
+    OpenShore; OS Code by OpenShore stays out of it, and since 2026-11-18
+    (founder) out of the footer too. The company About page
     was retired the same day: /about/ redirects to /os-code/. The privacy
     policy and terms under /os-code/ are OS Code by OpenShore's; OpenShore
-    for Enterprise has its own at /privacy/, /terms/ and /support/
+    has its own at /privacy/, /terms/ and /support/
     (2026-11-16), which this footer links to. Under the header sit the tabs
     (src/_data/entTabs.js): Solutions, Product Tour and Grow with Us. -#}
 <!doctype html>
@@ -37,7 +37,7 @@
   </head>
   <body>
     <header class="ent-top">
-      <a class="ent-brand" href="/" aria-label="OpenShore for Enterprise, home">
+      <a class="ent-brand" href="/" aria-label="OpenShore, home">
         <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
           <rect width="32" height="32" rx="7.5" fill="#1c2a33" />
           <g transform="translate(0 -0.81)">
@@ -49,7 +49,7 @@
       </a>
       <p class="ent-badge ent-badge--ticker ent-badge--top"><span class="ent-dot" aria-hidden="true"></span><span class="ent-ticker"><span class="ent-ticker-track"><span>Now piloting with design partners</span><span class="ent-ticker-copy" aria-hidden="true">Now piloting with design partners</span></span></span></p>
     </header>
-    <nav class="ent-tabs" aria-label="OpenShore for Enterprise"><div class="ent-tabs-row">
+    <nav class="ent-tabs" aria-label="OpenShore"><div class="ent-tabs-row">
 {%- for t in entTabs %}
       <a href="{{ t.href }}"{% if page.url == t.href %} aria-current="page"{% endif %}>{{ t.label }}{% if t.locked %}<svg class="ent-tab-lock" viewBox="0 0 12 14" width="11" height="13" aria-label="sign-in needed" role="img"><rect x="1" y="6" width="10" height="7.5" rx="2" fill="currentColor"/><path d="M3.5 6V4.2a2.5 2.5 0 0 1 5 0V6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>{% endif %}</a>
 {%- endfor %}
@@ -63,6 +63,5 @@
       <span>OpenShore is a product of <a href="{{ site.parentUrl }}">{{ site.parentName }}</a>.</span>
       <nav aria-label="Policies">{% for l in [["Privacy", "/privacy/"], ["Terms", "/terms/"], ["Support", "/support/"]] %}{% if not loop.first %} · {% endif %}<a href="{{ l[1] }}"{% if page.url == l[1] %} aria-current="page"{% endif %}>{{ l[0] }}</a>{% endfor %}</nav>
     </footer>
-    {% include "sitefoot.njk" %}
   </body>
 </html>

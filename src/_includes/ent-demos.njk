@@ -1,0 +1,13 @@
+{#- The worked examples on the home page (founder, 2026-11-18): Revenue ops
+    (the commission fix) and Supply chain (the stock that went to the wrong
+    warehouse), one panel at a time behind two tabs. The tabs belong to
+    /enterprise/commission.js: without it both panels show, one after the
+    other, still and complete, and the tab row stays hidden. -#}
+      <section class="ent-sec cd-demos" aria-label="Worked examples">
+        <div class="cd-tabs" role="tablist" aria-label="Pick an example" data-cd-tabs hidden>
+          <button type="button" role="tab" id="cd-tab-rev" aria-controls="cd-rev" aria-selected="true">Revenue ops</button>
+          <button type="button" role="tab" id="cd-tab-inv" aria-controls="cd-inv" aria-selected="false" tabindex="-1">Supply chain</button>
+        </div>
+{% include "ent-commission.njk" %}
+{% include "ent-inventory.njk" %}
+      </section>
