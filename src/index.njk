@@ -131,26 +131,31 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
 
       <section class="ent-sec" aria-labelledby="price-h">
         <h2 class="ent-eyebrow" id="price-h">Pricing</h2>
-        <h3 class="ent-h">Packages sized to your team.</h3>
-        <p class="ent-body">Plans scale with the size of your team, and some services, like ticket triage, are priced by the work done. Your AI runs on your own model keys and is billed by your provider at cost. We never mark it up. Full pricing comes with general availability in 2027. Until then, <a href="#design-partners">design partners</a> pay only what OpenShore costs us to run.</p>
+        <h3 class="ent-h">Simple pricing, sized to your team.</h3>
+        <p class="ent-body">The workspace is $8 a person per month, and free for teams of up to 10. Each bot is $500 a month, one per function, added as you grow. Setup is a one-time $5,000, and some services, like ticket triage, are priced by the work done. Your AI runs on your own model keys and is billed by your provider at cost. We never mark it up.</p>
+        <p class="ent-body">For example, a 50-person company with one bot pays $900 a month. <a href="#design-partners">Design partners</a> start with a 90-day pilot at our cost and lock the bot price for two years.</p>
         <div class="ent-actions">
           <a class="ent-btn" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Pricing: OpenShore' | urlencode }}">Ask about pricing <span aria-hidden="true">&rarr;</span></a>
         </div>
       </section>
 
-      {#- The design partner offer (founder, 2026-11-18): at cost in exchange
-          for installing in the partner's systems and structured and ad hoc
-          feedback. "At cost" means OpenShore's own fee carries no margin;
-          model usage is always billed by the provider at cost. -#}
+      {#- The design partner offer (founder, 2026-11-18, revised the same
+          evening): a 90-day pilot with no OpenShore fee, a $5,000 setup
+          credited against the first year if they stay, then a founding price
+          of $500 a bot per month locked for two years, or they leave. The
+          same terms as the Design Partner Program doc and the business plan.
+          Model and cloud usage is always billed by the provider at cost. -#}
       <section class="ent-cta ent-partner" id="design-partners" aria-labelledby="cta-h">
         <p class="ent-badge"><span class="ent-dot" aria-hidden="true"></span>Design partner pilots open</p>
         <h2 id="cta-h">Build the future of your business with us.</h2>
-        <p class="ent-lede">Design partners get OpenShore at cost: what it costs us to run, with no margin, until general availability. In return, you help us shape it.</p>
+        <p class="ent-lede">Start with a 90-day pilot at our cost, with no OpenShore fee. At day 90, become a customer at a founding price locked for two years, or walk away. In return, you help us shape it.</p>
         <div class="ent-deal">
           <div>
             <h3>You get</h3>
             <ul role="list">
-              <li>OpenShore at our cost, with no margin, until general availability</li>
+              <li>A 90-day pilot with no OpenShore fee. You pay your own cloud and model bills, at cost</li>
+              <li>A founding price of $500 a bot per month, locked for two years</li>
+              <li>Your $5,000 setup credited against your first year if you stay</li>
               <li>A real say in the roadmap: your workflows shape what we build next</li>
               <li>First access to every new bot</li>
             </ul>
@@ -158,8 +163,10 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
           <div>
             <h3>We ask</h3>
             <ul role="list">
-              <li>Room to install OpenShore in your systems, in your cloud, on your keys</li>
-              <li>A named owner on your team</li>
+              <li>A short signed agreement, with your success measures and the day-90 decision, before anything is installed</li>
+              <li>A sponsor who owns the budget, a named owner and a technical contact</li>
+              <li>Room to install OpenShore in a dedicated cloud account, on your keys</li>
+              <li>Three months of past commission statements, so we can test against numbers you trust</li>
               <li>A structured review every two weeks, plus quick feedback whenever something comes up</li>
             </ul>
           </div>
@@ -168,11 +175,12 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
             <ul role="list">
               <li>Read-only until you approve each workflow</li>
               <li>A person on your team signs off on every change</li>
+              <li>We see health data with no customer content. Anything deeper only with your permission, and logged</li>
               <li>Leave any time. Your data stays in your cloud</li>
             </ul>
           </div>
         </div>
-        <p class="ent-cfo"><b>A cost your CFO can approve.</b> You pay only what OpenShore costs us to run, with no margin, and your model usage is billed by your provider directly, at cost. We walk your CFO through the numbers before you start, and you can leave any time.</p>
+        <p class="ent-cfo"><b>A cost your CFO can approve.</b> The pilot carries no OpenShore fee, only the one-time $5,000 setup, and your cloud and model bills come from your providers at cost. We walk your CFO through the numbers before you start, and you can leave any time.</p>
         <p class="ent-founder-line">Built by <a href="/grow-with-us/">Jack Bigelow</a>, who spent more than 15 years building the revenue operations, planning and AI systems behind businesses as large as $200B at Microsoft, AWS and Amazon.</p>
         <p class="ent-lede ent-partner-ask">To apply, email <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'OpenShore design partner' | urlencode }}">{{ site.enterpriseContact }}</a>. Jack reads every message and replies personally.</p>
       </section>
