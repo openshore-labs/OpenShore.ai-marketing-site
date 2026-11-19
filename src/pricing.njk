@@ -1,0 +1,21 @@
+---
+layout: ent-layout.njk
+permalink: /pricing/
+pageTitle: "Pricing · OpenShore"
+pageDescription: "Simple pricing, sized to your team: the workspace per person, each bot per month, a one-time setup, and your AI on your own model keys at cost."
+---
+{#- Pricing (founder, 2026-11-19): its own tab, moved from the home page word
+    for word. Business buyers name pricing as the information they need most
+    and look for it in the main navigation (Nielsen Norman Group, "Show
+    Price"). The full design partner offer stays on the home page. -#}
+      <section class="ent-sec ent-sec--first" aria-labelledby="price-h">
+        <h1 class="ent-eyebrow" id="price-h">Pricing</h1>
+        <h3 class="ent-h">Simple pricing, sized to your team.</h3>
+        <p class="ent-body">The workspace is $8 a person per month, and free for teams of up to 10. Each bot is $500 a month, one per function, added as you grow. Setup is a one-time $5,000, and some services, like ticket triage, are priced by the work done. Your AI runs on your own model keys and is billed by your provider at cost. We never mark it up.</p>
+        <p class="ent-body">For example, a 50-person company with one bot pays $900 a month. <a href="/#design-partners">Design partners</a> start with a 90-day pilot at our cost and lock the bot price for two years.</p>
+        <div class="ent-actions">
+          <a class="ent-btn" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Pricing: OpenShore' | urlencode }}">Ask about pricing <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </section>
+
+{% include "ent-partner-short.njk" %}

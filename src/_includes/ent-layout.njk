@@ -47,7 +47,7 @@
         </svg>
         <span><b>OpenShore</b></span>
       </a>
-      <p class="ent-badge ent-badge--ticker ent-badge--top"><span class="ent-dot" aria-hidden="true"></span><span class="ent-ticker"><span class="ent-ticker-track"><span>Now piloting with design partners</span><span class="ent-ticker-copy" aria-hidden="true">Now piloting with design partners</span></span></span></p>
+      <a class="ent-badge ent-badge--ticker ent-badge--top" href="/#design-partners"><span class="ent-dot" aria-hidden="true"></span><span class="ent-ticker"><span class="ent-ticker-track"><span>Now piloting with design partners</span><span class="ent-ticker-copy" aria-hidden="true">Now piloting with design partners</span></span></span></a>
     </header>
     <nav class="ent-tabs" aria-label="OpenShore"><div class="ent-tabs-row">
 {%- for t in entTabs %}
@@ -60,8 +60,10 @@
     </main>
 
     <footer class="ent-foot">
+      <nav class="ent-foot-site" aria-label="OpenShore pages">{% for t in entTabs %}{% if not loop.first %} · {% endif %}<a href="{{ t.href }}"{% if page.url == t.href %} aria-current="page"{% endif %}>{{ t.label }}</a>{% endfor %}</nav>
       <span>OpenShore is a product of <a href="{{ site.parentUrl }}">{{ site.parentName }}</a>.</span>
       <nav aria-label="Policies">{% for l in [["Privacy", "/privacy/"], ["Terms", "/terms/"], ["Support", "/support/"]] %}{% if not loop.first %} · {% endif %}<a href="{{ l[1] }}"{% if page.url == l[1] %} aria-current="page"{% endif %}>{{ l[0] }}</a>{% endfor %}</nav>
     </footer>
+    <script src="/enterprise/nav.js?v={{ rev.entNav }}" defer></script>
   </body>
 </html>

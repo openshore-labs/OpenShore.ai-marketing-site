@@ -48,4 +48,6 @@ export default {
   entCommission: rev("src/static/enterprise/commission.js"),
   // The connections hub on the home page.
   entHub: rev("src/static/enterprise/hub.js"),
+  // The tab row's scroll on a phone, on every page.
+  entNav: rev("src/static/enterprise/nav.js"),
 };

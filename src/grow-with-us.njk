@@ -44,9 +44,4 @@ pageDescription: "Why OpenShore exists: our mission, the principles we build by,
         </div>
       </section>
 {% endif %}
-      <section class="ent-cta ent-partner" id="design-partners" aria-labelledby="cta-h">
-        <p class="ent-badge"><span class="ent-dot" aria-hidden="true"></span>Design partner pilots open</p>
-        <h2 id="cta-h">Build the future of your business with us.</h2>
-        <p class="ent-lede">Design partners start with a 90-day pilot at our cost, then stay at a founding price locked for two years, or walk away. In return, they give us room to install it in their systems and regular feedback. <a href="/#design-partners">See the full offer</a>.</p>
-        <p class="ent-lede ent-partner-ask">To apply, email <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'OpenShore design partner' | urlencode }}">{{ site.enterpriseContact }}</a>.</p>
-      </section>
+{% include "ent-partner-short.njk" %}
