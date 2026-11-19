@@ -88,9 +88,13 @@ The founder repositioned the site on 2026-11-16:
   business plan; change them together.
 - Support access (founder, 2026-11-18): privacy first, but OpenShore needs
   to maintain and improve each install. By default it sees health data with
-  no customer content (errors, uptime, versions); deeper access is opened by
-  the customer for a single task, logged, and revocable. The Security
-  section says so. The product (openshore.enterprise) must enforce this.
+  no customer content (errors, uptime, versions); deeper access is with the
+  customer's permission, limited to that task, logged, and revocable; data is
+  never sold or used to train AI models. The founder approved this exact
+  language on 2026-11-19, matching the Design Partner Program doc. It appears,
+  word for word, in the Security section, the design partner guardrails, the
+  platform page's trust list and the privacy policy. The product
+  (openshore.enterprise) must enforce it.
 - Applying is by email for now. A three-question form and a Book a call
   link are built and deferred (founder, 2026-11-18) on the
   `site-form-and-calendar` branch.
