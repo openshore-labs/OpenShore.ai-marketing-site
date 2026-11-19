@@ -76,9 +76,21 @@ The founder repositioned the site on 2026-11-16:
   (`_includes/ent-security.njk`) right after the commission demo, and a
   trust line under the hero buttons. Each card states a rule from the
   product's design; no certifications are claimed.
-- The design partner offer sits in the closing section: at cost, with no
-  margin, until general availability, in exchange for installing in the
-  partner's systems and structured and ad hoc feedback.
+- The design partner offer sits in the closing section (revised
+  2026-11-18): a 90-day pilot with no OpenShore fee, a one-time $5,000
+  setup credited against the first year if the partner stays, then a
+  founding price of $500 a bot per month locked for two years, or they
+  leave. In return: a signed agreement, a sponsor, an owner and a technical
+  contact, a dedicated cloud account, past commission statements to test
+  against, and a review every two weeks. The Pricing section states the
+  list prices up front ($8 a person per month, free up to 10; $500 a bot per
+  month; $5,000 setup). These match the Design Partner Program doc and the
+  business plan; change them together.
+- Support access (founder, 2026-11-18): privacy first, but OpenShore needs
+  to maintain and improve each install. By default it sees health data with
+  no customer content (errors, uptime, versions); deeper access is opened by
+  the customer for a single task, logged, and revocable. The Security
+  section says so. The product (openshore.enterprise) must enforce this.
 - Applying is by email for now. A three-question form and a Book a call
   link are built and deferred (founder, 2026-11-18) on the
   `site-form-and-calendar` branch.
