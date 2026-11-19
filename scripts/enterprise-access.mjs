@@ -1,4 +1,4 @@
-// Make a username and password for the OpenShore for Enterprise platform page
+// Make a username and password for the OpenShore platform page
 // and product tour, good for 7 days (worker/enterpriseAccess.js).
 //
 //   ENTERPRISE_ACCESS_SECRET=... npm run enterprise:access -- "Acme Foods"

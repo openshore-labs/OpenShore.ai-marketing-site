@@ -4,14 +4,13 @@ permalink: /
 pageTitle: "OpenShore · Tomorrow's AI workspace, for today's startups"
 pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is the workspace where your team and expert AI bots run the company together, on the models you already use, with a person approving every change. Now onboarding design partners."
 ---
-{#- OpenShore for Enterprise (founder, 2026-11-10): the pitch and the ask.
+{#- OpenShore (founder, 2026-11-10): the pitch and the ask.
     The site's home since 2026-11-16, word for word as it was at /enterprise/
     (founder: "a one-to-one replica"). How the product works is the platform
     page (/enterprise/platform/), led by the product tour. The tagline's em
     dash is the one scripts/check-copy.mjs lets through here. -#}
-{%- set contact = "jack@openshore.ai" -%}
+{%- set contact = site.enterpriseContact -%}
       <section class="ent-hero">
-        <p class="ent-eyebrow">Built for startups. Ready for enterprise.</p>
         <h1 class="ent-h1--wide">Tomorrow’s AI workspace, for today’s startups.</h1>
         <p class="ent-lede">OpenShore is the workspace where your team and expert AI bots run the company together, so you can scale the business, not your headcount or your cap table.</p>
         <p class="ent-body ent-hero-why">Every startup is sailing for an open shore. We build the instruments and the crew to get them there.</p>
@@ -19,10 +18,17 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
           <a class="ent-btn ent-btn--primary" href="#design-partners">Become a design partner</a>
           <a class="ent-btn" href="/enterprise/platform/">Learn how the platform works <span aria-hidden="true">&rarr;</span></a>
         </div>
+        <ul class="ent-trust" role="list" aria-label="How OpenShore keeps your data">
+          <li>Runs in your own cloud</li>
+          <li>Your models, your keys</li>
+          <li>A person approves every change</li>
+        </ul>
         <p class="ent-note">The platform tour is open to design partners and invited guests. <a href="#design-partners">Ask for a login.</a></p>
       </section>
 
-{% include "ent-commission.njk" %}
+{% include "ent-demos.njk" %}
+
+{% include "ent-security.njk" %}
 
       <section class="ent-films" aria-label="The promo film">
         <a class="ent-film ent-film--wide" href="/enterprise/promo/">
@@ -44,8 +50,10 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
       {#- Why we build it (founder, 2026-11-16; moved here from Grow with Us
           on 2026-11-17, above Pricing): two charts from his consulting
           work, redrawn for the site with no client named. The first is
-          Greiner's phases of growth (HBR); the second is illustrative and
-          says so. Both draw themselves when they scroll into view
+          Greiner's phases of growth (HBR), with two ways in since
+          2026-11-18 (founder): early, at the crisis of leadership, and
+          later, correcting the slide after the crisis of autonomy. The
+          second is illustrative and says so. Both draw themselves when they scroll into view
           (/enterprise/charts.js); without it, or with Reduce Motion, they
           stay still and complete. -#}
       <section class="ent-sec" aria-labelledby="why-h">
@@ -55,31 +63,44 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
           <figure class="ent-chart">
             <figcaption class="ent-chart-title">The scaling points are predictable <button class="ent-replay" type="button" hidden aria-label="Replay the chart">Replay</button></figcaption>
             <div class="ent-chart-frame">
-              <svg viewBox="0 0 640 320" role="img" aria-labelledby="c1-t c1-d" data-stops="254:1700:1100,456:1500:700,612:1100:500" data-morph="1100">
-                <title id="c1-t">Phases of growth</title>
-                <desc id="c1-d">A company grows through three phases, creativity, direction and delegation. Usually growth breaks at a crisis of leadership between the first two and a crisis of autonomy between the last two, shown as faint dips. A marker on the first crisis reads: where we come in. From there the line climbs straight through both crises, and an arrow from the marker to the second crisis reads: avoided, delegation built in.</desc>
-                <line class="c-guide c-rv" data-x="262" x1="270" y1="36" x2="270" y2="272" />
-                <line class="c-guide c-rv" data-x="448" x1="456" y1="36" x2="456" y2="272" />
-                <line class="c-axis" x1="30" y1="274" x2="620" y2="274" />
-                <path class="c-ghost" data-after d="M44 256 Q170 244 254 194 L266 214 L279 178 L292 189 L442 124 L452 144 L464 110 L476 120 L612 58" />
-                <path class="c-line c-draw" data-from="M44 256 Q170 244 254 194 L266 214 L279 178 L292 189 L442 124 L452 144 L464 110 L476 120 L612 58" d="M44 256 Q170 244 254 194 L266 189.4 L279 184.5 L292 179.6 L442 122.6 L452 118.8 L464 114.2 L476 109.7 L612 58" />
-                <text class="c-crisis c-rv c-pop" data-x="252" x="274" y="124" text-anchor="middle">crisis of leadership</text>
-                <text class="c-note c-rv c-pop" data-x="450" x="452" y="80" text-anchor="middle">crisis of autonomy</text>
-                <line class="c-leader c-rv c-late" data-x="252" x1="190" y1="176" x2="242" y2="190" />
-                <text class="c-mark c-rv c-pop c-late" data-x="252" x="186" y="172" text-anchor="end">Where we come in</text>
-                <circle class="c-ripple" data-x="252" cx="254" cy="194" r="13" />
-                <circle class="c-halo c-rv" data-x="252" cx="254" cy="194" r="13" />
-                <circle class="c-dot c-rv" data-x="252" cx="254" cy="194" r="6" />
-                                <path class="c-arc" data-after pathLength="1" d="M262 205 Q356 262 449 135" />
-                <path class="c-arrowhead" data-after d="M440.5 137.9 L449 135 L448.8 144" />
-                <text class="c-arc-label c-rv c-pop" data-after x="360" y="250" text-anchor="middle">Avoided: delegation built in</text>
-                <circle class="c-ripple c-ripple--again" data-after cx="254" cy="194" r="13" />
-                <text class="c-phase c-dim" data-x="44" x="150" y="302" text-anchor="middle">CREATIVITY</text>
-                <text class="c-phase c-dim" data-x="270" x="363" y="302" text-anchor="middle">DIRECTION</text>
-                <text class="c-phase c-dim" data-x="456" x="540" y="302" text-anchor="middle">DELEGATION</text>
+              <svg viewBox="0 0 640 320" role="img" aria-labelledby="c1-t c1-d" data-stops="254:1700:1100,462:1500:700,520:600:1100,612:1100:0">
+                <title id="c1-t">Phases of growth, and two ways in</title>
+                <desc id="c1-d">A company grows through three phases, creativity, direction and delegation. The usual path dips at a crisis of leadership between the first two, and at a crisis of autonomy between the last two it turns downward and keeps sliding. Two OpenShore paths leave it. Coming in early, at the first crisis, the line climbs straight through both crises: delegation built in. Coming in later, after the second crisis has started the slide, the line bends back upward: course corrected.</desc>
+                <line class="c-axis" x1="30" y1="274" x2="500" y2="274" />
+                <g class="c-legend">
+                  <line class="c-key c-key--sea" x1="44" y1="29" x2="64" y2="29" />
+                  <text x="72" y="34">With OpenShore</text>
+                  <line class="c-key c-key--risk" x1="196" y1="29" x2="216" y2="29" />
+                  <text x="224" y="34">The usual path</text>
+                </g>
+                <g class="c-plot" transform="matrix(0.785 0 0 1 9.46 0)">
+                  <line class="c-guide c-rv" data-x="250" x1="262" y1="80" x2="262" y2="272" />
+                  <line class="c-guide c-rv" data-x="450" x1="456" y1="80" x2="456" y2="272" />
+                  <path class="c-line c-line--risk c-draw" d="M44 256 Q170 244 254 194 L270 222 Q360 206 446 150 L462 178 Q540 204 612 236" />
+                  <path class="c-line c-line--sea c-draw" d="M254 194 Q420 150 612 58" />
+                  <path class="c-line c-line--sea c-line--late c-draw" d="M520 198.5 C552 196 580 132 612 104" />
+                </g>
+                <text class="c-crisis c-rv c-pop" data-x="252" x="224.6" y="124" text-anchor="middle">crisis of leadership</text>
+                <text class="c-crisis c-rv c-pop" data-x="450" x="367.4" y="68" text-anchor="middle">crisis of autonomy</text>
+                <line class="c-leader c-rv c-late" data-x="252" x1="154" y1="176" x2="197.9" y2="190" />
+                <text class="c-mark c-rv c-pop c-late" data-x="252" x="150" y="172" text-anchor="end">Come in early</text>
+                <circle class="c-ripple" data-x="252" cx="208.9" cy="194" r="13" />
+                <circle class="c-halo c-rv" data-x="252" cx="208.9" cy="194" r="13" />
+                <circle class="c-dot c-rv" data-x="252" cx="208.9" cy="194" r="6" />
+                <line class="c-leader c-rv c-late" data-x="516" x1="397.7" y1="214" x2="408.7" y2="205" />
+                <text class="c-mark c-rv c-pop c-late" data-x="516" x="393.7" y="228" text-anchor="end">Or come in later</text>
+                <circle class="c-ripple" data-x="516" cx="417.7" cy="198.5" r="13" />
+                <circle class="c-halo c-rv" data-x="516" cx="417.7" cy="198.5" r="13" />
+                <circle class="c-dot c-rv" data-x="516" cx="417.7" cy="198.5" r="6" />
+                <text class="c-end c-end--sea c-rv c-pop" data-x="600" x="504" y="63">Built in early</text>
+                <text class="c-end c-end--wave c-rv c-pop" data-x="600" x="504" y="109">Course corrected</text>
+                <text class="c-end c-end--risk c-rv c-pop" data-x="600" x="504" y="241">Keeps sliding</text>
+                <text class="c-phase c-dim" data-x="44" x="127.2" y="302" text-anchor="middle">CREATIVITY</text>
+                <text class="c-phase c-dim" data-x="262" x="291.3" y="302" text-anchor="middle">DIRECTION</text>
+                <text class="c-phase c-dim" data-x="456" x="433.4" y="302" text-anchor="middle">DELEGATION</text>
               </svg>
             </div>
-            <p class="ent-body">Growth arrives in phases, and each phase ends in a predictable crisis. Age runs left to right, company size runs up. The first crisis is leadership: the founder-led phase ends when the founders become the constraint. The way through is direction, where management structure, systems and standards go in, and delegation follows once those standards exist. That first crisis is where the startups we build for are, and it is where OpenShore comes in.</p>
+            <p class="ent-body">Growth arrives in phases, and each phase ends in a predictable crisis. Age runs left to right, company size runs up. The first crisis is leadership, when the founders become the constraint. The second is autonomy, when teams need room to decide but have no shared standards to decide by, and growth starts to slide. Come in at the first crisis and OpenShore puts the direction layer in before delegation is needed. Come in later and the same layer corrects the course: bots take on the operations that stalled, standards go in, and growth climbs again.</p>
           </figure>
           <figure class="ent-chart">
             <figcaption class="ent-chart-title">Waiting costs more every month <span class="ent-tag">Illustrative</span> <button class="ent-replay" type="button" hidden aria-label="Replay the chart">Replay</button></figcaption>
@@ -105,23 +126,54 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
             <p class="ent-body">Every new customer adds commitments, while what a founding team can carry stays roughly flat. The wedge between those lines is where the fire drills, the blind decisions and the missed deals live, and it widens on its own.</p>
           </figure>
         </div>
-        <p class="ent-statement ent-why-close">That gap is why we build OpenShore. It puts the direction layer in early, with expert AI bots beside the team, so founders spend their energy on customers instead of on the gap.</p>
-        <p class="ent-source">Source: Larry E. Greiner, “Evolution and Revolution as Organizations Grow,” <i>Harvard Business Review</i> (1972, reissued 1998). The second chart, and the steady climb in the first, are illustrative, not measured.</p>
+        <p class="ent-statement ent-why-close">That gap is why we build OpenShore. It puts the direction layer in, early or late, with expert AI bots beside the team, so leaders spend their energy on customers instead of on the gap.</p>
+        <p class="ent-source">Source: Larry E. Greiner, “Evolution and Revolution as Organizations Grow,” <i>Harvard Business Review</i> (1972, reissued 1998). The second chart, and the paths in the first, are illustrative, not measured.</p>
       </section>
 
       <section class="ent-sec" aria-labelledby="price-h">
         <h2 class="ent-eyebrow" id="price-h">Pricing</h2>
         <h3 class="ent-h">Packages sized to your team.</h3>
-        <p class="ent-body">Plans scale with the size of your team, and some services, like ticket triage, are priced by the work done. Your AI runs on your own model keys and is billed by your provider at cost. We never mark it up. Design partners see the packages first, and full pricing comes with general availability in 2027.</p>
+        <p class="ent-body">Plans scale with the size of your team, and some services, like ticket triage, are priced by the work done. Your AI runs on your own model keys and is billed by your provider at cost. We never mark it up. Full pricing comes with general availability in 2027. Until then, <a href="#design-partners">design partners</a> pay only what OpenShore costs us to run.</p>
         <div class="ent-actions">
-          <a class="ent-btn" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Pricing: OpenShore for Enterprise' | urlencode }}">Ask about pricing <span aria-hidden="true">&rarr;</span></a>
+          <a class="ent-btn" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Pricing: OpenShore' | urlencode }}">Ask about pricing <span aria-hidden="true">&rarr;</span></a>
         </div>
       </section>
 
-      <section class="ent-cta" id="design-partners" aria-labelledby="cta-h">
+      {#- The design partner offer (founder, 2026-11-18): at cost in exchange
+          for installing in the partner's systems and structured and ad hoc
+          feedback. "At cost" means OpenShore's own fee carries no margin;
+          model usage is always billed by the provider at cost. -#}
+      <section class="ent-cta ent-partner" id="design-partners" aria-labelledby="cta-h">
         <p class="ent-badge"><span class="ent-dot" aria-hidden="true"></span>Design partner pilots open</p>
         <h2 id="cta-h">Build the future of your business with us.</h2>
-        <p class="ent-lede">Now onboarding design partners. If you’re interested, email <a href="mailto:{{ contact }}?subject={{ 'OpenShore for Enterprise design partner' | urlencode }}">{{ contact }}</a>.</p>
+        <p class="ent-lede">Design partners get OpenShore at cost: what it costs us to run, with no margin, until general availability. In return, you help us shape it.</p>
+        <div class="ent-deal">
+          <div>
+            <h3>You get</h3>
+            <ul role="list">
+              <li>OpenShore at our cost, with no margin, until general availability</li>
+              <li>A real say in the roadmap: your workflows shape what we build next</li>
+              <li>First access to every new bot</li>
+            </ul>
+          </div>
+          <div>
+            <h3>We ask</h3>
+            <ul role="list">
+              <li>Room to install OpenShore in your systems, in your cloud, on your keys</li>
+              <li>A named owner on your team</li>
+              <li>A structured review every two weeks, plus quick feedback whenever something comes up</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Guardrails</h3>
+            <ul role="list">
+              <li>Read-only until you approve each workflow</li>
+              <li>A person on your team signs off on every change</li>
+              <li>Leave any time. Your data stays in your cloud</li>
+            </ul>
+          </div>
+        </div>
+        <p class="ent-lede ent-partner-ask">To apply, email <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'OpenShore design partner' | urlencode }}">{{ site.enterpriseContact }}</a>. Jack reads every message and replies personally.</p>
       </section>
       <script src="/enterprise/charts.js?v={{ rev.entCharts }}" defer></script>
       <script src="/enterprise/commission.js?v={{ rev.entCommission }}" defer></script>

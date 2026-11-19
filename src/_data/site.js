@@ -10,10 +10,11 @@ export default {
   domain: "openshore.ai",
   url: "https://openshore.ai",
 
-  // The site's home is OpenShore for Enterprise (founder, 2026-11-16); a page
-  // with no description of its own falls back to this one.
+  // The site's home is OpenShore (founder, 2026-11-18: the product is just
+  // "OpenShore", no "for Enterprise"); a page with no description of its own
+  // falls back to this one.
   metaDescription:
-    "OpenShore for Enterprise is one workspace where a growing startup's teams and AI bots work together. Now looking for design partners.",
+    "OpenShore is one workspace where a growing startup's teams and AI bots work together. Now looking for design partners.",
 
   // The free personal coding agent's name and page (founder, 2026-11-16):
   // always the full name. Every page's footer links to it.
@@ -23,6 +24,7 @@ export default {
 
   // The design-partner address, the one the Enterprise pages have used.
   enterpriseContact: "jack@openshore.ai",
+
 
   // The parent company's site, credited from the OpenShore header and footer.
   parentUrl: "https://openshorellc.com",

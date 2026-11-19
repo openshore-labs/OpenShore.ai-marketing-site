@@ -1,4 +1,4 @@
-/* OpenShore for Enterprise (/enterprise/): one light page, the site's own
+/* OpenShore (/enterprise/): one light page, the site's own
    paper and ink, the films' sea as the accent. Self-hosted fonts only. */
 @font-face {
   font-family: "Inter";
@@ -276,6 +276,17 @@ main, .ent-top, .ent-foot {
 .c-guide { stroke: rgba(28, 42, 51, 0.18); stroke-width: 1.2; stroke-dasharray: 3 5; }
 .c-line { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .c-line--sea { stroke: var(--sea); }
+/* The usual path in the growth chart, in the crisis colour (2026-11-18). */
+.c-line--risk { stroke: rgba(154, 95, 54, 0.75); stroke-width: 2.2; }
+.c-line--late { stroke: var(--wave); }
+.c-legend text { font-size: 13.5px; fill: var(--muted); }
+.c-end { font-size: 15px; font-weight: 650; }
+.c-end--sea { fill: var(--sea); }
+.c-end--wave { fill: #3a7a8c; }
+.c-end--risk { fill: #9a5f36; font-weight: 600; }
+.c-key { stroke-width: 2.6; stroke-linecap: round; }
+.c-key--sea { stroke: var(--sea); }
+.c-key--risk { stroke: rgba(154, 95, 54, 0.75); }
 .c-wedge { fill: rgba(162, 106, 67, 0.1); }
 .c-halo { fill: var(--raised); stroke: rgba(47, 90, 102, 0.35); stroke-width: 1.5; }
 .c-dot { fill: var(--sea); }
@@ -475,7 +486,7 @@ main, .ent-top, .ent-foot {
 .cd-chip-check { display: block; width: 18px; height: 18px; flex: none; }
 .cd-stmt { margin-top: 8px; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 12px; background: var(--paper); box-shadow: 0 0 0 1px var(--rule); }
 .cd-stmt span { font-size: 13.5px; font-weight: 550; color: var(--ink-soft); }
-.cd-stmt b { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; color: var(--sea); font-variant-numeric: tabular-nums; }
+.cd-stmt b { white-space: nowrap; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; color: var(--sea); font-variant-numeric: tabular-nums; }
 .cd-dots { position: absolute; left: 0; top: 25px; display: inline-flex; gap: 4px; padding: 9px 11px; border-radius: 999px; background: rgba(28, 42, 51, 0.07); opacity: 0; pointer-events: none; }
 .cd-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); }
 .cd-stamp { align-self: center; }
@@ -538,3 +549,49 @@ main, .ent-top, .ent-foot {
 @media (prefers-reduced-motion: reduce) {
   .cd-dots { display: none; }
 }
+
+/* The usual path's travelling point (2026-11-18), after .c-head so it wins. */
+.c-head.c-head--risk, .c-head-glow.c-head--risk { fill: #9a5f36; }
+
+/* ---- Trust line, security and the design partner offer (2026-11-18) --- */
+
+.ent-trust { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; font-weight: 550; color: var(--ink-soft); }
+.ent-trust li { position: relative; padding-left: 24px; }
+.ent-trust li::before { content: ""; position: absolute; left: 3px; top: 0.42em; width: 11px; height: 6px; border-left: 2.2px solid var(--sea); border-bottom: 2.2px solid var(--sea); transform: rotate(-45deg); }
+
+.ent-secgrid { list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ent-secgrid li { background: var(--raised); border-radius: 16px; padding: 20px 22px; box-shadow: var(--shadow), 0 0 0 1px var(--rule); display: flex; flex-direction: column; gap: 8px; }
+.ent-secgrid svg { width: 26px; height: 26px; fill: none; stroke: var(--sea); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 4px; }
+.ent-secgrid h4 { font-size: 18px; font-weight: 650; line-height: 1.3; }
+.ent-secgrid p { font-size: 15.5px; color: var(--ink-soft); }
+.ent-sec-ask { font-size: 15px; }
+.ent-sec-ask a { font-weight: 600; }
+@media (max-width: 900px) { .ent-secgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .ent-secgrid { grid-template-columns: minmax(0, 1fr); } }
+
+.ent-partner { gap: 20px; scroll-margin-top: 16px; }
+.ent-partner .ent-lede a { color: #9ccbd8; }
+.ent-deal { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 4px; }
+.ent-deal > div { border-radius: 16px; padding: 18px 20px; background: rgba(246, 244, 239, 0.06); box-shadow: inset 0 0 0 1px rgba(246, 244, 239, 0.12); }
+.ent-deal h3 { font-size: 13px; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: #9ccbd8; margin-bottom: 10px; }
+.ent-deal ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.ent-deal li { position: relative; padding-left: 22px; font-size: 15.5px; line-height: 1.45; color: #e3e8e8; }
+.ent-deal li::before { content: ""; position: absolute; left: 2px; top: 0.45em; width: 10px; height: 5.5px; border-left: 2px solid #9ccbd8; border-bottom: 2px solid #9ccbd8; transform: rotate(-45deg); }
+
+@media (max-width: 860px) { .ent-deal { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---- The worked examples: two panels behind tabs (2026-11-18) --------- */
+/* Without commission.js both panels show, one after the other, and the tab
+   row stays hidden. */
+.cd-panel { display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 16px; }
+.cd-panel[hidden] { display: none; }
+.cd-panel + .cd-panel { padding-top: 40px; border-top: 1px solid var(--rule); }
+.cd-tabs:not([hidden]) ~ .cd-panel + .cd-panel { padding-top: 0; border-top: 0; }
+.cd-tabs { display: inline-flex; align-self: flex-start; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(28, 42, 51, 0.07); }
+.cd-tabs[hidden] { display: none; }
+.cd-tabs button { font: inherit; font-size: 15px; font-weight: 600; min-height: 40px; padding: 0 18px; border: 0; border-radius: 999px; background: transparent; color: var(--ink-soft); cursor: pointer; transition: background-color 180ms ease, color 180ms ease, transform 180ms ease; }
+.cd-tabs button[aria-selected="true"] { background: var(--raised); color: var(--ink); box-shadow: 0 1px 2px rgba(28, 42, 51, 0.08), 0 0 0 1px var(--rule); }
+.cd-tabs button:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+.cd-tabs button:active { transform: scale(0.97); }
+@media (hover: hover) { .cd-tabs button:hover { color: var(--ink); } }
+.ent-partner-ask { margin-top: 4px; }

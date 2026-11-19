@@ -16,7 +16,7 @@
 # 2026-11-07 to 2026-11-16 it redirected to /about/.)
 
 # The site's layout since 2026-11-16 (founder): openshore.ai/ is OpenShore
-# for Enterprise, /os-code/ is OS Code by OpenShore, the free personal coding
+# (once "OpenShore for Enterprise"), /os-code/ is OS Code by OpenShore, the free personal coding
 # agent, and the web app is /os-code/app/. Old addresses for the personal
 # product and the old Enterprise page move with it.
 /oscode           /os-code/       301
@@ -39,7 +39,7 @@
 # home in one hop, so links on the web and the app builds already installed
 # keep working. The root itself is NOT redirected: it is OpenShore for
 # Enterprise. Since 2026-11-16 (founder) /privacy/, /terms/ and /support/ are
-# OpenShore for Enterprise's own pages, so they no longer redirect: App Store
+# OpenShore's own pages, so they no longer redirect: App Store
 # Connect's privacy and support URLs must name /os-code/privacy/ and
 # /os-code/support/.
 /about/llm-choice/        /os-code/llm-choice/  301

@@ -1,0 +1,88 @@
+{#- The inventory demo (founder, 2026-11-18): the Supply chain panel of
+    ent-demos.njk, beside the commission demo, played the same way by
+    /enterprise/commission.js. Chosen as the supply chain example because
+    stockouts and inaccurate inventory records are the headache companies
+    report most; the fix lands on the cause (a receipt booked to the wrong
+    warehouse), and the rule keeps it from happening again. Every message is
+    real text from the start; the timings are data-type (typing starts) and
+    data-at (it lands), in ms, the loop's counted from its own data-at. -#}
+{%- set mark -%}
+<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>
+{%- endset -%}
+{%- set dots %}<span class="cd-dots" aria-hidden="true"><i></i><i></i><i></i></span>{% endset -%}
+      <div class="cd cd-panel" id="cd-inv" role="tabpanel" aria-labelledby="cd-inv-h" data-cd>
+        <h2 class="ent-eyebrow" id="cd-inv-h">Let’s say a best seller is about to run out.</h2>
+        <h3 class="ent-h">Stock found and moving in three minutes, before anyone pays to rush it.</h3>
+        <div class="cd-cap">
+          <span class="ent-tag">Example</span>
+          <button class="ent-replay" type="button" hidden aria-label="Replay the conversation">Replay</button>
+        </div>
+        <div class="cd-stage" aria-live="off">
+          <div class="cd-chat-col">
+            <div class="cd-chat">
+              <p class="cd-ch"># ops</p>
+              <ol class="cd-thread" aria-label="The conversation in # ops">
+                <li class="cd-msg" data-type="400" data-at="1200">
+                  <span class="cd-av" aria-hidden="true">PS</span>
+                  <div class="cd-body">
+                    <p class="cd-who">Priya Shah <span>Operations lead · 2:14</span></p>
+                    <p class="cd-txt">Reno is down to 40 Trail Packs with four days of orders waiting. The PO for 600 says received. <span class="cd-at">@Supply chain</span> where did they go?</p>
+                    {{ dots | safe }}
+                  </div>
+                </li>
+                <li class="cd-msg" data-type="1900" data-at="3300">
+                  <span class="cd-av cd-av--worker" aria-hidden="true">{{ mark | safe }}</span>
+                  <div class="cd-body">
+                    <p class="cd-who">Supply chain bot <span class="cd-badge">Bot</span> <span>2:15</span></p>
+                    <p class="cd-txt">Found them. The PO was for Reno, but the 600 were received at Dallas, so Reno’s count never went up. Moving 400 to Reno needs <span class="cd-at">@Marcus Lee</span> to approve.</p>
+                    {{ dots | safe }}
+                  </div>
+                </li>
+                <li class="cd-msg" data-type="4300" data-at="5000">
+                  <span class="cd-av" aria-hidden="true">ML</span>
+                  <div class="cd-body">
+                    <p class="cd-who">Marcus Lee <span>Head of Operations · 2:16</span></p>
+                    <p class="cd-txt">Approved.</p>
+                    <p class="cd-chip" data-at="5450"><svg class="cd-chip-check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#2f5a66" /><path d="M5.8 10.4l2.8 2.8 5.6-5.8" fill="none" stroke="#f6f4ef" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg>Transfer 400 units, Dallas to Reno</p>
+                    {{ dots | safe }}
+                  </div>
+                </li>
+                <li class="cd-msg cd-msg--done" data-type="6000" data-at="6800">
+                  <span class="cd-av cd-av--worker" aria-hidden="true">{{ mark | safe }}</span>
+                  <div class="cd-body">
+                    <p class="cd-who">Supply chain bot <span class="cd-badge">Bot</span> <span>2:17</span></p>
+                    <p class="cd-txt">Done. The transfer ships today and lands in Reno Thursday, ahead of the orders.</p>
+                    <p class="cd-stmt" data-at="7100"><span>Reno, on the way</span><b data-count="0:400:7300:1300" data-unit="units">+400 units</b></p>
+                    {{ dots | safe }}
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <p class="ent-badge cd-stamp" data-at="8900"><span class="ent-dot" aria-hidden="true"></span>Asked at 2:14. Moving by 2:17.</p>
+          </div>
+
+          <div class="cd-loop" data-at="9300">
+            <p class="ent-body cd-lead cd-beat" data-at="0">And that approval did more than move one shipment.</p>
+            <p class="ent-statement cd-title cd-beat" data-at="600">Every fix becomes a rule.</p>
+            <div class="cd-loop-body">
+              <div class="cd-cycle">
+                <div class="cd-ring">
+                  <span class="cd-return cd-beat" data-at="3200" aria-hidden="true"></span>
+                  <ol class="cd-steps" aria-label="The loop">
+                    <li class="cd-step" data-at="1300"><span class="cd-pill">Someone asks</span></li>
+                    <li class="cd-step" data-at="1750"><svg class="cd-arrow" viewBox="0 0 14 20" aria-hidden="true"><path d="M7 2v15m-5-5l5 5 5-5" fill="none" stroke="#2f5a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="cd-pill">A bot proposes</span></li>
+                    <li class="cd-step" data-at="2200"><svg class="cd-arrow" viewBox="0 0 14 20" aria-hidden="true"><path d="M7 2v15m-5-5l5 5 5-5" fill="none" stroke="#2f5a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="cd-pill">An admin approves</span></li>
+                    <li class="cd-step cd-step--rule" data-at="2650"><svg class="cd-arrow" viewBox="0 0 14 20" aria-hidden="true"><path d="M7 2v15m-5-5l5 5 5-5" fill="none" stroke="#2f5a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="cd-pill"><span class="ent-dot" aria-hidden="true"></span>A new rule</span></li>
+                  </ol>
+                </div>
+                <p class="cd-again cd-beat" data-at="3200">Checked on every task, from then on</p>
+              </div>
+              <div class="cd-rule cd-beat" data-at="3800">
+                <p class="cd-rule-k">Rule saved · from Marcus’s approval</p>
+                <p class="cd-rule-t">Receipts are checked against the order’s ship-to before they count as stock.</p>
+                <p class="cd-rule-run"><svg class="cd-tick" data-at="4300" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#2f5a66" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>Runs on every receipt</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

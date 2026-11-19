@@ -1,6 +1,7 @@
 {#- The commission demo (founder, 2026-11-18): the promo film's commission
     scene and its loop, word for word, played once on the home page when the
-    chat scrolls into view (/enterprise/commission.js). Without the script,
+    chat scrolls into view (/enterprise/commission.js). Since 2026-11-18 it is
+    the Revenue ops panel of ent-demos.njk, beside the inventory demo. Without the script,
     or with Reduce Motion, it stays still and complete. Every message is
     real text from the start; the timings are data-type (typing starts) and
     data-at (it lands), in ms, the loop's counted from its own data-at. -#}
@@ -8,8 +9,8 @@
 <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>
 {%- endset -%}
 {%- set dots %}<span class="cd-dots" aria-hidden="true"><i></i><i></i><i></i></span>{% endset -%}
-      <section class="ent-sec cd" aria-labelledby="cd-h" data-cd>
-        <h2 class="ent-eyebrow" id="cd-h">Let’s say a rep’s commission comes up short.</h2>
+      <div class="cd cd-panel" id="cd-rev" role="tabpanel" aria-labelledby="cd-rev-h" data-cd>
+        <h2 class="ent-eyebrow" id="cd-rev-h">Let’s say a rep’s commission comes up short.</h2>
         <h3 class="ent-h">Fixed in two minutes, without leaving the conversation.</h3>
         <div class="cd-cap">
           <span class="ent-tag">Example</span>
@@ -83,4 +84,4 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>

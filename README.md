@@ -13,11 +13,11 @@ Shore, LLC corporate site). It moved here so `openshore.ai` can be a
 dedicated, standalone site for the product, at the site's root (`/`). See
 `_redirects` and "Runtime and keys" below for what that move touches.
 
-## Layout: OpenShore for Enterprise at the root (2026-11-16)
+## Layout: OpenShore at the root (2026-11-16)
 
 The founder repositioned the site on 2026-11-16:
 
-- `openshore.ai/` is **OpenShore for Enterprise**, a page for design partners
+- `openshore.ai/` is **OpenShore**, a page for design partners
   (`src/index.njk`, the light frame `ent-layout.njk`), word for word the page
   that sat at `/enterprise/` (founder: a one-to-one replica). `/about/` itself 301s to
   `/os-code/` (the pages under it stay). `/enterprise/` 301s to `/`;
@@ -29,7 +29,7 @@ The founder repositioned the site on 2026-11-16:
   `src/_data/growWithUs.js`: the mission, the principles from the business
   plan's appendix and the founder's profile and photo
   (`src/static/enterprise/founder.jpg`); an empty section is left off.
-- OpenShore for Enterprise has its own **Privacy Policy** (`/privacy/`),
+- OpenShore has its own **Privacy Policy** (`/privacy/`),
   **Terms of Use** (`/terms/`) and **Support** (`/support/`), on the same
   frame (`src/ent-privacy.njk`, `ent-terms.njk`, `ent-support.njk`), linked
   from its footer. They cover the Enterprise pages and design-partner email,
@@ -46,7 +46,7 @@ The founder repositioned the site on 2026-11-16:
   `/os-code/self-hosting/`), its privacy policy (`/os-code/privacy/`), terms
   (`/os-code/terms/`) and support (`/os-code/support/`). They were under
   `/about/` until 2026-11-16 and at the root before that; `/about/...` and
-  the old tab addresses 301 here. These are the personal product's own: OpenShore for Enterprise
+  the old tab addresses 301 here. These are the personal product's own: OpenShore
   will get its own policy and terms. `/oscode/` 301s to `/os-code/`. Stripe's
   return addresses (`/os-code/?checkout=success`) land on this page directly.
 - The web app (the OpenShore.ai app in a browser) is at
@@ -66,6 +66,28 @@ The founder repositioned the site on 2026-11-16:
 - The copy gate (`scripts/check-copy.mjs`) skips the app's `assets/`: that is
   not this site's copy, and the app's own em-dash test holds its source. The
   founder's tagline is the one em dash it lets through, on `/` and the films.
+
+## Design partners, security and the call link (2026-11-18)
+
+- The product is just **OpenShore** (founder, 2026-11-18): no "for
+  Enterprise" in titles, labels or copy. The two films keep their animated
+  "for Enterprise, then for Startups" beat until they are re-cut.
+- The home page carries a **Security and privacy** section
+  (`_includes/ent-security.njk`) right after the commission demo, and a
+  trust line under the hero buttons. Each card states a rule from the
+  product's design; no certifications are claimed.
+- The design partner offer sits in the closing section: at cost, with no
+  margin, until general availability, in exchange for installing in the
+  partner's systems and structured and ad hoc feedback.
+- Applying is by email for now. A three-question form and a Book a call
+  link are built and deferred (founder, 2026-11-18) on the
+  `site-form-and-calendar` branch.
+- The OS Code by OpenShore foot line is off the OpenShore pages.
+- The worked examples sit behind two tabs (`_includes/ent-demos.njk`):
+  Revenue ops (the commission fix) and Supply chain (`ent-inventory.njk`,
+  stock received at the wrong warehouse). `static/enterprise/commission.js`
+  plays each panel on its own clock and runs the tabs; without it both
+  panels show, still and complete.
 
 ## Build
 
