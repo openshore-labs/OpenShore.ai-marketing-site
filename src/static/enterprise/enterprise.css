@@ -55,7 +55,7 @@ main, .ent-top, .ent-foot {
 .ent-toplink { font-size: 15px; font-weight: 550; text-decoration: none; color: var(--ink-soft); white-space: nowrap; }
 @media (hover: hover) { .ent-toplink:hover { color: var(--sea); } }
 
-.ent-hero { padding-block: 72px 56px; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+.ent-hero { padding-block: 32px 56px; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
 .ent-hero h1 { font-size: clamp(24px, 2.4vw, 28px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 650; max-width: 24ch; }
 .ent-lede { font-size: clamp(18px, 2.2vw, 22px); line-height: 1.5; color: var(--ink-soft); max-width: 62ch; }
 .ent-badge { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 999px; background: var(--sea-soft); color: var(--sea); font-size: 14px; font-weight: 600; }
@@ -117,7 +117,7 @@ main, .ent-top, .ent-foot {
 @media (max-width: 760px) {
   .ent-film-grid, .ent-three, .ent-phases, .ent-grid2 { grid-template-columns: minmax(0, 1fr); }
   .ent-workers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .ent-hero { padding-block: 44px 36px; }
+  .ent-hero { padding-block: 32px 36px; }
 }
 @media (max-width: 440px) {
   .ent-workers { grid-template-columns: minmax(0, 1fr); }
@@ -164,8 +164,10 @@ main, .ent-top, .ent-foot {
 .ent-hero .ent-product { font-size: clamp(18px, 6.2vw, 72px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 650; white-space: nowrap; max-width: none; }
 /* The byline leans on its last word, One. */
 .ent-byline { font-size: clamp(18px, 1.7vw, 20px); line-height: 1.35; letter-spacing: -0.01em; font-weight: 500; color: var(--ink-soft); }
-/* Under the home headline (founder, 2026-11-19): the tagline, close to it. */
-.ent-hero .ent-h1--wide + .ent-byline { margin-top: -10px; }
+/* Under the home headline (founder, 2026-11-19): the tagline. The headline
+   sits evenly between the tabs and the tagline, 32px from each (the hero's
+   top padding, and its 22px gap plus 10px here). */
+.ent-hero .ent-h1--wide + .ent-byline { margin-top: 10px; }
 .ent-byline em { font-style: normal; font-weight: 750; color: var(--sea); }
 .ent-hero--home { gap: 18px; }
 .ent-card h3 { font-size: 18px; font-weight: 650; }
