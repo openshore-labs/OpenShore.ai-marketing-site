@@ -595,3 +595,22 @@ main, .ent-top, .ent-foot {
 .cd-tabs button:active { transform: scale(0.97); }
 @media (hover: hover) { .cd-tabs button:hover { color: var(--ink); } }
 .ent-partner-ask { margin-top: 4px; }
+
+/* ---- Connections and setup, the CFO and founder lines (2026-11-18) ---- */
+.ent-conn { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 4px; }
+.ent-conn-group { background: var(--raised); border-radius: 16px; padding: 18px 20px; box-shadow: 0 0 0 1px var(--rule); display: flex; flex-direction: column; gap: 10px; }
+.ent-conn-group h4 { font-size: 12.5px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea); }
+.ent-conn-group ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.ent-conn-group li { padding: 6px 12px; border-radius: 10px; background: var(--paper); box-shadow: 0 0 0 1px var(--rule); font-size: 15px; font-weight: 600; color: var(--ink); }
+.ent-conn-group p { font-size: 15.5px; color: var(--ink-soft); }
+.ent-conn-group--any { grid-column: 1 / -1; background: var(--sea-soft); box-shadow: none; }
+.ent-conn-group--any p { max-width: 70ch; }
+.ent-setup { margin-top: 8px; border-radius: 18px; padding: 22px 24px; background: var(--ink); color: var(--paper); display: flex; flex-direction: column; gap: 6px; max-width: 760px; }
+.ent-setup-k { font-size: 19px; font-weight: 650; letter-spacing: -0.01em; }
+.ent-setup-t { font-size: 16.5px; line-height: 1.55; color: #d5dcdc; }
+@media (max-width: 900px) { .ent-conn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .ent-conn { grid-template-columns: minmax(0, 1fr); } }
+
+.ent-cfo, .ent-founder-line { max-width: 70ch; font-size: 16.5px; line-height: 1.55; color: #d5dcdc; }
+.ent-cfo b { color: var(--paper); font-weight: 650; }
+.ent-founder-line { padding-top: 14px; border-top: 1px solid rgba(246, 244, 239, 0.14); width: 100%; }
