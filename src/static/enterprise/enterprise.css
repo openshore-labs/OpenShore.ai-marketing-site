@@ -356,7 +356,10 @@ main, .ent-top, .ent-foot {
 .c-anim .c-ripple--again.on { animation: c-ripple 1.3s cubic-bezier(0.2, 0.7, 0.3, 1) 1; }
 
 /* The hero's headline and its why line (2026-11-17). */
-.ent-hero .ent-h1--wide { max-width: 16ch; }
+/* The home headline sits one step above its lede (founder, 2026-11-19:
+   "just a little bigger than the subtext"), and still above the section
+   headings below it. */
+.ent-hero .ent-h1--wide { font-size: clamp(28px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.028em; max-width: 24ch; }
 .ent-hero-why { max-width: 60ch; margin-top: -6px; }
 
 /* The mockup on the Product Tour page (2026-11-18): the founder's
