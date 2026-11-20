@@ -1,25 +1,21 @@
-// The headline's picture (founder, 2026-11-20). Under "The operating
-// platform for growing startups:" the rest of the sentence stands in three
-// rows from the start. After a moment to read it, the small words fade, and team, AI, agents and apps leave their rows one
-// after another, letter by letter: each letter glides along a curve onto a
-// slowly turning ring, turning to face outward and becoming a capital on the
-// way, until they read TEAM, AI, AGENTS, APPS round a circle. The ring eases up to its
-// resting pace and never turns faster than that (founder, 2026-11-20). Then
-// the OpenShore mark comes up in the middle. The screen is the water's surface,
-// seen from above, and the mark is a piece of slate floating up to it: it
-// arrives hazy from underneath and breaks the surface one corner at a time.
-// Each corner sends out real ripples: trains of rings, lit from one side,
-// that widen, cross each other, pass under the letters and fade just past
-// them. They are painted on the water, so the part of the slate that is out
-// of the water covers them. Once the slate is afloat the water goes still,
-// and it rides just above the surface, rocking slowly, while the ring keeps
-// turning round it. The ring sits close round the mark, and the picture
-// is no taller than it needs to be.
+// The opening picture (founder, 2026-11-20), above the headline. A ring of
+// lettering, TEAM, AI, AGENTS, APPS, is already turning slowly when the page
+// opens (one turn in 24 seconds, never faster). A moment later the OpenShore
+// mark comes up in its middle. The screen is the water's surface, seen from
+// above, and the mark is a piece of slate floating up to it: it arrives hazy
+// from underneath and breaks the surface one corner at a time. Each corner
+// sends out real ripples: trains of rings, lit from one side, that widen,
+// cross each other, pass under the letters and fade just past them. They
+// are painted on the water, so the part of the slate that is out of the
+// water covers them. Once the slate is afloat the water goes still, and it
+// rides just above the surface, rocking slowly, while the ring keeps turning.
+// (The letters' flight from the sentence onto the ring, and its tuned
+// routes, stay below; the picture now starts after it.)
 //
-// It starts when it comes into view, and rests while it is off screen or
-// the tab is hidden. With Reduce Motion it shows the mark inside the ring,
-// still; without this script the three rows simply stand under the
-// headline. Every position is set here, on transforms and opacity only.
+// It runs while it is on screen and rests while it is off screen or the tab
+// is hidden. With Reduce Motion it shows the mark inside the ring, still;
+// without this script nothing shows. Every position is set here, on
+// transforms and opacity only.
 (function () {
   'use strict';
   var stage = document.querySelector('[data-orb]');
@@ -51,8 +47,10 @@
 
   // The clock, in seconds from when the picture starts.
   // The sentence stands on the page from the start (founder, 2026-11-20).
-  var FADE_AT = 2.2;            // the small words fade (the sentence has been read)
-  var LIFT = 2.9;               // the first word leaves its row
+  // Since 2026-11-20 (founder) the picture opens on the ring already made
+  // and turning, so every word has landed before the clock starts.
+  var FADE_AT = -20;
+  var LIFT = -10;
   var WORD_GAP = 0.62;          // between words setting off
   var LETTER_GAP = 0.02;        // between letters of a word: a word travels as one
   var TRAVEL = 1.9;             // a letter's glide onto the ring
@@ -65,7 +63,7 @@
   var SPIN_AT = LIFT + 0.8;     // the ring starts to turn as the first letters near it
   var SPIN_RAMP = 5;            // easing up to its pace
   var SPIN_PACE = 360 / 24;     // degrees a second, at most: one turn in 24 seconds
-  var MARK_AT = JOINED + 1.6;   // the mark starts up once the ring is whole
+  var MARK_AT = 1.0;            // the mark starts up a moment after the page opens
   var RISE = 3.4;               // the slate's rise from under the water to its float
   var RIPPLE = 3.1;             // a ripple's life
   var END = MARK_AT + RISE + 4; // the picture's last still frame (for Reduce Motion)
@@ -189,11 +187,7 @@
   // speed is the pace times a smooth 0 to 1 ramp, so it is never faster.
   function ringAngle(t) {
     if (still) return -PHASE; // at rest, TEAM sits at the top
-    var u = t - SPIN_AT;
-    if (u <= 0) return 0;
-    if (u >= SPIN_RAMP) return SPIN_PACE * (u - SPIN_RAMP / 2);
-    var x = u / SPIN_RAMP;
-    return SPIN_PACE * SPIN_RAMP * (x * x * x - x * x * x * x / 2);
+    return -PHASE + SPIN_PACE * t; // already turning at its pace, TEAM starting at the top
   }
   // A letter's glide: a slow start, a long soft landing.
   function glide(k) { k = smooth(k); return 1 - Math.pow(1 - k, 1.7); }
@@ -307,7 +301,7 @@
       var up = smooth((k - 0.26) / 0.3); // one quick, even change of case, so the ink never thins
       if (l.up !== up) { l.up = up; l.lc.style.opacity = (1 - up).toFixed(3); l.uc.style.opacity = up.toFixed(3); }
     });
-    var dotIn = smooth((t - JOINED + 0.5) / 1.1);
+    var dotIn = 1;
     dots.forEach(function (d) {
       var a = (slotAngle(d.slot) + turn) * Math.PI / 180;
       d.e.style.transform = 'translate(' + (G.cx + R * Math.sin(a)).toFixed(2) + 'px,' + (G.cy - R * Math.cos(a)).toFixed(2) + 'px) scale(' + (0.4 + 0.6 * dotIn).toFixed(3) + ')';
