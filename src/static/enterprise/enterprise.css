@@ -823,8 +823,8 @@ html { scroll-padding-top: 64px; }
 .orb-waves { position: absolute; pointer-events: none; }
 /* The slate, seen from above (orbit.js sets every position, mask and blur).
    Under the surface it is two soft copies, fainter and bluer with depth; out
-   of the water it is crisp, with the light on its face and a thin bright
-   edge at its waterline. Its two shadows lie on the water under it. */
+   of the water it is crisp, with the light on its face. Its two shadows lie
+   on the water under it. */
 .orb-slate { position: absolute; pointer-events: none; will-change: transform; }
 .orb-slate svg { display: block; width: 100%; height: 100%; }
 .orb-top { position: absolute; inset: 0; opacity: 0; }
@@ -833,8 +833,7 @@ html { scroll-padding-top: 64px; }
 .orb-shade, .orb-cast { position: absolute; inset: 2.9%; border-radius: 23.5%; opacity: 0; }
 .orb-shade { background: #14262e; }
 .orb-cast { background: #1b3944; }
-.orb-lip, .orb-gloss { position: absolute; inset: 2.94%; border-radius: 23.44%; }
-.orb-gloss { overflow: hidden; opacity: 0; }
+.orb-gloss { position: absolute; inset: 2.94%; border-radius: 23.44%; overflow: hidden; opacity: 0; }
 .orb-gloss i { position: absolute; left: -25%; top: -25%; width: 150%; height: 150%; background: radial-gradient(closest-side, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045) 50%, rgba(255, 255, 255, 0) 92%); }
 
 /* The first paragraph sits a little closer under the headline (founder,

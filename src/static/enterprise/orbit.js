@@ -6,22 +6,22 @@
 //
 // How it is made to look like water (2026-11-20, after reading how games and
 // film render a floating thing):
+//  - The water starts empty. A moment after the page opens the slate fades
+//    in from deep down, faint, soft and blue, already drifting up.
 //  - The rise is worked out from forces, not drawn as a curve. Under water
 //    the slate is pushed up steadily and held back by drag; at the surface
 //    the push becomes a spring about its float line. So it arrives with its
 //    own momentum, lifts a little past where it floats, sinks back and
 //    settles in two or three bobs, each smaller than the last.
-//  - Water hides things by depth. The deeper a part of the slate is, the
-//    fainter, softer and bluer it shows, by the same falling curve light
-//    follows in water; just under the surface it is nearly clear.
-//  - Where the slate cuts the surface there is a thin bright edge, the film
-//    of water clinging to it, and the dry part is crisp.
-//  - It breaks the surface one corner at a time. Each corner, and then each
-//    bob, pushes out a train of ripples. They leave from the slate's own
-//    edge, so they carry its rounded-square shape and relax into circles as
-//    they spread; the leading ring is the widest and the ones behind it are
-//    finer, as on a pond. They are lit from the top left, pass under the
-//    letters, nudge each letter as they pass, and fade just past them.
+//  - Water hides things by depth. The deeper the slate is, the fainter,
+//    softer and bluer it shows, by the same falling curve light follows in
+//    water. It clears as a whole, with no line drawn across its face.
+//  - It breaks the surface one corner at a time (founder, 2026-11-20). Each
+//    corner sends out rings from that corner, and the slate's first bob back
+//    down sends one gentle ring all round it. The leading ring is the widest
+//    and the ones behind it are finer, as on a pond. They are lit from the
+//    top left, pass under the letters, nudge each letter as they pass, and
+//    fade just past them.
 //  - The slate's face catches the light as it tips, and its shadow on the
 //    water tightens and loosens as it rides lower and higher.
 // Once the slate is afloat the water goes still, and it rides just above the
@@ -118,15 +118,15 @@
   // under water, twice (far down and soft, and nearer and clearer); the
   // ripples, painted on a canvas; the rows and the ring's letters, which
   // float on the water; and the slate itself, crisp where it is out of the
-  // water, with the light on its face and the bright edge at its waterline.
+  // water, with the light on its face.
   var under = el('div', 'orb-slate'), over = el('div', 'orb-slate');
   var cast = el('div', 'orb-cast'), shade = el('div', 'orb-shade');
   var far = el('div', 'orb-deep'), deep = el('div', 'orb-deep'), top = el('div', 'orb-top');
-  var gloss = el('div', 'orb-gloss'), glare = el('i', ''), lip = el('div', 'orb-lip');
+  var gloss = el('div', 'orb-gloss'), glare = el('i', '');
   far.innerHTML = MARK.replace('#1c2a33', '#2d5767'); deep.innerHTML = MARK.replace('#1c2a33', '#213b47'); top.innerHTML = MARK;
   gloss.appendChild(glare); top.appendChild(gloss);
   under.appendChild(cast); under.appendChild(shade); under.appendChild(far); under.appendChild(deep);
-  over.appendChild(top); over.appendChild(lip);
+  over.appendChild(top);
   var waves = document.createElement('canvas');
   waves.className = 'orb-waves';
   var pen = waves.getContext && waves.getContext('2d');
@@ -204,37 +204,44 @@
 
   // The ripples' canvas: a square over the ring, a little past the letters,
   // where the ripples fade out, drawn at the screen's own sharpness, up to a
-  // budget (ripples are soft, so past about 1.75 dots to the px nothing is
-  // gained and a phone pays for it). Every ripple leaves from the slate's
-  // edge, so the water's shape at a spot depends only on how far the spot
-  // is from that edge. That is worked out once per spot here, with which
-  // way is "out" from it; each frame then looks the water up in a short
-  // table and lights it.
-  var field = null, FINE = 0.25;   // the table's spacing, px
+  // budget (ripples are soft, so past about 1.6 dots to the px nothing is
+  // gained and a phone pays for it). Nothing is painted on the slate itself.
+  // The bob's ring leaves from the slate's whole edge, so its shape at a
+  // spot depends only on how far the spot is from that edge; that, and which
+  // way is "out" from there, is worked out once per spot here. A corner's
+  // rings are circles about the corner, so their shape at a spot depends
+  // only on how far it is from the corner. Each frame then looks the water
+  // up in short tables and lights it.
+  var field = null, FINE = 0.25;   // the tables' spacing, px
   function sizeWaves() {
     if (!pen) return;
     var inner = G.outer, reach = G.reach, U = G.s / 116;
     var side = Math.ceil(reach * 2);
-    var n = Math.max(8, Math.min(480, Math.round(side * Math.min(1.75, window.devicePixelRatio || 1))));
+    var n = Math.max(8, Math.min(440, Math.round(side * Math.min(1.6, window.devicePixelRatio || 1))));
     waves.width = n; waves.height = n;
     waves.style.left = (G.cx - reach) + 'px'; waves.style.top = (G.cy - reach) + 'px';
     waves.style.width = side + 'px'; waves.style.height = side + 'px';
-    var px = side / n, cnt = n * n, most = 0, q = 0;
-    var di = new Uint16Array(cnt), gx = new Int8Array(cnt), gy = new Int8Array(cnt), mk = new Uint8Array(cnt);
+    var step = side / n, cnt = n * n, most = 0, q = 0;
+    var di = new Uint16Array(cnt), gx = new Int8Array(cnt), gy = new Int8Array(cnt), mk = new Uint8Array(cnt), mo = new Uint8Array(cnt);
     for (var j = 0; j < n; j++) for (var i = 0; i < n; i++, q++) {
-      var x = (i + 0.5) * px - reach, y = (j + 0.5) * px - reach, d = fromEdge(x, y);
-      // Ripples start softly at the slate's edge and fade out past the letters.
-      var w = smooth((d - 2 * U) / (14 * U)) * (1 - smooth((Math.sqrt(x * x + y * y) - inner) / (reach - inner)));
+      var x = (i + 0.5) * step - reach, y = (j + 0.5) * step - reach, d = fromEdge(x, y);
+      // Off the slate, fading out past the letters.
+      var out = smooth((d + U) / (4 * U)) * (1 - smooth((Math.sqrt(x * x + y * y) - inner) / (reach - inner)));
+      if (out < 0.004) continue;
+      mo[q] = Math.round(255 * out);
+      // The bob's ring starts softly a little off the slate's edge.
+      var w = smooth((d - 2 * U) / (14 * U)) * out;
       if (w < 0.004) continue;
       var ox = fromEdge(x + 0.75, y) - fromEdge(x - 0.75, y), oy = fromEdge(x, y + 0.75) - fromEdge(x, y - 0.75), ol = Math.sqrt(ox * ox + oy * oy) || 1;
       di[q] = Math.round(d / FINE); gx[q] = Math.round(127 * ox / ol); gy[q] = Math.round(127 * oy / ol); mk[q] = Math.round(255 * w);
       if (di[q] > most) most = di[q];
     }
-    var size = most + 2;
+    var size = most + 2, far = Math.ceil(side * 1.2 / FINE) + 2;
     var img = pen.createImageData(n, n);
-    field = { n: n, size: size, di: di, gx: gx, gy: gy, mk: mk, img: img, px: new Uint32Array(img.data.buffer), wet: false, live: false, lo: 0, hi: 0, slow: field ? field.slow : 0, odd: false,
-      S0: new Float32Array(size), Sx: new Float32Array(size), Sy: new Float32Array(size),
-      C0: new Float32Array(size), Cx: new Float32Array(size), Cy: new Float32Array(size) };
+    field = { n: n, step: step, reach: reach, size: size, di: di, gx: gx, gy: gy, mk: mk, mo: mo, img: img, px: new Uint32Array(img.data.buffer),
+      wet: false, live: false, lo: 0, hi: -1, slow: field ? field.slow : 0, odd: false,
+      S0: new Float32Array(size), C0: new Float32Array(size),
+      R: [0, 1, 2, 3].map(function () { return { S: new Float32Array(far), C: new Float32Array(far), top: far - 1, on: false, x: 0, y: 0, lo: 0, hi: -1, f2: 0, b2: 0 }; }) };
   }
 
   // The ring's turn (degrees): it eases up to its pace and holds it. Its
@@ -261,7 +268,8 @@
   // rights it, and the wobble dies away into its slow rocking. Afloat, its
   // tilt is two slow, unrelated swings per axis, so it never repeats
   // itself, and small enough that no corner goes back into the water.
-  var Z0 = -1.7, FLOAT = 0.5;
+  var Z0 = -2.4, FLOAT = 0.5;
+  var FADE_IN = 1.0;            // seconds for the slate to come into sight from the deep
   var SPRING = 21;              // the water's push, per unit of slate under or over its float line
   var DRAG_DEEP = 9.5, DRAG_TOP = 2.4;
   var WOB = 0.5, TURN = 2.7, PHI0 = -1.75;   // the wobble's size, seconds per turn, and where it starts (bottom right corner first)
@@ -274,14 +282,14 @@
     return [w * Math.cos(phi) + calm * (0.12 * Math.sin(2 * Math.PI * u / 5.3 + 0.4) + 0.08 * Math.sin(2 * Math.PI * u / 3.1 + 1.7)),
       w * Math.sin(phi) + calm * (0.12 * Math.sin(2 * Math.PI * u / 6.7 + 2.1) + 0.08 * Math.sin(2 * Math.PI * u / 3.9 + 0.3))];
   }
-  // Ripples are found on the way: a train leaves the slate each time a
-  // corner breaks the surface (strongest on that corner's side), and each
-  // time the slate sinks back through its float line (all round it, as
-  // strong as it is moving). The bobs die away, and the ripples with them.
+  // Ripples are found on the way: rings leave a corner as it breaks the
+  // surface (from the corner's spot at that moment, in slate widths from
+  // the middle), and one ring leaves all round the slate as it first sinks
+  // back through its float line, as strong as it is moving.
   var path = null, sources = [], DRY = 2;
   function plan() {
     var n = HZ * SPAN, zs = new Float32Array(n + 1), ws = new Float32Array(n + 1);
-    var z = Z0, v = 0, w = WOB, dt = 1 / (HZ * 4), was = null, out = 0, seen = [0, 0, 0, 0];
+    var z = Z0, v = 0, w = WOB, dt = 1 / (HZ * 4), was = null, out = 0, seen = [0, 0, 0, 0], bobbed = 0;
     for (var i = 0; i <= n; i++) {
       zs[i] = z; ws[i] = w;
       for (var j = 0; j < 4; j++) {
@@ -290,9 +298,13 @@
         v += (SPRING * (wet - 0.5) - (DRAG_TOP + (DRAG_DEEP - DRAG_TOP) * smooth((0.15 - z) / 0.7)) * v) * dt;
         if (was) for (c = 0; c < 4; c++) if (!seen[c] && was[c] < 0 && hs[c] >= 0) {
           seen[c] = 1; DRY = u;
-          sources.push({ at: MARK_AT + u, x: CORNERS[c][0] / Math.SQRT2, y: CORNERS[c][1] / Math.SQRT2, amp: [1, 0.8, 0.62, 0.5][out++] });
+          var reach = 0.43 * (0.86 + 0.14 * clamp((z - Z0) / (FLOAT - Z0))), rot = 1.6 * Math.sin(2 * Math.PI * u / 9.1) * Math.PI / 180;
+          var phi = 2 * Math.PI * u / TURN + PHI0, kx = CORNERS[c][0], ky = CORNERS[c][1];
+          sources.push({ at: MARK_AT + u, corner: true, amp: [1, 0.9, 0.82, 0.75][out++],
+            x: (kx * Math.cos(rot) - ky * Math.sin(rot)) * reach + 0.045 * w * Math.cos(phi),
+            y: (kx * Math.sin(rot) + ky * Math.cos(rot)) * reach + 0.045 * w * Math.sin(phi) });
         }
-        if (out === 4 && v < -0.2 && z > FLOAT && z + v * dt <= FLOAT) sources.push({ at: MARK_AT + u, x: 0, y: 0, amp: 0.95 * Math.min(1, -v / 0.6) }); // a bob too weak to see sends nothing
+        if (out === 4 && !bobbed && v < -0.2 && z > FLOAT && z + v * dt <= FLOAT) { bobbed = 1; sources.push({ at: MARK_AT + u, amp: 0.8 * Math.min(1, -v / 0.6) }); }
         was = hs; z += v * dt;
         w -= w * RIGHTING * smooth((z + 0.3) / 0.8) * dt;
       }
@@ -332,33 +344,35 @@
     for (i = 0; i <= PN + 1; i++) { PS[i] /= ms; PC[i] /= mc; }
   })();
 
-  // The water at time t, as a table along a line out from the slate's edge:
-  // the trains' slopes and curves added up, so they cross as real ripples
-  // do. A train's front runs ahead and its tail falls behind (so its rings
-  // widen); it gathers over its first half second, and thins as it spreads
-  // and ages. A corner's train is strongest on its own side of the slate
-  // and nothing on the far side, which is still under water; that part is
-  // kept apart (x, y) so each spot can weigh it by which way it faces.
+  // The water at time t, as tables along a line out from where each ripple
+  // left: the slope and curve of its rings. A train's front runs ahead and
+  // its tail falls behind (so its rings widen); it gathers quickly, and
+  // thins as it spreads and ages. Trains add up where they cross, as real
+  // ripples do.
   function swell(t) {
     var f = field;
     if (!f) return;
-    var U = G.s / 116, i, live = false, lo = f.size, hi = -1;
-    for (i = 0; i < f.size; i++) { f.S0[i] = 0; f.Sx[i] = 0; f.Sy[i] = 0; f.C0[i] = 0; f.Cx[i] = 0; f.Cy[i] = 0; }
+    var U = G.s / 116, i, live = false, lo = f.size, hi = -1, slot = 0;
+    for (i = 0; i < f.size; i++) { f.S0[i] = 0; f.C0[i] = 0; }
+    f.R.forEach(function (R) { R.on = false; });
     sources.forEach(function (sc) {
       var tau = t - sc.at;
       if (tau <= 0 || tau >= RIPPLE) return;
+      var R = sc.corner ? f.R[slot++] : null;
+      if (sc.corner && !R) return;
       live = true;
-      var front = (52 * tau - 2) * U, len = (26 + 15 * tau) * U, age = 1 - tau / RIPPLE;
-      var k = sc.amp * age * Math.sqrt(age) * smooth(tau / 0.5), crisp = 26 * U / len;
-      var all = sc.x || sc.y ? 0.5 : 1, wx = 0.5 * sc.x / 127, wy = 0.5 * sc.y / 127;
-      var i0 = Math.max(0, Math.ceil((front - len) / FINE)), i1 = Math.min(f.size - 1, Math.floor(front / FINE));
-      if (i0 < lo) lo = i0;
-      if (i1 > hi) hi = i1;
+      var len = (26 + 15 * tau) * U, age = 1 - tau / RIPPLE, crisp = 26 * U / len;
+      var k = sc.amp * age * Math.sqrt(age) * smooth(tau / (sc.corner ? 0.25 : 0.5));
+      var front = sc.corner ? (4 + 48 * tau) * U : (52 * tau - 2) * U, S = R ? R.S : f.S0, C = R ? R.C : f.C0, top = R ? R.top : f.size - 1;
+      var i0 = Math.max(0, Math.ceil((front - len) / FINE)), i1 = Math.min(top, Math.floor(front / FINE));
+      if (R) {
+        R.on = true; R.x = sc.x * G.s; R.y = sc.y * G.s; R.lo = i0; R.hi = i1;
+        R.f2 = (i1 + 1) * FINE * (i1 + 1) * FINE; R.b2 = i0 > 1 ? (i0 - 1) * FINE * (i0 - 1) * FINE : 0;
+      } else { if (i0 < lo) lo = i0; if (i1 > hi) hi = i1; }
       for (var i = i0; i <= i1; i++) {
         var d = i * FINE, x = (front - d) / len * PN, j = x | 0, m = x - j, g = k / Math.sqrt(1 + d / (46 * U));
         var s = g * (PS[j] + (PS[j + 1] - PS[j]) * m), c = g * crisp * (PC[j] + (PC[j + 1] - PC[j]) * m);
-        f.S0[i] += s * all; f.Sx[i] += s * wx; f.Sy[i] += s * wy;
-        f.C0[i] += c * all; f.Cx[i] += c * wx; f.Cy[i] += c * wy;
+        if (R) { S[i] = s; C[i] = c; } else { S[i] += s; C[i] += c; }
       }
     });
     f.live = live; f.lo = lo; f.hi = hi;
@@ -369,9 +383,14 @@
   function ride(x, y) {
     var f = field;
     if (!f || !f.live) return 0;
-    var r = Math.sqrt(x * x + y * y) || 1, i = Math.round(fromEdge(x, y) / FINE);
-    if (i < 0 || i >= f.size) return 0;
-    return 1.7 * (G.s / 116) * (f.S0[i] + 127 * (x / r * f.Sx[i] + y / r * f.Sy[i]));
+    var r = Math.sqrt(x * x + y * y) || 1, i = Math.round(fromEdge(x, y) / FINE), push = 0;
+    if (i >= f.lo && i <= f.hi) push += f.S0[i];
+    f.R.forEach(function (R) {
+      if (!R.on) return;
+      var dx = x - R.x, dy = y - R.y, d = Math.sqrt(dx * dx + dy * dy) || 1, k = Math.round(d / FINE);
+      if (k >= R.lo && k <= R.hi) push += R.S[k] * (dx * x + dy * y) / (d * r);
+    });
+    return 1.7 * (G.s / 116) * push;
   }
   // The water is lit from the top left: slopes facing the light are bright,
   // slopes facing away are in shadow (the sea's colour, not grey), and each
@@ -394,17 +413,33 @@
     f.odd = !f.odd;
     if (f.slow > 8 && f.odd) return;
     var began = window.performance && performance.now ? performance.now() : 0;
-    var px = f.px, di = f.di, gx = f.gx, gy = f.gy, mk = f.mk, cnt = f.n * f.n, lo = f.lo, hi = f.hi;
-    var S0 = f.S0, Sx = f.Sx, Sy = f.Sy, C0 = f.C0, Cx = f.Cx, Cy = f.Cy;
-    var KS = 1.2 / (127 * 255), KC = 0.5 / 255;
-    for (var q = 0; q < cnt; q++) {
-      var w = mk[q];
-      if (!w) continue;
-      var i = di[q];
-      if (i < lo || i > hi) { px[q] = 0; continue; }   // no ripple has reached here, or all have passed
-      var nx = gx[q], ny = gy[q];
-      var sh = (KS * (S0[i] + nx * Sx[i] + ny * Sy[i]) * (nx * LX + ny * LY) - KC * (C0[i] + nx * Cx[i] + ny * Cy[i])) * w;
-      px[q] = sh > 0 ? LIGHT | ((sh >= 1 ? 200 : sh * Math.sqrt(sh) * 200) << UP) : DARK | ((sh <= -1 ? 170 : -sh * 170) << UP);
+    var px = f.px, n = f.n, step = f.step, reach = f.reach, di = f.di, gx = f.gx, gy = f.gy, mk = f.mk, mo = f.mo;
+    var S0 = f.S0, C0 = f.C0, lo = f.lo, hi = f.hi;
+    var rs = f.R.filter(function (R) { return R.on; }), m = rs.length;
+    var KS = 1.2 / (127 * 255), KR = 1.2 / 255, KC = 0.5 / 255;
+    for (var j = 0, q = 0; j < n; j++) {
+      var y = (j + 0.5) * step - reach;
+      for (var i = 0; i < n; i++, q++) {
+        var wo = mo[q];
+        if (!wo) continue;
+        var sh = 0, w = mk[q];
+        if (w) {
+          var e = di[q];
+          if (e >= lo && e <= hi) { var nx = gx[q], ny = gy[q]; sh = (KS * S0[e] * (nx * LX + ny * LY) - KC * C0[e]) * w; }
+        }
+        if (m) {
+          var x = (i + 0.5) * step - reach, acc = 0;
+          for (var a = 0; a < m; a++) {
+            var R = rs[a], dx = x - R.x, dy = y - R.y, d2 = dx * dx + dy * dy;
+            if (d2 >= R.f2 || d2 < R.b2) continue;
+            var d = Math.sqrt(d2), k = (d / FINE) | 0;
+            if (k < R.lo || k > R.hi || d < 0.5) continue;
+            acc += KR * R.S[k] * (dx * LX + dy * LY) / d - KC * R.C[k];
+          }
+          sh += acc * wo;
+        }
+        px[q] = sh > 0 ? LIGHT | ((sh >= 1 ? 200 : sh * Math.sqrt(sh) * 200) << UP) : sh < 0 ? DARK | ((sh <= -1 ? 170 : -sh * 170) << UP) : 0;
+      }
     }
     pen.putImageData(f.img, 0, 0);
     f.wet = true;
@@ -413,12 +448,12 @@
 
   // How much of the slate shows at a height: all of it above the water, and
   // under it less and less with depth, by the falling curve light follows in
-  // water. The crisp slate shows only just under the surface; the two soft
-  // copies carry it further down, the softest the furthest.
-  function clear(h) { return h >= 0 ? 1 : 0.86 * Math.exp(h / 0.45); }
+  // water. The crisp slate takes over near the surface; the two soft copies
+  // carry it further down, the softest the furthest.
+  function clear(h) { return h >= 0 ? 1 : Math.exp(h / 0.35); }
   function near(h) { return h >= 0 ? 0.66 * (1 - smooth(h / 0.12)) : 0.66 * Math.exp(h / 0.9); }
   function hazy(h) { return h >= 0 ? 0.45 * (1 - smooth(h / 0.16)) : 0.45 * Math.exp(h / 1.7); }
-  var DEPTHS = [-2.2, -1.5, -1.05, -0.72, -0.48, -0.3, -0.18, -0.09, -0.03];
+  function setOp(e, v) { v = v.toFixed(3); if (e._op !== v) { e._op = v; e.style.opacity = v; } }
 
   function render(t) {
     if (!G) return;
@@ -475,48 +510,17 @@
     var size = 0.86 + 0.14 * clamp((S.z - Z0) / (FLOAT - Z0)) + (S.z > FLOAT ? 0.12 * (S.z - FLOAT) : 0);
     var pose = 'translate(' + (S.wx * s * 0.045).toFixed(2) + 'px,' + (S.wy * s * 0.045).toFixed(2) + 'px) perspective(520px) rotateX(' + (S.ay * 13).toFixed(2) + 'deg) rotateY(' + (-S.ax * 13).toFixed(2) + 'deg) rotate(' + S.spin.toFixed(2) + 'deg) scale(' + size.toFixed(4) + ')';
     under.style.transform = pose; over.style.transform = pose;
-    // The slate's height runs evenly from its lowest corner to its highest,
-    // so the waterline is a straight edge across it, and depth grows evenly
-    // away from that edge. Each copy of the slate is given its show-through
-    // at every height (see clear, near and hazy), laid across it along its
-    // lean: crisp where it is dry, nearly clear just under the surface, and
-    // fading, softening and turning bluer the deeper it goes. The whole of
-    // it comes into sight from the deep over its first half second.
-    var tip = Math.abs(S.ax) + Math.abs(S.ay), lo = S.z - tip, hi = S.z + tip, level = tip < 0.012;
-    var ang = (Math.atan2(S.ax, -S.ay) * 180 / Math.PI).toFixed(1);
-    var seen = smooth((S.z - Z0) / 0.6);
-    var perPx = Math.sqrt(S.ax * S.ax + S.ay * S.ay) / (s / 2);   // height gained per px across the slate
-    // k is the copy's box, in slate widths (the gradient runs corner to corner of the box).
-    function veil(e, k, show, gone) {
-      var mask = '', op = 1;
-      if (gone) op = 0;
-      else if (level) op = show(S.z) * (show === clear ? 1 : seen);
-      else if (!(show === clear && lo >= 0)) {
-        var hs = DEPTHS.concat([-0.0001, 0.7 * perPx, 0.06 + perPx, 0.2 + perPx]), stops = [];
-        for (var i = 0; i < hs.length; i++) stops.push('rgba(0,0,0,' + show(hs[i]).toFixed(3) + ') ' + (50 + 50 * (hs[i] - S.z) / (tip * k)).toFixed(1) + '%');
-        mask = 'linear-gradient(' + ang + 'deg,' + stops.join(',') + ')';
-        if (show !== clear) op = seen;
-      }
-      op = op.toFixed(3);
-      if (e._op !== op) { e._op = op; e.style.opacity = op; }
-      if (e._mask !== mask) { e._mask = mask; e.style.webkitMaskImage = mask; e.style.maskImage = mask; }
-    }
-    veil(top, 34 / 32, clear, hi < -1.3);
-    veil(deep, 1.36, near, lo >= 0.14);
-    veil(far, 1.36, hazy, lo >= 0.18);
+    // How far up it is, taken a little toward its highest corner, so it
+    // finishes clearing as its corners come out. The whole slate clears together:
+    // crisp out of the water, fainter, softer and bluer the deeper it is.
+    // It fades in from nothing over its first second.
+    var tip = Math.abs(S.ax) + Math.abs(S.ay), lo = S.z - tip, h = S.z + 0.25 * tip;
+    var seen = still ? 1 : smooth(S.u / FADE_IN);
+    setOp(top, clear(h) * seen); setOp(deep, near(h) * seen); setOp(far, hazy(h) * seen);
     // Seen through moving water, what is under it shimmers a little.
-    var shim = 0.014 * clamp(-lo / 0.4);
+    var shim = 0.014 * clamp(-h / 0.4);
     var wav = shim ? 'scale(' + (1 + shim * Math.sin(6.3 * S.u)).toFixed(4) + ',' + (1 + shim * Math.sin(5.1 * S.u + 1.3)).toFixed(4) + ') skewX(' + (40 * shim * Math.sin(4.3 * S.u + 2)).toFixed(2) + 'deg)' : '';
     if (deep._wav !== wav) { deep._wav = wav; deep.style.transform = wav; far.style.transform = wav; }
-    // The waterline: a thin bright edge where the water clings to the slate,
-    // with a faint glow on its wet side.
-    var edge = '';
-    if (!level && lo < 0 && hi > 0) {
-      var at = function (px) { return (50 + 50 * (px * perPx - S.z) / tip).toFixed(1) + '%'; };
-      edge = 'linear-gradient(' + ang + 'deg,rgba(255,255,255,0) ' + at(-8) + ',rgba(255,255,255,0.14) ' + at(-2) + ',rgba(255,255,255,0.72) ' + at(-0.3) +
-        ',rgba(255,255,255,0.72) ' + at(0.6) + ',rgba(255,255,255,0) ' + at(1.5) + ')';
-    }
-    if (lip._bg !== edge) { lip._bg = edge; lip.style.backgroundImage = edge; }
     // The light on the slate's face. It sits toward the top left, where the
     // light comes from, slides as the slate tips, and is brighter the more
     // the face turns to the light; a little brighter too while the slate is
