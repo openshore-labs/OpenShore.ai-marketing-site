@@ -357,8 +357,26 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
   window.addEventListener('load', relayout);
 
+  // The picture shows once the page's font is in (or after 0.8 seconds at
+  // most), laid out in that font, so nothing reflows or jumps; its clock
+  // starts then too.
+  var shown = false;
+  function show(then) {
+    if (shown) return;
+    shown = true;
+    relayout();
+    requestAnimationFrame(function () { stage.classList.add('orb-ready'); if (then) then(); });
+  }
+  function whenReady(then) {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { show(then); });
+      setTimeout(function () { show(then); }, 800);
+    } else show(then);
+  }
+
   if (still) {
     clock = END;
+    whenReady(function () { render(END); });
     render(END);
     return;
   }
@@ -376,18 +394,20 @@
   function go() {
     if (started && onScreen && !frame) { last = null; frame = requestAnimationFrame(tick); }
   }
-  if ('IntersectionObserver' in window) {
-    onScreen = false;
-    new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!started && e.intersectionRatio >= 0.35) started = true;
-        onScreen = e.isIntersecting;
-        if (!onScreen && frame) { cancelAnimationFrame(frame); frame = 0; }
-        go();
-      });
-    }, { threshold: [0, 0.35] }).observe(stage);
-  } else {
-    started = true;
-    go();
-  }
+  whenReady(function () {
+    if ('IntersectionObserver' in window) {
+      onScreen = false;
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!started && e.intersectionRatio >= 0.35) started = true;
+          onScreen = e.isIntersecting;
+          if (!onScreen && frame) { cancelAnimationFrame(frame); frame = 0; }
+          go();
+        });
+      }, { threshold: [0, 0.35] }).observe(stage);
+    } else {
+      started = true;
+      go();
+    }
+  });
 })();
