@@ -120,7 +120,7 @@ export function lockedPage({ failed = false, username = '', next = '/enterprise/
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; base-uri 'none'; form-action 'self'" />
 <title>How the Platform Works · OpenShore</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="/enterprise/enterprise.css?v=lock3" />
+<link rel="stylesheet" href="/enterprise/enterprise.css?v=lock4" />
 </head>
 <body class="ent-locked">
 <div class="ent-locked-bg" aria-hidden="true"></div>

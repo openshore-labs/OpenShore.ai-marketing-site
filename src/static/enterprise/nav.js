@@ -1,8 +1,8 @@
-// The tab row under the header (founder, 2026-11-19). On a phone the five tabs
-// are wider than the screen, so the row scrolls sideways: this keeps the
-// current page's tab in view when the page opens, and fades the edge that
-// has more tabs so the rest are discoverable. Without it the row still
-// scrolls; nothing is hidden.
+// The tab row under the header (founder, 2026-11-19). The five tabs fit
+// across a phone (2026-11-20); only on a screen too narrow for them does the
+// row scroll sideways, and then this keeps the current page's tab in view
+// when the page opens and fades the edge that has more tabs. Without it the
+// row still scrolls; nothing is hidden.
 (function () {
   'use strict';
   var row = document.querySelector('.ent-tabs-row');

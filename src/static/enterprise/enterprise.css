@@ -215,14 +215,23 @@ main, .ent-top, .ent-foot {
 
 /* ---- The tabs under the header (2026-11-16) --------------------------- */
 .ent-tabs { max-width: 1080px; margin: 0 auto; padding-left: var(--gutter); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
-.ent-tabs-row { display: flex; gap: 28px; border-bottom: 1px solid var(--rule); overflow-x: auto; scrollbar-width: none; }
+/* The rule under the row is an inset shadow, not a border, so the current
+   tab's line sits inside the row and the row never scrolls up and down. */
+.ent-tabs-row { display: flex; gap: 28px; box-shadow: inset 0 -1px 0 var(--rule); overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: none; }
 .ent-tabs-row::-webkit-scrollbar { display: none; }
 .ent-tabs a { position: relative; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding-block: 10px 12px; font-size: 15px; font-weight: 550; color: var(--muted); text-decoration: none; white-space: nowrap; }
 .ent-tabs a[aria-current="page"] { color: var(--ink); }
-.ent-tabs a[aria-current="page"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; border-radius: 2px; background: var(--sea); }
+.ent-tabs a[aria-current="page"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 2px; background: var(--sea); }
 .ent-tab-lock { opacity: 0.6; }
 @media (hover: hover) { .ent-tabs a:hover { color: var(--ink); } }
-@media (max-width: 440px) { .ent-tabs-row { gap: 22px; } .ent-tabs a { font-size: 14.5px; } }
+/* On a phone all five tabs fit across the screen (founder, 2026-11-20): the
+   type steps down with the screen and the tabs spread edge to edge, so none
+   sits off the side. Only a screen narrower than 340px still scrolls. */
+@media (max-width: 520px) {
+  .ent-tabs-row { justify-content: space-between; gap: 8px; }
+  .ent-tabs a { gap: 4px; font-size: clamp(12px, 3.47vw, 14.5px); }
+  .ent-tab-lock { width: 10px; height: 12px; }
+}
 
 /* ---- Grow with Us (2026-11-16) ---------------------------------------- */
 .ent-principles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; counter-reset: p; }
@@ -681,8 +690,8 @@ a.ent-badge--top:focus-visible { outline: 2px solid var(--sea); outline-offset: 
 .ent-foot-site a { text-decoration: none; white-space: nowrap; }
 .ent-foot-site a[aria-current="page"] { color: var(--ink); }
 @media (hover: hover) { .ent-foot-site a:hover { color: var(--sea); } }
-/* The tab row scrolls on a phone (nav.js keeps the current tab in view and
-   sets these edge classes). */
+/* On a screen too narrow for the five tabs, the row scrolls (nav.js keeps
+   the current tab in view and sets these edge classes). */
 .ent-tabs-row { position: relative; }
 .ent-tabs-row.is-right { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent); }
 .ent-tabs-row.is-left { -webkit-mask-image: linear-gradient(90deg, transparent, #000 36px); mask-image: linear-gradient(90deg, transparent, #000 36px); }
