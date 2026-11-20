@@ -815,5 +815,13 @@ html { scroll-padding-top: 64px; }
    headline is a step larger than the others (founder, 2026-11-20). */
 .ent-h1-a, .ent-h1-b { display: block; }
 .ent-hero h1.ent-h1--wide { font-size: clamp(27px, 2.7vw, 31px); }
-/* The subline is the same type, a size down. */
+/* The subline is the same type, a size down, one row per part, and the rows
+   rise in one after another as the page opens (founder, 2026-11-20). With
+   Reduce Motion they are simply there. */
 .ent-h1-b { margin-top: 4px; font-size: 0.78em; line-height: 1.25; }
+.ent-h1-b > span { display: block; animation: ent-row-in 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+.ent-h1-b > span:nth-child(1) { animation-delay: 350ms; }
+.ent-h1-b > span:nth-child(2) { animation-delay: 650ms; }
+.ent-h1-b > span:nth-child(3) { animation-delay: 950ms; }
+@keyframes ent-row-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ent-h1-b > span { animation: none; } }
