@@ -6,11 +6,14 @@
 // lettering round a circle: TEAM, AI, APPS. The ring turns once, then the
 // OpenShore mark comes up in the middle. The screen is the water's surface,
 // seen from above, and the mark is a piece of slate floating up to it: it
-// arrives hazy from underneath, breaks the surface one corner at a time, and
-// each corner leaves small ripples. From then on it rides just above the
-// water, rocking slowly, a corner touching down now and then, while the ring
-// keeps turning round it. On a phone the picture fills the rest of the
-// first screen.
+// arrives hazy from underneath and breaks the surface one corner at a time.
+// Each corner sends out real ripples: trains of rings, lit from one side,
+// that widen, cross each other, pass under the letters and fade just past
+// them. They are painted on the water, so the part of the slate that is out
+// of the water covers them. Once the slate is afloat the water goes still,
+// and it rides just above the surface, rocking slowly, while the ring keeps
+// turning round it. On a phone the picture fills the rest of the first
+// screen.
 //
 // It starts when it comes into view, and rests while it is off screen or
 // the tab is hidden. With Reduce Motion it shows the mark inside the ring,
@@ -44,7 +47,7 @@
   var TURN = 7;
   var MARK_AT = TURN_AT + TURN + 0.2;
   var RISE = 3.4;               // the slate's rise from under the water to its float
-  var RIPPLE = 2.4;             // a ripple's life
+  var RIPPLE = 3.1;             // a ripple's life
   var END = MARK_AT + RISE + 4; // the picture's last still frame (for Reduce Motion)
   var SPIN_AT = MARK_AT + RISE + 1.0; // from here the ring keeps turning
   var SPIN_RAMP = 3;
@@ -64,21 +67,25 @@
     return { row: row, word: row.querySelector('.orb-w'), foam: row.querySelector('.orb-foam'), extra: Array.prototype.slice.call(row.querySelectorAll('.orb-x')) };
   });
 
-  // The water layer: ripples and the ring. Over it the slate, seen from
-  // above: a hazy copy for when it is under the surface, a crisp one for
-  // when it is out, and its shadow on the water.
+  // The layers, from the bottom: the slate under water (hazy) and its
+  // shadow; the ripples, painted on a canvas; the ring's lettering, which
+  // floats on the water; and the part of the slate that is out of the water.
   var water = svg('svg', 'orb-water');
-  var pool = [];
-  for (var n = 0; n < 14; n++) { var c0 = svg('circle', 'orb-ripple'); water.appendChild(c0); pool.push({ c: c0, at: -99, x: 0, y: 0, k: 0, big: 1 }); }
   var ring = svg('g', 'orb-badge');
   var ringWords = [svg('g'), svg('g'), svg('g'), svg('g', 'orb-sep')]; // TEAM, AI, APPS, the dots
   ringWords.forEach(function (g) { ring.appendChild(g); });
   water.appendChild(ring);
-  var slate = el('div', 'orb-slate'), shade = el('div', 'orb-shade'), deep = el('div', 'orb-deep'), top = el('div', 'orb-top');
+  var under = el('div', 'orb-slate'), over = el('div', 'orb-slate');
+  var shade = el('div', 'orb-shade'), deep = el('div', 'orb-deep'), top = el('div', 'orb-top');
   deep.innerHTML = MARK; top.innerHTML = MARK;
-  slate.appendChild(shade); slate.appendChild(deep); slate.appendChild(top);
+  under.appendChild(shade); under.appendChild(deep); over.appendChild(top);
+  var waves = document.createElement('canvas');
+  waves.className = 'orb-waves';
+  var pen = waves.getContext && waves.getContext('2d');
   stage.insertBefore(water, stage.firstChild);
-  stage.appendChild(slate);
+  stage.insertBefore(waves, water);
+  stage.insertBefore(under, waves);
+  stage.appendChild(over);
   stage.classList.add('orb-live');
 
   // Geometry, from the stage's size. On a phone the stage runs to the foot of
@@ -137,9 +144,33 @@
       p.ts = Math.min(1.1, font * 1.25 / parseFloat(getComputedStyle(stage).fontSize));
     });
     // The slate, centred in the ring.
-    slate.style.left = (G.cx - s / 2) + 'px'; slate.style.top = (cy - s / 2) + 'px';
-    slate.style.width = s + 'px'; slate.style.height = s + 'px';
+    [under, over].forEach(function (d) {
+      d.style.left = (G.cx - s / 2) + 'px'; d.style.top = (cy - s / 2) + 'px';
+      d.style.width = s + 'px'; d.style.height = s + 'px';
+    });
+    sizeWaves();
   }
+
+  // The ripples' canvas: a square over the ring, a little past the letters,
+  // where the ripples fade out. It is drawn small and scaled up, which keeps
+  // each frame cheap and the water soft.
+  var field = null;
+  function sizeWaves() {
+    if (!pen) return;
+    var inner = G.R + G.font * 0.7, reach = G.R + G.font * 1.5 + 26;
+    var side = Math.ceil(reach * 2);
+    var n = Math.max(8, Math.round(side * Math.min(1, Math.sqrt(26000 / (side * side)))));
+    waves.width = n; waves.height = n;
+    waves.style.left = (G.cx - reach) + 'px'; waves.style.top = (G.cy - reach) + 'px';
+    waves.style.width = side + 'px'; waves.style.height = side + 'px';
+    var mask = new Float32Array(n * n), px = side / n;
+    for (var j = 0; j < n; j++) for (var i = 0; i < n; i++) {
+      var dx = (i + 0.5) * px - reach, dy = (j + 0.5) * px - reach;
+      mask[j * n + i] = 1 - smooth((Math.sqrt(dx * dx + dy * dy) - inner) / (reach - inner));
+    }
+    field = { n: n, px: px, reach: reach, mask: mask, img: pen.createImageData(n, n), wet: false };
+  }
+
 
   // The ring's turn: once, then, after the mark surfaces, for good.
   function ringAngle(t) {
@@ -152,7 +183,8 @@
   // it is under water, and it floats at about 0.5. On the way up it wobbles
   // round, the way a flat stone does in water, which brings its corners out
   // one after another. Once it floats, its tilt is two slow, unrelated
-  // swings per axis, so it never repeats itself.
+  // swings per axis, so it never repeats itself, and small enough that no
+  // corner goes back into the water.
   var FLOAT = 0.5;
   function smooth(x) { x = clamp(x); return x * x * (3 - 2 * x); }
   function slateAt(t) {
@@ -161,17 +193,61 @@
     if (u > RISE) z += 0.07 * Math.sin(2 * Math.PI * (u - RISE) / 4.7);
     var wob = 0.5 * (1 - smooth((k - 0.8) / 0.45)), phi = 2 * Math.PI * u / 2.9 - 2.6;
     var calm = smooth((k - 0.65) / 0.5);
-    var ax = wob * Math.cos(phi) + calm * (0.26 * Math.sin(2 * Math.PI * u / 5.3 + 0.4) + 0.17 * Math.sin(2 * Math.PI * u / 3.1 + 1.7));
-    var ay = wob * Math.sin(phi) + calm * (0.26 * Math.sin(2 * Math.PI * u / 6.7 + 2.1) + 0.17 * Math.sin(2 * Math.PI * u / 3.9 + 0.3));
+    var ax = wob * Math.cos(phi) + calm * (0.12 * Math.sin(2 * Math.PI * u / 5.3 + 0.4) + 0.08 * Math.sin(2 * Math.PI * u / 3.1 + 1.7));
+    var ay = wob * Math.sin(phi) + calm * (0.12 * Math.sin(2 * Math.PI * u / 6.7 + 2.1) + 0.08 * Math.sin(2 * Math.PI * u / 3.9 + 0.3));
     if (still) { ax = 0; ay = 0; }
     return { z: z, ax: ax, ay: ay, spin: still ? 0 : 1.6 * Math.sin(2 * Math.PI * u / 9.1), k: clamp(k) };
   }
   var CORNERS = [[-1, -1], [1, -1], [1, 1], [-1, 1]];
-  var cornerH = null, cornerT = [-9, -9, -9, -9], seenT = -1, nextRipple = 0;
-  function ripple(x, y, at, big) {
-    var r = pool[nextRipple]; nextRipple = (nextRipple + 1) % pool.length;
-    r.at = at; r.x = x; r.y = y; r.big = big;
-    r.c.setAttribute('cx', x.toFixed(1)); r.c.setAttribute('cy', y.toFixed(1));
+  var cornerH = null, cornerT = [-9, -9, -9, -9], seenT = -1;
+
+  // Ripples. Each is a short train of rings running out from where a corner
+  // met the surface: the front runs ahead, the train behind it grows longer
+  // (so the rings widen), and it thins as it spreads and ages. The water's
+  // height is the sum of the trains, so they cross as real ripples do, and
+  // it is lit from the top left: slopes facing the light are bright, slopes
+  // facing away are in shadow.
+  var sources = [];
+  var LX = -0.6, LY = -0.8;
+  function drawWaves(t) {
+    if (!field) return;
+    var f = field, n = f.n, px = f.px, data = f.img.data, U = G.R / 62;
+    var live = [];
+    sources.forEach(function (sc) {
+      var tau = t - sc.at;
+      if (tau <= 0 || tau >= RIPPLE) return;
+      var lead = (6 + 44 * tau) * U, len = (20 + 17 * tau) * U;
+      var age = 1 - tau / RIPPLE;
+      live.push({ x: sc.x - (G.cx - f.reach), y: sc.y - (G.cy - f.reach), lead: lead, lead2: lead * lead, len: len,
+        k: 2 * Math.PI * 3.25 / len, amp: sc.amp * age * Math.sqrt(age) * Math.min(1, tau / 0.12), fall: 70 * U });
+    });
+    if (!live.length) {
+      if (f.wet) { pen.clearRect(0, 0, n, n); f.wet = false; }
+      return;
+    }
+    var m = live.length, o = 0, q = 0;
+    for (var j = 0; j < n; j++) {
+      var y = (j + 0.5) * px;
+      for (var i = 0; i < n; i++, o += 4, q++) {
+        var w = f.mask[q];
+        if (w <= 0) { data[o + 3] = 0; continue; }
+        var x = (i + 0.5) * px, sh = 0;
+        for (var a = 0; a < m; a++) {
+          var L = live[a], dx = x - L.x, dy = y - L.y, r2 = dx * dx + dy * dy;
+          if (r2 >= L.lead2) continue;
+          var r = Math.sqrt(r2), g = (L.lead - r) / L.len;
+          if (g >= 1) continue;
+          var env = Math.sin(Math.PI * g), ph = L.k * (L.lead - r);
+          var amp = L.amp * env * (0.35 + 0.65 * env) / (1 + r / L.fall);
+          sh += amp * (0.95 * Math.cos(ph) * (r > 0.5 ? (dx * LX + dy * LY) / r : 0) + 0.34 * Math.sin(ph));
+        }
+        sh *= w;
+        if (sh > 0) { data[o] = 255; data[o + 1] = 255; data[o + 2] = 255; data[o + 3] = sh >= 1 ? 245 : sh * 245; }
+        else { data[o] = 30; data[o + 1] = 66; data[o + 2] = 78; data[o + 3] = sh <= -1 ? 150 : -sh * 150; }
+      }
+    }
+    pen.putImageData(f.img, 0, 0);
+    f.wet = true;
   }
 
   // A wave across a row: everything behind its front shows, and the front
@@ -220,47 +296,43 @@
     // The slate, from above.
     var S = slateAt(t), s = G.s;
     var near = clamp((S.z + 1.7) / 1.1);                 // it comes into sight from the deep
-    var out = clamp((S.z + 0.3) / 0.6);                  // 0 under the surface, 1 clear of it
-    var size = 0.86 + 0.14 * clamp((S.z + 1.7) / (FLOAT + 1.7)) + 0.012 * (S.z - FLOAT) * out;
-    slate.style.transform = 'perspective(520px) rotateX(' + (S.ay * 13).toFixed(2) + 'deg) rotateY(' + (-S.ax * 13).toFixed(2) + 'deg) rotate(' + S.spin.toFixed(2) + 'deg) scale(' + size.toFixed(4) + ')';
-    deep.style.opacity = (0.34 * near * (1 - out)).toFixed(3);
-    top.style.opacity = out.toFixed(3);
-    // The side still in the water stays hazy.
-    var low = S.z - Math.abs(S.ax) - Math.abs(S.ay);
-    if (out > 0 && low < 0.02) {
-      var deg = Math.atan2(S.ax, -S.ay) * 180 / Math.PI;
-      var m = 'linear-gradient(' + deg.toFixed(1) + 'deg, rgba(0,0,0,' + Math.max(0.12, 1 + low * 1.5).toFixed(2) + '), #000 58%)';
-      top.style.webkitMaskImage = m; top.style.maskImage = m;
-    } else if (top.style.maskImage) {
-      top.style.webkitMaskImage = ''; top.style.maskImage = '';
+    var size = 0.86 + 0.14 * clamp((S.z + 1.7) / (FLOAT + 1.7));
+    var pose = 'perspective(520px) rotateX(' + (S.ay * 13).toFixed(2) + 'deg) rotateY(' + (-S.ax * 13).toFixed(2) + 'deg) rotate(' + S.spin.toFixed(2) + 'deg) scale(' + size.toFixed(4) + ')';
+    under.style.transform = pose; over.style.transform = pose;
+    // Only what is out of the water shows crisp: the slate's height runs
+    // evenly from its lowest corner to its highest, so the waterline is a
+    // straight, soft edge across it. Under the water it is the hazy copy.
+    var tilt = Math.abs(S.ax) + Math.abs(S.ay), lo = S.z - tilt, hi = S.z + tilt, HAZE = 0.28, mask = '';
+    if (hi <= -HAZE) top.style.opacity = '0';
+    else if (lo >= 0) top.style.opacity = '1';
+    else if (hi - lo < 0.02) top.style.opacity = clamp((S.z + HAZE) / HAZE).toFixed(3);
+    else {
+      top.style.opacity = '1';
+      mask = 'linear-gradient(' + (Math.atan2(S.ax, -S.ay) * 180 / Math.PI).toFixed(1) + 'deg, transparent ' +
+        (100 * (-HAZE - lo) / (hi - lo)).toFixed(1) + '%, #000 ' + (100 * -lo / (hi - lo)).toFixed(1) + '%)';
     }
+    if (top._mask !== mask) { top._mask = mask; top.style.webkitMaskImage = mask; top.style.maskImage = mask; }
+    deep.style.opacity = (0.36 * near * clamp(-lo / 0.3)).toFixed(3);
     var lift = clamp(S.z / FLOAT);
     shade.style.opacity = (0.2 * lift).toFixed(3);
     shade.style.transform = 'translate(' + (2 + 3 * lift - S.ax * 4).toFixed(2) + 'px,' + (3 + 4 * lift - S.ay * 4).toFixed(2) + 'px)';
-    // A corner that comes up through the surface, or touches back down on
-    // it, leaves a ripple there (two rings, the second smaller).
+    // While the slate is coming up, a corner that breaks the surface (or
+    // dips back through it) sends out a ripple from there. Afloat, the
+    // water is left still (founder, 2026-11-20).
     var hs = CORNERS.map(function (c) { return S.z + S.ax * c[0] + S.ay * c[1]; });
-    if (cornerH && t > seenT && t - seenT < 0.2 && t > MARK_AT) {
-      var rot = S.spin * Math.PI / 180, cs = Math.cos(rot), sn = Math.sin(rot), half = s * size * 0.44;
+    if (cornerH && t > seenT && t - seenT < 0.2 && t > MARK_AT && t < MARK_AT + RISE + 0.6) {
+      var rot = S.spin * Math.PI / 180, cs = Math.cos(rot), sn = Math.sin(rot), half = s * size * 0.45;
       CORNERS.forEach(function (c, i) {
         var up = cornerH[i] < 0 && hs[i] >= 0, down = cornerH[i] >= 0 && hs[i] < 0;
-        if (up && t > MARK_AT + RISE + 0.5) up = false; // afloat, only a touch-down leaves a ripple
-        if ((up || down) && t - cornerT[i] > 0.9) {
+        if ((up || down) && t - cornerT[i] > 0.5) {
           cornerT[i] = t;
-          var x = G.cx + (c[0] * cs - c[1] * sn) * half, y = G.cy + (c[0] * sn + c[1] * cs) * half;
-          var big = up && S.k < 1 ? 1 : 0.7;
-          ripple(x, y, t, big); ripple(x, y, t + 0.38, big * 0.62);
+          sources.push({ x: G.cx + (c[0] * cs - c[1] * sn) * half, y: G.cy + (c[0] * sn + c[1] * cs) * half, at: t, amp: up ? 1.15 : 0.75 });
+          if (sources.length > 10) sources.shift();
         }
       });
     }
     cornerH = hs; seenT = t;
-    pool.forEach(function (r) {
-      var k = (t - r.at) / RIPPLE;
-      if (k <= 0 || k >= 1) { if (r.k) { r.c.style.opacity = '0'; r.k = 0; } return; }
-      r.k = k;
-      r.c.setAttribute('r', (2 + s * 0.62 * r.big * outCubic(k)).toFixed(1));
-      r.c.style.opacity = (0.42 * r.big * (1 - k) * (1 - k)).toFixed(3);
-    });
+    drawWaves(t);
   }
 
   sizeStage(); measure();

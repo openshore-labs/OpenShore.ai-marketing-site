@@ -829,7 +829,7 @@ html { scroll-padding-top: 64px; }
 .orb-water { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .orb-badge text { font-family: var(--sans); font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: central; }
 .orb-badge .orb-sep text { fill: var(--wave, #4b90a3); }
-.orb-ripple { fill: none; stroke: #2f5a66; stroke-width: 1.4; }
+.orb-waves { position: absolute; pointer-events: none; }
 /* The slate, seen from above: hazy under the surface, crisp out of it, with
    its shadow on the water. */
 .orb-slate { position: absolute; pointer-events: none; will-change: transform; }
