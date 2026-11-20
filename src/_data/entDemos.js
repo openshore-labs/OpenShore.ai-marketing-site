@@ -15,6 +15,9 @@
 //   why       the line under the example (founder, 2026-11-19): the evidence
 //             that the problem is common, and who usually handles it. Only
 //             a figure checked against its source goes here.
+//   also      optional: one more job this bot does, shown under the why
+//             line (founder, 2026-11-19: the Finance bot drafts the monthly
+//             board pack).
 //
 // Revenue ops (founder, 2026-11-18) is the promo film's commission scene,
 // word for word. Finance, Planning and Analytics (founder, 2026-11-19: "add
@@ -109,6 +112,7 @@ export default [
     rule: "A deduction is matched to an agreed promotion before it’s accepted.",
     runs: "Runs on every payment",
     why: "For suppliers selling mainly to retailers, deductions take about 2% of sales at the median (Credit Research Foundation deduction survey, 2012). Checking each one usually takes a deductions team in accounts receivable.",
+    also: "Each month it drafts your board pack and investor update from your own numbers, with a source for every figure, for you to approve before it goes out.",
   },
   // A budget line running over plan partway through a quarter. Comparing
   // actuals with budget and reforecasting is the core routine of financial

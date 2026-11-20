@@ -91,6 +91,9 @@
 {%- if d.why %}
         <p class="ent-source cd-why"><b>Why this example.</b> {{ d.why }}</p>
 {%- endif %}
+{%- if d.also %}
+        <p class="ent-source cd-why"><b>Also from this bot.</b> {{ d.also }}</p>
+{%- endif %}
       </div>
 {%- endfor %}
       </section>
