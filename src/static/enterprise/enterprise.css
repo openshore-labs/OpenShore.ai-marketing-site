@@ -818,15 +818,17 @@ html { scroll-padding-top: 64px; }
 .ent-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 /* ---- The headline's picture (founder, 2026-11-20) ------------------------ */
-/* A wave washes across each row to uncover it, as the film's tides do, then their words circle a ring of still water and the mark surfaces
-   in the middle (orbit.js sets every position; .orb-live is its stage).
+/* A wave washes across each row to uncover it, as the film's tides do, then
+   team, AI and apps fly onto a ring of lettering that turns round the mark
+   as it surfaces in the middle (orbit.js sets every position; .orb-live is its stage).
    Without the script the rows stand as plain text. */
 .orb { position: relative; width: 100%; max-width: 880px; margin-top: -10px; padding-top: 4px; font-size: clamp(21px, 2.1vw, 24px); line-height: 1.25; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); }
 .orb-row { position: relative; margin: 0 0 14px; white-space: nowrap; width: max-content; }
 .orb-live { overflow: hidden; height: 300px; }
 .orb-foam { position: absolute; left: 0; top: -6px; bottom: -6px; width: 40px; border-radius: 40%; background: linear-gradient(90deg, rgba(75, 144, 163, 0), rgba(75, 144, 163, 0.32) 60%, rgba(246, 244, 239, 0.9) 85%, rgba(75, 144, 163, 0)); opacity: 0; pointer-events: none; }
 .orb-water { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.orb-ring { fill: none; stroke: rgba(47, 90, 102, 0.24); stroke-width: 1.5; stroke-dasharray: 2 7; stroke-linecap: round; }
+.orb-badge text { font-family: var(--sans); font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: central; }
+.orb-badge .orb-sep text { fill: var(--wave, #4b90a3); }
 .orb-ripple { fill: none; stroke: #2f5a66; stroke-width: 1.4; }
 .orb-up, .orb-down, .orb-refl { position: absolute; overflow: hidden; pointer-events: none; }
 .orb-up svg, .orb-down svg, .orb-refl svg { position: absolute; left: 0; display: block; width: 100%; height: auto; }
