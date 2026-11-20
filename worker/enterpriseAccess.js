@@ -2,6 +2,10 @@
 // and the product tour (/enterprise/tour/) (founder, 2026-11-10): open only to
 // people the founder gives a username and password, each good for 7 days.
 //
+// UNROUTED since 2026-11-20 (founder): both pages are public. worker/index.js
+// no longer calls this module and wrangler.jsonc no longer runs the Worker
+// first on those paths. It stays, with its tests, so the gate can come back.
+//
 // Nothing is stored. A username carries its own last day, as `name-YYYYMMDD`,
 // and its password is an HMAC of the username under one secret
 // (ENTERPRISE_ACCESS_SECRET, a Worker secret), so the Worker can check both

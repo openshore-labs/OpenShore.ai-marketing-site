@@ -7,8 +7,8 @@ pageDescription: "How OpenShore handles what reaches it through the OpenShore pa
 {#- OpenShore's own privacy policy (founder, 2026-11-16). OS
     Code by OpenShore keeps its own at /os-code/privacy/. Every sentence is
     what the site does: the pages carry no analytics or forms
-    (ent-layout.njk's CSP is same-origin only), the one cookie is the invited
-    guests' sign-in (worker/enterpriseAccess.js, os_ent), and the two film
+    (ent-layout.njk's CSP is same-origin only), they set no cookies (the
+    tour's sign-in cookie went with the sign-in on 2026-11-20), and the two film
     pages load Google Fonts (src/static/enterprise/promo and tour). Change
     this page in the same piece of work as any of those. -#}
 {%- set contact = site.enterpriseContact -%}
@@ -35,7 +35,7 @@ pageDescription: "How OpenShore handles what reaches it through the OpenShore pa
         <h2>What we collect when you visit</h2>
         <ul>
           <li><b>No analytics, ads or tracking.</b> These pages have no analytics, no advertising, no tracking pixels, no forms and no accounts.</li>
-          <li><b>No cookies, with one exception.</b> If we give you a username and password to see the platform page or the product tour, signing in sets one cookie, <code>os_ent</code>, that holds your username and a signature, so you stay signed in. It is limited to those pages, cannot be read by scripts, and ends on your username’s last day, at most 7 days after we issue it. We do not keep a record of your sign-ins or store passwords.</li>
+          <li><b>No cookies.</b> These pages set none.</li>
           <li><b>Hosting.</b> Cloudflare serves this site. Like any web host, it handles each request, which carries your IP address and the details your browser sends. We do not use those requests to measure or profile visitors.</li>
           <li><b>Google Fonts on the two film pages.</b> The promo film (openshore.ai/enterprise/promo) and the product tour (openshore.ai/enterprise/tour) load fonts from Google, so Google receives your IP address and browser details when you open them. Every other page uses fonts served from openshore.ai itself.</li>
         </ul>

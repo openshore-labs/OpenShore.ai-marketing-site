@@ -4,10 +4,10 @@ permalink: /enterprise/platform/
 pageTitle: "How the Platform Works · OpenShore"
 pageDescription: "The OpenShore product tour: one chat for the model, your team and your bots, three phases for every piece of work, and AI bots for whole corporate functions."
 pageOgImage: "/enterprise/tour-poster.jpg"
-pageNoindex: true
 ---
 {#- The platform page (founder, 2026-11-10): the product tour leads, and the
-    page stays light around it. -#}
+    page stays light around it. Public since 2026-11-20 (founder); the gated
+    step is now a walkthrough on the visitor's own numbers, at the foot. -#}
 {%- set contact = "jack@openshore.ai" -%}
       <section class="ent-hero ent-hero--tight">
         <h1>How the platform works.</h1>
@@ -63,3 +63,7 @@ pageNoindex: true
         </ul>
       </section>
 
+      <section class="ent-cta" aria-labelledby="walk-h">
+        <h2 id="walk-h">See it on your own numbers.</h2>
+        <p class="ent-lede">Want to see a bot work on a problem from your business? Email <a href="mailto:{{ contact }}?subject={{ 'OpenShore walkthrough' | urlencode }}">{{ contact }}</a> for a 30-minute walkthrough with Jack.</p>
+      </section>

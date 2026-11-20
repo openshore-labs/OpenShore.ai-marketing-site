@@ -23,9 +23,9 @@ The founder repositioned the site on 2026-11-16:
   `/os-code/` (the pages under it stay). `/enterprise/` 301s to `/`;
   the platform page, the tour and the promo film keep their addresses.
 - Under the Enterprise header sit three tabs (`src/_data/entTabs.js`):
-  **Solutions** (`/`), **Product Tour** (the gated platform page) and **Grow
-  with Us** (`/grow-with-us/`, `src/grow-with-us.njk`). The Worker's sign-in
-  page draws the same tabs. Grow with Us reads its words from
+  **Solutions** (`/`), **Product Tour** (the platform page, public since 2026-11-20) and **Grow
+  with Us** (`/grow-with-us/`, `src/grow-with-us.njk`). The Worker's old sign-in
+  page (unrouted since 2026-11-20) draws the same tabs. Grow with Us reads its words from
   `src/_data/growWithUs.js`: the mission, the principles from the business
   plan's appendix and the founder's profile and photo
   (`src/static/enterprise/founder.jpg`); an empty section is left off.
@@ -33,8 +33,8 @@ The founder repositioned the site on 2026-11-16:
   **Terms of Use** (`/terms/`) and **Support** (`/support/`), on the same
   frame (`src/ent-privacy.njk`, `ent-terms.njk`, `ent-support.njk`), linked
   from its footer. They cover the Enterprise pages and design-partner email,
-  not a product. Each claim matches the code: the one cookie is the invited
-  guests' sign-in (`worker/enterpriseAccess.js`), and the two film pages load
+  not a product. Each claim matches the code: the pages set no cookies (the
+  tour's sign-in, and its cookie, went on 2026-11-20), and the two film pages load
   Google Fonts. Change the policy with either. Until 2026-11-16 these
   addresses redirected to the personal product's pages, so App Store
   Connect's privacy and support URLs must name `/os-code/privacy/` and
@@ -99,7 +99,7 @@ The founder repositioned the site on 2026-11-16:
   paragraph, which starts "Your team and expert AI bots" so it does not
   repeat the headline (founder, 2026-11-20). No visible subhead.
 - The status pill in the header reads "Piloting now. Design with us." on
-  every page and the product tour's sign-in page. It stands still (no
+  every page. It stands still (no
   ticker) and is never cut off: on a narrow phone each sentence takes its
   own line.
 - The home page plays one worked example, the commission fix (the job the
