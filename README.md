@@ -95,8 +95,9 @@ The founder repositioned the site on 2026-11-16:
 - The hero: the turning ring of TEAM, AI, AGENTS and APPS with the mark
   surfacing in it (`static/enterprise/orbit.js`), the headline "The
   operating platform for growing startups" in sentence case (its
-  screen-reader span carries the rest of the sentence), then "OpenShore is
-  the operating platform for growing companies." No visible subhead.
+  screen-reader span carries the rest of the sentence), then the first
+  paragraph, which starts "Your team and expert AI bots" so it does not
+  repeat the headline (founder, 2026-11-20). No visible subhead.
 - The status pill in the header reads "Piloting now. Design with us." on
   every page and the product tour's sign-in page. It stands still (no
   ticker) and is never cut off: on a narrow phone each sentence takes its
