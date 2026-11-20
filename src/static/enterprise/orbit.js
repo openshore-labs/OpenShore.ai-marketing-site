@@ -1,10 +1,10 @@
 // The headline's picture (founder, 2026-11-20). Under "The operating
 // platform for growing startups:" the rest of the sentence is uncovered row
 // by row, each by a wave washing across it, as the film's tides do. Then
-// the small words fade, and team, AI and apps leave their rows one after
-// another, letter by letter: each letter glides along a curve onto a slowly
-// turning ring, turning to face outward and becoming a capital on the way,
-// until they read TEAM, AI, APPS round a circle. The ring eases up to its
+// the small words fade, and team, AI, agents and apps leave their rows one
+// after another, letter by letter: each letter glides along a curve onto a
+// slowly turning ring, turning to face outward and becoming a capital on the
+// way, until they read TEAM, AI, AGENTS, APPS round a circle. The ring eases up to its
 // resting pace and never turns faster than that (founder, 2026-11-20). Then
 // the OpenShore mark comes up in the middle. The screen is the water's surface,
 // seen from above, and the mark is a piece of slate floating up to it: it
@@ -30,15 +30,25 @@
 
   // The ring's lettering, one character per even step round the circle.
   // Each word's slots, and the word each row sends there.
-  var RING = 'TEAM • AI • APPS • ';
-  var WORD_SLOTS = [[0, 3], [7, 8], [12, 15]];
-  var STEP = 360 / RING.length;
-  // Where the ring stands as it forms: TEAM to the upper right, AI at the
-  // lower right, APPS up the left side. From the rows on the left, that lets
-  // each word's letters fan out to their places without crossing.
-  var PHASE = 50;
-  var FIRST = PHASE - (WORD_SLOTS[0][0] + WORD_SLOTS[0][1]) / 2 * STEP;
-  function slotAngle(i) { return FIRST + i * STEP; }               // degrees, clockwise from the top
+  // The ring's lettering. A letter takes one step round the circle, a space
+  // half a step and a dot a little more, so the words sit evenly with
+  // tidy gaps between them.
+  var RING = 'TEAM • AI • AGENTS • APPS • ';
+  var WORD_SLOTS = [[0, 3], [7, 8], [12, 17], [21, 24]]; // TEAM, AI, AGENTS, APPS
+  var MID = [], UNITS = 0;
+  for (var ci = 0; ci < RING.length; ci++) {
+    var wgt = RING[ci] === ' ' ? 0.5 : RING[ci] === '•' ? 0.6 : 1;
+    MID.push(UNITS + wgt / 2); UNITS += wgt;
+  }
+  var STEP = 360 / UNITS;
+  function wordMid(w) { return (MID[WORD_SLOTS[w][0]] + MID[WORD_SLOTS[w][1]]) / 2; }
+  // Where the ring stands as it forms (TEAM's middle, degrees clockwise
+  // from the top). With the order and bows below, it was chosen by a
+  // simulation of every letter's path on phone and laptop layouts, so that
+  // no letter passes through another or leaves the picture's edge.
+  var PHASE = -180;
+  var FIRST = PHASE - wordMid(0) * STEP;
+  function slotAngle(i) { return FIRST + MID[i] * STEP; }          // degrees, clockwise from the top
 
   // The clock, in seconds from when the picture starts.
   var ROW_AT = [0.3, 1.7, 3.1]; // a wave starts across each row
@@ -46,9 +56,14 @@
   var FADE_AT = 6.0;            // the small words fade (the sentence has been read)
   var LIFT = 6.7;               // the first letter leaves its row
   var WORD_GAP = 0.62;          // between words setting off
-  var LETTER_GAP = 0.085;       // between letters of a word
+  var LETTER_GAP = 0.02;        // between letters of a word: a word travels as one
   var TRAVEL = 1.9;             // a letter's glide onto the ring
-  var JOINED = LIFT + 2 * WORD_GAP + 3 * LETTER_GAP + TRAVEL;
+  var JOINED = LIFT + 3 * WORD_GAP + 5 * LETTER_GAP + TRAVEL;
+  // The order the words set off in (by their place in WORD_SLOTS), and how
+  // far each one's path bows: chosen so no letter passes through another or
+  // through a word still in its row.
+  var LEAVE = [0, 3, 2, 1];       // team, apps, agents, AI
+  var BOW = [0.3, -0.15, -0.3, 0.2];
   var SPIN_AT = LIFT + 0.8;     // the ring starts to turn as the first letters near it
   var SPIN_RAMP = 5;            // easing up to its pace
   var SPIN_PACE = 360 / 24;     // degrees a second, at most: one turn in 24 seconds
@@ -66,22 +81,22 @@
   var rows = Array.prototype.slice.call(stage.querySelectorAll('.orb-row'));
   rows.forEach(function (row) { row.appendChild(el('span', 'orb-foam')); });
   var parts = rows.map(function (row) {
-    return { row: row, word: row.querySelector('.orb-w'), foam: row.querySelector('.orb-foam'), extra: Array.prototype.slice.call(row.querySelectorAll('.orb-x')) };
+    return { row: row, foam: row.querySelector('.orb-foam'), extra: Array.prototype.slice.call(row.querySelectorAll('.orb-x')) };
   });
 
-  // Each letter of team, AI and apps is its own piece, so it can leave the
-  // row for its place on the ring: the letter as written in the sentence,
-  // and over it the capital it becomes.
+  // Each letter of team, AI, agents and apps is its own piece, so it can
+  // leave the row for its place on the ring: the letter as written in the
+  // sentence, and over it the capital it becomes.
   var letters = [];
-  parts.forEach(function (p, w) {
-    var text = p.word.textContent;
-    p.word.textContent = '';
+  Array.prototype.forEach.call(stage.querySelectorAll('.orb-w'), function (word, w) {
+    var text = word.textContent;
+    word.textContent = '';
     for (var i = 0; i < text.length; i++) {
       var f = el('span', 'orb-f'), lc = el('span', 'orb-lc'), uc = el('span', 'orb-uc');
       lc.textContent = text[i]; uc.textContent = text[i].toUpperCase();
       f.appendChild(lc); f.appendChild(uc);
-      p.word.appendChild(f);
-      letters.push({ f: f, lc: lc, uc: uc, word: w, slot: WORD_SLOTS[w][0] + i, at: LIFT + w * WORD_GAP + i * LETTER_GAP });
+      word.appendChild(f);
+      letters.push({ f: f, lc: lc, uc: uc, word: w, slot: WORD_SLOTS[w][0] + i, at: LIFT });
     }
   });
   var dots = [];
@@ -107,34 +122,44 @@
   // clear the mark's corners by a small gap, and the stage is just tall
   // enough for the ring and the ripples' fade beyond it, so the headline
   // sits close above and the next paragraph close below.
-  var G = null, lastW = 0;
+  var G = null, lastW = 0, words = [];
   function measure() {
     var W = stage.clientWidth;
     var phone = W < 560;
     var s = phone ? 88 : 116;
-    // The mark's rounded corners reach 0.61 of its side from the centre;
-    // a letter is about 0.24 of the radius tall, so solve for the radius.
-    var R = Math.round((0.61 * s + (phone ? 9 : 11)) / 0.88);
-    var font = Math.round(Math.min(24, 0.72 * 2 * Math.PI * R / RING.length));
+    // The mark's rounded corners reach 0.61 of its side from the centre,
+    // and the letters' inner edge clears them by a small gap; a letter's
+    // half height is about 0.077 of the radius, so solve for the radius.
+    var R = Math.round((0.61 * s + (phone ? 19 : 24)) / 0.923);
+    var font = Math.round(Math.min(24, 0.72 * 2 * Math.PI * R / UNITS));
     var outer = R + font * 0.62, reach = Math.round(outer + (phone ? 18 : 22));
     stage.style.height = 2 * reach + 'px';
     var H = 2 * reach, cy = reach;
     G = { W: W, H: H, cx: W / 2, cy: cy, R: R, s: s, font: font, outer: outer, reach: reach };
     stage.style.setProperty('--ring-font', font + 'px');
     parts.forEach(function (p) { p.rw = p.row.offsetWidth; p.rh = p.row.offsetHeight; });
-    // Where each letter stands in its row (its middle, in the stage).
+    // Where each letter stands in its row (its middle, in the stage), and
+    // each word: its middle, and its place on the ring (taken the short way
+    // round, and shared by its letters, so a word never splits).
     letters.forEach(function (l) {
       var row = l.f.offsetParent || stage;
       l.nx = (row === stage ? 0 : row.offsetLeft) + l.f.offsetLeft + l.f.offsetWidth / 2;
       l.ny = (row === stage ? 0 : row.offsetTop) + l.f.offsetTop + l.f.offsetHeight / 2;
-      var a = slotAngle(l.slot) * Math.PI / 180, dx = G.cx + R * Math.sin(a) - l.nx, dy = cy - R * Math.cos(a) - l.ny;
-      l.far = dx * dx + dy * dy;
     });
-    // In each word the letter with the farthest to go leaves first, so the
-    // word opens out as it goes and no letter has to pass another.
-    [0, 1, 2].forEach(function (w) {
-      letters.filter(function (l) { return l.word === w; }).sort(function (p, q) { return q.far - p.far; })
-        .forEach(function (l, rank) { l.at = LIFT + w * WORD_GAP + rank * LETTER_GAP; });
+    words = WORD_SLOTS.map(function (sl, w) {
+      var own = letters.filter(function (l) { return l.word === w; });
+      var nx = own.reduce(function (a, l) { return a + l.nx; }, 0) / own.length;
+      var ny = own.reduce(function (a, l) { return a + l.ny; }, 0) / own.length;
+      var base = nearest(FIRST + wordMid(w) * STEP);
+      own.forEach(function (l) { l.ox = l.nx - nx; l.rel = (MID[l.slot] - wordMid(w)) * STEP; });
+      return { nx: nx, ny: ny, base: base };
+    });
+    // Words leave in turn; within a word the letters set off a breath
+    // apart, from the front of its motion.
+    LEAVE.forEach(function (w, turnNo) {
+      var W = words[w], a = W.base * Math.PI / 180, dir = (G.cx + R * Math.sin(a) - W.nx) >= 0 ? 1 : -1;
+      letters.filter(function (l) { return l.word === w; }).sort(function (p, q) { return dir * (q.ox - p.ox); })
+        .forEach(function (l, rank) { l.at = LIFT + turnNo * WORD_GAP + rank * LETTER_GAP; });
     });
     // The slate, centred in the ring.
     [under, over].forEach(function (d) {
@@ -279,9 +304,12 @@
       var fade = (1 - smooth((t - FADE_AT) / 0.6)).toFixed(3);
       if (p.fade !== fade) { p.fade = fade; p.extra.forEach(function (x2) { x2.style.opacity = fade; }); }
     });
-    // The letters: each leaves its row along a curve to its place on the
-    // ring, turns to face outward, and becomes its capital on the way. On
-    // the ring it simply rides round.
+    // The letters. Each word leaves its row as a unit: it glides along a
+    // gentle curve to its place on the ring and turns as it goes, its
+    // letters held together, so they never pass through each other, even
+    // for a word that ends upside down at the foot of the ring. Near the end the letters ease from a straight word into
+    // the ring's curve, and each becomes its capital on the way. On the ring
+    // they simply ride round.
     var turn = ringAngle(t), R = G.R;
     letters.forEach(function (l) {
       var k = clamp((t - l.at) / TRAVEL);
@@ -290,21 +318,22 @@
         return;
       }
       l.k = k;
-      var e = glide(k), base = nearest(slotAngle(l.slot)), a = (base + turn) * Math.PI / 180;
-      var ex = G.cx + R * Math.sin(a), ey = G.cy - R * Math.cos(a);
-      var x = ex, y = ey;
-      if (k < 1) {
-        // A gentle curve from the row to the slot. Every letter's curve
-        // bends the same way, the way the ring turns, so together they
-        // read as one slow swirl and no two paths tangle.
-        var dx = ex - l.nx, dy = ey - l.ny, bow = l.word === 1 ? 0.42 : 0.2; // AI swings wide of the row below it
-        var qx = (l.nx + ex) / 2 + dy * bow, qy = (l.ny + ey) / 2 - dx * bow, m = 1 - e;
-        x = m * m * l.nx + 2 * m * e * qx + e * e * ex;
-        y = m * m * l.ny + 2 * m * e * qy + e * e * ey;
-      }
-      // It turns a little later than it moves, so the letters have drawn
-      // apart before they start to lean.
-      l.f.style.transform = 'translate(' + (x - l.nx).toFixed(2) + 'px,' + (y - l.ny).toFixed(2) + 'px) rotate(' + ((base + turn) * glide((k - 0.2) / 0.8)).toFixed(2) + 'deg)';
+      var W = words[l.word], e = glide(k);
+      var aw = W.base + turn, rw = aw * Math.PI / 180;                 // the word's place on the ring
+      var wx = G.cx + R * Math.sin(rw), wy = G.cy - R * Math.cos(rw);
+      var al = aw + l.rel, rl = al * Math.PI / 180;                     // the letter's place on the ring
+      var lx = G.cx + R * Math.sin(rl), ly = G.cy - R * Math.cos(rl);
+      // The word's middle, along a curve bending the way the ring turns.
+      var dx = wx - W.nx, dy = wy - W.ny, bow = BOW[l.word], m = 1 - e;
+      var qx = (W.nx + wx) / 2 + dy * bow, qy = (W.ny + wy) / 2 - dx * bow;
+      var cx = m * m * W.nx + 2 * m * e * qx + e * e * wx, cy = m * m * W.ny + 2 * m * e * qy + e * e * wy;
+      // The letter, held in the turning word, then let into the curve.
+      var spin = aw * e, rs = spin * Math.PI / 180, cs = Math.cos(rs), sn = Math.sin(rs);
+      var ra = aw * Math.PI / 180;
+      var bend = smooth((k - 0.45) / 0.55);
+      var x = cx + l.ox * cs + bend * (lx - wx - l.ox * Math.cos(ra));
+      var y = cy + l.ox * sn + bend * (ly - wy - l.ox * Math.sin(ra));
+      l.f.style.transform = 'translate(' + (x - l.nx).toFixed(2) + 'px,' + (y - l.ny).toFixed(2) + 'px) rotate(' + (spin + l.rel * bend * e).toFixed(2) + 'deg)';
       var up = smooth((k - 0.26) / 0.3); // one quick, even change of case, so the ink never thins
       if (l.up !== up) { l.up = up; l.lc.style.opacity = (1 - up).toFixed(3); l.uc.style.opacity = up.toFixed(3); }
     });

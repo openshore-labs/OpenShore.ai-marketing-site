@@ -819,7 +819,7 @@ html { scroll-padding-top: 64px; }
 
 /* ---- The headline's picture (founder, 2026-11-20) ------------------------ */
 /* A wave washes across each row to uncover it, as the film's tides do, then
-   team, AI and apps glide letter by letter onto a ring that turns round the
+   team, AI, agents and apps glide letter by letter onto a ring round the
    mark as it surfaces in the middle (orbit.js sets every position; .orb-live is its stage).
    Without the script the rows stand as plain text. */
 .orb { position: relative; width: 100%; max-width: 880px; margin-top: -10px; margin-bottom: -6px; padding-top: 4px; font-size: clamp(21px, 2.1vw, 24px); line-height: 1.25; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); }
