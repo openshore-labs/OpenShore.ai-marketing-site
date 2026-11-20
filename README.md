@@ -85,10 +85,28 @@ The founder repositioned the site on 2026-11-16:
   against, and a review every two weeks. The Pricing section states the
   list prices up front ($8 a person per month, free up to 10; $500 a bot per
   month; $5,000 setup). These match the Design Partner Program doc and the
-  business plan; change them together.
+  business plan; change them together. Spelled out on 2026-11-19 after a
+  cold read: the setup is paid at install and is kept if the partner leaves
+  at day 90; the founding price is today's list price held for two years
+  (not a discount); the technical contact need not be an engineer.
+
+## Home page focus (2026-11-19)
+
+- The home page plays one worked example, the commission fix (the job the
+  pilot starts with), then names the other bots in one line each (`more` in
+  `src/_data/entDemos.js`). All the examples play, behind tabs, in the
+  product tour's Workers section. `ent-demos.njk` takes `demoIds` to choose.
+- Why we build it (the Greiner chart) moved to About. The illustrative cost
+  chart is gone; its point is one sentence under the Greiner chart.
+- Every why line carries a checked figure: the inventory study is described
+  by its size (nearly 370,000 records, 37 stores), and the analytics line
+  carries the carriers' 5.9% average 2026 rate rise.
+- The founder's tenure reads nine years (Amazon 2017 to Microsoft 2026), not
+  15+.
 - Support access (founder, 2026-11-18): privacy first, but OpenShore needs
-  to maintain and improve each install. By default it sees health data with
-  no customer content (errors, uptime, versions); deeper access is with the
+  to maintain and improve each install. By default it sees system health data
+  with no customer content (errors, uptime, versions; "system" added
+  2026-11-19 so it never reads as medical data); deeper access is with the
   customer's permission, limited to that task, logged, and revocable; data is
   never sold or used to train AI models. The founder approved this exact
   language on 2026-11-19, matching the Design Partner Program doc. It appears,

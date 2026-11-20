@@ -311,6 +311,11 @@ main, .ent-top, .ent-foot {
 .ent-why-close { font-size: 16px; }
 .ent-source { font-size: 13px; line-height: 1.5; color: var(--muted); max-width: 72ch; }
 @media (max-width: 760px) { .ent-charts { grid-template-columns: minmax(0, 1fr); } }
+/* One chart on About since 2026-11-19: full width, capped for reading. */
+.ent-charts--one { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
+/* The home page's other bots, one line each (2026-11-19). */
+.ent-more-list { list-style: none; padding: 0; margin: 4px 0 14px; display: grid; gap: 10px; max-width: 760px; }
+.ent-more-list li { font-size: 16.5px; line-height: 1.55; padding-left: 14px; border-left: 3px solid var(--sea, #4b90a3); }
 
 /* The charts draw themselves (charts.js adds .c-anim; until then, and with
    Reduce Motion, they stay still and complete). A lit point travels each

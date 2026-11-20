@@ -14,6 +14,70 @@ pageDescription: "Why OpenShore exists: our mission, the principles we build by,
         <p class="ent-body">{{ g.missionLine }}</p>
       </section>
 
+      {#- Why we build it (founder, 2026-11-16; on the home page from
+          2026-11-17, back here on 2026-11-19 so the home page keeps to what
+          OpenShore does; the illustrative cost chart is gone, its point is
+          one sentence in the close): charts from his consulting
+          work, redrawn for the site with no client named. The first is
+          Greiner's phases of growth (HBR), with two ways in since
+          2026-11-18 (founder): early, at the crisis of leadership, and
+          later, correcting the slide after the crisis of autonomy. The
+          second is illustrative and says so. Both draw themselves when they scroll into view
+          (/enterprise/charts.js); without it, or with Reduce Motion, they
+          stay still and complete. -#}
+      <section class="ent-sec" aria-labelledby="why-h">
+        <h2 class="ent-eyebrow" id="why-h">Why we build it</h2>
+        <h3 class="ent-h">Every startup reaches the same scaling points. We build for them.</h3>
+        <div class="ent-charts ent-charts--one">
+          <figure class="ent-chart">
+            <figcaption class="ent-chart-title">The scaling points are predictable <button class="ent-replay" type="button" hidden aria-label="Replay the chart">Replay</button></figcaption>
+            <div class="ent-chart-frame">
+              <svg viewBox="0 0 640 320" role="img" aria-labelledby="c1-t c1-d" data-stops="254:1700:1100,462:1500:700,520:600:1100,612:1100:0">
+                <title id="c1-t">Phases of growth, and two ways in</title>
+                <desc id="c1-d">A company grows through three phases, creativity, direction and delegation. The usual path dips at a crisis of leadership between the first two, and at a crisis of autonomy between the last two it turns downward and keeps sliding. Two OpenShore paths leave it. Coming in early, at the first crisis, the line climbs straight through both crises: delegation built in. Coming in later, after the second crisis has started the slide, the line bends back upward: course corrected.</desc>
+                <line class="c-axis" x1="30" y1="274" x2="500" y2="274" />
+                <g class="c-legend">
+                  <line class="c-key c-key--sea" x1="44" y1="29" x2="64" y2="29" />
+                  <text x="72" y="34">With OpenShore</text>
+                  <line class="c-key c-key--risk" x1="196" y1="29" x2="216" y2="29" />
+                  <text x="224" y="34">The usual path</text>
+                </g>
+                <g class="c-plot" transform="matrix(0.785 0 0 1 9.46 0)">
+                  <line class="c-guide c-rv" data-x="250" x1="262" y1="80" x2="262" y2="272" />
+                  <line class="c-guide c-rv" data-x="450" x1="456" y1="80" x2="456" y2="272" />
+                  <path class="c-line c-line--risk c-draw" d="M44 256 Q170 244 254 194 L270 222 Q360 206 446 150 L462 178 Q540 204 612 236" />
+                  <path class="c-line c-line--sea c-draw" d="M254 194 Q420 150 612 58" />
+                  <path class="c-line c-line--sea c-line--late c-draw" d="M520 198.5 C552 196 580 132 612 104" />
+                </g>
+                <text class="c-crisis c-rv c-pop" data-x="252" x="224.6" y="124" text-anchor="middle">crisis of leadership</text>
+                <text class="c-crisis c-rv c-pop" data-x="450" x="367.4" y="68" text-anchor="middle">crisis of autonomy</text>
+                <line class="c-leader c-rv c-late" data-x="252" x1="154" y1="176" x2="197.9" y2="190" />
+                <text class="c-mark c-rv c-pop c-late" data-x="252" x="150" y="172" text-anchor="end">Come in early</text>
+                <circle class="c-ripple" data-x="252" cx="208.9" cy="194" r="13" />
+                <circle class="c-halo c-rv" data-x="252" cx="208.9" cy="194" r="13" />
+                <circle class="c-dot c-rv" data-x="252" cx="208.9" cy="194" r="6" />
+                <line class="c-leader c-rv c-late" data-x="516" x1="397.7" y1="214" x2="408.7" y2="205" />
+                <text class="c-mark c-rv c-pop c-late" data-x="516" x="393.7" y="228" text-anchor="end">Or come in later</text>
+                <circle class="c-ripple" data-x="516" cx="417.7" cy="198.5" r="13" />
+                <circle class="c-halo c-rv" data-x="516" cx="417.7" cy="198.5" r="13" />
+                <circle class="c-dot c-rv" data-x="516" cx="417.7" cy="198.5" r="6" />
+                <text class="c-end c-end--sea c-rv c-pop" data-x="600" x="504" y="63">Built in early</text>
+                <text class="c-end c-end--wave c-rv c-pop" data-x="600" x="504" y="109">Course corrected</text>
+                <text class="c-end c-end--risk c-rv c-pop" data-x="600" x="504" y="241">Keeps sliding</text>
+                <text class="c-phase c-dim" data-x="44" x="127.2" y="302" text-anchor="middle">CREATIVITY</text>
+                <text class="c-phase c-dim" data-x="262" x="291.3" y="302" text-anchor="middle">DIRECTION</text>
+                <text class="c-phase c-dim" data-x="456" x="433.4" y="302" text-anchor="middle">DELEGATION</text>
+              </svg>
+            </div>
+            <p class="ent-body">Growth arrives in phases, and each phase ends in a predictable crisis. Age runs left to right, company size runs up. The first crisis is leadership, when the founders become the constraint. The second is autonomy, when teams need room to decide but have no shared standards to decide by, and growth starts to slide. Come in at the first crisis and OpenShore puts the direction layer in before delegation is needed. Come in later and the same layer corrects the course: bots take on the operations that stalled, standards go in, and growth climbs again.</p>
+          </figure>
+        </div>
+        <p class="ent-body ent-why-close">Meanwhile every new customer adds commitments, while what a founding team can carry stays roughly flat, and the gap fills with fire drills, blind decisions and missed deals. That gap is why we build OpenShore. It puts the direction layer in, early or late, with expert AI bots beside the team, so leaders spend their energy on customers instead of on the gap.</p>
+        <p class="ent-source">Source: Larry E. Greiner, “Evolution and Revolution as Organizations Grow,” <i>Harvard Business Review</i> (1972, reissued 1998). The OpenShore paths show where we come in.</p>
+      </section>
+
+      <script src="/enterprise/charts.js?v={{ rev.entCharts }}" defer></script>
+
 {% if g.principles.length %}
       <section class="ent-sec" aria-labelledby="principles-h">
         <h2 class="ent-eyebrow" id="principles-h">{{ g.principlesTitle }}</h2>

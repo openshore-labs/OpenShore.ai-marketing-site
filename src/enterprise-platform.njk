@@ -46,6 +46,12 @@ pageNoindex: true
         <ul class="ent-pills ent-pills--workers" role="list"><li class="core">Data Foundations</li><li>RevOps</li><li>Finance</li><li>Planning</li><li>Supply chain</li><li>Performance Analytics</li><li>People ops</li></ul>
       </section>
 
+{#- Every worked example, behind tabs (2026-11-19): the home page plays only
+    the commission fix and sends people here for the rest. -#}
+{%- set demosTitle = "Watch each bot work" -%}
+{% include "ent-demos.njk" %}
+      <script src="/enterprise/commission.js?v={{ rev.entCommission }}" defer></script>
+
       <section class="ent-sec" aria-labelledby="trust-h">
         <h2 class="ent-eyebrow" id="trust-h">Built to be trusted</h2>
         <ul class="ent-checks" role="list">
@@ -53,7 +59,7 @@ pageNoindex: true
           <li>Every number traces to its source, calculated by code, never by the model.</li>
           <li>Each person sees only what they’re allowed to. No one sees another person’s pay or quota.</li>
           <li>Any model, cloud or local, on your keys, in your cloud or on your own servers. No lock-in.</li>
-          <li>Privacy first: we never sell your data or use it to train AI models. By default we see health data with no customer content; anything deeper is with your permission, limited to that task, and logged.</li>
+          <li>Privacy first: we never sell your data or use it to train AI models. By default we see system health data, like errors and uptime, with no customer content; anything deeper is with your permission, limited to that task, and logged.</li>
         </ul>
       </section>
 

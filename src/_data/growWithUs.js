@@ -72,7 +72,7 @@ export default {
     alt: "Jack Bigelow",
     linkedin: "https://www.linkedin.com/in/jackbigelow",
     paragraphs: [
-      "I spent more than 15 years inside large companies, building the revenue operations, planning and AI systems behind businesses as large as $200B at Microsoft, AWS and Amazon.",
+      "I spent nine years inside large companies, building the revenue operations, planning and AI systems behind businesses as large as $200B at Microsoft, AWS and Amazon.",
       "Then I left corporate to consult for early-stage startups, and I realized two things. First, I love the infectious energy of builders. Second, I had the keys to the scaffolding a company needs to scale: the operations, planning and systems that let a founder and their team focus on serving and selling to their customers.",
       "I love this work because I get to feed off the energy of people who are all in on their ideas and their customers. OpenShore is a solution I believe in, for customers I’m passionate about helping become winners.",
       "I’m building it with a small group of design partners, and I’d like to hear what you need.",

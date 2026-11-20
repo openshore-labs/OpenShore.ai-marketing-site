@@ -15,6 +15,8 @@
 //   why       the line under the example (founder, 2026-11-19): the evidence
 //             that the problem is common, and who usually handles it. Only
 //             a figure checked against its source goes here.
+//   more      the home page's one line for this bot (every bot but
+//             RevOps, whose example plays there in full)
 //   also      optional: one more job this bot does, shown under the why
 //             line (founder, 2026-11-19: the Finance bot drafts the monthly
 //             board pack).
@@ -63,7 +65,9 @@ export default [
   // the wrong warehouse). DeHoratius and Raman, "Inventory Record Inaccuracy:
   // An Empirical Analysis", Management Science 54(4), 2008: 65% of nearly
   // 370,000 records at one retailer were wrong, with the distribution
-  // structure among the causes. Traditionally: inventory control, receiving
+  // structure among the causes. The figure is a large study, nearly 370,000
+// records across 37 stores of one chain, so the why line says so (2026-11-19:
+// "at one retailer" read as an anecdote). Traditionally: inventory control, receiving
   // checks and cycle counts.
   {
     id: "inv",
@@ -82,7 +86,8 @@ export default [
     ruleFrom: "Rule saved · from Marcus’s approval",
     rule: "Receipts are checked against the order’s ship-to before they count as stock.",
     runs: "Runs on every receipt",
-    why: "At one retailer, 65% of nearly 370,000 inventory records were wrong (DeHoratius and Raman, Management Science, 2008). Keeping counts right usually takes inventory control and regular cycle counts.",
+    more: "Catches stock booked to the wrong warehouse before a best seller runs out.",
+    why: "In a study of nearly 370,000 inventory records across 37 stores of a large retailer, 65% did not match what was on the shelf (DeHoratius and Raman, Management Science, 2008). Keeping counts right usually takes inventory control and regular cycle counts.",
   },
   // A retailer short-pays an invoice with a promotion deduction that no
   // agreed promotion backs. Deductions are a standing cost of selling into
@@ -108,6 +113,7 @@ export default [
     ruleFrom: "Rule saved · from Nia’s approval",
     rule: "A deduction is matched to an agreed promotion before it’s accepted.",
     runs: "Runs on every payment",
+    more: "Matches every retailer deduction to an agreed promotion and disputes the rest, and drafts your monthly board pack.",
     why: "For suppliers selling mainly to retailers, deductions take about 2% of sales at the median (Credit Research Foundation deduction survey, 2012). Checking each one usually takes a deductions team in accounts receivable.",
     also: "Each month it drafts your board pack and investor update from your own numbers, with a source for every figure, for you to approve before it goes out.",
   },
@@ -134,13 +140,16 @@ export default [
     ruleFrom: "Rule saved · from Sam’s approval",
     rule: "A budget line running 10% over plan is flagged the week it happens.",
     runs: "Runs every Monday",
+    more: "Flags a budget line the week it runs over, with a fix to keep the quarter on plan.",
     why: "In finance review meetings, 69% of the time goes to financial results, and nearly half of that to actual against budget (AFP survey of 606 financial planning professionals, 2017). The work usually sits with a financial planning analyst.",
   },
   // A margin dip nobody can explain, here freight: UPS and FedEx add holiday
   // demand surcharges to home deliveries from late October to mid-January
   // every year (on top of an average 5.9% annual rate rise for 2026), a
   // documented hit to shipping-heavy margins. A one-point move is what a
-  // surcharge of that size can do. Traditionally: an analyst who builds the
+  // surcharge of that size can do. The why line carries the rate rise, a
+// figure, not just the surcharge (2026-11-19): UPS from December 22, 2025
+// and FedEx from January 5, 2026, each a 5.9% average. Traditionally: an analyst who builds the
   // weekly business review and chases each variance.
   {
     id: "pa",
@@ -159,6 +168,7 @@ export default [
     ruleFrom: "Rule saved · from Ava’s approval",
     rule: "Any margin move of a point or more is explained in the weekly review.",
     runs: "Runs on every weekly review",
-    why: "UPS and FedEx add holiday surcharges to home deliveries every peak season, this year from late October to mid-January (the carriers’ 2026 peak schedules). Explaining what that does to margin usually takes an analyst who builds the weekly review.",
+    more: "Explains why a number moved, like margin lost to carrier surcharges, in a weekly review where every figure links to its source.",
+    why: "UPS and FedEx raised their rates an average of 5.9% for 2026, and add holiday surcharges to home deliveries on top every peak season (the carriers’ 2026 rate and peak schedules). Explaining what that does to margin usually takes an analyst who builds the weekly review.",
   },
 ];
