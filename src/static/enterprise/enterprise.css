@@ -66,7 +66,7 @@ main, .ent-top, .ent-foot {
 .ent-btn:active { transform: scale(0.97); }
 @media (hover: hover) { .ent-btn:hover { background: rgba(28, 42, 51, 0.12); } .ent-btn--primary:hover { background: var(--ink); } }
 
-.ent-eyebrow { font-size: 13px; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sea); }
+.ent-eyebrow { font-size: 16px; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sea); }
 .ent-h { font-size: clamp(21px, 1.9vw, 24px); line-height: 1.25; letter-spacing: -0.015em; font-weight: 650; max-width: 40ch; }
 .ent-statement { font-size: clamp(20px, 1.8vw, 22px); line-height: 1.35; letter-spacing: -0.01em; font-weight: 550; max-width: 40ch; }
 .ent-body { font-size: 18px; color: var(--ink-soft); max-width: 64ch; }
