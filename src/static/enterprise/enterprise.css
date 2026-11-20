@@ -818,14 +818,13 @@ html { scroll-padding-top: 64px; }
 .ent-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 /* ---- The headline's picture (founder, 2026-11-20) ------------------------ */
-/* A wave washes across each row to uncover it, as the film's tides do, then
+/* The sentence stands under the headline, then
    team, AI, agents and apps glide letter by letter onto a ring round the
    mark as it surfaces in the middle (orbit.js sets every position; .orb-live is its stage).
    Without the script the rows stand as plain text. */
 .orb { position: relative; width: 100%; max-width: 880px; margin-top: -10px; margin-bottom: -6px; padding-top: 4px; font-size: clamp(21px, 2.1vw, 24px); line-height: 1.25; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); }
 .orb-row { position: relative; margin: 0 0 14px; white-space: nowrap; width: max-content; }
 .orb-live { overflow: hidden; }
-.orb-foam { position: absolute; left: 0; top: -6px; bottom: -6px; width: 40px; border-radius: 40%; background: linear-gradient(90deg, rgba(75, 144, 163, 0), rgba(75, 144, 163, 0.32) 60%, rgba(246, 244, 239, 0.9) 85%, rgba(75, 144, 163, 0)); opacity: 0; pointer-events: none; }
 /* The letters that leave for the ring: each as written in the sentence, with
    the capital it becomes over it. The dots between the ring's words. */
 .orb-f { position: relative; display: inline-block; will-change: transform; }

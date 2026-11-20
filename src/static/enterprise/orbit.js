@@ -1,7 +1,6 @@
 // The headline's picture (founder, 2026-11-20). Under "The operating
-// platform for growing startups:" the rest of the sentence is uncovered row
-// by row, each by a wave washing across it, as the film's tides do. Then
-// the small words fade, and team, AI, agents and apps leave their rows one
+// platform for growing startups:" the rest of the sentence stands in three
+// rows from the start. After a moment to read it, the small words fade, and team, AI, agents and apps leave their rows one
 // after another, letter by letter: each letter glides along a curve onto a
 // slowly turning ring, turning to face outward and becoming a capital on the
 // way, until they read TEAM, AI, AGENTS, APPS round a circle. The ring eases up to its
@@ -51,10 +50,9 @@
   function slotAngle(i) { return FIRST + MID[i] * STEP; }          // degrees, clockwise from the top
 
   // The clock, in seconds from when the picture starts.
-  var ROW_AT = [0.3, 1.7, 3.1]; // a wave starts across each row
-  var REVEAL = 1.7;             // a wave's crossing
-  var FADE_AT = 6.0;            // the small words fade (the sentence has been read)
-  var LIFT = 6.7;               // the first letter leaves its row
+  // The sentence stands on the page from the start (founder, 2026-11-20).
+  var FADE_AT = 2.2;            // the small words fade (the sentence has been read)
+  var LIFT = 2.9;               // the first word leaves its row
   var WORD_GAP = 0.62;          // between words setting off
   var LETTER_GAP = 0.02;        // between letters of a word: a word travels as one
   var TRAVEL = 1.9;             // a letter's glide onto the ring
@@ -75,13 +73,11 @@
   function el(tag, cls) { var e = document.createElement(tag); e.className = cls; return e; }
   function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
   function inOutSine(t) { return -(Math.cos(Math.PI * t) - 1) / 2; }
-  function outCubic(t) { return 1 - Math.pow(1 - t, 3); }
   function nearest(deg) { deg = deg % 360; if (deg > 180) deg -= 360; if (deg <= -180) deg += 360; return deg; }
 
   var rows = Array.prototype.slice.call(stage.querySelectorAll('.orb-row'));
-  rows.forEach(function (row) { row.appendChild(el('span', 'orb-foam')); });
   var parts = rows.map(function (row) {
-    return { row: row, foam: row.querySelector('.orb-foam'), extra: Array.prototype.slice.call(row.querySelectorAll('.orb-x')) };
+    return { row: row, extra: Array.prototype.slice.call(row.querySelectorAll('.orb-x')) };
   });
 
   // Each letter of team, AI, agents and apps is its own piece, so it can
@@ -137,7 +133,6 @@
     var H = 2 * reach, cy = reach;
     G = { W: W, H: H, cx: W / 2, cy: cy, R: R, s: s, font: font, outer: outer, reach: reach };
     stage.style.setProperty('--ring-font', font + 'px');
-    parts.forEach(function (p) { p.rw = p.row.offsetWidth; p.rh = p.row.offsetHeight; });
     // Where each letter stands in its row (its middle, in the stage), and
     // each word: its middle, and its place on the ring (taken the short way
     // round, and shared by its letters, so a word never splits).
@@ -273,34 +268,9 @@
     f.wet = true;
   }
 
-  // A wave across a row: everything behind its front shows, and the front
-  // is a soft, moving swell rather than a straight edge.
-  function wave(p, e, t) {
-    var amp = p.rh * 0.22, front = -amp * 3 + (p.rw + amp * 6) * e, pts = ['-24px -10px'];
-    for (var j = 0; j <= 10; j++) {
-      var yy = -10 + (p.rh + 20) * j / 10;
-      pts.push((front + amp * Math.sin(j / 10 * Math.PI * 2.4 - t * 4.2)).toFixed(1) + 'px ' + yy.toFixed(1) + 'px');
-    }
-    pts.push('-24px ' + (p.rh + 10) + 'px');
-    return { clip: 'polygon(' + pts.join(',') + ')', front: front };
-  }
-
   function render(t) {
     if (!G) return;
-    parts.forEach(function (p, i) {
-      // The row is washed in.
-      var rk = clamp((t - ROW_AT[i]) / REVEAL);
-      if (rk < 1) {
-        var wv = wave(p, inOutSine(rk), t);
-        p.row.style.clipPath = wv.clip; p.row.style.webkitClipPath = wv.clip;
-        p.foam.style.transform = 'translateX(' + (wv.front - 34).toFixed(1) + 'px)';
-        p.foam.style.opacity = (Math.sin(Math.PI * rk) * 0.9).toFixed(3);
-      } else if (p.row.style.clipPath !== 'none') {
-        p.row.style.clipPath = 'none'; p.row.style.webkitClipPath = 'none';
-        p.foam.style.opacity = '0';
-      }
-      if (rk < 1) p.row.style.transform = 'translateY(' + ((1 - outCubic(rk)) * 6).toFixed(2) + 'px)'; // each row settles as its wave passes
-      else if (p.row.style.transform) p.row.style.transform = '';
+    parts.forEach(function (p) {
       var fade = (1 - smooth((t - FADE_AT) / 0.6)).toFixed(3);
       if (p.fade !== fade) { p.fade = fade; p.extra.forEach(function (x2) { x2.style.opacity = fade; }); }
     });
