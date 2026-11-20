@@ -807,3 +807,7 @@ html { scroll-padding-top: 64px; }
 .ent-foot { padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px)); }
 .ent-locked .ent-lock { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
 @media (prefers-reduced-motion: reduce) { .ent-float, .ent-float.is-off { transition-duration: 1ms; transform: translateX(-50%); } }
+
+/* The home headline (founder, 2026-11-20) is a longer sentence: it gets the
+   width to sit on two lines on a laptop. */
+.ent-hero h1.ent-h1--wide { max-width: 40ch; }
