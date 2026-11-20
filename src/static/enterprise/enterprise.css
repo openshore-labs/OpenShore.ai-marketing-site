@@ -307,7 +307,8 @@ main, .ent-top, .ent-foot {
 .c-mark { font-size: 16px; font-weight: 650; fill: var(--ink); }
 .c-label { font-size: 16px; font-weight: 650; fill: var(--ink); }
 .c-wedge-text { font-size: 14.5px; fill: #8a5532; }
-.ent-why-close { margin-top: 10px; max-width: 40ch; }
+/* The closing line reads like the chart notes above it (founder, 2026-11-20). */
+.ent-why-close { font-size: 16px; }
 .ent-source { font-size: 13px; line-height: 1.5; color: var(--muted); max-width: 72ch; }
 @media (max-width: 760px) { .ent-charts { grid-template-columns: minmax(0, 1fr); } }
 
