@@ -41,7 +41,6 @@ export default [
     id: "rev",
     tab: "Revenue ops",
     eyebrow: "Let’s say a rep’s commission comes up short.",
-    heading: "Fixed in two minutes, without leaving the conversation.",
     channel: "sales",
     bot: "RevOps bot",
     messages: [
@@ -67,7 +66,6 @@ export default [
     id: "inv",
     tab: "Supply chain",
     eyebrow: "Let’s say a best seller is about to run out.",
-    heading: "Stock found and moving in three minutes, before anyone pays to rush it.",
     channel: "ops",
     bot: "Supply chain bot",
     messages: [
@@ -94,7 +92,6 @@ export default [
     id: "fin",
     tab: "Finance",
     eyebrow: "Let’s say a retailer pays an invoice short.",
-    heading: "Disputed in four minutes, with the proof attached.",
     channel: "finance",
     bot: "Finance bot",
     messages: [
@@ -120,7 +117,6 @@ export default [
     id: "plan",
     tab: "Planning",
     eyebrow: "Let’s say marketing is running over budget.",
-    heading: "Back on plan in four minutes, before the month closes.",
     channel: "leadership",
     bot: "Planning bot",
     messages: [
@@ -146,7 +142,6 @@ export default [
     id: "pa",
     tab: "Analytics",
     eyebrow: "Let’s say margin dips and nobody knows why.",
-    heading: "Explained in three minutes, with every number traced.",
     channel: "leadership",
     bot: "Performance Analytics bot",
     messages: [
