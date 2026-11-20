@@ -98,7 +98,7 @@
     var usable = room || H - 10;
     var R = Math.max(50, Math.min(phone ? 130 : 120, W / 2 - 30, (usable - 8) / 2.25));
     var font = Math.round(Math.min(24, 0.72 * 2 * Math.PI * R / RING.length));
-    var s = Math.round(Math.min(phone ? 44 : 58, R * 0.6));
+    var s = Math.round(Math.min(phone ? 88 : 116, R * 1.2)); // the mark fills the ring's middle (founder, 2026-11-20)
     var cy = Math.max(R + font, usable / 2 + 2);
     G = { W: W, H: H, cx: W / 2, cy: cy, R: R, s: s, font: font };
     water.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
@@ -135,11 +135,12 @@
     // The mark, centred in the ring: its foot is the water's surface.
     var foot = cy + s / 2;
     G.foot = foot;
+    findSurface();
     up.style.cssText = 'left:' + (G.cx - s / 2) + 'px;top:' + (foot - s - 14) + 'px;width:' + s + 'px;height:' + (s + 14) + 'px';
     upMark.style.top = '14px';
     down.style.cssText = 'left:' + (G.cx - s / 2 - 6) + 'px;top:' + foot + 'px;width:' + (s + 12) + 'px;height:' + (s * 1.6) + 'px';
     downMark.style.left = '6px'; downMark.style.width = s + 'px'; downMark.style.top = -s + 'px';
-    refl.style.cssText = 'left:' + (G.cx - s / 2) + 'px;top:' + (foot + 1) + 'px;width:' + s + 'px;height:' + Math.round(s * 0.45) + 'px';
+    refl.style.cssText = 'left:' + (G.cx - s / 2) + 'px;top:' + (foot + 1) + 'px;width:' + s + 'px;height:' + Math.round(s * 0.3) + 'px';
     reflMark.style.top = '0px';
   }
 
@@ -158,11 +159,13 @@
     var v = u - RISE;
     return -5 * Math.exp(-v / 0.6) * Math.cos(2 * Math.PI * v / 1.0);
   }
-  var SURFACE = (function () { // when the mark breaks the surface: inOutCubic(k) = d0 / (d0 + 5)
-    var lo = 0, hi = 1, want = 1.4 * 44 / (1.4 * 44 + 5);
+  // When the mark breaks the surface: where inOutCubic(k) = d0 / (d0 + 5).
+  var SURFACE = MARK_AT + RISE * 0.9;
+  function findSurface() {
+    var lo = 0, hi = 1, want = 1.4 * G.s / (1.4 * G.s + 5);
     for (var i = 0; i < 30; i++) { var m = (lo + hi) / 2; if (inOutCubic(m) < want) lo = m; else hi = m; }
-    return MARK_AT + lo * RISE;
-  })();
+    SURFACE = MARK_AT + lo * RISE;
+  }
 
   // A wave across a row: everything behind its front shows, and the front
   // is a soft, moving swell rather than a straight edge.
