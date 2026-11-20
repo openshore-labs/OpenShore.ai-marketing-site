@@ -833,6 +833,7 @@ html { scroll-padding-top: 64px; }
 @media (scripting: none) { .orb { display: none; } }
 @media (prefers-reduced-motion: reduce) { .orb { transition: none; } }
 .orb-live { overflow: hidden; }
+@media (min-width: 600px) { .orb-live { overflow: visible; } } /* left-aligned, its ripples may fade a little past its left edge */
 /* The rows only lay the letters out; the letters show on the ring. */
 .orb-live .orb-row { visibility: hidden; }
 .orb-live .orb-f { visibility: visible; }
@@ -850,7 +851,7 @@ html { scroll-padding-top: 64px; }
 .orb-deep, .orb-top, .orb-shade { position: absolute; inset: 0; }
 .orb-deep { opacity: 0; filter: blur(3.5px); }
 .orb-top { opacity: 0; }
-.orb-shade { border-radius: 23.5%; background: #1c2a33; filter: blur(7px); opacity: 0; }
+.orb-shade { inset: 2.9%; border-radius: 23.5%; background: #1c2a33; filter: blur(7px); opacity: 0; }
 
 /* The first paragraph sits a little closer under the headline (founder,
    2026-11-20). */

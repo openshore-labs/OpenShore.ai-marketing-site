@@ -21,7 +21,9 @@
   var stage = document.querySelector('[data-orb]');
   if (!stage || !window.requestAnimationFrame) return;
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var MARK = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>';
+  // The mark has a hair of clear margin (its box is 34 units for 32), so when
+  // it tilts its edges are drawn inside the layer and stay smooth.
+  var MARK = '<svg viewBox="-1 -1 34 34" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>';
 
   // The ring's lettering, one character per even step round the circle.
   // Each word's slots, and the word each row sends there.
@@ -129,7 +131,9 @@
     var outer = R + font * 0.62, reach = Math.round(outer + (phone ? 18 : 22));
     stage.style.height = 2 * reach + 'px';
     var H = 2 * reach, cy = reach;
-    G = { W: W, H: H, cx: W / 2, cy: cy, R: R, s: s, font: font, outer: outer, reach: reach };
+    // On a phone the picture is centred; wider, it lines up with the
+    // headline's left edge (founder, 2026-11-20).
+    G = { W: W, H: H, cx: phone ? W / 2 : Math.ceil(outer) + 1, cy: cy, R: R, s: s, font: font, outer: outer, reach: reach };
     stage.style.setProperty('--ring-font', font + 'px');
     // Where each letter stands in its row (its middle, in the stage), and
     // each word: its middle, and its place on the ring (taken the short way
@@ -155,9 +159,10 @@
         .forEach(function (l, rank) { l.at = LIFT + turnNo * WORD_GAP + rank * LETTER_GAP; });
     });
     // The slate, centred in the ring.
+    var box = s * 34 / 32;
     [under, over].forEach(function (d) {
-      d.style.left = (G.cx - s / 2) + 'px'; d.style.top = (cy - s / 2) + 'px';
-      d.style.width = s + 'px'; d.style.height = s + 'px';
+      d.style.left = (G.cx - box / 2) + 'px'; d.style.top = (cy - box / 2) + 'px';
+      d.style.width = box + 'px'; d.style.height = box + 'px';
     });
     sizeWaves();
   }
