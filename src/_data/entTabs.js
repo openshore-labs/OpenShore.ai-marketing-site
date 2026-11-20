@@ -5,7 +5,7 @@ export default [
   // Tab names (founder, 2026-11-19): "Overview" and "About" say what is
   // behind them; "Solutions" and "Grow with Us" did not. Addresses unchanged.
   { label: "Overview", href: "/" },
-  { label: "Product Tour", href: "/enterprise/platform/", locked: true },
+  { label: "Product Tour", href: "/enterprise/platform/" },
   // Pricing and Security get their own tabs (founder, 2026-11-19: reorganize
   // the site by proven UI research). Business buyers name pricing as the
   // information they need most and look for it in the main navigation, and

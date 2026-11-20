@@ -4,10 +4,10 @@
 //
 //   /download/<platform>  ->  302 to the newest release file for it
 //   /auth-callback        ->  the web app's own page (worker/appShell.js)
-//   /enterprise/issue      ->  a new tour login, admin token only
-//   /enterprise/platform/ and /enterprise/tour/  ->  only after sign-in
-//                            (worker/enterpriseAccess.js; these two paths run
-//                            the script first, see wrangler.jsonc)
+//
+// The platform page and the product tour are public since 2026-11-20
+// (founder). The sign-in they used to sit behind is kept, unrouted, in
+// worker/enterpriseAccess.js, should a page ever need it again.
 //
 // so a "Download" button starts the download right there instead of sending
 // the person to GitHub to find the right file (worker/downloads.js has the
@@ -21,7 +21,6 @@
 // traffic with the cache.
 import { PLATFORMS, RELEASES_PAGE, REPO, resolveDownload } from './downloads.js';
 import { appShellRequest, isAppRoute } from './appShell.js';
-import { PROTECTED, handleProtected, ISSUE_PATH, handleIssue } from './enterpriseAccess.js';
 
 const CACHE_SECONDS = 600;
 
@@ -56,11 +55,6 @@ async function releases(env, ctx) {
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    // The enterprise platform page and the product tour: only with a username
-    // and password from the founder (worker/enterpriseAccess.js).
-    if (PROTECTED.test(url.pathname)) return handleProtected(request, env);
-    // Issuing a tour login, for the holder of the admin token only.
-    if (url.pathname === ISSUE_PATH) return handleIssue(request, env);
     if (isAppRoute(url.pathname)) {
       const shell = await env.ASSETS.fetch(appShellRequest(url));
       const res = new Response(shell.body, shell);
