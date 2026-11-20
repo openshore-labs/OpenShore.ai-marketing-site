@@ -120,7 +120,7 @@ export function lockedPage({ failed = false, username = '', next = '/enterprise/
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; base-uri 'none'; form-action 'self'" />
 <title>How the Platform Works · OpenShore</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="/enterprise/enterprise.css?v=lock4" />
+<link rel="stylesheet" href="/enterprise/enterprise.css?v=lock5" />
 </head>
 <body class="ent-locked">
 <div class="ent-locked-bg" aria-hidden="true"></div>
@@ -143,7 +143,7 @@ export function lockedPage({ failed = false, username = '', next = '/enterprise/
   <aside class="ent-lock-preview" aria-label="Inside the tour">
     <p class="ent-lock-preview-k">Inside the tour</p>
     <p>Connections, chats, projects, tasks, reports, the owner’s view and bots.</p>
-    <a class="ent-film ent-film--wide" href="/enterprise/promo/"><img src="/enterprise/promo-poster.jpg" alt="" width="960" height="540" /><span class="ent-film-meta"><b>OpenShore</b><span>In under three minutes</span></span><span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span></a>
+    <a class="ent-film ent-film--wide" href="/enterprise/promo/" aria-label="Play the OpenShore film"><img src="/enterprise/promo-poster.jpg" alt="" width="960" height="540" /><span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span></a>
   </aside>
 </main>
 </body>

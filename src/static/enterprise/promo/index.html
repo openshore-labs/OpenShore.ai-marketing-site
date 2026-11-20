@@ -333,7 +333,7 @@ body.script #tourlink, body.blanked #tourlink { display: none; }
 body.tour-on #playbtn { left: auto; right: calc(16px + env(safe-area-inset-right, 0px)); transform: none; }
 body.filming #playbtn { opacity: 0; pointer-events: none; }
 /* The key hints sit at the top, clear of the title card's last line and the play button. */
-#hint { bottom: auto; top: calc(14px + env(safe-area-inset-top, 0px)); padding: 0 16px; }
+#hint { bottom: auto; top: calc(14px + env(safe-area-inset-top, 0px)); padding: 0 72px; }
 /* Letterboxed (a phone held upright, or a very wide window): the sea, the
    grain and the vignette fade into the paper at the frame's open edges, so
    the stage has no visible seam. */
@@ -350,7 +350,6 @@ body.lb-v #vignette, body.lb-h #vignette { display: none; }
 .fn-core .fn-a { color: #7fb8c8; }
 .fn-view { background: linear-gradient(var(--sea-soft), var(--sea-soft)) var(--raised); }
 .fn-label { position: absolute; font-size: 21px; font-weight: 600; line-height: 1.3; color: var(--sea); }
-#pausebar button[data-a="mute"] { font-weight: 500; }
 
 @media (prefers-reduced-motion: reduce) {
   .slide .b, .slide .bar-fill, .slide .draw path, .slide .draw line, .slide [data-step] { transition-duration: 1ms; transition-delay: 0ms; }
@@ -358,11 +357,27 @@ body.lb-v #vignette, body.lb-h #vignette { display: none; }
 /* Keep the mark's rise seekable: a backwards-only fill drops out once it finishes. */
 .sp .sp-mark { animation-fill-mode: both; }
 /* The speed badge shows for a moment when the presenter changes speed. */
-#speedbadge { position: fixed; top: calc(20px + env(safe-area-inset-top, 0px)); right: calc(20px + env(safe-area-inset-right, 0px)); z-index: 6; padding: 8px 14px; border-radius: 999px; background: var(--raised); color: var(--ink); font: 600 15px var(--font); font-variant-numeric: tabular-nums; box-shadow: 0 2px 6px rgba(28, 42, 51, 0.08), 0 12px 30px -12px rgba(28, 42, 51, 0.35), 0 0 0 1px rgba(28, 42, 51, 0.08); opacity: 0; transform: translateY(-6px); transition: opacity 260ms var(--ease-glide), transform 260ms var(--ease-glide); pointer-events: none; }
+#speedbadge { position: fixed; top: calc(72px + env(safe-area-inset-top, 0px)); right: calc(20px + env(safe-area-inset-right, 0px)); z-index: 6; padding: 8px 14px; border-radius: 999px; background: var(--raised); color: var(--ink); font: 600 15px var(--font); font-variant-numeric: tabular-nums; box-shadow: 0 2px 6px rgba(28, 42, 51, 0.08), 0 12px 30px -12px rgba(28, 42, 51, 0.35), 0 0 0 1px rgba(28, 42, 51, 0.08); opacity: 0; transform: translateY(-6px); transition: opacity 260ms var(--ease-glide), transform 260ms var(--ease-glide); pointer-events: none; }
 #speedbadge.on { opacity: 1; transform: none; }
 body.script #speedbadge { display: none; }
 #script .clock { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 3; background: var(--paper); padding: 12px 0; border-bottom: 2px solid var(--rule); font-size: 17px; color: var(--muted); font-variant-numeric: tabular-nums; }
 #script .clock b { color: var(--ink); font-family: var(--font-mono); font-size: 22px; }
+/* Leave and sound (founder, 2026-11-20): a back arrow in the top left is
+   always there and leaves the film; once the film plays, a sound switch sits
+   in the top right until it ends. Sound starts on. */
+.fc-btn { position: fixed; top: calc(16px + env(safe-area-inset-top, 0px)); z-index: 7; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; appearance: none; border: 0; padding: 0; margin: 0; background: var(--raised); color: var(--ink); box-shadow: 0 2px 6px rgba(28, 42, 51, 0.08), 0 12px 30px -12px rgba(28, 42, 51, 0.35), 0 0 0 1px rgba(28, 42, 51, 0.08); cursor: pointer; text-decoration: none; -webkit-tap-highlight-color: transparent; transition: opacity 260ms var(--ease-glide), transform 260ms var(--ease-glide), background 160ms var(--ease-glide); }
+.fc-btn svg { display: block; }
+.fc-btn:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; }
+@media (hover: hover) { .fc-btn:hover { background: #fff; } }
+#backbtn { left: calc(16px + env(safe-area-inset-left, 0px)); }
+#backbtn:active { transform: scale(0.94); }
+#soundbtn { right: calc(16px + env(safe-area-inset-right, 0px)); opacity: 0; transform: translateY(-6px); pointer-events: none; }
+body.sound-ui #soundbtn { opacity: 1; transform: none; pointer-events: auto; }
+body.sound-ui #soundbtn:active { transform: scale(0.94); }
+#soundbtn .off, #soundbtn.is-muted .on { display: none; }
+#soundbtn.is-muted .off { display: block; }
+body.script .fc-btn, body.blanked .fc-btn { display: none; }
+@media (prefers-reduced-motion: reduce) { .fc-btn { transition-duration: 1ms; } }
 </style>
 
 <div id="viewport">
@@ -711,7 +726,9 @@ body.script #speedbadge { display: none; }
 <div id="blank"></div>
 <a id="tourlink" href="/enterprise/platform/" target="_blank" rel="noopener">Want more detail? Take the product tour<svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M1 7h13M9 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 <button type="button" id="playbtn"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor"/></svg><span data-k="label">Play the film</span></button>
-<div id="pausebar" role="group" aria-label="Film controls"><input type="range" id="scrub" min="0" max="235.2" step="0.1" value="0" aria-label="Film position"><button type="button" data-a="prev" aria-label="Previous segment">&lsaquo; Back</button><button type="button" class="go" data-a="play">Resume</button><button type="button" data-a="next" aria-label="Next segment">Next &rsaquo;</button><button type="button" data-a="speed" aria-label="Playback speed, 1x">1x</button><button type="button" data-a="mute" aria-pressed="false">Sound on</button><span class="seg" data-k="seg"></span></div>
+<div id="pausebar" role="group" aria-label="Film controls"><input type="range" id="scrub" min="0" max="235.2" step="0.1" value="0" aria-label="Film position"><button type="button" data-a="prev" aria-label="Previous segment">&lsaquo; Back</button><button type="button" class="go" data-a="play">Resume</button><button type="button" data-a="next" aria-label="Next segment">Next &rsaquo;</button><button type="button" data-a="speed" aria-label="Playback speed, 1x">1x</button><span class="seg" data-k="seg"></span></div>
+<a id="backbtn" class="fc-btn" href="/" aria-label="Leave the film"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H4.5M9.5 4.5L4 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<button type="button" id="soundbtn" class="fc-btn" aria-label="Mute" tabindex="-1"><svg class="on" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3.5 8.5h3l4.5-4v13l-4.5-4h-3z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M14.5 8a4 4 0 0 1 0 6M17 5.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="off" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3.5 8.5h3l4.5-4v13l-4.5-4h-3z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M14.5 8.5l5 5M19.5 8.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
 <div id="speedbadge" aria-live="polite"></div>
 <div id="hint"><span data-k="ready">Loading the music</span> · <kbd>Space</kbd> plays the film · <kbd>P</kbd> pause · <kbd>F</kbd> full screen · <kbd>M</kbd> mute · <kbd>]</kbd> speed</div>
 
@@ -2269,7 +2286,7 @@ body.script #speedbadge { display: none; }
     var hintEl = document.getElementById('hint');
     hintEl.innerHTML = '<span data-k="ready">Loading</span> · tap to play the film · tap the film to pause, then use Back and Next · on the slides, tap to go on, left edge to go back';
     // At the top: the title card's last line sits at the bottom of a phone screen.
-    hintEl.style.fontSize = '15px'; hintEl.style.padding = '0 20px';
+    hintEl.style.fontSize = '15px'; hintEl.style.padding = '0 72px';
     hintEl.style.bottom = 'auto'; hintEl.style.top = 'calc(12px + env(safe-area-inset-top, 0px))';
   }
   (function () {
@@ -2422,6 +2439,9 @@ body.script #speedbadge { display: none; }
     var show = mode === 'standby' || (mode === 'slides' && moved);
     body.classList.toggle('can-play', show);
     body.classList.toggle('tour-on', mode === 'slides');
+    // The sound switch shows from the moment the film plays until it ends.
+    body.classList.toggle('sound-ui', mode === 'film');
+    var sb = document.getElementById('soundbtn'); if (sb) sb.tabIndex = mode === 'film' ? 0 : -1;
     var tl = document.getElementById('tourlink'); if (tl) tl.tabIndex = mode === 'slides' ? 0 : -1;
     var l = playBtn.querySelector('[data-k="label"]');
     if (l) l.textContent = mode === 'slides' ? 'Play it again' : 'Play the film';
@@ -2449,18 +2469,37 @@ body.script #speedbadge { display: none; }
     scr.addEventListener('change', function () { scr.blur(); });
     scr.addEventListener('keydown', function (e) { e.stopPropagation(); });
   })();
-  // The sound button in the pause bar: the same switch as M.
+  // The sound switch in the top right: the same switch as M. Sound starts on.
   function updateSoundBtn() {
-    var b = document.querySelector('#pausebar [data-a="mute"]');
+    var b = document.getElementById('soundbtn');
     if (!b) return;
-    b.textContent = music.muted() ? 'Sound off' : 'Sound on';
-    b.setAttribute('aria-pressed', music.muted() ? 'true' : 'false');
+    var off = music.muted();
+    b.classList.toggle('is-muted', off);
+    b.setAttribute('aria-label', off ? 'Turn the sound on' : 'Mute');
   }
   (function () {
-    var b = document.querySelector('#pausebar [data-a="mute"]');
-    if (b) b.addEventListener('click', function () { music.toggleMute(); updateSoundBtn(); });
+    var b = document.getElementById('soundbtn');
+    if (b) b.addEventListener('click', function (e) { music.toggleMute(); updateSoundBtn(); if (e.detail) b.blur(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'm' || e.key === 'M') setTimeout(updateSoundBtn, 0); });
+    updateSoundBtn();
   })();
+  // The back arrow leaves the film at any point: back to the page that
+  // opened it when that page is on this site, otherwise to the home page.
+  (function () {
+    var a = document.getElementById('backbtn');
+    if (!a) return;
+    a.addEventListener('click', function (e) {
+      var here = false;
+      try { here = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (err) {}
+      if (mode === 'film' && pausedAt == null) togglePause();
+      if (here && history.length > 1) { e.preventDefault(); history.back(); }
+    });
+  })();
+  // Enter and Space on the two buttons are theirs, not the film's.
+  ['backbtn', 'soundbtn'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') e.stopPropagation(); });
+  });
 
   toStandby();
   route();

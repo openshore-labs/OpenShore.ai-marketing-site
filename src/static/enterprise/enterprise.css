@@ -162,13 +162,10 @@ main, .ent-top, .ent-foot {
 /* The product name always sits on one line: it shrinks with the screen
    rather than wrapping. */
 .ent-hero .ent-product { font-size: clamp(18px, 6.2vw, 72px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 650; white-space: nowrap; max-width: none; }
-/* The byline leans on its last word, One. */
-.ent-byline { font-size: clamp(18px, 1.7vw, 20px); line-height: 1.35; letter-spacing: -0.01em; font-weight: 500; color: var(--ink-soft); }
-/* Under the home headline (founder, 2026-11-19): the tagline. The headline
-   sits evenly between the tabs and the tagline, 32px from each (the hero's
-   top padding, and its 22px gap plus 10px here). */
-.ent-hero .ent-h1--wide + .ent-byline { margin-top: 10px; }
-.ent-byline em { font-style: normal; font-weight: 750; color: var(--sea); }
+/* The film opens the home page (founder, 2026-11-20): the poster under the
+   tabs, then the headline, with a little more room under the film than the
+   hero's own gap. */
+.ent-film--hero { width: 100%; margin-bottom: 10px; }
 .ent-hero--home { gap: 18px; }
 .ent-card h3 { font-size: 18px; font-weight: 650; }
 .ent-grid2 h3 { font-size: 18px; font-weight: 650; margin-bottom: 4px; }

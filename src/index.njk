@@ -7,12 +7,16 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
 {#- OpenShore (founder, 2026-11-10): the pitch and the ask.
     The site's home since 2026-11-16, word for word as it was at /enterprise/
     (founder: "a one-to-one replica"). How the product works is the platform
-    page (/enterprise/platform/), led by the product tour. The tagline's em
-    dash is the one scripts/check-copy.mjs lets through here. -#}
+    page (/enterprise/platform/), led by the product tour. Since 2026-11-20
+    (founder) the film opens the page, above the headline, with no caption
+    under it, and the tagline line under the headline is gone. -#}
 {%- set contact = site.enterpriseContact -%}
       <section class="ent-hero">
+        <a class="ent-film ent-film--wide ent-film--hero" href="/enterprise/promo/" aria-label="Play the OpenShore film">
+          <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" fetchpriority="high" />
+          <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
+        </a>
         <h1 class="ent-h1--wide">Tomorrow’s AI workspace, for today’s startups.</h1>
-        <p class="ent-byline">Every Team — Every Agent. Working as <em>One</em>.</p>
         <p class="ent-lede">OpenShore is a work platform for growing companies. Your team and expert AI bots share one place for chats, projects and dashboards, connected to the apps you already run and to any AI model, on your own keys.</p>
         <p class="ent-body ent-hero-why">Every startup is sailing for an open shore. We build the instruments and the crew to get them there.</p>
         <div class="ent-actions">
@@ -24,15 +28,6 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
 {% include "ent-demos.njk" %}
 
 {% include "ent-connections.njk" %}
-
-      <section class="ent-films" aria-label="The promo film">
-        <a class="ent-film ent-film--wide" href="/enterprise/promo/">
-          <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" />
-          <span class="ent-film-meta"><b>OpenShore</b><span>In under three minutes</span></span>
-          <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
-        </a>
-        <p class="ent-note">Opens full screen, with sound.</p>
-      </section>
 
       {#- Why we build it (founder, 2026-11-16; moved here from Grow with Us
           on 2026-11-17, above Pricing): two charts from his consulting
