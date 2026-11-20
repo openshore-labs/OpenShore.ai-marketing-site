@@ -1,8 +1,7 @@
 // The floating design partner button (founder, 2026-11-20). It sits at the
 // bottom of every page and goes to the offer at the foot of Pricing. While
-// one of its spots is on screen (the button in the home hero, or the offer
-// itself) it steps aside, since the reader is already there. Without this
-// script it stays put (on the home page it then stays with the hero).
+// the offer itself is on screen it steps aside, since the reader is already
+// there. Without this script it stays put.
 (function () {
   'use strict';
   var btn = document.querySelector('[data-float]');
