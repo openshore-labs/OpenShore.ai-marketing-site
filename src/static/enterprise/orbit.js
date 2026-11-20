@@ -3,10 +3,14 @@
 // by row, each by a wave washing across it, as the film's tides do. Then,
 // one after another, team, AI and apps leave their rows (the rest of each
 // row fades away) and fly onto a ring, where each bends into a badge of
-// lettering round a circle: TEAM, AI, APPS. The ring turns once, the
-// OpenShore mark rises to the surface in the middle, slowly, like a piece of
-// wood in still water, and from then on the ring keeps turning round it. On
-// a phone the picture fills the rest of the first screen.
+// lettering round a circle: TEAM, AI, APPS. The ring turns once, then the
+// OpenShore mark comes up in the middle. The screen is the water's surface,
+// seen from above, and the mark is a piece of slate floating up to it: it
+// arrives hazy from underneath, breaks the surface one corner at a time, and
+// each corner leaves small ripples. From then on it rides just above the
+// water, rocking slowly, a corner touching down now and then, while the ring
+// keeps turning round it. On a phone the picture fills the rest of the
+// first screen.
 //
 // It starts when it comes into view, and rests while it is off screen or
 // the tab is hidden. With Reduce Motion it shows the mark inside the ring,
@@ -39,8 +43,8 @@
   var TURN_AT = JOINED + 0.3;   // the ring turns once
   var TURN = 7;
   var MARK_AT = TURN_AT + TURN + 0.2;
-  var RISE = 2.2;               // the mark's rise from under the water to its peak
-  var RIPPLE = 2.8;
+  var RISE = 3.4;               // the slate's rise from under the water to its float
+  var RIPPLE = 2.4;             // a ripple's life
   var END = MARK_AT + RISE + 4; // the picture's last still frame (for Reduce Motion)
   var SPIN_AT = MARK_AT + RISE + 1.0; // from here the ring keeps turning
   var SPIN_RAMP = 3;
@@ -60,20 +64,21 @@
     return { row: row, word: row.querySelector('.orb-w'), foam: row.querySelector('.orb-foam'), extra: Array.prototype.slice.call(row.querySelectorAll('.orb-x')) };
   });
 
-  // The water layer: ripples and the ring; above it the mark, crisp above
-  // the surface, hazy under it, and its reflection.
+  // The water layer: ripples and the ring. Over it the slate, seen from
+  // above: a hazy copy for when it is under the surface, a crisp one for
+  // when it is out, and its shadow on the water.
   var water = svg('svg', 'orb-water');
-  var ripples = [svg('circle', 'orb-ripple'), svg('circle', 'orb-ripple'), svg('circle', 'orb-ripple')];
-  ripples.forEach(function (c) { water.appendChild(c); });
+  var pool = [];
+  for (var n = 0; n < 14; n++) { var c0 = svg('circle', 'orb-ripple'); water.appendChild(c0); pool.push({ c: c0, at: -99, x: 0, y: 0, k: 0, big: 1 }); }
   var ring = svg('g', 'orb-badge');
   var ringWords = [svg('g'), svg('g'), svg('g'), svg('g', 'orb-sep')]; // TEAM, AI, APPS, the dots
   ringWords.forEach(function (g) { ring.appendChild(g); });
   water.appendChild(ring);
-  var up = el('div', 'orb-up'), down = el('div', 'orb-down'), refl = el('div', 'orb-refl');
-  up.innerHTML = MARK; down.innerHTML = MARK; refl.innerHTML = MARK;
-  var upMark = up.firstChild, downMark = down.firstChild, reflMark = refl.firstChild;
+  var slate = el('div', 'orb-slate'), shade = el('div', 'orb-shade'), deep = el('div', 'orb-deep'), top = el('div', 'orb-top');
+  deep.innerHTML = MARK; top.innerHTML = MARK;
+  slate.appendChild(shade); slate.appendChild(deep); slate.appendChild(top);
   stage.insertBefore(water, stage.firstChild);
-  stage.appendChild(refl); stage.appendChild(down); stage.appendChild(up);
+  stage.appendChild(slate);
   stage.classList.add('orb-live');
 
   // Geometry, from the stage's size. On a phone the stage runs to the foot of
@@ -102,7 +107,6 @@
     var cy = Math.max(R + font, usable / 2 + 2);
     G = { W: W, H: H, cx: W / 2, cy: cy, R: R, s: s, font: font };
     water.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-    ripples.forEach(function (c) { c.setAttribute('cx', G.cx); c.setAttribute('cy', cy); });
     // The lettering: each character at its step round the circle, its top
     // facing out, reading clockwise.
     ringWords.forEach(function (g) { while (g.firstChild) g.removeChild(g.firstChild); });
@@ -132,16 +136,9 @@
       p.ta = nearest(a);
       p.ts = Math.min(1.1, font * 1.25 / parseFloat(getComputedStyle(stage).fontSize));
     });
-    // The mark, centred in the ring: its foot is the water's surface.
-    var foot = cy + s / 2;
-    G.foot = foot;
-    findSurface();
-    up.style.cssText = 'left:' + (G.cx - s / 2) + 'px;top:' + (foot - s - 14) + 'px;width:' + s + 'px;height:' + (s + 14) + 'px';
-    upMark.style.top = '14px';
-    down.style.cssText = 'left:' + (G.cx - s / 2 - 6) + 'px;top:' + foot + 'px;width:' + (s + 12) + 'px;height:' + (s * 1.6) + 'px';
-    downMark.style.left = '6px'; downMark.style.width = s + 'px'; downMark.style.top = -s + 'px';
-    refl.style.cssText = 'left:' + (G.cx - s / 2) + 'px;top:' + (foot + 1) + 'px;width:' + s + 'px;height:' + Math.round(s * 0.3) + 'px';
-    reflMark.style.top = '0px';
+    // The slate, centred in the ring.
+    slate.style.left = (G.cx - s / 2) + 'px'; slate.style.top = (cy - s / 2) + 'px';
+    slate.style.width = s + 'px'; slate.style.height = s + 'px';
   }
 
   // The ring's turn: once, then, after the mark surfaces, for good.
@@ -151,20 +148,30 @@
     if (u > 0 && !still) a += u < SPIN_RAMP ? SPIN_PACE * u * u / (2 * SPIN_RAMP) : SPIN_PACE * (u - SPIN_RAMP / 2);
     return a;
   }
-  // The mark's depth under the surface (px; below 0 it rides above it).
-  function depth(t) {
-    var u = t - MARK_AT, d0 = G.s * 1.4;
-    if (u <= 0) return d0;
-    if (u < RISE) return d0 + (-5 - d0) * inOutCubic(u / RISE);
-    var v = u - RISE;
-    return -5 * Math.exp(-v / 0.6) * Math.cos(2 * Math.PI * v / 1.0);
+  // The slate. Heights are in slate units: 0 is the water's surface, below
+  // it is under water, and it floats at about 0.5. On the way up it wobbles
+  // round, the way a flat stone does in water, which brings its corners out
+  // one after another. Once it floats, its tilt is two slow, unrelated
+  // swings per axis, so it never repeats itself.
+  var FLOAT = 0.5;
+  function smooth(x) { x = clamp(x); return x * x * (3 - 2 * x); }
+  function slateAt(t) {
+    var u = t - MARK_AT, k = u / RISE;
+    var z = u <= 0 ? -1.7 : -1.7 + (FLOAT + 1.7) * inOutSine(clamp(k));
+    if (u > RISE) z += 0.07 * Math.sin(2 * Math.PI * (u - RISE) / 4.7);
+    var wob = 0.5 * (1 - smooth((k - 0.8) / 0.45)), phi = 2 * Math.PI * u / 2.9 - 2.6;
+    var calm = smooth((k - 0.65) / 0.5);
+    var ax = wob * Math.cos(phi) + calm * (0.26 * Math.sin(2 * Math.PI * u / 5.3 + 0.4) + 0.17 * Math.sin(2 * Math.PI * u / 3.1 + 1.7));
+    var ay = wob * Math.sin(phi) + calm * (0.26 * Math.sin(2 * Math.PI * u / 6.7 + 2.1) + 0.17 * Math.sin(2 * Math.PI * u / 3.9 + 0.3));
+    if (still) { ax = 0; ay = 0; }
+    return { z: z, ax: ax, ay: ay, spin: still ? 0 : 1.6 * Math.sin(2 * Math.PI * u / 9.1), k: clamp(k) };
   }
-  // When the mark breaks the surface: where inOutCubic(k) = d0 / (d0 + 5).
-  var SURFACE = MARK_AT + RISE * 0.9;
-  function findSurface() {
-    var lo = 0, hi = 1, want = 1.4 * G.s / (1.4 * G.s + 5);
-    for (var i = 0; i < 30; i++) { var m = (lo + hi) / 2; if (inOutCubic(m) < want) lo = m; else hi = m; }
-    SURFACE = MARK_AT + lo * RISE;
+  var CORNERS = [[-1, -1], [1, -1], [1, 1], [-1, 1]];
+  var cornerH = null, cornerT = [-9, -9, -9, -9], seenT = -1, nextRipple = 0;
+  function ripple(x, y, at, big) {
+    var r = pool[nextRipple]; nextRipple = (nextRipple + 1) % pool.length;
+    r.at = at; r.x = x; r.y = y; r.big = big;
+    r.c.setAttribute('cx', x.toFixed(1)); r.c.setAttribute('cy', y.toFixed(1));
   }
 
   // A wave across a row: everything behind its front shows, and the front
@@ -210,18 +217,49 @@
     });
     ringWords[3].style.opacity = clamp((t - JOINED + 0.2) / 0.8).toFixed(3);
     ring.setAttribute('transform', 'rotate(' + ringAngle(t).toFixed(3) + ' ' + G.cx + ' ' + G.cy + ')');
-    // The mark comes up through the surface; ripples run out round it.
-    var d = depth(t), d0 = G.s * 1.4;
-    upMark.style.transform = 'translateY(' + d.toFixed(2) + 'px)';
-    downMark.style.transform = 'translateY(' + d.toFixed(2) + 'px)';
-    down.style.opacity = (0.22 * clamp((d0 - d) / (0.55 * d0))).toFixed(3);
-    refl.style.opacity = (0.11 * clamp((t - SURFACE - 0.6) / 1.4)).toFixed(3);
-    reflMark.style.transform = 'translateY(' + (-d).toFixed(2) + 'px) scaleY(-1)';
-    ripples.forEach(function (c, j) {
-      var r = (t - SURFACE - j * 0.45) / RIPPLE;
-      if (r <= 0 || r >= 1) { c.style.opacity = '0'; return; }
-      c.setAttribute('r', (G.s * 0.5 + (G.R * 1.5 - G.s * 0.5) * outCubic(r)).toFixed(1));
-      c.style.opacity = ((j ? 0.26 : 0.4) * (1 - r)).toFixed(3);
+    // The slate, from above.
+    var S = slateAt(t), s = G.s;
+    var near = clamp((S.z + 1.7) / 1.1);                 // it comes into sight from the deep
+    var out = clamp((S.z + 0.3) / 0.6);                  // 0 under the surface, 1 clear of it
+    var size = 0.86 + 0.14 * clamp((S.z + 1.7) / (FLOAT + 1.7)) + 0.012 * (S.z - FLOAT) * out;
+    slate.style.transform = 'perspective(520px) rotateX(' + (S.ay * 13).toFixed(2) + 'deg) rotateY(' + (-S.ax * 13).toFixed(2) + 'deg) rotate(' + S.spin.toFixed(2) + 'deg) scale(' + size.toFixed(4) + ')';
+    deep.style.opacity = (0.34 * near * (1 - out)).toFixed(3);
+    top.style.opacity = out.toFixed(3);
+    // The side still in the water stays hazy.
+    var low = S.z - Math.abs(S.ax) - Math.abs(S.ay);
+    if (out > 0 && low < 0.02) {
+      var deg = Math.atan2(S.ax, -S.ay) * 180 / Math.PI;
+      var m = 'linear-gradient(' + deg.toFixed(1) + 'deg, rgba(0,0,0,' + Math.max(0.12, 1 + low * 1.5).toFixed(2) + '), #000 58%)';
+      top.style.webkitMaskImage = m; top.style.maskImage = m;
+    } else if (top.style.maskImage) {
+      top.style.webkitMaskImage = ''; top.style.maskImage = '';
+    }
+    var lift = clamp(S.z / FLOAT);
+    shade.style.opacity = (0.2 * lift).toFixed(3);
+    shade.style.transform = 'translate(' + (2 + 3 * lift - S.ax * 4).toFixed(2) + 'px,' + (3 + 4 * lift - S.ay * 4).toFixed(2) + 'px)';
+    // A corner that comes up through the surface, or touches back down on
+    // it, leaves a ripple there (two rings, the second smaller).
+    var hs = CORNERS.map(function (c) { return S.z + S.ax * c[0] + S.ay * c[1]; });
+    if (cornerH && t > seenT && t - seenT < 0.2 && t > MARK_AT) {
+      var rot = S.spin * Math.PI / 180, cs = Math.cos(rot), sn = Math.sin(rot), half = s * size * 0.44;
+      CORNERS.forEach(function (c, i) {
+        var up = cornerH[i] < 0 && hs[i] >= 0, down = cornerH[i] >= 0 && hs[i] < 0;
+        if (up && t > MARK_AT + RISE + 0.5) up = false; // afloat, only a touch-down leaves a ripple
+        if ((up || down) && t - cornerT[i] > 0.9) {
+          cornerT[i] = t;
+          var x = G.cx + (c[0] * cs - c[1] * sn) * half, y = G.cy + (c[0] * sn + c[1] * cs) * half;
+          var big = up && S.k < 1 ? 1 : 0.7;
+          ripple(x, y, t, big); ripple(x, y, t + 0.38, big * 0.62);
+        }
+      });
+    }
+    cornerH = hs; seenT = t;
+    pool.forEach(function (r) {
+      var k = (t - r.at) / RIPPLE;
+      if (k <= 0 || k >= 1) { if (r.k) { r.c.style.opacity = '0'; r.k = 0; } return; }
+      r.k = k;
+      r.c.setAttribute('r', (2 + s * 0.62 * r.big * outCubic(k)).toFixed(1));
+      r.c.style.opacity = (0.42 * r.big * (1 - k) * (1 - k)).toFixed(3);
     });
   }
 

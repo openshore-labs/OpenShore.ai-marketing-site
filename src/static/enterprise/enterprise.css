@@ -830,8 +830,11 @@ html { scroll-padding-top: 64px; }
 .orb-badge text { font-family: var(--sans); font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: central; }
 .orb-badge .orb-sep text { fill: var(--wave, #4b90a3); }
 .orb-ripple { fill: none; stroke: #2f5a66; stroke-width: 1.4; }
-.orb-up, .orb-down, .orb-refl { position: absolute; overflow: hidden; pointer-events: none; }
-.orb-up svg, .orb-down svg, .orb-refl svg { position: absolute; left: 0; display: block; width: 100%; height: auto; }
-.orb-down svg { filter: blur(2.5px); }
-.orb-refl svg { filter: blur(1.5px); transform: scaleY(-1); }
-.orb-refl { -webkit-mask-image: linear-gradient(#000, transparent 85%); mask-image: linear-gradient(#000, transparent 85%); }
+/* The slate, seen from above: hazy under the surface, crisp out of it, with
+   its shadow on the water. */
+.orb-slate { position: absolute; pointer-events: none; will-change: transform; }
+.orb-slate svg { display: block; width: 100%; height: 100%; }
+.orb-deep, .orb-top, .orb-shade { position: absolute; inset: 0; }
+.orb-deep { opacity: 0; filter: blur(3.5px); }
+.orb-top { opacity: 0; }
+.orb-shade { border-radius: 23.5%; background: #1c2a33; filter: blur(7px); opacity: 0; }
