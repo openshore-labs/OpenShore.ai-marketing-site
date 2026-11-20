@@ -811,17 +811,25 @@ html { scroll-padding-top: 64px; }
 /* The home headline (founder, 2026-11-20) is a longer sentence: it gets the
    width to sit on two lines on a laptop. */
 .ent-hero h1.ent-h1--wide { max-width: 40ch; }
-/* Each half of the headline keeps its own line, in the same type, and the
-   headline is a step larger than the others (founder, 2026-11-20). */
-.ent-h1-a, .ent-h1-b { display: block; }
+/* The headline (founder, 2026-11-20): one bold line, a step larger than
+   the others. The rest of its sentence is the picture under it (.orb). */
+.ent-h1-a { display: block; }
 .ent-hero h1.ent-h1--wide { font-size: clamp(27px, 2.7vw, 31px); }
-/* The subline is the same type, a size down, one row per part, and the rows
-   rise in one after another as the page opens (founder, 2026-11-20). With
-   Reduce Motion they are simply there. */
-.ent-h1-b { margin-top: 4px; font-size: 0.78em; line-height: 1.25; }
-.ent-h1-b > span { display: block; animation: ent-row-in 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards; }
-.ent-h1-b > span:nth-child(1) { animation-delay: 350ms; }
-.ent-h1-b > span:nth-child(2) { animation-delay: 650ms; }
-.ent-h1-b > span:nth-child(3) { animation-delay: 950ms; }
-@keyframes ent-row-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .ent-h1-b > span { animation: none; } }
+.ent-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---- The headline's picture (founder, 2026-11-20) ------------------------ */
+/* A wave washes across each row to uncover it, as the film's tides do, then their words circle a ring of still water and the mark surfaces
+   in the middle (orbit.js sets every position; .orb-live is its stage).
+   Without the script the rows stand as plain text. */
+.orb { position: relative; width: 100%; max-width: 880px; margin-top: -10px; padding-top: 4px; font-size: clamp(21px, 2.1vw, 24px); line-height: 1.25; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); }
+.orb-row { position: relative; margin: 0 0 14px; white-space: nowrap; width: max-content; }
+.orb-live { overflow: hidden; height: 300px; }
+.orb-foam { position: absolute; left: 0; top: -6px; bottom: -6px; width: 40px; border-radius: 40%; background: linear-gradient(90deg, rgba(75, 144, 163, 0), rgba(75, 144, 163, 0.32) 60%, rgba(246, 244, 239, 0.9) 85%, rgba(75, 144, 163, 0)); opacity: 0; pointer-events: none; }
+.orb-water { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.orb-ring { fill: none; stroke: rgba(47, 90, 102, 0.24); stroke-width: 1.5; stroke-dasharray: 2 7; stroke-linecap: round; }
+.orb-ripple { fill: none; stroke: #2f5a66; stroke-width: 1.4; }
+.orb-up, .orb-down, .orb-refl { position: absolute; overflow: hidden; pointer-events: none; }
+.orb-up svg, .orb-down svg, .orb-refl svg { position: absolute; left: 0; display: block; width: 100%; height: auto; }
+.orb-down svg { filter: blur(2.5px); }
+.orb-refl svg { filter: blur(1.5px); transform: scaleY(-1); }
+.orb-refl { -webkit-mask-image: linear-gradient(#000, transparent 85%); mask-image: linear-gradient(#000, transparent 85%); }

@@ -16,7 +16,16 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
           <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" fetchpriority="high" />
           <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
         </a>
-        <h1 class="ent-h1--wide"><span class="ent-h1-a">The operating platform for growing startups:</span> <span class="ent-h1-b"><span>your team,</span> <span>AI agents</span> <span>and apps in one place.</span></span></h1>
+        <h1 class="ent-h1--wide"><span class="ent-h1-a">The operating platform for growing startups:</span> <span class="ent-sr">your team, AI agents and apps in one place.</span></h1>
+        {#- The headline's picture (founder, 2026-11-20): the rest of the
+            sentence rises in row by row, then becomes a ring of still water
+            with the OpenShore mark surfacing in the middle (/enterprise/orbit.js).
+            Without the script the three rows simply stand here. -#}
+        <div class="orb" data-orb aria-hidden="true">
+          <p class="orb-row"><span class="orb-x">your </span><span class="orb-w">team</span><span class="orb-x">,</span></p>
+          <p class="orb-row"><span class="orb-w">AI</span><span class="orb-x"> agents</span></p>
+          <p class="orb-row"><span class="orb-x">and </span><span class="orb-w">apps</span><span class="orb-x"> in one place.</span></p>
+        </div>
         <p class="ent-lede">OpenShore is a work platform for growing companies. Your team and expert AI bots share one place for chats, projects and dashboards, connected to the apps you already run and to any AI model, on your own keys.</p>
         <p class="ent-body ent-hero-why">Every startup is sailing for an open shore. We build the instruments and the crew to get them there.</p>
       </section>
@@ -111,3 +120,4 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
       <script src="/enterprise/charts.js?v={{ rev.entCharts }}" defer></script>
       <script src="/enterprise/commission.js?v={{ rev.entCommission }}" defer></script>
       <script src="/enterprise/hub.js?v={{ rev.entHub }}" defer></script>
+      <script src="/enterprise/orbit.js?v={{ rev.entOrbit }}" defer></script>
