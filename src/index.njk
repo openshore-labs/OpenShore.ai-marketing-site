@@ -8,19 +8,17 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
     The site's home since 2026-11-16, word for word as it was at /enterprise/
     (founder: "a one-to-one replica"). How the product works is the platform
     page (/enterprise/platform/), led by the product tour. Since 2026-11-20
-    (founder) the film opens the page, above the headline, with no caption
-    under it, and the tagline line under the headline is gone. -#}
+    (founder) the headline opens the page, under the tabs, with its picture;
+    the film, with no caption under it, closes the opening, after the two
+    paragraphs. -#}
 {%- set contact = site.enterpriseContact -%}
       <section class="ent-hero">
-        <a class="ent-film ent-film--wide ent-film--hero" href="/enterprise/promo/" aria-label="Play the OpenShore film">
-          <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" fetchpriority="high" />
-          <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
-        </a>
         <h1 class="ent-h1--wide"><span class="ent-h1-a">The operating platform for growing startups:</span> <span class="ent-sr">your team, AI agents and apps in one place.</span></h1>
         {#- The headline's picture (founder, 2026-11-20): the rest of the
-            sentence rises in row by row, then becomes a ring of still water
-            with the OpenShore mark surfacing in the middle (/enterprise/orbit.js).
-            Without the script the three rows simply stand here. -#}
+            sentence is washed in row by row, then team, AI and apps glide
+            onto a slowly turning ring and the OpenShore mark surfaces in its
+            middle (/enterprise/orbit.js). Without the script the three rows
+            simply stand here. -#}
         <div class="orb" data-orb aria-hidden="true">
           <p class="orb-row"><span class="orb-x">your </span><span class="orb-w">team</span><span class="orb-x">,</span></p>
           <p class="orb-row"><span class="orb-w">AI</span><span class="orb-x"> agents</span></p>
@@ -28,6 +26,10 @@ pageDescription: "Tomorrow's AI workspace, for today's startups. OpenShore is th
         </div>
         <p class="ent-lede">OpenShore is a work platform for growing companies. Your team and expert AI bots share one place for chats, projects and dashboards, connected to the apps you already run and to any AI model, on your own keys.</p>
         <p class="ent-body ent-hero-why">Every startup is sailing for an open shore. We build the instruments and the crew to get them there.</p>
+        <a class="ent-film ent-film--wide ent-film--hero" href="/enterprise/promo/" aria-label="Play the OpenShore film">
+          <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" loading="lazy" decoding="async" />
+          <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
+        </a>
       </section>
 
 {% include "ent-demos.njk" %}

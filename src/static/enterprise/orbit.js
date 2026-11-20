@@ -1,10 +1,12 @@
 // The headline's picture (founder, 2026-11-20). Under "The operating
 // platform for growing startups:" the rest of the sentence is uncovered row
-// by row, each by a wave washing across it, as the film's tides do. Then,
-// one after another, team, AI and apps leave their rows (the rest of each
-// row fades away) and fly onto a ring, where each bends into a badge of
-// lettering round a circle: TEAM, AI, APPS. The ring turns once, then the
-// OpenShore mark comes up in the middle. The screen is the water's surface,
+// by row, each by a wave washing across it, as the film's tides do. Then
+// the small words fade, and team, AI and apps leave their rows one after
+// another, letter by letter: each letter glides along a curve onto a slowly
+// turning ring, turning to face outward and becoming a capital on the way,
+// until they read TEAM, AI, APPS round a circle. The ring eases up to its
+// resting pace and never turns faster than that (founder, 2026-11-20). Then
+// the OpenShore mark comes up in the middle. The screen is the water's surface,
 // seen from above, and the mark is a piece of slate floating up to it: it
 // arrives hazy from underneath and breaks the surface one corner at a time.
 // Each corner sends out real ripples: trains of rings, lit from one side,
@@ -22,9 +24,8 @@
 (function () {
   'use strict';
   var stage = document.querySelector('[data-orb]');
-  if (!stage || !window.requestAnimationFrame || !document.createElementNS) return;
+  if (!stage || !window.requestAnimationFrame) return;
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var NS = 'http://www.w3.org/2000/svg';
   var MARK = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>';
 
   // The ring's lettering, one character per even step round the circle.
@@ -32,31 +33,32 @@
   var RING = 'TEAM • AI • APPS • ';
   var WORD_SLOTS = [[0, 3], [7, 8], [12, 15]];
   var STEP = 360 / RING.length;
-  var FIRST = -(WORD_SLOTS[0][0] + WORD_SLOTS[0][1]) / 2 * STEP; // TEAM sits at the top
+  // Where the ring stands as it forms: TEAM to the upper right, AI at the
+  // lower right, APPS up the left side. From the rows on the left, that lets
+  // each word's letters fan out to their places without crossing.
+  var PHASE = 50;
+  var FIRST = PHASE - (WORD_SLOTS[0][0] + WORD_SLOTS[0][1]) / 2 * STEP;
   function slotAngle(i) { return FIRST + i * STEP; }               // degrees, clockwise from the top
 
   // The clock, in seconds from when the picture starts.
   var ROW_AT = [0.3, 1.7, 3.1]; // a wave starts across each row
   var REVEAL = 1.7;             // a wave's crossing
-  var LIFT = 6.6;               // the first word lifts off (the sentence has been read)
-  var LIFT_GAP = 0.7;           // between words lifting off
-  var TRAVEL = 2.0;             // a word's flight onto the ring
-  var BEND = 0.6;               // the word bending into the ring's lettering
-  var JOINED = LIFT + 2 * LIFT_GAP + TRAVEL + BEND;
-  var TURN_AT = JOINED + 0.3;   // the ring turns once
-  var TURN = 7;
-  var MARK_AT = TURN_AT + TURN + 0.2;
+  var FADE_AT = 6.0;            // the small words fade (the sentence has been read)
+  var LIFT = 6.7;               // the first letter leaves its row
+  var WORD_GAP = 0.62;          // between words setting off
+  var LETTER_GAP = 0.085;       // between letters of a word
+  var TRAVEL = 1.9;             // a letter's glide onto the ring
+  var JOINED = LIFT + 2 * WORD_GAP + 3 * LETTER_GAP + TRAVEL;
+  var SPIN_AT = LIFT + 0.8;     // the ring starts to turn as the first letters near it
+  var SPIN_RAMP = 5;            // easing up to its pace
+  var SPIN_PACE = 360 / 24;     // degrees a second, at most: one turn in 24 seconds
+  var MARK_AT = JOINED + 1.6;   // the mark starts up once the ring is whole
   var RISE = 3.4;               // the slate's rise from under the water to its float
   var RIPPLE = 3.1;             // a ripple's life
   var END = MARK_AT + RISE + 4; // the picture's last still frame (for Reduce Motion)
-  var SPIN_AT = MARK_AT + RISE + 1.0; // from here the ring keeps turning
-  var SPIN_RAMP = 3;
-  var SPIN_PACE = 360 / 24;     // degrees a second: one turn in 24 seconds
 
   function el(tag, cls) { var e = document.createElement(tag); e.className = cls; return e; }
-  function svg(tag, cls) { var e = document.createElementNS(NS, tag); if (cls) e.setAttribute('class', cls); return e; }
   function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
-  function inOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
   function inOutSine(t) { return -(Math.cos(Math.PI * t) - 1) / 2; }
   function outCubic(t) { return 1 - Math.pow(1 - t, 3); }
   function nearest(deg) { deg = deg % 360; if (deg > 180) deg -= 360; if (deg <= -180) deg += 360; return deg; }
@@ -67,14 +69,28 @@
     return { row: row, word: row.querySelector('.orb-w'), foam: row.querySelector('.orb-foam'), extra: Array.prototype.slice.call(row.querySelectorAll('.orb-x')) };
   });
 
+  // Each letter of team, AI and apps is its own piece, so it can leave the
+  // row for its place on the ring: the letter as written in the sentence,
+  // and over it the capital it becomes.
+  var letters = [];
+  parts.forEach(function (p, w) {
+    var text = p.word.textContent;
+    p.word.textContent = '';
+    for (var i = 0; i < text.length; i++) {
+      var f = el('span', 'orb-f'), lc = el('span', 'orb-lc'), uc = el('span', 'orb-uc');
+      lc.textContent = text[i]; uc.textContent = text[i].toUpperCase();
+      f.appendChild(lc); f.appendChild(uc);
+      p.word.appendChild(f);
+      letters.push({ f: f, lc: lc, uc: uc, word: w, slot: WORD_SLOTS[w][0] + i, at: LIFT + w * WORD_GAP + i * LETTER_GAP });
+    }
+  });
+  var dots = [];
+  for (var di = 0; di < RING.length; di++) if (RING[di] === '\u2022') { var dot = el('span', 'orb-dot'); stage.appendChild(dot); dots.push({ e: dot, slot: di }); }
+
   // The layers, from the bottom: the slate under water (hazy) and its
-  // shadow; the ripples, painted on a canvas; the ring's lettering, which
-  // floats on the water; and the part of the slate that is out of the water.
-  var water = svg('svg', 'orb-water');
-  var ring = svg('g', 'orb-badge');
-  var ringWords = [svg('g'), svg('g'), svg('g'), svg('g', 'orb-sep')]; // TEAM, AI, APPS, the dots
-  ringWords.forEach(function (g) { ring.appendChild(g); });
-  water.appendChild(ring);
+  // shadow; the ripples, painted on a canvas; the rows and the ring's
+  // letters, which float on the water; and the part of the slate that is
+  // out of the water.
   var under = el('div', 'orb-slate'), over = el('div', 'orb-slate');
   var shade = el('div', 'orb-shade'), deep = el('div', 'orb-deep'), top = el('div', 'orb-top');
   deep.innerHTML = MARK; top.innerHTML = MARK;
@@ -82,8 +98,7 @@
   var waves = document.createElement('canvas');
   waves.className = 'orb-waves';
   var pen = waves.getContext && waves.getContext('2d');
-  stage.insertBefore(water, stage.firstChild);
-  stage.insertBefore(waves, water);
+  stage.insertBefore(waves, stage.firstChild);
   stage.insertBefore(under, waves);
   stage.appendChild(over);
   stage.classList.add('orb-live');
@@ -113,35 +128,21 @@
     var s = Math.round(Math.min(phone ? 88 : 116, R * 1.2)); // the mark fills the ring's middle (founder, 2026-11-20)
     var cy = Math.max(R + font, usable / 2 + 2);
     G = { W: W, H: H, cx: W / 2, cy: cy, R: R, s: s, font: font };
-    water.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-    // The lettering: each character at its step round the circle, its top
-    // facing out, reading clockwise.
-    ringWords.forEach(function (g) { while (g.firstChild) g.removeChild(g.firstChild); });
-    ring.style.fontSize = font + 'px';
-    for (var i = 0; i < RING.length; i++) {
-      var ch = RING[i];
-      if (ch === ' ') continue;
-      var a = slotAngle(i), rad = a * Math.PI / 180;
-      var x = G.cx + R * Math.sin(rad), y = cy - R * Math.cos(rad);
-      var t = svg('text');
-      t.setAttribute('x', x.toFixed(2)); t.setAttribute('y', y.toFixed(2));
-      t.setAttribute('transform', 'rotate(' + a.toFixed(2) + ' ' + x.toFixed(2) + ' ' + y.toFixed(2) + ')');
-      t.textContent = ch;
-      var w = 3;
-      for (var k = 0; k < 3; k++) if (i >= WORD_SLOTS[k][0] && i <= WORD_SLOTS[k][1]) w = k;
-      ringWords[w].appendChild(t);
-    }
-    // Where each word lands: the middle of its slots on the ring.
-    parts.forEach(function (p, k) {
-      p.w = p.word.offsetWidth; p.h = p.word.offsetHeight;
-      p.ox = p.word.offsetLeft + p.w / 2; p.oy = p.word.offsetTop + p.h / 2;   // in the row
-      p.nx = p.row.offsetLeft + p.ox; p.ny = p.row.offsetTop + p.oy;           // in the stage
-      p.row.style.transformOrigin = p.ox + 'px ' + p.oy + 'px';
-      p.rw = p.row.offsetWidth; p.rh = p.row.offsetHeight;
-      var a = slotAngle((WORD_SLOTS[k][0] + WORD_SLOTS[k][1]) / 2), rad = a * Math.PI / 180;
-      p.tx = G.cx + R * Math.sin(rad); p.ty = cy - R * Math.cos(rad);
-      p.ta = nearest(a);
-      p.ts = Math.min(1.1, font * 1.25 / parseFloat(getComputedStyle(stage).fontSize));
+    stage.style.setProperty('--ring-font', font + 'px');
+    parts.forEach(function (p) { p.rw = p.row.offsetWidth; p.rh = p.row.offsetHeight; });
+    // Where each letter stands in its row (its middle, in the stage).
+    letters.forEach(function (l) {
+      var row = l.f.offsetParent || stage;
+      l.nx = (row === stage ? 0 : row.offsetLeft) + l.f.offsetLeft + l.f.offsetWidth / 2;
+      l.ny = (row === stage ? 0 : row.offsetTop) + l.f.offsetTop + l.f.offsetHeight / 2;
+      var a = slotAngle(l.slot) * Math.PI / 180, dx = G.cx + R * Math.sin(a) - l.nx, dy = cy - R * Math.cos(a) - l.ny;
+      l.far = dx * dx + dy * dy;
+    });
+    // In each word the letter with the farthest to go leaves first, so the
+    // word opens out as it goes and no letter has to pass another.
+    [0, 1, 2].forEach(function (w) {
+      letters.filter(function (l) { return l.word === w; }).sort(function (p, q) { return q.far - p.far; })
+        .forEach(function (l, rank) { l.at = LIFT + w * WORD_GAP + rank * LETTER_GAP; });
     });
     // The slate, centred in the ring.
     [under, over].forEach(function (d) {
@@ -172,13 +173,18 @@
   }
 
 
-  // The ring's turn: once, then, after the mark surfaces, for good.
+  // The ring's turn (degrees): it eases up to its pace and holds it. Its
+  // speed is the pace times a smooth 0 to 1 ramp, so it is never faster.
   function ringAngle(t) {
-    var a = 360 * inOutSine(clamp((t - TURN_AT) / TURN));
+    if (still) return -PHASE; // at rest, TEAM sits at the top
     var u = t - SPIN_AT;
-    if (u > 0 && !still) a += u < SPIN_RAMP ? SPIN_PACE * u * u / (2 * SPIN_RAMP) : SPIN_PACE * (u - SPIN_RAMP / 2);
-    return a;
+    if (u <= 0) return 0;
+    if (u >= SPIN_RAMP) return SPIN_PACE * (u - SPIN_RAMP / 2);
+    var x = u / SPIN_RAMP;
+    return SPIN_PACE * SPIN_RAMP * (x * x * x - x * x * x * x / 2);
   }
+  // A letter's glide: a slow start, a long soft landing.
+  function glide(k) { k = smooth(k); return 1 - Math.pow(1 - k, 1.7); }
   // The slate. Heights are in slate units: 0 is the water's surface, below
   // it is under water, and it floats at about 0.5. On the way up it wobbles
   // round, the way a flat stone does in water, which brings its corners out
@@ -276,23 +282,46 @@
         p.row.style.clipPath = 'none'; p.row.style.webkitClipPath = 'none';
         p.foam.style.opacity = '0';
       }
-      // Its word flies to the ring, turning and shrinking to match the
-      // lettering there, then hands over to it.
-      var lift = LIFT + i * LIFT_GAP;
-      var k = clamp((t - lift) / TRAVEL), e = inOutCubic(k);
-      var x = (p.tx - p.nx) * e, y = (p.ty - p.ny) * e - Math.sin(Math.PI * k) * 22;
-      if (k === 0) y += (1 - outCubic(rk)) * 6; // each row settles a little as its wave passes
-      var sc = 1 + (p.ts - 1) * e;
-      p.row.style.transform = 'translate(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px)' +
-        (k > 0 ? ' rotate(' + (p.ta * e).toFixed(2) + 'deg) scale(' + sc.toFixed(3) + ')' : '');
-      var hand = clamp((t - lift - TRAVEL) / BEND);
-      p.word.style.opacity = k > 0 ? (1 - hand).toFixed(3) : '';
-      ringWords[i].style.opacity = hand.toFixed(3);
-      var fade = (1 - clamp((t - lift) / 0.55)).toFixed(3);
-      p.extra.forEach(function (x2) { x2.style.opacity = fade; });
+      if (rk < 1) p.row.style.transform = 'translateY(' + ((1 - outCubic(rk)) * 6).toFixed(2) + 'px)'; // each row settles as its wave passes
+      else if (p.row.style.transform) p.row.style.transform = '';
+      var fade = (1 - smooth((t - FADE_AT) / 0.6)).toFixed(3);
+      if (p.fade !== fade) { p.fade = fade; p.extra.forEach(function (x2) { x2.style.opacity = fade; }); }
     });
-    ringWords[3].style.opacity = clamp((t - JOINED + 0.2) / 0.8).toFixed(3);
-    ring.setAttribute('transform', 'rotate(' + ringAngle(t).toFixed(3) + ' ' + G.cx + ' ' + G.cy + ')');
+    // The letters: each leaves its row along a curve to its place on the
+    // ring, turns to face outward, and becomes its capital on the way. On
+    // the ring it simply rides round.
+    var turn = ringAngle(t), R = G.R;
+    letters.forEach(function (l) {
+      var k = clamp((t - l.at) / TRAVEL);
+      if (k <= 0) {
+        if (l.k !== 0) { l.k = 0; l.f.style.transform = ''; l.lc.style.opacity = ''; l.uc.style.opacity = ''; }
+        return;
+      }
+      l.k = k;
+      var e = glide(k), base = nearest(slotAngle(l.slot)), a = (base + turn) * Math.PI / 180;
+      var ex = G.cx + R * Math.sin(a), ey = G.cy - R * Math.cos(a);
+      var x = ex, y = ey;
+      if (k < 1) {
+        // A gentle curve from the row to the slot. Every letter's curve
+        // bends the same way, the way the ring turns, so together they
+        // read as one slow swirl and no two paths tangle.
+        var dx = ex - l.nx, dy = ey - l.ny, bow = l.word === 1 ? 0.42 : 0.2; // AI swings wide of the row below it
+        var qx = (l.nx + ex) / 2 + dy * bow, qy = (l.ny + ey) / 2 - dx * bow, m = 1 - e;
+        x = m * m * l.nx + 2 * m * e * qx + e * e * ex;
+        y = m * m * l.ny + 2 * m * e * qy + e * e * ey;
+      }
+      // It turns a little later than it moves, so the letters have drawn
+      // apart before they start to lean.
+      l.f.style.transform = 'translate(' + (x - l.nx).toFixed(2) + 'px,' + (y - l.ny).toFixed(2) + 'px) rotate(' + ((base + turn) * glide((k - 0.2) / 0.8)).toFixed(2) + 'deg)';
+      var up = smooth((k - 0.26) / 0.3); // one quick, even change of case, so the ink never thins
+      if (l.up !== up) { l.up = up; l.lc.style.opacity = (1 - up).toFixed(3); l.uc.style.opacity = up.toFixed(3); }
+    });
+    var dotIn = smooth((t - JOINED + 0.5) / 1.1);
+    dots.forEach(function (d) {
+      var a = (slotAngle(d.slot) + turn) * Math.PI / 180;
+      d.e.style.transform = 'translate(' + (G.cx + R * Math.sin(a)).toFixed(2) + 'px,' + (G.cy - R * Math.cos(a)).toFixed(2) + 'px) scale(' + (0.4 + 0.6 * dotIn).toFixed(3) + ')';
+      d.e.style.opacity = dotIn.toFixed(3);
+    });
     // The slate, from above.
     var S = slateAt(t), s = G.s;
     var near = clamp((S.z + 1.7) / 1.1);                 // it comes into sight from the deep

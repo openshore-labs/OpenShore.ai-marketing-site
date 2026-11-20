@@ -162,10 +162,10 @@ main, .ent-top, .ent-foot {
 /* The product name always sits on one line: it shrinks with the screen
    rather than wrapping. */
 .ent-hero .ent-product { font-size: clamp(18px, 6.2vw, 72px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 650; white-space: nowrap; max-width: none; }
-/* The film opens the home page (founder, 2026-11-20): the poster under the
-   tabs, then the headline, with a little more room under the film than the
+/* The film closes the home page's opening (founder, 2026-11-20): the poster
+   under the two paragraphs, with a little more room above it than the
    hero's own gap. */
-.ent-film--hero { width: 100%; margin-bottom: 10px; }
+.ent-film--hero { width: 100%; margin-top: 10px; }
 .ent-hero--home { gap: 18px; }
 .ent-card h3 { font-size: 18px; font-weight: 650; }
 .ent-grid2 h3 { font-size: 18px; font-weight: 650; margin-bottom: 4px; }
@@ -819,16 +819,19 @@ html { scroll-padding-top: 64px; }
 
 /* ---- The headline's picture (founder, 2026-11-20) ------------------------ */
 /* A wave washes across each row to uncover it, as the film's tides do, then
-   team, AI and apps fly onto a ring of lettering that turns round the mark
-   as it surfaces in the middle (orbit.js sets every position; .orb-live is its stage).
+   team, AI and apps glide letter by letter onto a ring that turns round the
+   mark as it surfaces in the middle (orbit.js sets every position; .orb-live is its stage).
    Without the script the rows stand as plain text. */
 .orb { position: relative; width: 100%; max-width: 880px; margin-top: -10px; padding-top: 4px; font-size: clamp(21px, 2.1vw, 24px); line-height: 1.25; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); }
 .orb-row { position: relative; margin: 0 0 14px; white-space: nowrap; width: max-content; }
 .orb-live { overflow: hidden; height: 300px; }
 .orb-foam { position: absolute; left: 0; top: -6px; bottom: -6px; width: 40px; border-radius: 40%; background: linear-gradient(90deg, rgba(75, 144, 163, 0), rgba(75, 144, 163, 0.32) 60%, rgba(246, 244, 239, 0.9) 85%, rgba(75, 144, 163, 0)); opacity: 0; pointer-events: none; }
-.orb-water { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.orb-badge text { font-family: var(--sans); font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: central; }
-.orb-badge .orb-sep text { fill: var(--wave, #4b90a3); }
+/* The letters that leave for the ring: each as written in the sentence, with
+   the capital it becomes over it. The dots between the ring's words. */
+.orb-f { position: relative; display: inline-block; will-change: transform; }
+.orb-lc { display: inline-block; }
+.orb-uc { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: var(--ring-font, 18px); font-weight: 700; letter-spacing: 0; line-height: 1; opacity: 0; }
+.orb-dot { position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: var(--wave, #4b90a3); opacity: 0; pointer-events: none; }
 .orb-waves { position: absolute; pointer-events: none; }
 /* The slate, seen from above: hazy under the surface, crisp out of it, with
    its shadow on the water. */
