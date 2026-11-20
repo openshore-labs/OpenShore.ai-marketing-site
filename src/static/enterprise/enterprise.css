@@ -815,3 +815,5 @@ html { scroll-padding-top: 64px; }
    headline is a step larger than the others (founder, 2026-11-20). */
 .ent-h1-a, .ent-h1-b { display: block; }
 .ent-hero h1.ent-h1--wide { font-size: clamp(27px, 2.7vw, 31px); }
+/* The subline is the same type, a size down. */
+.ent-h1-b { margin-top: 4px; font-size: 0.78em; line-height: 1.25; }
