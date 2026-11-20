@@ -26,8 +26,8 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="{{ site.name }}" />
-    <meta property="og:title" content="{{ pageTitle }}" />
-    <meta property="og:description" content="{{ pageDescription }}" />
+    <meta property="og:title" content="{{ '' if ogBlank else pageTitle }}" />
+    <meta property="og:description" content="{{ '' if ogBlank else pageDescription }}" />
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     <meta property="og:image" content="{{ site.url }}{{ pageOgImage or (('/enterprise/og-enterprise.jpg?v=') + rev.entOg) }}" />
     <meta name="twitter:card" content="summary_large_image" />
