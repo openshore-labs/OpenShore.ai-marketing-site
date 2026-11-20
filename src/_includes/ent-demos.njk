@@ -32,7 +32,7 @@
 {%- endif %}
 {%- for d in demos %}
       <div class="cd cd-panel" id="cd-{{ d.id }}"{% if demos.length > 1 %} role="tabpanel"{% endif %} aria-labelledby="cd-{{ d.id }}-h" data-cd>
-        <h3 class="ent-eyebrow" id="cd-{{ d.id }}-h">{{ d.eyebrow }}</h3>
+        <h3 class="ent-body cd-intro" id="cd-{{ d.id }}-h">{{ d.eyebrow }}</h3>
         <div class="cd-cap">
           <span class="ent-tag">Example</span>
           <button class="ent-replay" type="button" hidden aria-label="Replay the conversation">Replay</button>

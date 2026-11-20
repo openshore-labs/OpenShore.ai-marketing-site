@@ -850,3 +850,4 @@ html { scroll-padding-top: 64px; }
 .ent-partner--short .ent-badge .ent-dot { background: #bfe0e8; }
 .ent-partner--short .ent-lede a { color: #ffffff; text-decoration-color: rgba(255, 255, 255, 0.55); }
 .ent-partner--short .ent-partner-ask { margin-top: 0; }
+.cd-intro { font-weight: 400; margin: 0; }
