@@ -14,8 +14,8 @@
 // them. They are painted on the water, so the part of the slate that is out
 // of the water covers them. Once the slate is afloat the water goes still,
 // and it rides just above the surface, rocking slowly, while the ring keeps
-// turning round it. On a phone the picture fills the rest of the first
-// screen.
+// turning round it. The ring sits close round the mark, and the picture
+// is no taller than it needs to be.
 //
 // It starts when it comes into view, and rests while it is off screen or
 // the tab is hidden. With Reduce Motion it shows the mark inside the ring,
@@ -103,31 +103,23 @@
   stage.appendChild(over);
   stage.classList.add('orb-live');
 
-  // Geometry, from the stage's size. On a phone the stage runs to the foot of
-  // the first screen, and the ring keeps clear of the floating button.
-  // `room` is the height the ring may use: on a phone, what shows of the
-  // stage on the first screen above the floating button.
-  var G = null, lastW = 0, room = 0;
-  function sizeStage() {
-    if (window.innerWidth < 720) {
-      var top = stage.getBoundingClientRect().top + window.pageYOffset;
-      var shows = window.innerHeight - top;
-      stage.style.height = Math.round(Math.min(560, Math.max(200, shows + 12))) + 'px';
-      room = Math.max(130, Math.min(shows, stage.clientHeight) - 80);
-    } else {
-      stage.style.height = '';
-      room = stage.clientHeight - 10;
-    }
-  }
+  // Geometry. The ring hugs the mark (founder, 2026-11-20): its letters
+  // clear the mark's corners by a small gap, and the stage is just tall
+  // enough for the ring and the ripples' fade beyond it, so the headline
+  // sits close above and the next paragraph close below.
+  var G = null, lastW = 0;
   function measure() {
-    var W = stage.clientWidth, H = stage.clientHeight;
+    var W = stage.clientWidth;
     var phone = W < 560;
-    var usable = room || H - 10;
-    var R = Math.max(50, Math.min(phone ? 130 : 120, W / 2 - 30, (usable - 8) / 2.25));
+    var s = phone ? 88 : 116;
+    // The mark's rounded corners reach 0.61 of its side from the centre;
+    // a letter is about 0.24 of the radius tall, so solve for the radius.
+    var R = Math.round((0.61 * s + (phone ? 9 : 11)) / 0.88);
     var font = Math.round(Math.min(24, 0.72 * 2 * Math.PI * R / RING.length));
-    var s = Math.round(Math.min(phone ? 88 : 116, R * 1.2)); // the mark fills the ring's middle (founder, 2026-11-20)
-    var cy = Math.max(R + font, usable / 2 + 2);
-    G = { W: W, H: H, cx: W / 2, cy: cy, R: R, s: s, font: font };
+    var outer = R + font * 0.62, reach = Math.round(outer + (phone ? 18 : 22));
+    stage.style.height = 2 * reach + 'px';
+    var H = 2 * reach, cy = reach;
+    G = { W: W, H: H, cx: W / 2, cy: cy, R: R, s: s, font: font, outer: outer, reach: reach };
     stage.style.setProperty('--ring-font', font + 'px');
     parts.forEach(function (p) { p.rw = p.row.offsetWidth; p.rh = p.row.offsetHeight; });
     // Where each letter stands in its row (its middle, in the stage).
@@ -158,7 +150,7 @@
   var field = null;
   function sizeWaves() {
     if (!pen) return;
-    var inner = G.R + G.font * 0.7, reach = G.R + G.font * 1.5 + 26;
+    var inner = G.outer, reach = G.reach;
     var side = Math.ceil(reach * 2);
     var n = Math.max(8, Math.round(side * Math.min(1, Math.sqrt(26000 / (side * side)))));
     waves.width = n; waves.height = n;
@@ -364,10 +356,10 @@
     drawWaves(t);
   }
 
-  sizeStage(); measure();
+  measure();
   lastW = window.innerWidth;
   var clock = 0;
-  function relayout() { sizeStage(); measure(); render(clock); }
+  function relayout() { measure(); render(clock); }
   window.addEventListener('resize', function () { if (window.innerWidth !== lastW) { lastW = window.innerWidth; relayout(); } });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
   window.addEventListener('load', relayout);
