@@ -120,7 +120,7 @@ export function lockedPage({ failed = false, username = '', next = '/enterprise/
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; base-uri 'none'; form-action 'self'" />
 <title>How the Platform Works · OpenShore</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="/enterprise/enterprise.css?v=lock5" />
+<link rel="stylesheet" href="/enterprise/enterprise.css?v=lock6" />
 </head>
 <body class="ent-locked">
 <div class="ent-locked-bg" aria-hidden="true"></div>
@@ -146,6 +146,7 @@ export function lockedPage({ failed = false, username = '', next = '/enterprise/
     <a class="ent-film ent-film--wide" href="/enterprise/promo/" aria-label="Play the OpenShore film"><img src="/enterprise/promo-poster.jpg" alt="" width="960" height="540" /><span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span></a>
   </aside>
 </main>
+<a class="ent-btn ent-btn--primary ent-float" href="/pricing/#design-partners">Become a design partner</a>
 </body>
 </html>`;
 }
