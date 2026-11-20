@@ -5,10 +5,13 @@
 // each row fades away), travel onto a ring of still water and circle it once
 // together. Last, the OpenShore mark rises to the surface in the
 // middle, slowly, like a piece of wood in still water, and its ripples pass
-// under the words. On a phone the picture fills the rest of the first screen.
+// under the words. From then on the three words keep circling the mark,
+// slowly (founder, 2026-11-20). On a phone the picture fills the rest of
+// the first screen.
 //
-// It plays once, when it comes into view. With Reduce Motion it shows its
-// last frame; without this script the three rows simply stand under the
+// It starts when it comes into view, and the circling rests while it is off
+// screen or the tab is hidden. With Reduce Motion it shows the mark with the
+// words at rest; without this script the three rows simply stand under the
 // headline. Every position is set here, on transforms and opacity only.
 (function () {
   'use strict';
@@ -29,7 +32,10 @@
   var MARK_AT = LIFT + SPIN + 0.4;
   var RISE = 2.2;               // the mark's rise from deep water to its peak
   var RIPPLE = 2.8;
-  var END = MARK_AT + RISE + 3.2;
+  var END = MARK_AT + RISE + 4;     // the picture's last still frame (for Reduce Motion)
+  var CIRCLE_AT = MARK_AT + RISE + 1.2; // the words set off again round the mark
+  var CIRCLE_RAMP = 3;                  // easing into their pace
+  var CIRCLE_PACE = 2 * Math.PI / 16;   // one turn in 16 seconds
   var REST = [210, 330, 90].map(function (d) { return d * Math.PI / 180; }); // back left, back right, front
 
   function el(tag, cls) { var e = document.createElement(tag); e.className = cls; return e; }
@@ -106,7 +112,9 @@
   // a full turn after the last row has joined it.
   function angle(i, t) {
     var p = inOutSine(clamp((t - LIFT) / SPIN));
-    return REST[i] - TURNS * 2 * Math.PI * (1 - p);
+    var u = t - CIRCLE_AT, more = 0;
+    if (u > 0 && !still) more = u < CIRCLE_RAMP ? CIRCLE_PACE * u * u / (2 * CIRCLE_RAMP) : CIRCLE_PACE * (u - CIRCLE_RAMP / 2);
+    return REST[i] - TURNS * 2 * Math.PI * (1 - p) + more;
   }
   // The mark's depth under the surface (px; below 0 it rides above it).
   function depth(t) {
@@ -195,24 +203,31 @@
     return;
   }
   render(0);
-  var last = null, started = false;
+  // One clock runs it all. It stops while the picture is off screen (and
+  // the browser stops it while the tab is hidden), and picks up where it was.
+  var last = null, started = false, onScreen = true, frame = 0;
   function tick(now) {
+    frame = 0;
     if (last !== null) clock += Math.min(0.05, (now - last) / 1000);
     last = now;
     render(clock);
-    if (clock < END) requestAnimationFrame(tick);
+    if (onScreen) frame = requestAnimationFrame(tick);
   }
-  function start() {
-    if (started) return;
-    started = true;
-    requestAnimationFrame(tick);
+  function go() {
+    if (started && onScreen && !frame) { last = null; frame = requestAnimationFrame(tick); }
   }
   if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); start(); } });
-    }, { threshold: 0.35 });
-    io.observe(stage);
+    onScreen = false;
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!started && e.intersectionRatio >= 0.35) started = true;
+        onScreen = e.isIntersecting;
+        if (!onScreen && frame) { cancelAnimationFrame(frame); frame = 0; }
+        go();
+      });
+    }, { threshold: [0, 0.35] }).observe(stage);
   } else {
-    start();
+    started = true;
+    go();
   }
 })();
