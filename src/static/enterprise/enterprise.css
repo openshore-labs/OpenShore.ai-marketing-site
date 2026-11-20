@@ -811,9 +811,7 @@ html { scroll-padding-top: 64px; }
 /* The home headline (founder, 2026-11-20) is a longer sentence: it gets the
    width to sit on two lines on a laptop. */
 .ent-hero h1.ent-h1--wide { max-width: 40ch; }
-/* Each half of the headline keeps its own line. On a phone the second half
-   steps down to a subline, so the bold headline reads in two lines. */
+/* Each half of the headline keeps its own line, in the same type, and the
+   headline is a step larger than the others (founder, 2026-11-20). */
 .ent-h1-a, .ent-h1-b { display: block; }
-@media (max-width: 600px) {
-  .ent-h1-b { margin-top: 6px; font-size: 20px; line-height: 1.3; font-weight: 550; letter-spacing: -0.01em; color: var(--ink-soft); }
-}
+.ent-hero h1.ent-h1--wide { font-size: clamp(27px, 2.7vw, 31px); }
