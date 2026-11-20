@@ -90,38 +90,56 @@ The founder repositioned the site on 2026-11-16:
   at day 90; the founding price is today's list price held for two years
   (not a discount); the technical contact need not be an engineer.
 
-## Home page focus (2026-11-19)
+## Home page focus (2026-11-19, settled 2026-11-20)
 
+- The hero: the turning ring of TEAM, AI, AGENTS and APPS with the mark
+  surfacing in it (`static/enterprise/orbit.js`), the headline "The
+  operating platform for growing startups" in sentence case (its
+  screen-reader span carries the rest of the sentence), then "OpenShore is
+  the operating platform for growing companies." No visible subhead.
+- The status pill in the header reads "Piloting now. Design with us." on
+  every page and the product tour's sign-in page. It stands still (no
+  ticker) and is never cut off: on a narrow phone each sentence takes its
+  own line.
 - The home page plays one worked example, the commission fix (the job the
-  pilot starts with), then names the other bots in one line each (`more` in
-  `src/_data/entDemos.js`). All the examples play, behind tabs, in the
-  product tour's Workers section. `ent-demos.njk` takes `demoIds` to choose.
-- Why we build it (the Greiner chart) moved to About. The illustrative cost
-  chart is gone; its point is one sentence under the Greiner chart.
+  pilot starts with), with no tab row, then "More bots, one per part of the
+  business", one line each (`more` in `src/_data/entDemos.js`). All five
+  examples play, behind tabs, in the product tour's Workers section.
+  `ent-demos.njk` takes `demoIds` to choose.
+- The setup box keeps the title "No CTO or CIO needed" and names the
+  technical contact: whoever holds the cloud and admin accounts today, often
+  an operator, not an engineer.
+- Why we build it (the Greiner chart) left the home page for About, where it
+  comes first: Why we build it (the problem), Our mission (the answer),
+  Growth principles (how we work), The founder (who leads it). `charts.js`
+  loads on About only. The illustrative cost chart is gone; its point is one
+  sentence before "That gap is why we build OpenShore", and the source note
+  ends "The OpenShore paths show where we come in."
 - Every why line carries a checked figure: the inventory study is described
   by its size (nearly 370,000 records, 37 stores), and the analytics line
   carries the carriers' 5.9% average 2026 rate rise.
-- The founder's tenure reads nine years (Amazon 2017 to Microsoft 2026), not
-  15+.
+- The setup term: the $5,000 setup is paid when we install, credited against
+  the first year if the partner stays, and covers the setup work if they
+  leave at day 90. "At our cost" is now "with no OpenShore fee".
+- The founder's tenure, on Pricing and About: more than 15 years in
+  operations, the last 10 building the revenue operations, planning and AI
+  systems behind businesses as large as $200B at Amazon, AWS and Microsoft.
 - Support access (founder, 2026-11-18): privacy first, but OpenShore needs
-  to maintain and improve each install. By default it sees system health data
-  with no customer content (errors, uptime, versions; "system" added
-  2026-11-19 so it never reads as medical data); deeper access is with the
-  customer's permission, limited to that task, logged, and revocable; data is
-  never sold or used to train AI models. The founder approved this exact
-  language on 2026-11-19, matching the Design Partner Program doc. It appears,
-  word for word, in the Security section, the design partner guardrails, the
+  to maintain and improve each install. By default it sees service telemetry
+  (errors, uptime, versions) with no customer content; the term was chosen
+  on 2026-11-20 so it never reads as medical data.
+  Deeper access is with the customer's permission, limited to that task,
+  logged, and revocable; data is never sold or used to train AI models. It
+  appears in the Security section, the design partner guardrails, the
   platform page's trust list and the privacy policy. The product
   (openshore.enterprise) must enforce it.
 - Applying is by email for now. A three-question form and a Book a call
   link are built and deferred (founder, 2026-11-18) on the
   `site-form-and-calendar` branch.
 - The OS Code by OpenShore foot line is off the OpenShore pages.
-- The worked examples sit behind two tabs (`_includes/ent-demos.njk`):
-  Revenue ops (the commission fix) and Supply chain (`ent-inventory.njk`,
-  stock received at the wrong warehouse). `static/enterprise/commission.js`
-  plays each panel on its own clock and runs the tabs; without it both
-  panels show, still and complete.
+- `static/enterprise/commission.js` plays each worked example on its own
+  clock and runs the tabs where there is more than one; without it every
+  panel shows, still and complete.
 
 ## Build
 

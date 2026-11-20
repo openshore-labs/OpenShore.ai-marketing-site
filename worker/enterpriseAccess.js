@@ -120,11 +120,11 @@ export function lockedPage({ failed = false, username = '', next = '/enterprise/
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; base-uri 'none'; form-action 'self'" />
 <title>How the Platform Works · OpenShore</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="/enterprise/enterprise.css?v=lock6" />
+<link rel="stylesheet" href="/enterprise/enterprise.css?v=lock7" />
 </head>
 <body class="ent-locked">
 <div class="ent-locked-bg" aria-hidden="true"></div>
-<header class="ent-top ent-top--locked"><a class="ent-brand" href="/" aria-label="OpenShore, home"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg><span><b>OpenShore</b></span></a><p class="ent-badge ent-badge--ticker ent-badge--top"><span class="ent-dot" aria-hidden="true"></span><span class="ent-ticker"><span class="ent-ticker-track"><span>Now piloting with design partners</span><span class="ent-ticker-copy" aria-hidden="true">Now piloting with design partners</span></span></span></p></header>
+<header class="ent-top ent-top--locked"><a class="ent-brand" href="/" aria-label="OpenShore, home"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1c2a33" /><g transform="translate(0 -0.81)"><line x1="7" y1="13" x2="25" y2="13" stroke="#f6f4ef" stroke-width="2" stroke-linecap="round" /><path d="M7 19q4.5-3.3 9 0t9 0" fill="none" stroke="#4b90a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg><span><b>OpenShore</b></span></a><a class="ent-badge ent-badge--top" href="/pricing/#design-partners"><span class="ent-dot" aria-hidden="true"></span><span class="ent-pill-t"><span>Piloting now.</span> <span>Design with us.</span></span></a></header>
 <nav class="ent-tabs ent-tabs--locked" aria-label="OpenShore"><div class="ent-tabs-row">${entTabs.map((t) => `<a href="${t.href}"${t.locked ? ' aria-current="page"' : ''}>${esc(t.label)}</a>`).join('')}</div></nav>
 <main class="ent-lock">
   <form class="ent-lock-card" method="post" action="/enterprise/platform/">

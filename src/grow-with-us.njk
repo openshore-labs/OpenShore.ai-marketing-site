@@ -4,18 +4,14 @@ permalink: /grow-with-us/
 pageTitle: "About · OpenShore"
 pageDescription: "Why OpenShore exists: our mission, the principles we build by, and the founder behind it."
 ---
-{#- Grow with Us (founder, 2026-11-16): the mission, the principles from the
-    business plan's appendix, then the founder. The words live in
+{#- About (founder, 2026-11-16; this order 2026-11-20): why we build it
+    (the problem), our mission (the answer), the growth principles from the
+    business plan's appendix (how we work), then the founder (who leads it). The words live in
     src/_data/growWithUs.js; an empty section is left off the page. -#}
 {%- set g = growWithUs -%}
-      <section class="ent-sec ent-sec--first" aria-labelledby="mission-h">
-        <h1 class="ent-eyebrow" id="mission-h">Our mission</h1>
-        <p class="ent-statement">{{ g.mission }}</p>
-        <p class="ent-body">{{ g.missionLine }}</p>
-      </section>
-
       {#- Why we build it (founder, 2026-11-16; on the home page from
-          2026-11-17, back here on 2026-11-19 so the home page keeps to what
+          2026-11-17, here since 2026-11-19, and first on the page since
+          2026-11-20: the problem, then the mission that answers it so the home page keeps to what
           OpenShore does; the illustrative cost chart is gone, its point is
           one sentence in the close): charts from his consulting
           work, redrawn for the site with no client named. The first is
@@ -25,8 +21,8 @@ pageDescription: "Why OpenShore exists: our mission, the principles we build by,
           second is illustrative and says so. Both draw themselves when they scroll into view
           (/enterprise/charts.js); without it, or with Reduce Motion, they
           stay still and complete. -#}
-      <section class="ent-sec" aria-labelledby="why-h">
-        <h2 class="ent-eyebrow" id="why-h">Why we build it</h2>
+      <section class="ent-sec ent-sec--first" aria-labelledby="why-h">
+        <h1 class="ent-eyebrow" id="why-h">Why we build it</h1>
         <h3 class="ent-h">Every startup reaches the same scaling points. We build for them.</h3>
         <div class="ent-charts ent-charts--one">
           <figure class="ent-chart">
@@ -77,6 +73,12 @@ pageDescription: "Why OpenShore exists: our mission, the principles we build by,
       </section>
 
       <script src="/enterprise/charts.js?v={{ rev.entCharts }}" defer></script>
+
+      <section class="ent-sec" aria-labelledby="mission-h">
+        <h2 class="ent-eyebrow" id="mission-h">Our mission</h2>
+        <p class="ent-statement">{{ g.mission }}</p>
+        <p class="ent-body">{{ g.missionLine }}</p>
+      </section>
 
 {% if g.principles.length %}
       <section class="ent-sec" aria-labelledby="principles-h">

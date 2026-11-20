@@ -189,27 +189,6 @@ main, .ent-top, .ent-foot {
 .ent-doc a { word-break: break-word; }
 .ent-foot nav a[aria-current="page"] { color: var(--ink); }
 
-/* ---- The home's badge on a phone (2026-11-16) -------------------------- */
-/* The badge stays on one line so the headline leads the page: where it would
-   wrap, its text scrolls slowly in place instead (two copies, so the loop
-   has no seam). Reduced motion lets it wrap as before. */
-.ent-badge--ticker { max-width: 100%; }
-.ent-ticker { overflow: hidden; min-width: 0; white-space: nowrap; }
-.ent-ticker-copy { display: none; }
-@media (max-width: 480px) {
-  .ent-ticker { -webkit-mask-image: linear-gradient(90deg, transparent, #000 10px, #000 calc(100% - 22px), transparent); mask-image: linear-gradient(90deg, transparent, #000 10px, #000 calc(100% - 22px), transparent); }
-  .ent-ticker-track { display: inline-flex; animation: ent-ticker 16s linear infinite; will-change: transform; }
-  .ent-ticker-track > span { padding-right: 2.5em; }
-  .ent-ticker-copy { display: inline; }
-}
-@keyframes ent-ticker { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) {
-  .ent-ticker { white-space: normal; -webkit-mask-image: none; mask-image: none; }
-  .ent-ticker-track { animation: none; display: inline; }
-  .ent-ticker-track > span { padding-right: 0; }
-  .ent-ticker-copy { display: none !important; }
-}
-
 /* ---- The tabs under the header (2026-11-16) --------------------------- */
 .ent-tabs { max-width: 1080px; margin: 0 auto; padding-left: var(--gutter); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 /* The rule under the row is an inset shadow, not a border, so the current
@@ -250,23 +229,16 @@ main, .ent-top, .ent-foot {
 .ent-top--locked, .ent-tabs--locked { position: relative; z-index: 1; }
 .ent-locked .ent-lock { min-height: calc(100dvh - 130px); align-items: flex-start; padding-top: 32px; }
 
-/* The badge on the header row, beside OpenShore (2026-11-16). It takes the
-   room the row has left and scrolls where its text would not fit. */
+/* The badge on the header row, beside OpenShore (2026-11-16). */
 .ent-brand { flex: none; }
 .ent-badge--top { min-width: 0; font-size: 13px; padding: 6px 12px; gap: 8px; }
 .ent-badge--top .ent-dot { width: 7px; height: 7px; }
-@media (max-width: 640px) {
-  .ent-top { gap: 14px; }
-  .ent-badge--top .ent-ticker { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8px, #000 calc(100% - 18px), transparent); mask-image: linear-gradient(90deg, transparent, #000 8px, #000 calc(100% - 18px), transparent); }
-  .ent-badge--top .ent-ticker-track { display: inline-flex; animation: ent-ticker 16s linear infinite; will-change: transform; }
-  .ent-badge--top .ent-ticker-track > span { padding-right: 2.5em; }
-  .ent-badge--top .ent-ticker-copy { display: inline; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ent-badge--top .ent-ticker { white-space: nowrap; text-overflow: ellipsis; }
-  .ent-badge--top .ent-ticker-track { animation: none; }
-  .ent-badge--top .ent-ticker-copy { display: none !important; }
-}
+@media (max-width: 640px) { .ent-top { gap: 14px; } }
+/* The status pill stands still and is never cut off (founder, 2026-11-20):
+   each sentence keeps its own line when the row is too narrow for both. */
+.ent-badge--top { flex: 0 1 auto; border-radius: 18px; line-height: 1.3; }
+.ent-pill-t { display: flex; flex-wrap: wrap; column-gap: 0.3em; }
+.ent-pill-t > span { white-space: nowrap; }
 
 /* A page that opens straight on a section: the tabs carry the rule above it. */
 .ent-sec--first { border-top: 0; padding-top: 56px; }
