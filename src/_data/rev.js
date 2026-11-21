@@ -53,5 +53,7 @@ export default {
   // The illustrations on Pricing, Security and About.
   entIllus: rev("src/static/enterprise/illus.js"),
   entFloat: rev("src/static/enterprise/float.js"),
+  // The price calculator on Pricing.
+  entPricing: rev("src/static/enterprise/pricing.js"),
   entOrbit: rev("src/static/enterprise/orbit.js"),
 };

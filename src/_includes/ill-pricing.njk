@@ -1,17 +1,35 @@
-{#- The bill builds itself (founder, 2026-11-19): the page's own example, a
-    20-person company with one bot at $660 a month, drawn as a bill (founder,
-    2026-11-20: the size floor is now 2 people, so the example is smaller). Plays
-    once in view (/enterprise/illus.js); still and complete without it. -#}
-<figure class="ill ill-bill" data-illus role="img" aria-label="The example bill: 20 people at $8 is $160, one bot is $500, $660 a month.">
-  <div class="ill-bill-row">
-    <div class="ill-people" data-stagger aria-hidden="true">{% for i in range(20) %}<i></i>{% endfor %}</div>
-    <div class="ill-bill-l"><b>20 people</b><span>× $8 a month</span></div>
-    <div class="ill-bill-v">$160</div>
+{#- The bill (founder, 2026-11-19), now the page's price calculator
+    (founder, 2026-11-21: "use it as the format to show the range"). It
+    renders as a 20-person company with one bot; /enterprise/pricing.js
+    reveals the team size slider and bot buttons and redraws the bill. Without
+    the script it stays the still, complete 20-person example. Prices here
+    must match the price list beside it and the data-* rates on the figure. -#}
+<div class="ent-calc" data-calc>
+  <div class="ent-calc-ctl" data-calc-ctl hidden>
+    <div class="ent-calc-field">
+      <label for="calc-n">Team size</label>
+      <output for="calc-n" data-out-n>20 people</output>
+    </div>
+    <input id="calc-n" type="range" min="2" max="300" step="1" value="20" data-in-n aria-valuetext="20 people" />
+    <div class="ent-calc-field">
+      <span id="calc-b-l">Bots</span>
+      <div class="ent-calc-bots" role="group" aria-labelledby="calc-b-l">
+        {%- for b in [1, 2, 3, 4, 5] %}<button type="button" data-bots="{{ b }}" aria-pressed="{{ 'true' if b == 1 else 'false' }}">{{ b }}</button>{% endfor -%}
+      </div>
+    </div>
   </div>
-  <div class="ill-bill-row ill-bill-row--bot">
-    <div class="ill-bot" aria-hidden="true">{% include "ill-mark.njk" %}</div>
-    <div class="ill-bill-l"><b>1 bot</b><span>× $500 a month</span></div>
-    <div class="ill-bill-v">$500</div>
-  </div>
-  <div class="ill-bill-total"><span>A month</span><b>$660</b></div>
-</figure>
+  <figure class="ill ill-bill" data-illus data-seat="8" data-free="10" data-bot="500" role="img" aria-label="The bill for 20 people and one bot: 20 people at $8 is $160, one bot is $500, $660 a month, plus the one-time $5,000 setup.">
+    <div class="ill-bill-row">
+      <div class="ill-people" data-stagger data-dots aria-hidden="true">{% for i in range(20) %}<i></i>{% endfor %}</div>
+      <div class="ill-bill-l"><b data-l-n>20 people</b><span data-l-rate>× $8 a month</span></div>
+      <div class="ill-bill-v" data-v-n>$160</div>
+    </div>
+    <div class="ill-bill-row ill-bill-row--bot">
+      <div class="ill-bot" data-bots-icons aria-hidden="true">{% include "ill-mark.njk" %}</div>
+      <div class="ill-bill-l"><b data-l-b>1 bot</b><span>× $500 a month</span></div>
+      <div class="ill-bill-v" data-v-b>$500</div>
+    </div>
+    <div class="ill-bill-total"><span>A month</span><b data-v-t>$660</b></div>
+    <div class="ill-bill-once"><span>Plus one-time setup</span><span>$5,000</span></div>
+  </figure>
+</div>

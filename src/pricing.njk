@@ -12,7 +12,8 @@ pageDescription: "Simple pricing, sized to your team: the workspace per person, 
       <section class="ent-sec ent-sec--first" aria-labelledby="price-h">
         <h1 class="ent-eyebrow" id="price-h">Pricing</h1>
         <h3 class="ent-h">Simple pricing, sized to your team.</h3>
-        <div class="ent-split">
+        <div class="ent-split ent-split--calc">
+{% include "ill-pricing.njk" %}
           <div>
         <ul class="ent-price" role="list">
           <li><span class="ent-price-k"><b>Workspace</b><span>Free for up to 10 people. From 11 on, everyone is billed.</span></span><span class="ent-price-v">$8<small>a person / month</small></span></li>
@@ -21,30 +22,13 @@ pageDescription: "Simple pricing, sized to your team: the workspace per person, 
           <li><span class="ent-price-k"><b>Your AI</b><span>Runs on your own model keys, billed by your provider. We never mark it up.</span></span><span class="ent-price-v">At cost</span></li>
           <li><span class="ent-price-k"><b>Some services</b><span>Like ticket triage.</span></span><span class="ent-price-v">By the work done</span></li>
         </ul>
-          </div>
-{% include "ill-pricing.njk" %}
-        </div>
-      </section>
-
-      <section class="ent-sec" aria-labelledby="size-h">
-        <h2 class="ent-eyebrow" id="size-h">What you’d pay</h2>
-        <h3 class="ent-h">A month, by team size.</h3>
-        <div class="ent-table-wrap">
-          <table class="ent-table">
-            <thead><tr><th scope="col">Team</th><th scope="col">Workspace</th><th scope="col">With 1 bot</th><th scope="col">With 2 bots</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Up to 10 people</th><td>Free</td><td>$500</td><td>$1,000</td></tr>
-              <tr><th scope="row">20 people</th><td>$160</td><td>$660</td><td>$1,160</td></tr>
-              <tr><th scope="row">50 people</th><td>$400</td><td>$900</td><td>$1,400</td></tr>
-              <tr><th scope="row">100 people</th><td>$800</td><td>$1,300</td><td>$1,800</td></tr>
-              <tr><th scope="row">250 people</th><td>$2,000</td><td>$2,500</td><td>$3,000</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="ent-note">Plus the one-time $5,000 setup and your AI at cost. <a href="#design-partners">Design partners</a> start with a 90-day pilot with no OpenShore fee and lock the bot price for two years.</p>
+        <p class="ent-note"><a href="#design-partners">Design partners</a> start with a 90-day pilot with no OpenShore fee and lock the bot price for two years.</p>
         <div class="ent-actions">
           <a class="ent-btn" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Pricing: OpenShore' | urlencode }}">Ask about pricing <span aria-hidden="true">&rarr;</span></a>
         </div>
+          </div>
+        </div>
       </section>
+      <script src="/enterprise/pricing.js?v={{ rev.entPricing }}" defer></script>
 
 {% include "ent-partner.njk" %}
