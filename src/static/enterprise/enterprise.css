@@ -163,7 +163,7 @@ main, .ent-top, .ent-foot {
    rather than wrapping. */
 .ent-hero .ent-product { font-size: clamp(18px, 6.2vw, 72px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 650; white-space: nowrap; max-width: none; }
 /* The film closes the home page's opening (founder, 2026-11-20): the poster
-   under the two paragraphs, with a little more room above it than the
+   under the lede, followed by the sign-off line, with a little more room above it than the
    hero's own gap. */
 .ent-film--hero { width: 100%; margin-top: 10px; }
 .ent-hero--home { gap: 18px; }
@@ -348,7 +348,7 @@ main, .ent-top, .ent-foot {
    "slightly bigger than the normal copy"): a page headline 24 to 28px, a
    section headline 21 to 24px, a statement 20 to 22px, beside 18px copy
    (the rules above). */
-.ent-hero-why { max-width: 60ch; margin-top: -6px; }
+.ent-hero-why { max-width: 60ch; margin-top: 4px; }
 
 /* The mockup on the Product Tour page (2026-11-18): the founder's
    commission scene, drawn in the app's own colours, labelled a mockup. */
