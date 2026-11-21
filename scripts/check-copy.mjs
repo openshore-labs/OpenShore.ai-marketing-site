@@ -52,9 +52,14 @@ const WEB_APP_DIRS = new Set([join(WEB_APP, 'assets'), join(WEB_APP, 'app-icons'
 // spelling fails here. Any other em dash on those pages fails too.
 // Since 2026-11-16 the Enterprise page is the site's home (/), and
 // /enterprise/ redirects there. Its tagline line came off on 2026-11-20
-// (founder), so the home page no longer gets the exception.
+// (founder), so the home page lost the exception then. It came back on
+// 2026-11-21 (founder), when the tagline became the home page's title, em
+// dash and all, on purpose: only the tagline's exact words, not the films'
+// lone-dash span.
 const FILM_PAGES = new Set([join(ROOT, 'enterprise', 'promo', 'index.html'), join(ROOT, 'enterprise', 'tour', 'index.html')]);
 const TAGLINE = /Every Team \u2014 Every Agent\.|>\u2014<\/span>/g;
+const HOME_PAGE = join(ROOT, 'index.html');
+const HOME_TAGLINE = /Every Team \u2014 Every Agent\./g;
 
 function walk(dir) {
   const out = [];
@@ -70,10 +75,10 @@ function walk(dir) {
 
 const violations = [];
 for (const file of walk(ROOT)) {
-  const film = FILM_PAGES.has(file);
+  const allowed = FILM_PAGES.has(file) ? TAGLINE : file === HOME_PAGE ? HOME_TAGLINE : null;
   const lines = readFileSync(file, 'utf8').split('\n');
   lines.forEach((raw, i) => {
-    const line = film ? raw.replace(TAGLINE, (m) => m.replace(EM_DASH, '-')) : raw;
+    const line = allowed ? raw.replace(allowed, (m) => m.replace(EM_DASH, '-')) : raw;
     let col = line.indexOf(EM_DASH);
     while (col !== -1) {
       violations.push({ file, line: i + 1, col: col + 1, text: line.trim().slice(0, 100) });
