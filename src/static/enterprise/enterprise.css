@@ -502,6 +502,7 @@ main, .ent-top, .ent-foot {
 .cd-rule-t { font-size: 18px; font-weight: 600; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink); }
 .cd-rule-run { display: flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--sea); }
 .cd-tick { display: block; width: 20px; height: 20px; flex: none; }
+.cd-govern { margin: 6px 0 0; font-size: 14.5px; line-height: 1.45; color: var(--muted); }
 @container (min-width: 560px) {
   .cd-loop-body { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 36px; }
 }
@@ -820,6 +821,7 @@ html { scroll-padding-top: 64px; }
    the capital it becomes over it. The dots between the ring's words. */
 .orb-f { position: relative; display: inline-block; will-change: transform; }
 .orb-lc { display: inline-block; }
+.orb-uc::before { content: attr(data-c); }
 .orb-uc { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: var(--ring-font, 18px); font-weight: 700; letter-spacing: 0; line-height: 1; opacity: 0; }
 .orb-dot { position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: var(--wave, #4b90a3); opacity: 0; pointer-events: none; }
 .orb-waves { position: absolute; pointer-events: none; }

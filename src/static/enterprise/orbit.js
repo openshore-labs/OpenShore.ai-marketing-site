@@ -98,14 +98,16 @@
 
   // Each letter of team, AI, agents and apps is its own piece, so it can
   // leave the row for its place on the ring: the letter as written in the
-  // sentence, and over it the capital it becomes.
+  // sentence, and over it the capital it becomes. The capital is drawn by
+  // CSS from data-c, not written as text, so the page's text still reads
+  // "your team, AI agents and apps" (not "tTeEaAmM") to readers and crawlers.
   var letters = [];
   Array.prototype.forEach.call(stage.querySelectorAll('.orb-w'), function (word, w) {
     var text = word.textContent;
     word.textContent = '';
     for (var i = 0; i < text.length; i++) {
       var f = el('span', 'orb-f'), lc = el('span', 'orb-lc'), uc = el('span', 'orb-uc');
-      lc.textContent = text[i]; uc.textContent = text[i].toUpperCase();
+      lc.textContent = text[i]; uc.setAttribute('data-c', text[i].toUpperCase());
       f.appendChild(lc); f.appendChild(uc);
       word.appendChild(f);
       letters.push({ f: f, lc: lc, uc: uc, word: w, slot: WORD_SLOTS[w][0] + i, at: LIFT });
