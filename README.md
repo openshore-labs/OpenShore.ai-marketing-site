@@ -110,12 +110,11 @@ The founder repositioned the site on 2026-11-16:
 - The setup box keeps the title "No CTO or CIO needed" and names the
   technical contact: whoever holds the cloud and admin accounts today, often
   an operator, not an engineer.
-- Why we build it (the Greiner chart) left the home page for About, where it
-  comes first: Why we build it (the problem), Our mission (the answer),
-  Growth principles (how we work), The founder (who leads it). `charts.js`
-  loads on About only. The illustrative cost chart is gone; its point is one
-  sentence before "That gap is why we build OpenShore", and the source note
-  ends "The OpenShore paths show where we come in."
+- Why we build it (the Greiner chart) sits on the home page again since
+  2026-11-21 (founder), after the bots ("More bots") and before Connections,
+  with its copy cut to a few sentences. About now runs Our mission, Growth
+  principles, The founder. `charts.js` loads on the home page only. The
+  source note ends "The OpenShore paths show where we come in."
 - Every why line carries a checked figure: the inventory study is described
   by its size (nearly 370,000 records, 37 stores), and the analytics line
   carries the carriers' 5.9% average 2026 rate rise.
