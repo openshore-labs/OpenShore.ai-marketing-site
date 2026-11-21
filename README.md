@@ -111,7 +111,8 @@ The founder repositioned the site on 2026-11-16:
   technical contact: whoever holds the cloud and admin accounts today, often
   an operator, not an engineer.
 - Why we build it (the Greiner chart) sits on the home page again since
-  2026-11-21 (founder), after the bots ("More bots") and before Connections,
+  2026-11-21 (founder), just below Connections (after the bots and
+  before Connections until later that day),
   with its copy cut to a few sentences. About now runs Our mission, Growth
   principles, The founder. `charts.js` loads on the home page only. The
   source note ends "The OpenShore paths show where we come in."
