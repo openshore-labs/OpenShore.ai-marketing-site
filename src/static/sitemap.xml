@@ -1,48 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  lastmod tells Google and Bing (and so Gemini and ChatGPT search) that a page
+  changed and is worth re-crawling. Without it they re-crawl on their own slow
+  schedule, and AI tools keep quoting the old copy (2026-11-21: both were still
+  describing the site from before the 2026-11-16 relaunch). When a page's
+  visible copy changes, set its lastmod to that day; leave it alone otherwise,
+  because search engines stop trusting a lastmod that moves without real
+  changes. After the deploy, run `npm run indexnow` (README: Search freshness).
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://openshore.ai/</loc>
+    <lastmod>2026-11-21</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/pricing/</loc>
+    <lastmod>2026-11-21</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/security/</loc>
+    <lastmod>2026-11-21</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/grow-with-us/</loc>
+    <lastmod>2026-11-21</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/privacy/</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/terms/</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/support/</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/os-code/</loc>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/os-code/llm-choice/</loc>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/os-code/privacy/</loc>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/os-code/sustainability/</loc>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/os-code/ethics/</loc>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/os-code/self-hosting/</loc>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/os-code/support/</loc>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://openshore.ai/os-code/terms/</loc>
+    <lastmod>2026-11-19</lastmod>
   </url>
 </urlset>

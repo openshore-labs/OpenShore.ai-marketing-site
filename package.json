@@ -11,7 +11,8 @@
     "serve": "eleventy --serve",
     "clean": "rm -rf _site",
     "test": "node --test worker/downloads.test.js worker/appShell.test.js worker/enterpriseAccess.test.js scripts/sign-in-continue.test.js",
-    "enterprise:access": "node scripts/enterprise-access.mjs"
+    "enterprise:access": "node scripts/enterprise-access.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"

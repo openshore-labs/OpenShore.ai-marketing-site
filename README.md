@@ -171,6 +171,26 @@ deploy key), DNS + TLS + cache live in one pane.
    the `Open-Shore-LLC-Homepage` Pages project** — a domain can only be
    attached to one Pages project at a time.
 
+## Search freshness: keeping Google, Bing and AI answers current (2026-11-21)
+
+ChatGPT and Gemini answer from search indexes (Bing's, and Google's), not
+from a live visit. The live site serves the current build to every crawler:
+Cloudflare's AI-crawler blocking is off, robots.txt allows everything, and
+Always Online is off. So when they quote old copy, the index is stale, and the
+fix is to tell the engines the pages changed:
+
+1. **Sitemap `lastmod`.** `src/static/sitemap.xml` carries a `lastmod` per
+   page. When a page's visible copy changes, set its date to that day.
+2. **IndexNow (Bing, ChatGPT search, Copilot).** After the deploy is live, run
+   `npm run indexnow` (every sitemap URL) or `npm run indexnow -- /pricing/`.
+   The key file `src/static/7f5e3fec076f4fe7836c2b18514ab07a.txt` proves
+   ownership and must stay in place.
+3. **Google (Gemini).** Google ignores IndexNow. In Google Search Console:
+   **Sitemaps** → submit `https://openshore.ai/sitemap.xml`, then **URL
+   inspection** → `https://openshore.ai/` → **Request indexing** (repeat for
+   key pages). Bing Webmaster Tools has the same two steps and can import the
+   site from Search Console.
+
 ## Download buttons (`/download/<platform>`)
 
 The desktop tiles' Download buttons point at `/download/windows`,
