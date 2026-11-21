@@ -554,8 +554,10 @@ main, .ent-top, .ent-foot {
 .ent-secgrid p { font-size: 15.5px; color: var(--ink-soft); }
 .ent-sec-ask { font-size: 15px; }
 .ent-sec-ask a { font-weight: 600; }
-@media (max-width: 900px) { .ent-secgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .ent-secgrid { grid-template-columns: minmax(0, 1fr); } }
+/* A short last row fills the width rather than leaving an empty slot. */
+.ent-secgrid li:last-child:nth-child(3n+2) { grid-column: span 2; }
+@media (max-width: 900px) { .ent-secgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ent-secgrid li:last-child:nth-child(3n+2) { grid-column: auto; } .ent-secgrid li:last-child:nth-child(odd) { grid-column: span 2; } }
+@media (max-width: 600px) { .ent-secgrid { grid-template-columns: minmax(0, 1fr); } .ent-secgrid li:last-child:nth-child(odd) { grid-column: auto; } }
 
 .ent-partner { gap: 20px; scroll-margin-top: 16px; }
 .ent-partner .ent-lede a { color: #9ccbd8; }
