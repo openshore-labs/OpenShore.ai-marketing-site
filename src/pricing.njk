@@ -14,13 +14,36 @@ pageDescription: "Simple pricing, sized to your team: the workspace per person, 
         <h3 class="ent-h">Simple pricing, sized to your team.</h3>
         <div class="ent-split">
           <div>
-        <p class="ent-body">The workspace is free for teams of up to 10. From 11 people on, it’s $8 a person per month for everyone. Each bot is $500 a month, one for each part of the business it runs, like revenue ops or finance, added as you grow. Setup is a one-time $5,000, and some services, like ticket triage, are priced by the work done. Your AI runs on your own model keys and is billed by your provider at cost. We never mark it up.</p>
-        <p class="ent-body">For example, a 20-person company with one bot pays $660 a month: $160 for the workspace and $500 for the bot, plus the one-time setup. <a href="#design-partners">Design partners</a> start with a 90-day pilot with no OpenShore fee and lock the bot price for two years.</p>
-        <div class="ent-actions">
-          <a class="ent-btn" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Pricing: OpenShore' | urlencode }}">Ask about pricing <span aria-hidden="true">&rarr;</span></a>
-        </div>
+        <ul class="ent-price" role="list">
+          <li><span class="ent-price-k"><b>Workspace</b><span>Free for up to 10 people. From 11 on, everyone is billed.</span></span><span class="ent-price-v">$8<small>a person / month</small></span></li>
+          <li><span class="ent-price-k"><b>Each bot</b><span>One per part of the business, like revenue ops or finance.</span></span><span class="ent-price-v">$500<small>a month</small></span></li>
+          <li><span class="ent-price-k"><b>Setup</b><span>Paid once.</span></span><span class="ent-price-v">$5,000<small>one time</small></span></li>
+          <li><span class="ent-price-k"><b>Your AI</b><span>Runs on your own model keys, billed by your provider. We never mark it up.</span></span><span class="ent-price-v">At cost</span></li>
+          <li><span class="ent-price-k"><b>Some services</b><span>Like ticket triage.</span></span><span class="ent-price-v">By the work done</span></li>
+        </ul>
           </div>
 {% include "ill-pricing.njk" %}
+        </div>
+      </section>
+
+      <section class="ent-sec" aria-labelledby="size-h">
+        <h2 class="ent-eyebrow" id="size-h">What you’d pay</h2>
+        <h3 class="ent-h">A month, by team size.</h3>
+        <div class="ent-table-wrap">
+          <table class="ent-table">
+            <thead><tr><th scope="col">Team</th><th scope="col">Workspace</th><th scope="col">With 1 bot</th><th scope="col">With 2 bots</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Up to 10 people</th><td>Free</td><td>$500</td><td>$1,000</td></tr>
+              <tr><th scope="row">20 people</th><td>$160</td><td>$660</td><td>$1,160</td></tr>
+              <tr><th scope="row">50 people</th><td>$400</td><td>$900</td><td>$1,400</td></tr>
+              <tr><th scope="row">100 people</th><td>$800</td><td>$1,300</td><td>$1,800</td></tr>
+              <tr><th scope="row">250 people</th><td>$2,000</td><td>$2,500</td><td>$3,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="ent-note">Plus the one-time $5,000 setup and your AI at cost. <a href="#design-partners">Design partners</a> start with a 90-day pilot with no OpenShore fee and lock the bot price for two years.</p>
+        <div class="ent-actions">
+          <a class="ent-btn" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Pricing: OpenShore' | urlencode }}">Ask about pricing <span aria-hidden="true">&rarr;</span></a>
         </div>
       </section>
 

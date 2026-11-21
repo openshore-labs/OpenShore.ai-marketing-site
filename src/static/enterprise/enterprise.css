@@ -850,3 +850,26 @@ html { scroll-padding-top: 64px; }
 .ent-partner--short .ent-lede a { color: #ffffff; text-decoration-color: rgba(255, 255, 255, 0.55); }
 .ent-partner--short .ent-partner-ask { margin-top: 0; }
 .cd-intro { font-weight: 400; margin: 0; }
+
+/* Pricing as an itemized list and a by-size table (2026-11-21): a visitor
+   should see what each thing costs at a glance, not read a paragraph. */
+.ent-price { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.ent-price li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.ent-price-k { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ent-price-k b { font-size: 17px; color: var(--ink); font-weight: 650; }
+.ent-price-k span { font-size: 14.5px; color: var(--muted); }
+.ent-price-v { flex: none; text-align: right; font-size: 20px; font-weight: 650; color: var(--ink); white-space: nowrap; display: flex; flex-direction: column; align-items: flex-end; line-height: 1.2; }
+.ent-price-v small { font-size: 12.5px; font-weight: 500; color: var(--muted); }
+.ent-table-wrap { overflow-x: auto; max-width: 720px; }
+.ent-table { width: 100%; border-collapse: collapse; font-size: 16px; font-variant-numeric: tabular-nums; }
+.ent-table th, .ent-table td { padding: 12px 10px; text-align: right; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+.ent-table th:first-child { text-align: left; padding-left: 0; }
+.ent-table td:last-child, .ent-table thead th:last-child { padding-right: 0; }
+.ent-table thead th { font-size: 12.5px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.ent-table tbody th { font-weight: 600; color: var(--ink); }
+.ent-table td { color: var(--ink-soft); }
+@media (max-width: 520px) {
+  .ent-table { font-size: 14px; }
+  .ent-table th, .ent-table td { padding: 10px 4px; }
+  .ent-table thead th { font-size: 10.5px; letter-spacing: 0.02em; white-space: normal; vertical-align: bottom; }
+}
