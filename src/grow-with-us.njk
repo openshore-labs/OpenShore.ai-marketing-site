@@ -2,11 +2,11 @@
 layout: ent-layout.njk
 permalink: /grow-with-us/
 pageTitle: "About · OpenShore"
-pageDescription: "OpenShore's mission, the principles we build by, and the founder behind it."
+pageDescription: "OpenShore's mission, the founder behind it, and the principles we build by."
 ---
 {#- About (founder, 2026-11-16; this order 2026-11-21): our mission, the
-    growth principles from the business plan's appendix (how we work), then
-    the founder (who leads it). Why we build it moved to the home page on
+    founder (who leads it), then the growth principles from the business
+    plan's appendix (how we work). Why we build it moved to the home page on
     2026-11-21. The words live in
     src/_data/growWithUs.js; an empty section is left off the page. -#}
 {%- set g = growWithUs -%}
@@ -16,21 +16,6 @@ pageDescription: "OpenShore's mission, the principles we build by, and the found
         <p class="ent-body">{{ g.missionLine }}</p>
       </section>
 
-{% if g.principles.length %}
-      <section class="ent-sec" aria-labelledby="principles-h">
-        <h2 class="ent-eyebrow" id="principles-h">{{ g.principlesTitle }}</h2>
-        <p class="ent-body ent-principles-lede">{{ g.principlesLede }}</p>
-{% include "ill-flywheel.njk" %}
-        <ol class="ent-principles">
-{%- for p in g.principles %}
-          <li>
-            <h3>{{ p.title }}</h3>
-            <p>{{ p.body }}</p>
-          </li>
-{%- endfor %}
-        </ol>
-      </section>
-{% endif %}
 {%- if g.founder.paragraphs.length %}
       <section class="ent-sec" aria-labelledby="founder-h">
         <h2 class="ent-eyebrow" id="founder-h">The founder</h2>
@@ -45,5 +30,20 @@ pageDescription: "OpenShore's mission, the principles we build by, and the found
             {% if g.founder.linkedin %}<p class="ent-founder-links"><a href="{{ g.founder.linkedin }}" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&#8599;</span></a></p>{% endif %}
           </div>
         </div>
+      </section>
+{% endif %}
+{% if g.principles.length %}
+      <section class="ent-sec" aria-labelledby="principles-h">
+        <h2 class="ent-eyebrow" id="principles-h">{{ g.principlesTitle }}</h2>
+        <p class="ent-body ent-principles-lede">{{ g.principlesLede }}</p>
+{% include "ill-flywheel.njk" %}
+        <ol class="ent-principles">
+{%- for p in g.principles %}
+          <li>
+            <h3>{{ p.title }}</h3>
+            <p>{{ p.body }}</p>
+          </li>
+{%- endfor %}
+        </ol>
       </section>
 {% endif %}
