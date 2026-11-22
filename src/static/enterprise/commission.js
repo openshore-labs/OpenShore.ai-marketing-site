@@ -258,14 +258,21 @@
       });
     }, { threshold: 0.3 }).observe(loop);
 
+    // The app frame (2026-11-22) opens on the whole window, so it waits until
+    // the whole window is on screen (or fills most of a short screen) rather
+    // than starting while the reader is still scrolling to it.
+    var need = 0.4;
+    if (chat.hasAttribute('data-cd-app')) {
+      need = Math.min(0.95, (0.9 * window.innerHeight) / Math.max(1, chat.offsetHeight));
+    }
     var seen = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting && !started) {
+        if (e.isIntersecting && e.intersectionRatio >= need - 0.01 && !started) {
           seen.disconnect();
           play();
         }
       });
-    }, { threshold: 0.4 });
+    }, { threshold: [need] });
     seen.observe(chat);
   }
 })();
