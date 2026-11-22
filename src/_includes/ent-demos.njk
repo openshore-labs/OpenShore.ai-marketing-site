@@ -24,9 +24,12 @@
     (founder, 2026-11-22: Maya types it, presses send, and it leaves the
     field for the chat), so it has no typing dots. The zoom and that typing
     take "lead" ms before the first message lands and "tail" ms after the
-    figure counts; every other beat keeps its spacing. Below
-    640px wide, or without the script, the frame lays out as the plain chat
-    card, with no zoom. -#}
+    figure counts; every other beat keeps its spacing. The window
+    (.cd-canvas) turns .on to zoom in, the frame (.cd-app) turns .on to
+    zoom back out. Phones get the same window, shrunk (founder,
+    2026-11-22), in a taller box it grows to fill as it zooms in. Without
+    the script, or on a phone with Reduce Motion, the frame lays out as the
+    plain chat card, with no zoom. -#}
 {%- set lead = 5400 if demoApp else 0 -%}
 {%- set tail = 1900 if demoApp else 0 -%}
 {%- set times = [[400 + lead, 1200 + lead], [1900 + lead, 3300 + lead], [4300 + lead, 5000 + lead], [6000 + lead, 6800 + lead]] -%}
@@ -56,9 +59,9 @@
         <div class="cd-stage{% if demoApp %} cd-stage--app{% endif %}" aria-live="off">
           <div class="cd-chat-col">
 {%- if demoApp %}
-            <div class="cd-chat cd-app" data-cd-app>
-              <div class="cd-canvas" data-at="{{ 9200 + lead }}">
-                <div class="cd-cam" data-at="1800">
+            <div class="cd-chat cd-app" data-cd-app data-at="{{ 9200 + lead }}">
+              <div class="cd-canvas" data-at="1800">
+                <div class="cd-cam">
                   <div class="cd-side" aria-hidden="true">
                     <div class="cd-side-top">
                       <span class="cd-logo">{{ mark | safe }}<span><b>Open</b>Shore</span></span>

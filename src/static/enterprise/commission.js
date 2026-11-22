@@ -76,14 +76,19 @@
     edges();
   });
 
-  // The app frame ([data-cd-app], the home page, 2026-11-22): from 640px wide
-  // the example sits in the desktop window, a 1280 by 800 canvas scaled to
-  // the frame (--k). The zoom (--zx, --zy, --zs) frames the thread and the
-  // composer, worked out from where they sit, and is redone on every resize.
-  // This runs with Reduce Motion too: the window then shows still, whole and
-  // complete.
+  // The app frame ([data-cd-app], the home page, 2026-11-22): the example
+  // sits in the desktop window, a 1280 by 800 canvas the camera (.cd-cam)
+  // draws at the frame's scale. Two views, redone on every resize: whole
+  // (--w0), and zoomed (--w1) to frame the thread and the composer, worked
+  // out from where they sit. On a desktop the frame is the window's own
+  // size. On a phone (below 640px, founder 2026-11-22: the same window,
+  // shrunk) the chat column is narrower, and the frame is as tall as the
+  // zoomed chat needs: the whole window sits in its middle (--t0, --h0) and
+  // grows to fill it (--h1) as it zooms in. This runs with Reduce Motion
+  // too: a desktop then shows the window still, whole and complete, and a
+  // phone keeps the plain chat card, where the words are readable.
   Array.prototype.forEach.call(document.querySelectorAll('[data-cd-app]'), function (app) {
-    var W = 1280, H = 800, PAD = 28;
+    var W = 1280, H = 800;
     var cam = app.querySelector('.cd-cam');
     var thread = app.querySelector('.cd-thread');
     var compose = app.querySelector('.cd-compose');
@@ -93,24 +98,40 @@
       while (el && el !== cam) { x += el.offsetLeft; y += el.offsetTop; el = el.offsetParent; }
       return { x: x, y: y };
     }
+    function view(x, y, e) { return 'translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px) scale(' + e.toFixed(5) + ')'; }
     function fit() {
       var w = app.clientWidth;
-      var on = w >= 640;
+      var phone = w < 640;
+      var on = !(phone && still);
       app.classList.toggle('cd-app--fit', on);
+      app.classList.toggle('cd-app--phone', on && phone);
       if (!on) return;
-      app.style.setProperty('--k', String(w / W));
+      var k = w / W, hw = H * k;
       var a = at(thread), b = at(compose);
       var left = Math.min(a.x, b.x), top = a.y;
       var right = Math.max(a.x + thread.offsetWidth, b.x + compose.offsetWidth);
       var bottom = b.y + compose.offsetHeight;
-      var s = Math.min(1.7, W / (right - left + PAD * 2), H / (bottom - top + PAD * 2));
-      var tx = W / 2 - s * (left + right) / 2;
-      var ty = H / 2 - s * (top + bottom) / 2;
-      tx = Math.min(0, Math.max(W - s * W, tx));
-      ty = Math.min(0, Math.max(H - s * H, ty));
-      app.style.setProperty('--zs', s.toFixed(4));
-      app.style.setProperty('--zx', tx.toFixed(1) + 'px');
-      app.style.setProperty('--zy', ty.toFixed(1) + 'px');
+      var pad = phone ? 14 : 28;
+      var rw = right - left + pad * 2, rh = bottom - top + pad * 2;
+      var hb, e;
+      if (phone) {
+        e = w / rw;
+        hb = Math.max(hw, Math.min(e * rh, 0.8 * window.innerHeight, e * H));
+        e = Math.min(e, hb / rh);
+      } else {
+        hb = hw;
+        e = Math.min(1.7 * k, w / rw, hb / rh);
+      }
+      var x = w / 2 - e * (left + right) / 2;
+      var y = hb / 2 - e * (top + bottom) / 2;
+      x = Math.min(0, Math.max(w - e * W, x));
+      y = Math.min(0, Math.max(hb - e * H, y));
+      app.style.setProperty('--hb', hb.toFixed(1) + 'px');
+      app.style.setProperty('--h0', hw.toFixed(1) + 'px');
+      app.style.setProperty('--t0', ((hb - hw) / 2).toFixed(1) + 'px');
+      app.style.setProperty('--h1', hb.toFixed(1) + 'px');
+      app.style.setProperty('--w0', view(0, 0, k));
+      app.style.setProperty('--w1', view(x, y, e));
     }
     fit();
     if ('ResizeObserver' in window) new ResizeObserver(fit).observe(app);

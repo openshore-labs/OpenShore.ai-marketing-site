@@ -554,12 +554,17 @@ main, .ent-top, .ent-foot {
 /* The home page's example plays in the app's desktop window, drawn from the
    screen gallery: the sidebar with its rooms and channels, the channel's
    header, the thread and the composer. Two layouts:
-   - The plain card (below 640px, and until commission.js has measured the
-     frame): no sidebar, the header, the thread and the composer stacked.
-   - The window (.cd-app--fit): a 1280 by 800 canvas scaled to the frame's
-     width (--k). The camera (.cd-cam) zooms into the chat when it turns .on
-     and back out when the canvas turns .on; commission.js sets the zoom
-     (--zx, --zy, --zs) from where the thread and composer sit. */
+   - The plain card (without commission.js, and on a phone with Reduce
+     Motion): no sidebar, the header, the thread and the composer stacked.
+   - The window (.cd-app--fit): a 1280 by 800 canvas, drawn by the camera
+     (.cd-cam) at the frame's scale. The window (.cd-canvas) turns .on to
+     zoom into the chat, and the frame (.cd-app) turns .on to zoom back out.
+     commission.js works out both views (--w0 whole, --w1 zoomed) and the
+     window's box for each (--h0 and --t0 whole, --h1 zoomed). On a desktop
+     the box stays the window's own size. On a phone (.cd-app--phone,
+     founder 2026-11-22) the frame is taller than the shrunk window, which
+     sits in its middle and grows to fill it as it zooms in; the chat column
+     is narrower there so the zoomed chat reads at phone size. */
 .cd-stage--app { display: flex; flex-direction: column; align-items: stretch; gap: 28px; }
 .cd-side { display: none; }
 .cd-app svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
@@ -589,15 +594,20 @@ main, .ent-top, .ent-foot {
 @keyframes cd-caret { 50% { opacity: 0; } }
 @keyframes cd-press { 40% { transform: scale(0.82); } 100% { transform: none; } }
 
-.cd-app--fit { height: calc(800px * var(--k, 0.8)); border-radius: 14px; background: #f4f3ee; }
-.cd-app--fit .cd-canvas { width: 1280px; height: 800px; transform: scale(var(--k, 0.8)); transform-origin: 0 0; }
-.cd-app--fit .cd-cam {
-  position: relative; width: 1280px; height: 800px; display: grid; grid-template-columns: 256px minmax(0, 1fr);
-  transform-origin: 0 0; transition: transform 1400ms cubic-bezier(0.65, 0, 0.35, 1); will-change: transform;
+.cd-app--fit { position: relative; height: var(--hb, 640px); background: none; box-shadow: none; border-radius: 0; overflow: visible; }
+.cd-app--fit .cd-canvas {
+  position: absolute; left: 0; right: 0; top: var(--t0, 0); height: var(--h0, 100%); overflow: hidden;
+  border-radius: 14px; background: #f4f3ee; box-shadow: var(--shadow), 0 0 0 1px var(--rule);
+  transition: top 1400ms cubic-bezier(0.65, 0, 0.35, 1), height 1400ms cubic-bezier(0.65, 0, 0.35, 1);
 }
-.cd-app--fit .cd-cam.on { transform: translate(var(--zx, 0), var(--zy, 0)) scale(var(--zs, 1)); }
-.cd-app--fit .cd-canvas.on .cd-cam { transform: none; }
-
+.cd-app--fit .cd-canvas.on { top: 0; height: var(--h1, 100%); }
+.cd-app--fit.on .cd-canvas.on { top: var(--t0, 0); height: var(--h0, 100%); }
+.cd-app--fit .cd-cam {
+  position: absolute; left: 0; top: 0; width: 1280px; height: 800px; display: grid; grid-template-columns: 256px minmax(0, 1fr);
+  transform-origin: 0 0; transform: var(--w0, none); transition: transform 1400ms cubic-bezier(0.65, 0, 0.35, 1); will-change: transform;
+}
+.cd-app--fit .cd-canvas.on .cd-cam { transform: var(--w1, none); }
+.cd-app--fit.on .cd-canvas.on .cd-cam { transform: var(--w0, none); }
 .cd-app--fit .cd-side { display: flex; flex-direction: column; padding: 14px 8px 12px; background: #fbfaf7; border-right: 1px solid var(--rule); color: var(--ink); }
 .cd-side-top { display: flex; align-items: center; justify-content: space-between; padding: 4px 10px 16px 8px; }
 .cd-side-top > svg { width: 20px; height: 20px; color: var(--ink-soft); }
@@ -618,7 +628,9 @@ main, .ent-top, .ent-foot {
 .cd-app--fit .cd-focus { flex: 1; width: 100%; max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 24px; }
 .cd-app--fit .cd-thread { padding: 0 6px 22px; }
 .cd-app--fit .cd-compose { margin: 0; }
-@media (prefers-reduced-motion: reduce) { .cd-app--fit .cd-cam { transition: none; } }
+.cd-app--phone .cd-focus { max-width: 420px; }
+.cd-app--phone .cd-txt { font-size: 17px; }
+@media (prefers-reduced-motion: reduce) { .cd-app--fit .cd-cam, .cd-app--fit .cd-canvas { transition: none; } }
 
 /* The usual path's travelling point (2026-11-18), after .c-head so it wins. */
 .c-head.c-head--risk, .c-head-glow.c-head--risk { fill: #9a5f36; }
