@@ -30,7 +30,7 @@ export default {
   principles: [
     {
       title: "Embrace the energy. Harness it.",
-      body: "Every startup runs on a founder’s passion: the energy, risk and belief they pour into building something new. We get to be in it with them. We stay curious about what drives each customer, we feel it, and we harness it into the work. Their energy feeds ours, and we carry it to the next founder.",
+      body: "Every business runs on the passion of the people building it: the energy, risk, and belief they pour into building something new. We get to be in it with them. Whether it’s a bootstrapped startup or a scaling enterprise, we stay curious about what drives each customer, we feel it, and we harness it into the work. Their energy feeds ours, and we carry it to the next customer.",
       decides: "We learn what drives a customer before we suggest how their business should work.",
     },
     {
