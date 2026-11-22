@@ -16,21 +16,22 @@
 {%- set arrow %}<svg class="cd-arrow" viewBox="0 0 14 20" aria-hidden="true"><path d="M7 2v15m-5-5l5 5 5-5" fill="none" stroke="#2f5a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>{% endset -%}
 {#- The app frame (founder, 2026-11-22): a page that sets demoApp before the
     include (the home page) plays its example inside the desktop app, drawn
-    from the screen gallery's desktop view: the whole window first, then a
-    zoom into the chat, the conversation, and a zoom back out to the window
-    with the chat in it. The sidebar adds the rooms the app is building
-    toward (Projects, Tasks, Workflows, Reports, Dashboards) and the
-    channels. Once zoomed in, the first message is typed into the composer
-    (founder, 2026-11-22: Maya types it, presses send, and it leaves the
-    field for the chat), so it has no typing dots. The zoom and that typing
-    take "lead" ms before the first message lands and "tail" ms after the
-    figure counts; every other beat keeps its spacing. The window
-    (.cd-canvas) turns .on to zoom in, the frame (.cd-app) turns .on to
-    zoom back out. Phones get the same window, shrunk (founder,
-    2026-11-22), in a taller box it grows to fill as it zooms in. Without
-    the script, or on a phone with Reduce Motion, the frame lays out as the
-    plain chat card, with no zoom. -#}
-{%- set lead = 5400 if demoApp else 0 -%}
+    from the screen gallery's desktop view. The whole window shows first and
+    the chat starts in it: Maya types her message into the composer,
+    presses send, and it leaves the field for the chat (founder,
+    2026-11-22), so it has no typing dots. About 3 seconds in, the camera
+    zooms into the chat for the rest of the conversation, then zooms back
+    out to the window with the chat in it. The sidebar adds the rooms the
+    app is building toward (Projects, Tasks, Workflows, Reports, Dashboards)
+    and the channels. That typing takes "lead" ms before the first message
+    lands, and the zoom out "tail" ms after the figure counts; every other
+    beat keeps its spacing. The window (.cd-canvas) turns .on to zoom in,
+    the frame (.cd-app) turns .on to zoom back out. Phones get the exact
+    same window, shrunk (founder, 2026-11-22: the zoom does the heavy
+    lifting, and the whole platform shows as it is). Without the script, or
+    on a phone with Reduce Motion, the frame lays out as the plain chat
+    card, with no zoom. -#}
+{%- set lead = 1900 if demoApp else 0 -%}
 {%- set tail = 1900 if demoApp else 0 -%}
 {%- set times = [[400 + lead, 1200 + lead], [1900 + lead, 3300 + lead], [4300 + lead, 5000 + lead], [6000 + lead, 6800 + lead]] -%}
 {%- macro icon(paths) -%}<svg viewBox="0 0 24 24" aria-hidden="true">{{ paths | safe }}</svg>{%- endmacro -%}
@@ -60,7 +61,7 @@
           <div class="cd-chat-col">
 {%- if demoApp %}
             <div class="cd-chat cd-app" data-cd-app data-at="{{ 9200 + lead }}">
-              <div class="cd-canvas" data-at="1800">
+              <div class="cd-canvas" data-at="3200">
                 <div class="cd-cam">
                   <div class="cd-side" aria-hidden="true">
                     <div class="cd-side-top">
@@ -125,8 +126,8 @@
               </ol>
 {%- if demoApp %}
                       <div class="cd-compose" aria-hidden="true">
-                        <span class="cd-field"><span class="cd-ph">Message # {{ d.channel }}</span><span class="cd-draft" data-typein="3300:6100:{{ 1200 + lead }}" data-text="{{ d.messages[0].text | striptags }}"></span><i class="cd-caret"></i></span>
-                        <span class="cd-compose-row">{{ icon('<path d="M12 5v14M5 12h14"/>') }}<b class="cd-send" data-at="6250">{{ icon('<path d="M12 19V5M6 11l6-6 6 6"/>') }}</b></span>
+                        <span class="cd-field"><span class="cd-ph">Message # {{ d.channel }}</span><span class="cd-draft" data-typein="600:2600:{{ 1200 + lead }}" data-text="{{ d.messages[0].text | striptags }}"></span><i class="cd-caret"></i></span>
+                        <span class="cd-compose-row">{{ icon('<path d="M12 5v14M5 12h14"/>') }}<b class="cd-send" data-at="2750">{{ icon('<path d="M12 19V5M6 11l6-6 6 6"/>') }}</b></span>
                       </div>
                     </div>
                   </div>

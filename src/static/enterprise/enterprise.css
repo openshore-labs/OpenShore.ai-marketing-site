@@ -563,8 +563,8 @@ main, .ent-top, .ent-foot {
      window's box for each (--h0 and --t0 whole, --h1 zoomed). On a desktop
      the box stays the window's own size. On a phone (.cd-app--phone,
      founder 2026-11-22) the frame is taller than the shrunk window, which
-     sits in its middle and grows to fill it as it zooms in; the chat column
-     is narrower there so the zoomed chat reads at phone size. */
+     sits in its middle and grows to fill it as it zooms in. The window is
+     the desktop's, unchanged: the zoom does the heavy lifting. */
 .cd-stage--app { display: flex; flex-direction: column; align-items: stretch; gap: 28px; }
 .cd-side { display: none; }
 .cd-app svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
@@ -628,8 +628,6 @@ main, .ent-top, .ent-foot {
 .cd-app--fit .cd-focus { flex: 1; width: 100%; max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 24px; }
 .cd-app--fit .cd-thread { padding: 0 6px 22px; }
 .cd-app--fit .cd-compose { margin: 0; }
-.cd-app--phone .cd-focus { max-width: 420px; }
-.cd-app--phone .cd-txt { font-size: 17px; }
 @media (prefers-reduced-motion: reduce) { .cd-app--fit .cd-cam, .cd-app--fit .cd-canvas { transition: none; } }
 
 /* The usual path's travelling point (2026-11-18), after .c-head so it wins. */

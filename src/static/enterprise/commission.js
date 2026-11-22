@@ -81,10 +81,10 @@
   // draws at the frame's scale. Two views, redone on every resize: whole
   // (--w0), and zoomed (--w1) to frame the thread and the composer, worked
   // out from where they sit. On a desktop the frame is the window's own
-  // size. On a phone (below 640px, founder 2026-11-22: the same window,
-  // shrunk) the chat column is narrower, and the frame is as tall as the
-  // zoomed chat needs: the whole window sits in its middle (--t0, --h0) and
-  // grows to fill it (--h1) as it zooms in. This runs with Reduce Motion
+  // size. On a phone (below 640px, founder 2026-11-22: the exact same
+  // window, shrunk, with the zoom doing the heavy lifting) the frame is as
+  // tall as the zoomed chat needs: the whole window sits in its middle
+  // (--t0, --h0) and grows to fill it (--h1) as it zooms in. This runs with Reduce Motion
   // too: a desktop then shows the window still, whole and complete, and a
   // phone keeps the plain chat card, where the words are readable.
   Array.prototype.forEach.call(document.querySelectorAll('[data-cd-app]'), function (app) {
