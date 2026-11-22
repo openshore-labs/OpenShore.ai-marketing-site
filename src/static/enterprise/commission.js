@@ -71,6 +71,48 @@
     edges();
   });
 
+  // The app frame ([data-cd-app], the home page, 2026-11-22): from 640px wide
+  // the example sits in the desktop window, a 1280 by 800 canvas scaled to
+  // the frame (--k). The zoom (--zx, --zy, --zs) frames the thread and the
+  // composer, worked out from where they sit, and is redone on every resize.
+  // This runs with Reduce Motion too: the window then shows still, whole and
+  // complete.
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cd-app]'), function (app) {
+    var W = 1280, H = 800, PAD = 28;
+    var cam = app.querySelector('.cd-cam');
+    var thread = app.querySelector('.cd-thread');
+    var compose = app.querySelector('.cd-compose');
+    if (!cam || !thread || !compose) return;
+    function at(el) {
+      var x = 0, y = 0;
+      while (el && el !== cam) { x += el.offsetLeft; y += el.offsetTop; el = el.offsetParent; }
+      return { x: x, y: y };
+    }
+    function fit() {
+      var w = app.clientWidth;
+      var on = w >= 640;
+      app.classList.toggle('cd-app--fit', on);
+      if (!on) return;
+      app.style.setProperty('--k', String(w / W));
+      var a = at(thread), b = at(compose);
+      var left = Math.min(a.x, b.x), top = a.y;
+      var right = Math.max(a.x + thread.offsetWidth, b.x + compose.offsetWidth);
+      var bottom = b.y + compose.offsetHeight;
+      var s = Math.min(1.7, W / (right - left + PAD * 2), H / (bottom - top + PAD * 2));
+      var tx = W / 2 - s * (left + right) / 2;
+      var ty = H / 2 - s * (top + bottom) / 2;
+      tx = Math.min(0, Math.max(W - s * W, tx));
+      ty = Math.min(0, Math.max(H - s * H, ty));
+      app.style.setProperty('--zs', s.toFixed(4));
+      app.style.setProperty('--zx', tx.toFixed(1) + 'px');
+      app.style.setProperty('--zy', ty.toFixed(1) + 'px');
+    }
+    fit();
+    if ('ResizeObserver' in window) new ResizeObserver(fit).observe(app);
+    else window.addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  });
+
   if (still || !('IntersectionObserver' in window) || !window.requestAnimationFrame) return;
   Array.prototype.forEach.call(document.querySelectorAll('[data-cd]'), setup);
 

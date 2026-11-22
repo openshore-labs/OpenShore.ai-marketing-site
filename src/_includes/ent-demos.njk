@@ -14,7 +14,20 @@
 {%- set dots %}<span class="cd-dots" aria-hidden="true"><i></i><i></i><i></i></span>{% endset -%}
 {%- set check %}<svg class="cd-chip-check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#2f5a66" /><path d="M5.8 10.4l2.8 2.8 5.6-5.8" fill="none" stroke="#f6f4ef" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg>{% endset -%}
 {%- set arrow %}<svg class="cd-arrow" viewBox="0 0 14 20" aria-hidden="true"><path d="M7 2v15m-5-5l5 5 5-5" fill="none" stroke="#2f5a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>{% endset -%}
-{%- set times = [[400, 1200], [1900, 3300], [4300, 5000], [6000, 6800]] -%}
+{#- The app frame (founder, 2026-11-22): a page that sets demoApp before the
+    include (the home page) plays its example inside the desktop app, drawn
+    from the screen gallery's desktop view: the whole window first, then a
+    zoom into the chat, the conversation, and a zoom back out to the window
+    with the chat in it. The sidebar adds the rooms the app is building
+    toward (Projects, Tasks, Workflows, Reports, Dashboards) and the
+    channels. The zoom takes "lead" ms before the first message and "tail"
+    ms after the figure counts; every other beat keeps its spacing. Below
+    640px wide, or without the script, the frame lays out as the plain chat
+    card, with no zoom. -#}
+{%- set lead = 3000 if demoApp else 0 -%}
+{%- set tail = 1900 if demoApp else 0 -%}
+{%- set times = [[400 + lead, 1200 + lead], [1900 + lead, 3300 + lead], [4300 + lead, 5000 + lead], [6000 + lead, 6800 + lead]] -%}
+{%- macro icon(paths) -%}<svg viewBox="0 0 24 24" aria-hidden="true">{{ paths | safe }}</svg>{%- endmacro -%}
 {#- Which examples to show (2026-11-19): a page sets demoIds before the
     include to show only those (the home page shows the commission fix
     alone); without it every example shows, behind tabs. One example gets
@@ -37,10 +50,47 @@
           <span class="ent-tag">Example</span>
           <button class="ent-replay" type="button" hidden aria-label="Replay the conversation">Replay</button>
         </div>
-        <div class="cd-stage" aria-live="off">
+        <div class="cd-stage{% if demoApp %} cd-stage--app{% endif %}" aria-live="off">
           <div class="cd-chat-col">
+{%- if demoApp %}
+            <div class="cd-chat cd-app" data-cd-app>
+              <div class="cd-canvas" data-at="{{ 9200 + lead }}">
+                <div class="cd-cam" data-at="1800">
+                  <div class="cd-side" aria-hidden="true">
+                    <div class="cd-side-top">
+                      <span class="cd-logo">{{ mark | safe }}<span><b>Open</b>Shore</span></span>
+                      {{ icon('<path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a1.4 1.4 0 0 1 3 3L12.4 14.6a2 2 0 0 1-.9.5l-2.9.8.8-2.9a2 2 0 0 1 .5-.9z"/>') }}
+                    </div>
+                    <ul class="cd-nav">
+                      <li>{{ icon('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>') }}Chats</li>
+                      <li>{{ icon('<path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.7-.9l-.8-1.2A2 2 0 0 0 7.9 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/>') }}Projects</li>
+                      <li>{{ icon('<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/>') }}Tasks</li>
+                      <li>{{ icon('<rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect x="13" y="13" width="8" height="8" rx="2"/>') }}Workflows</li>
+                      <li>{{ icon('<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h6M16 13H8M16 17H8M10 9H8"/>') }}Reports</li>
+                      <li>{{ icon('<rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>') }}Dashboards</li>
+                    </ul>
+                    <p class="cd-nav-k">Channels</p>
+                    <ul class="cd-nav cd-nav--ch">
+{%- for c in [d.channel, "ops", "finance", "leadership"] %}
+                      <li{% if loop.first %} class="is-on"{% endif %}><i>#</i>{{ c }}</li>
+{%- endfor %}
+                    </ul>
+                    <ul class="cd-nav cd-nav--foot">
+                      <li>{{ icon('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/>') }}Settings</li>
+                      <li>{{ icon('<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>') }}Profile</li>
+                      <li>{{ icon('<path d="M20 13c0 5-3.5 7.5-7.7 9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M9 12l2 2 4-4"/>') }}Enterprise Configuration</li>
+                    </ul>
+                  </div>
+                  <div class="cd-main">
+                    <div class="cd-head">
+                      <p class="cd-ch"># {{ d.channel }}</p>
+                      <span class="cd-live" aria-hidden="true"><i></i>Connected</span>
+                    </div>
+                    <div class="cd-focus">
+{%- else %}
             <div class="cd-chat">
               <p class="cd-ch"># {{ d.channel }}</p>
+{%- endif %}
               <ol class="cd-thread" aria-label="The conversation in # {{ d.channel }}">
 {%- for m in d.messages %}
                 <li class="cd-msg{% if m.stmt %} cd-msg--done{% endif %}" data-type="{{ times[loop.index0][0] }}" data-at="{{ times[loop.index0][1] }}">
@@ -57,21 +107,31 @@
 {%- endif %}
                     <p class="cd-txt">{{ m.text | safe }}</p>
 {%- if m.chip %}
-                    <p class="cd-chip" data-at="5450">{{ check | safe }}{{ m.chip }}</p>
+                    <p class="cd-chip" data-at="{{ 5450 + lead }}">{{ check | safe }}{{ m.chip }}</p>
 {%- endif %}
 {%- if m.stmt %}
-                    <p class="cd-stmt" data-at="7100"><span>{{ m.stmt.label }}</span><b data-count="{{ m.stmt.from }}:{{ m.stmt.to }}:7300:1300"{% if m.stmt.unit %} data-unit="{{ m.stmt.unit }}"{% endif %}{% if m.stmt.format %} data-format="{{ m.stmt.format }}"{% endif %}>{{ m.stmt.text }}</b></p>
+                    <p class="cd-stmt" data-at="{{ 7100 + lead }}"><span>{{ m.stmt.label }}</span><b data-count="{{ m.stmt.from }}:{{ m.stmt.to }}:{{ 7300 + lead }}:1300"{% if m.stmt.unit %} data-unit="{{ m.stmt.unit }}"{% endif %}{% if m.stmt.format %} data-format="{{ m.stmt.format }}"{% endif %}>{{ m.stmt.text }}</b></p>
 {%- endif %}
                     {{ dots | safe }}
                   </div>
                 </li>
 {%- endfor %}
               </ol>
+{%- if demoApp %}
+                      <div class="cd-compose" aria-hidden="true">
+                        <span>Message # {{ d.channel }}</span>
+                        <span class="cd-compose-row">{{ icon('<path d="M12 5v14M5 12h14"/>') }}<b>{{ icon('<path d="M12 19V5M6 11l6-6 6 6"/>') }}</b></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+{%- endif %}
             </div>
-            <p class="ent-badge cd-stamp" data-at="8900"><span class="ent-dot" aria-hidden="true"></span>{{ d.stamp }}</p>
+            <p class="ent-badge cd-stamp" data-at="{{ 8900 + lead + tail }}"><span class="ent-dot" aria-hidden="true"></span>{{ d.stamp }}</p>
           </div>
 
-          <div class="cd-loop" data-at="9300">
+          <div class="cd-loop" data-at="{{ 9300 + lead + tail }}">
             <p class="ent-body cd-lead cd-beat" data-at="0">{{ d.lead }}</p>
             <p class="ent-statement cd-title cd-beat" data-at="600">Every fix becomes a rule.</p>
             <div class="cd-loop-body">
