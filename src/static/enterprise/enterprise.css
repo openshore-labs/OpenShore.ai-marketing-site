@@ -566,7 +566,7 @@ main, .ent-top, .ent-foot {
      sits in its middle and grows to fill it as it zooms in. The window is
      the desktop's, unchanged: the zoom does the heavy lifting. */
 .cd-stage--app { display: flex; flex-direction: column; align-items: stretch; gap: 28px; }
-.cd-real { align-self: flex-start; margin-bottom: -6px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+.cd-real { align-self: center; margin-bottom: -6px; font-size: 12.5px; font-style: italic; line-height: 1.4; color: var(--muted); }
 .cd-side { display: none; }
 .cd-app svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .cd-app .cd-av svg, .cd-logo > svg { stroke: none; }
