@@ -566,7 +566,14 @@ main, .ent-top, .ent-foot {
      sits in its middle and grows to fill it as it zooms in. The window is
      the desktop's, unchanged: the zoom does the heavy lifting. */
 .cd-stage--app { display: flex; flex-direction: column; align-items: stretch; gap: 28px; }
-.cd-real { align-self: center; margin-bottom: -6px; font-size: 12.5px; font-style: italic; line-height: 1.4; color: var(--muted); }
+/* The window's label sits in the stamp's place, under the window, and the
+   stamp covers it when it lands. Still (no script, Reduce Motion) the stamp
+   shows and the label stays hidden. */
+.cd-under { align-self: center; display: grid; place-items: center; }
+.cd-under > * { grid-area: 1 / 1; }
+.cd-real { font-size: 12.5px; font-style: italic; line-height: 1.4; color: var(--muted); opacity: 0; transition: opacity 300ms ease; }
+.cd-anim .cd-stamp:not(.on) ~ .cd-real { opacity: 1; }
+.cd-under .cd-stamp { position: relative; z-index: 1; }
 .cd-side { display: none; }
 .cd-app svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .cd-app .cd-av svg, .cd-logo > svg { stroke: none; }
