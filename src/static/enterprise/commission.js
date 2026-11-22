@@ -99,7 +99,19 @@
       return { x: x, y: y };
     }
     function view(x, y, e) { return 'translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px) scale(' + e.toFixed(5) + ')'; }
+    // The window takes its size at once (founder, 2026-11-22: no fly-in):
+    // .cd-app--still holds the zoom's transitions off while it is measured,
+    // on load and on every resize, and lets them back two frames later.
+    // Only the zoom into the chat and back out moves.
     function fit() {
+      app.classList.add('cd-app--still');
+      size();
+      void app.offsetHeight;
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { app.classList.remove('cd-app--still'); });
+      });
+    }
+    function size() {
       var w = app.clientWidth;
       var phone = w < 640;
       var on = !(phone && still);
