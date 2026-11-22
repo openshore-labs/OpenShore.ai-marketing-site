@@ -575,6 +575,19 @@ main, .ent-top, .ent-foot {
 .cd-compose-row > svg { width: 18px; height: 18px; color: var(--ink-soft); }
 .cd-compose-row b { width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(28, 42, 51, 0.08); color: var(--ink-soft); }
 .cd-compose-row b svg { width: 15px; height: 15px; stroke-width: 2; }
+/* Maya's message typed into the field, then sent (commission.js types the
+   draft; without it the placeholder simply stays). */
+.cd-field { display: block; min-height: 1.45em; line-height: 1.45; }
+.cd-draft { color: var(--ink); }
+.cd-compose.has-text .cd-ph, .cd-compose.is-writing .cd-ph { display: none; }
+.cd-caret { display: none; width: 1.5px; height: 1.15em; margin-left: 1px; vertical-align: -0.2em; background: var(--sea); }
+.cd-compose.is-writing .cd-caret { display: inline-block; animation: cd-caret 1s steps(1) infinite; }
+.cd-compose.is-writing.has-text .cd-caret { animation: none; }
+.cd-compose-row b { transition: background-color 200ms ease, color 200ms ease, transform 160ms ease; }
+.cd-compose.has-text .cd-send { background: var(--sea); color: #fff; }
+.cd-send.on { animation: cd-press 320ms ease 1; }
+@keyframes cd-caret { 50% { opacity: 0; } }
+@keyframes cd-press { 40% { transform: scale(0.82); } 100% { transform: none; } }
 
 .cd-app--fit { height: calc(800px * var(--k, 0.8)); border-radius: 14px; background: #f4f3ee; }
 .cd-app--fit .cd-canvas { width: 1280px; height: 800px; transform: scale(var(--k, 0.8)); transform-origin: 0 0; }

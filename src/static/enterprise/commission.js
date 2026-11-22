@@ -17,6 +17,11 @@
 //                      loop's own data-at)
 //   .cd-loop           waits at its start until it is on screen, so a phone
 //                      reader sees the loop light rather than finding it lit
+//   [data-typein]      "start ms:end ms:send ms", the app frame's composer:
+//                      its data-text is typed in from start to end, and
+//                      leaves the field at send, when the message lands
+//                      (its .cd-compose gets .has-text while it holds words and
+//                      .is-writing until it is sent)
 //   [data-count]       "from:to:start ms:length ms", a figure that counts,
 //                      read through data-format ({n} is the number) when it
 //                      has one, else in data-unit, else in dollars
@@ -138,6 +143,21 @@
       var v = el.getAttribute('data-count').split(':').map(Number);
       return { el: el, from: v[0], to: v[1], at: v[2], ms: v[3] || 1, unit: el.getAttribute('data-unit'), format: el.getAttribute('data-format') };
     });
+    var drafts = Array.prototype.map.call(root.querySelectorAll('[data-typein]'), function (el) {
+      var v = el.getAttribute('data-typein').split(':').map(Number);
+      return { el: el, field: el.closest('.cd-compose') || el.parentNode, text: el.getAttribute('data-text') || '', at: v[0], to: v[1], sent: v[2], shown: -1 };
+    });
+    function type(d) {
+      var n = t < d.at || t >= d.sent ? 0 : Math.round(d.text.length * Math.min(1, (t - d.at) / Math.max(1, d.to - d.at)));
+      var writing = t >= d.at && t < d.sent;
+      if (n === d.shown && writing === d.writing) return;
+      d.shown = n;
+      d.writing = writing;
+      d.el.textContent = d.text.slice(0, n);
+      d.field.classList.toggle('has-text', n > 0);
+      d.field.classList.toggle('is-writing', writing);
+    }
+
     function figure(c, n) {
       var whole = Math.round(n).toLocaleString('en-US');
       if (c.format) return c.format.replace('{n}', whole);
@@ -149,6 +169,7 @@
 
     var end = events.length ? events[events.length - 1].at : 0;
     counters.forEach(function (c) { end = Math.max(end, c.at + c.ms); });
+    drafts.forEach(function (d) { end = Math.max(end, d.sent); });
 
     var t = 0;         // the demo's own clock, in ms
     var last = null;   // the frame time the clock last read
@@ -166,6 +187,7 @@
         var k = Math.min(1, Math.max(0, (t - c.at) / c.ms));
         c.el.textContent = figure(c, c.from + (c.to - c.from) * easeOut(k));
       });
+      drafts.forEach(type);
     }
 
     function tick(now) {
@@ -201,6 +223,7 @@
       next = 0;
       events.forEach(function (e) { e.el.classList.remove('is-typing', 'on'); });
       counters.forEach(function (c) { c.el.textContent = figure(c, c.from); });
+      drafts.forEach(function (d) { d.shown = -1; type(d); });
     }
 
     function play() {

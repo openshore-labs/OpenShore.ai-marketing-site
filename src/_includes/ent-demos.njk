@@ -20,11 +20,14 @@
     zoom into the chat, the conversation, and a zoom back out to the window
     with the chat in it. The sidebar adds the rooms the app is building
     toward (Projects, Tasks, Workflows, Reports, Dashboards) and the
-    channels. The zoom takes "lead" ms before the first message and "tail"
-    ms after the figure counts; every other beat keeps its spacing. Below
+    channels. Once zoomed in, the first message is typed into the composer
+    (founder, 2026-11-22: Maya types it, presses send, and it leaves the
+    field for the chat), so it has no typing dots. The zoom and that typing
+    take "lead" ms before the first message lands and "tail" ms after the
+    figure counts; every other beat keeps its spacing. Below
     640px wide, or without the script, the frame lays out as the plain chat
     card, with no zoom. -#}
-{%- set lead = 3000 if demoApp else 0 -%}
+{%- set lead = 5400 if demoApp else 0 -%}
 {%- set tail = 1900 if demoApp else 0 -%}
 {%- set times = [[400 + lead, 1200 + lead], [1900 + lead, 3300 + lead], [4300 + lead, 5000 + lead], [6000 + lead, 6800 + lead]] -%}
 {%- macro icon(paths) -%}<svg viewBox="0 0 24 24" aria-hidden="true">{{ paths | safe }}</svg>{%- endmacro -%}
@@ -93,7 +96,7 @@
 {%- endif %}
               <ol class="cd-thread" aria-label="The conversation in # {{ d.channel }}">
 {%- for m in d.messages %}
-                <li class="cd-msg{% if m.stmt %} cd-msg--done{% endif %}" data-type="{{ times[loop.index0][0] }}" data-at="{{ times[loop.index0][1] }}">
+                <li class="cd-msg{% if m.stmt %} cd-msg--done{% endif %}"{% if not (demoApp and loop.first) %} data-type="{{ times[loop.index0][0] }}"{% endif %} data-at="{{ times[loop.index0][1] }}">
 {%- if m.name %}
                   <span class="cd-av" aria-hidden="true">{{ m.initials }}</span>
 {%- else %}
@@ -119,8 +122,8 @@
               </ol>
 {%- if demoApp %}
                       <div class="cd-compose" aria-hidden="true">
-                        <span>Message # {{ d.channel }}</span>
-                        <span class="cd-compose-row">{{ icon('<path d="M12 5v14M5 12h14"/>') }}<b>{{ icon('<path d="M12 19V5M6 11l6-6 6 6"/>') }}</b></span>
+                        <span class="cd-field"><span class="cd-ph">Message # {{ d.channel }}</span><span class="cd-draft" data-typein="3300:6100:{{ 1200 + lead }}" data-text="{{ d.messages[0].text | striptags }}"></span><i class="cd-caret"></i></span>
+                        <span class="cd-compose-row">{{ icon('<path d="M12 5v14M5 12h14"/>') }}<b class="cd-send" data-at="6250">{{ icon('<path d="M12 19V5M6 11l6-6 6 6"/>') }}</b></span>
                       </div>
                     </div>
                   </div>
