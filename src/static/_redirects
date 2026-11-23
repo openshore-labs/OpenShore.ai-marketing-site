@@ -26,11 +26,13 @@
 /app/             /os-code/app/   301
 /enterprise       /               301
 /enterprise/      /               301
-# The page that sat at /about/ (the personal product's home, 2026-11-07 to
-# 2026-11-16) is /os-code/ now, and the company About page was retired
-# (founder, 2026-11-16).
-/about            /os-code/       301
-/about/           /os-code/       301
+# /about/ is OpenShore's About page again since 2026-11-23 (founder): the
+# mission, the founder and the principles, which sat at /grow-with-us/ from
+# 2026-11-16. That address is retired and comes here. (From 2026-11-07 to
+# 2026-11-16 /about/ was the personal product's home, now /os-code/, and until
+# 2026-11-23 it redirected there.)
+/grow-with-us     /about/         301
+/grow-with-us/    /about/         301
 
 # Every page of OS Code by OpenShore lives under /os-code/ since 2026-11-16
 # (founder: these pages belong to the personal product alone; OpenShore for

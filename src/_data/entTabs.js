@@ -3,7 +3,8 @@
 // sign-in page the Worker draws carries the same tabs, so keep the two in step.
 export default [
   // Tab names (founder, 2026-11-19): "Overview" and "About" say what is
-  // behind them; "Solutions" and "Grow with Us" did not. Addresses unchanged.
+  // behind them; "Solutions" and "Grow with Us" did not. About moved to
+  // /about/ on 2026-11-23 (founder), so the tab and its address agree.
   { label: "Overview", href: "/" },
   { label: "Product Tour", href: "/enterprise/platform/" },
   // Pricing and Security get their own tabs (founder, 2026-11-19: reorganize
@@ -13,5 +14,5 @@ export default [
   // home page, unchanged, so the home keeps to what OpenShore is and does.
   { label: "Pricing", href: "/pricing/" },
   { label: "Security", href: "/security/" },
-  { label: "About", href: "/grow-with-us/" },
+  { label: "About", href: "/about/" },
 ];

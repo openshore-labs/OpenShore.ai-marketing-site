@@ -40,9 +40,9 @@ export default {
   // The link-preview image for the Enterprise pages (2026-11-17): the film's
   // title frame without "for Startups".
   entOg: rev("src/static/enterprise/og-enterprise.jpg"),
-  // The founder's photo on Grow with Us, once it is added.
+  // The founder's photo on the About page, once it is added.
   entFounder: rev("src/static/enterprise/founder.jpg"),
-  // The chart animation on Grow with Us.
+  // The chart animation on the About page.
   entCharts: rev("src/static/enterprise/charts.js"),
   // The commission demo on the home page.
   entCommission: rev("src/static/enterprise/commission.js"),

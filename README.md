@@ -19,13 +19,14 @@ The founder repositioned the site on 2026-11-16:
 
 - `openshore.ai/` is **OpenShore**, a page for design partners
   (`src/index.njk`, the light frame `ent-layout.njk`), word for word the page
-  that sat at `/enterprise/` (founder: a one-to-one replica). `/about/` itself 301s to
-  `/os-code/` (the pages under it stay). `/enterprise/` 301s to `/`;
+  that sat at `/enterprise/` (founder: a one-to-one replica). `/about/` is OpenShore's
+  About page; the old pages under it 301 to `/os-code/`. `/enterprise/` 301s to `/`;
   the platform page, the tour and the promo film keep their addresses.
-- Under the Enterprise header sit three tabs (`src/_data/entTabs.js`):
-  **Solutions** (`/`), **Product Tour** (the platform page, public since 2026-11-20) and **Grow
-  with Us** (`/grow-with-us/`, `src/grow-with-us.njk`). The Worker's old sign-in
-  page (unrouted since 2026-11-20) draws the same tabs. Grow with Us reads its words from
+- Under the Enterprise header sit the tabs (`src/_data/entTabs.js`):
+  **Overview** (`/`), **Product Tour** (the platform page, public since 2026-11-20),
+  **Pricing**, **Security** and **About** (`/about/`, `src/about.njk`;
+  `/grow-with-us/` 301s to it). The Worker's old sign-in
+  page (unrouted since 2026-11-20) draws the same tabs. About reads its words from
   `src/_data/growWithUs.js`: the mission, the principles from the business
   plan's appendix and the founder's profile and photo
   (`src/static/enterprise/founder.jpg`); an empty section is left off.

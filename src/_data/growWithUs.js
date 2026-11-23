@@ -1,4 +1,4 @@
-// Grow with Us (/grow-with-us/), founder 2026-11-16: the mission, then the
+// The About page (/about/; /grow-with-us/ until 2026-11-23), founder 2026-11-16: the mission, then the
 // principles from the business plan's appendix, then a short profile of the
 // founder with a photo.
 //

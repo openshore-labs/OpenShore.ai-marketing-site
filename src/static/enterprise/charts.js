@@ -1,4 +1,4 @@
-// The animated charts on Grow with Us (founder, 2026-11-16).
+// The animated charts on the About page (founder, 2026-11-16).
 //
 // Each chart draws itself once, when it scrolls into view: a lit point
 // travels along every line, the line draws behind it, and the parts that
