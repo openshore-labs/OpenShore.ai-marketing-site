@@ -182,6 +182,14 @@ Then, the same day (founder):
   (hand patches to their visible text, like "The way out" above: re-apply
   them if a film is re-exported), and the sales example says
   "salesperson", not "rep".
+- **Product tour: Any AI model.** "One chat" (shown in the film and the
+  home page's demos) gave way to a section on the OpenShore Harness,
+  OpenShore's own layer between the model and the team, which makes any
+  capable large model work the same way: the same chats, agents and
+  approvals. Describe only what the harness does; the founder confirms
+  anything new. The tour's poster (`tour-poster.jpg`) was recaptured from
+  the film's title card (at 8 s, 1280 by 720 at 1.5x) so its chips say
+  Agents.
 - **All five agents on the home page**, behind tabs, Sales ops first (the job
   the pilot starts with). The one-line "More bots" list is gone. In the app
   frame every example shows the same four channels with its own lit.
