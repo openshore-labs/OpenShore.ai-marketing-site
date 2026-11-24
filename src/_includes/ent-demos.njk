@@ -42,7 +42,7 @@
 {%- set demos = [] -%}
 {%- for d in entDemos -%}{%- if not demoIds or (d.id in demoIds) -%}{%- set _ = demos.push(d) -%}{%- endif -%}{%- endfor -%}
       <section class="ent-sec cd-demos" aria-labelledby="bots-h">
-        <h2 class="ent-eyebrow" id="bots-h">{{ demosTitle or "AI agents, one per part of the business" }}</h2>
+        <h2 class="ent-eyebrow" id="bots-h">{{ demosTitle or "AI agents that run your operations" }}</h2>
 {%- if demos.length > 1 %}
         <div class="cd-tabs" role="tablist" aria-label="Pick an example" data-cd-tabs hidden>
 {%- for d in demos %}
