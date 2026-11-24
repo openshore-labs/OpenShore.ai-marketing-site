@@ -14,7 +14,7 @@ export default {
   // "OpenShore", no "for Enterprise"); a page with no description of its own
   // falls back to this one.
   metaDescription:
-    "OpenShore is one workspace where a growing startup's teams and AI agents work together. Now looking for design partners.",
+    "OpenShore is one workspace where your team and expert-built AI agents chat, plan and run your operations together, with one context across every app you use. Now onboarding design partners.",
 
   // The free personal coding agent's name and page (founder, 2026-11-16):
   // always the full name. Every page's footer links to it.

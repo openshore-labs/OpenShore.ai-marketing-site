@@ -97,10 +97,13 @@ The founder repositioned the site on 2026-11-16:
   surfacing in it (`static/enterprise/orbit.js`), the headline "The
   operating platform for growing startups" in sentence case (its
   screen-reader span carries the rest of the sentence), then the first
-  paragraph, which starts "Your team and AI agents" so it does not
-  repeat the headline (founder, 2026-11-20), and since 2026-11-22 names one
-  context across every app you connect and "Slack, Teams or whatever chat
-  you already use" (founder). No visible subhead.
+  paragraph. Since 2026-11-24 (founder) its first sentence says exactly
+  what the platform is: "OpenShore is one workspace where your team and
+  expert-built AI agents chat, plan and run your operations together, with
+  one context across every app you use." The home page's description and
+  the site's default description use the same sentence; keep the three in
+  step. Then "Slack, Teams or whatever chat you already use" (founder,
+  2026-11-22) and any model on your own keys. No visible subhead.
 - The status pill in the header reads "Piloting now. Design with us." on
   every page. It stands still (no
   ticker) and is never cut off: on a narrow phone each sentence takes its
