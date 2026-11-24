@@ -94,16 +94,20 @@ The founder repositioned the site on 2026-11-16:
 ## Home page focus (2026-11-19, settled 2026-11-20)
 
 - The hero: the turning ring of TEAM, AI, AGENTS and APPS with the mark
-  surfacing in it (`static/enterprise/orbit.js`), the headline "The
-  operating platform for growing startups" in sentence case (its
-  screen-reader span carries the rest of the sentence), then the first
+  surfacing in it (`static/enterprise/orbit.js`), the headline
+  "Operations run by AI agents. Your team focused on customers." (founder,
+  2026-11-24; until then "The operating platform for growing startups"),
+  one sentence per line, then the first
   paragraph, two short sentences (founder, 2026-11-24: say exactly what the
-  platform is, without a run-on): "One workspace where your team and
-  expert-built AI agents run your operations, with one context across every
-  app you use. Works alongside Slack or Teams, on any AI model." The home
+  platform is, without a run-on, and without repeating the headline): "One
+  workspace for your team and expert-built AI agents, with one context
+  across every app you use. Works alongside Slack or Teams, on any AI
+  model." The home
   page's description, the site's default description and the program PDF
-  (`partnerProgram.js`) say the same, starting "OpenShore is one
-  workspace..."; keep them in step. No visible subhead.
+  (`partnerProgram.js`) carry the fuller sentence, since they stand without
+  the headline: "OpenShore is one workspace where your team and
+  expert-built AI agents run your operations, with one context across
+  every app you use." Keep them in step. No visible subhead.
 - The status pill in the header reads "Piloting now. Design with us." on
   every page. It stands still (no
   ticker) and is never cut off: on a narrow phone each sentence takes its
