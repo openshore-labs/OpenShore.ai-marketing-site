@@ -149,6 +149,14 @@ The founder repositioned the site on 2026-11-16:
 
 From a startup founder's recorded first visit:
 
+- **The films have a way out.** On `/enterprise/tour/` and `/enterprise/promo/`
+  the cursor used to hide 3 seconds after load and never come back, the only
+  control (Play the film) sat bottom centre where screen-share bars cover it,
+  and nothing led back. Each film now has a "Back to OpenShore" link top left,
+  Escape leaves (to the page that opened it, else the platform page or `/`),
+  and the cursor hides only while the film plays and the mouse is still. These
+  are hand patches to the exported film pages: if a film is re-exported,
+  re-apply them (search for "The way out").
 - **The offer** at the foot of Pricing opens with four short checked lines
   instead of a paragraph, and the CFO line no longer repeats the terms.
 

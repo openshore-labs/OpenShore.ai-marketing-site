@@ -46,7 +46,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
 }
-body.idle { cursor: none; }
+body.filming.still { cursor: none; }
 
 #viewport { position: fixed; inset: 0; overflow: hidden; background: var(--paper); touch-action: manipulation; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
 #stage {
@@ -182,6 +182,14 @@ body.paused.blanked #pausebar { opacity: 0; pointer-events: none; }
 #script { display: none; }
 body.script { overflow: auto; }
 body.script #viewport, body.script #hint { display: none; }
+/* The way out (2026-11-24, after a first-time visitor got stuck on the title
+   card): a link back to the site, top left, and Escape. It fades with the
+   cursor while the film plays, and comes back on any move. */
+#exit { position: fixed; left: calc(16px + env(safe-area-inset-left, 0px)); top: calc(14px + env(safe-area-inset-top, 0px)); z-index: 7; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px 0 12px; border-radius: 999px; background: var(--raised); color: var(--ink); font: 600 15px var(--font); text-decoration: none; box-shadow: 0 2px 6px rgba(28, 42, 51, 0.08), 0 12px 30px -12px rgba(28, 42, 51, 0.35), 0 0 0 1px rgba(28, 42, 51, 0.08); transition: opacity 260ms var(--ease-glide), background-color 180ms ease; }
+@media (hover: hover) { #exit:hover { background: var(--sea-soft); color: var(--sea); } }
+#exit:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; }
+body.filming.still #exit { opacity: 0; pointer-events: none; }
+body.script #exit { display: none; }
 body.script #script { display: block; }
 #script { padding-block: 56px 96px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 #script .wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
@@ -1053,6 +1061,7 @@ body.script #speedbadge { display: none; }
 <button type="button" id="playbtn"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor"/></svg><span data-k="label">Play the film</span></button>
 <div id="pausebar" role="group" aria-label="Film controls"><input type="range" id="scrub" min="0" max="235.2" step="0.1" value="0" aria-label="Film position"><button type="button" data-a="prev" aria-label="Previous segment">&lsaquo; Back</button><button type="button" class="go" data-a="play">Resume</button><button type="button" data-a="next" aria-label="Next segment">Next &rsaquo;</button><button type="button" data-a="speed" aria-label="Playback speed, 1x">1x</button><button type="button" data-a="mute" aria-pressed="false">Sound on</button><span class="seg" data-k="seg"></span></div>
 <div id="speedbadge" aria-live="polite"></div>
+<a id="exit" href="/enterprise/platform/"><span aria-hidden="true">&larr;</span> Back to OpenShore</a>
 <div id="hint"><span data-k="ready">Loading the music</span> · <kbd>Space</kbd> plays the film · <kbd>P</kbd> pause · <kbd>F</kbd> full screen · <kbd>M</kbd> mute · <kbd>]</kbd> speed</div>
 
 <!-- ============ NOTES (#script) ============ -->
@@ -2546,7 +2555,7 @@ body.script #speedbadge { display: none; }
     else if (k === 'r' || k === 'R') { if (mode === 'standby' || e.shiftKey) playFilm(); }
     else if (k === 'Home') { if (mode === 'slides') toSlides(0, true); }
     else if (k === 'End') { if (mode === 'slides') toSlides(slides.length - 1, true); }
-    // Escape does nothing here: leaving full screen is the browser's own.
+    // Escape leaves the film (the way out, below); in full screen the browser takes it first.
   });
 
   // The hint shows once, until the media is loaded and for a moment after,
@@ -2755,6 +2764,34 @@ body.script #speedbadge { display: none; }
     var b = document.querySelector('#pausebar [data-a="mute"]');
     if (b) b.addEventListener('click', function () { music.toggleMute(); updateSoundBtn(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'm' || e.key === 'M') setTimeout(updateSoundBtn, 0); });
+  })();
+
+  // The way out (2026-11-24): the Back link or Escape returns to the page
+  // that opened the film, or to the site when the film was opened directly.
+  // The cursor and the link fade while the film plays and the mouse is
+  // still, and come back on any move or touch.
+  (function () {
+    var exit = document.getElementById('exit');
+    if (!exit) return;
+    function leave(e) {
+      if (e) e.preventDefault();
+      var r = document.referrer;
+      if (r && r.indexOf(location.origin + '/') === 0 && history.length > 1) history.back();
+      else location.href = exit.href;
+    }
+    exit.addEventListener('click', leave);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !document.fullscreenElement && !body.classList.contains('script')) leave(e);
+    });
+    var stillTimer = 0;
+    function wake() {
+      body.classList.remove('still');
+      clearTimeout(stillTimer);
+      stillTimer = setTimeout(function () { body.classList.add('still'); }, 2500);
+    }
+    document.addEventListener('mousemove', wake);
+    document.addEventListener('touchstart', wake, { passive: true });
+    wake();
   })();
 
   toStandby();
