@@ -98,9 +98,11 @@ The founder repositioned the site on 2026-11-16:
   working alongside your team." (founder, 2026-11-24; before that "The
   operating platform for growing startups", then briefly "Operations run by
   AI agents. Your team focused on customers."), then the first paragraph:
-  "Built by domain experts for sales ops, finance, planning and more,
-  with one context across every app you use. Works with Slack or Teams, on
-  any AI model." The founder's bet: the hook is the agents running
+  "Built by domain experts for sales ops, finance, planning and more.
+  OpenShore connects every app you use into one shared context, on any AI
+  model." (founder, 2026-11-24: the shared context across every app is the
+  point to make, not "works with Slack or Teams", which Connections still
+  lists.) The founder's bet: the hook is the agents running
   operations, and the one workspace wins people over once they use it, so
   the hero sells the agents and does not pitch the platform; the demos show
   it. The home page's description, the site's default description and the
