@@ -100,27 +100,27 @@ The founder repositioned the site on 2026-11-16:
 ## Home page focus (2026-11-19, settled 2026-11-20)
 
 - The hero: the turning ring of TEAM, AI, AGENTS and APPS with the mark
-  surfacing in it (`static/enterprise/orbit.js`), the headline "AI experts
-  that already know the job." (founder, 2026-11-24, after a friend's read
-  took the site for a copilot with a self-hosted backend: the hook is
-  expertise you'd otherwise hire executives to bring, said in plain words
-  and not led by a verb; before that "AI agents working alongside your
-  team.", "The operating platform for growing startups", then briefly
-  "Operations run by AI agents. Your team focused on customers."), then the
-  first paragraph: "AI agents for sales ops, finance, supply chain, and
-  more, built by domain experts. They connect to every app you use, share
-  one context, and run on any AI model. No executive hires required." It
-  opens with "AI agents" so "AI experts" reads as the agents, not
-  consultants. (founder, 2026-11-24: the shared context across every app is
+  surfacing in it (`static/enterprise/orbit.js`), the headline "Grow your
+  business, not your headcount." (founder, 2026-11-24, the consensus pick of
+  three, after a friend's read took the site for a copilot with a
+  self-hosted backend: the hook is the payoff, scaling without hiring the
+  executives to build it; before that, briefly, "AI experts that already
+  know the job.", and before that "AI agents working alongside your team.",
+  "The operating platform for growing startups", then briefly "Operations
+  run by AI agents. Your team focused on customers."), then the first
+  paragraph, which says what it is: "AI agents built by domain experts to
+  work alongside your teams in sales ops, finance, supply chain, and more.
+  They connect to every app you use, share one context, and run on any AI
+  model." (founder, 2026-11-24: the shared context across every app is
   the point to make, not "works with Slack or Teams", which Connections
   still lists.) The founder's bet: the hook is the agents running
   operations, and the one workspace wins people over once they use it, so
   the hero sells the agents and does not pitch the platform; the demos show
   it. The home page's description, the site's default description and the
   program PDF (`partnerProgram.js`) carry the same idea as a full sentence:
-  "OpenShore gives your team AI agents that already know the job, built by
-  domain experts for sales ops, finance, supply chain, and more, with one
-  context across every app you use." Keep them in step. No visible subhead.
+  "OpenShore gives your team AI agents built by domain experts for sales
+  ops, finance, supply chain, and more, with one context across every app
+  you use, so you grow your business, not your headcount." Keep them in step. No visible subhead.
 - The status pill in the header reads "Piloting now. Design with us." on
   every page. It stands still (no
   ticker) and is never cut off: on a narrow phone each sentence takes its

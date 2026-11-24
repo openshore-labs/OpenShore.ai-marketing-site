@@ -16,7 +16,7 @@ export default {
   title: "Design Partner Program",
   edition: "November 2026",
   for: "For startups of 2 to 300 people that are funded or earning revenue.",
-  what: "OpenShore gives your team AI agents that already know the job, built by domain experts for sales ops, finance, supply chain, and more, with one context across every app you use.",
+  what: "OpenShore gives your team AI agents built by domain experts for sales ops, finance, supply chain, and more, with one context across every app you use, so you grow your business, not your headcount.",
 
   glance: [
     ["90-day pilot", "no monthly fee"],
