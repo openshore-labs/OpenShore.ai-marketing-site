@@ -15,6 +15,9 @@ export default {
     "To build the world’s best products for people and AI working together, connecting every company to the tools and expertise it needs to scale.",
   missionLine:
     "Startups will build the future of work, so we build with them and for them. When they win, we grow.",
+  // Moved here from under the home page film (founder, 2026-11-24).
+  missionShore:
+    "Every startup is sailing for an open shore. We build the instruments and the crew to get them there.",
 
   // The Growth Principles: from the business plan, Appendix A (founder,
   // 2026-11-16; the plan calls them Business Principles). The second was
