@@ -190,8 +190,9 @@ From a startup founder's recorded first visit:
   desktop window mode).
 - **The hero.** On a laptop the turning ring stands to the right of the
   headline (`.ent-hero-top`), so the film shows in the first screen; on a
-  phone it stays above. A button is back under the first paragraph (now
-  "Book a demo", the same link as the tab row's and the floating one).
+  phone it stays above. Under the first paragraph, above the film, a
+  static "Become a design partner" button goes to the offer at the foot of
+  Pricing (founder, 2026-11-24).
 - **The offer** at the foot of Pricing opens with four short checked lines
   instead of a paragraph, and the CFO line no longer repeats the terms.
 
@@ -228,9 +229,13 @@ Then, the same day (founder):
   are. The main button reads "Book a demo" and opens an email to the
   founder with a few lines to fill in (2026-11-24; briefly "Become a design
   partner. Book a demo.", and before that "Apply for a free pilot", linking
-  to the offer on Pricing). It is under the home page headline, at the end
-  of the sticky tab row on a desktop (760px and wider), and floating at the
-  foot of the screen on a phone or tablet, always on screen.
+  to the offer on Pricing). It sits at the end of the sticky tab row on a
+  desktop (760px and wider) and floats at the foot of the screen on a phone
+  or tablet, always on screen. A calendar link may join it later.
+- **One design partner box** (founder, 2026-11-24): the offer at the foot of
+  Pricing (`_includes/ent-partner.njk`) is the only design partner box on
+  the site, also at the foot of the home page. The short card it replaced
+  is gone.
 - **The program as a PDF.** The offer at the foot of Pricing keeps the
   summary (who it is for, four lines, how to apply) and links to
   `/enterprise/openshore-design-partner-program.pdf`, four branded pages:

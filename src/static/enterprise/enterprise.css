@@ -969,15 +969,6 @@ html { scroll-padding-top: 64px; }
    2026-11-20). */
 .ent-hero h1.ent-h1--wide + .ent-lede { margin-top: -8px; text-wrap: pretty; }
 
-/* The short partner card closing the home page (founder, 2026-11-20): the
-   scale of the setup card above it, a step more present, in sea green. */
-.ent-partner--short { max-width: 760px; padding: 26px 28px 28px; border-radius: 18px; gap: 10px; background: var(--sea); box-shadow: 0 2px 6px rgba(28, 42, 51, 0.08), 0 18px 40px -22px rgba(28, 42, 51, 0.55); }
-.ent-partner--short h2 { font-size: 21px; letter-spacing: -0.015em; }
-.ent-partner--short .ent-lede { font-size: 16.5px; line-height: 1.55; color: #e4eef0; }
-.ent-partner--short .ent-badge { background: rgba(255, 255, 255, 0.14); color: #eaf4f6; font-size: 13px; padding: 5px 12px; }
-.ent-partner--short .ent-badge .ent-dot { background: #bfe0e8; }
-.ent-partner--short .ent-lede a { color: #ffffff; text-decoration-color: rgba(255, 255, 255, 0.55); }
-.ent-partner--short .ent-partner-ask { margin-top: 0; }
 .cd-intro { font-weight: 400; margin: 0; }
 
 /* Pricing as an itemized list and a by-size table (2026-11-21): a visitor
