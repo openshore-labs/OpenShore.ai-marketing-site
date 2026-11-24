@@ -959,7 +959,7 @@ html { scroll-padding-top: 64px; }
 
 /* The first paragraph sits a little closer under the headline (founder,
    2026-11-20). */
-.ent-hero h1.ent-h1--wide + .ent-lede { margin-top: -8px; }
+.ent-hero h1.ent-h1--wide + .ent-lede { margin-top: -8px; text-wrap: pretty; }
 
 /* The short partner card closing the home page (founder, 2026-11-20): the
    scale of the setup card above it, a step more present, in sea green. */
