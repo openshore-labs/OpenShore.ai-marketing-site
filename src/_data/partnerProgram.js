@@ -16,7 +16,7 @@ export default {
   title: "Design Partner Program",
   edition: "November 2026",
   for: "For startups of 2 to 300 people that are funded or earning revenue.",
-  what: "OpenShore is one workspace where your team and expert-built AI agents chat, plan and run your operations together, with one context across every app you use.",
+  what: "OpenShore is one workspace where your team and expert-built AI agents run your operations, with one context across every app you use.",
 
   glance: [
     ["90-day pilot", "no monthly fee"],
