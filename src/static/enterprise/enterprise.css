@@ -667,6 +667,12 @@ main, .ent-top, .ent-foot {
 .ent-deal li::before { content: ""; position: absolute; left: 2px; top: 0.45em; width: 10px; height: 5.5px; border-left: 2px solid #9ccbd8; border-bottom: 2px solid #9ccbd8; transform: rotate(-45deg); }
 
 @media (max-width: 860px) { .ent-deal { grid-template-columns: minmax(0, 1fr); } }
+/* The offer in four short lines (2026-11-24, after a cold read found the
+   paragraph too dense), checked like the lists under it. */
+.ent-points { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.ent-points li { position: relative; padding-left: 26px; font-size: clamp(17px, 1.9vw, 19px); line-height: 1.45; color: #d5dcdc; }
+.ent-points li b { color: var(--paper); font-weight: 650; }
+.ent-points li::before { content: ""; position: absolute; left: 3px; top: 0.42em; width: 11px; height: 6px; border-left: 2px solid #9ccbd8; border-bottom: 2px solid #9ccbd8; transform: rotate(-45deg); }
 
 /* ---- The worked examples: two panels behind tabs (2026-11-18) --------- */
 /* Without commission.js both panels show, one after the other, and the tab

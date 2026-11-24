@@ -145,6 +145,13 @@ The founder repositioned the site on 2026-11-16:
   clock and runs the tabs where there is more than one; without it every
   panel shows, still and complete.
 
+## Cold-read fixes (2026-11-24)
+
+From a startup founder's recorded first visit:
+
+- **The offer** at the foot of Pricing opens with four short checked lines
+  instead of a paragraph, and the CFO line no longer repeats the terms.
+
 ## Build
 
 ```
