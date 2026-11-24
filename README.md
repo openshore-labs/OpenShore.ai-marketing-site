@@ -157,6 +157,11 @@ From a startup founder's recorded first visit:
   and the cursor hides only while the film plays and the mouse is still. These
   are hand patches to the exported film pages: if a film is re-exported,
   re-apply them (search for "The way out").
+- **The hero.** On a laptop the turning ring stands to the right of the
+  headline (`.ent-hero-top`), so the film shows in the first screen; on a
+  phone it stays above. A "Become a design partner" button is back under the
+  first paragraph, the floating button's twin; the floating one steps aside
+  while it is on screen.
 - **The offer** at the foot of Pricing opens with four short checked lines
   instead of a paragraph, and the CFO line no longer repeats the terms.
 

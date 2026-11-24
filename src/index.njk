@@ -16,18 +16,31 @@ pageDescription: "OpenShore is the workspace where your team and AI agents run t
     paragraphs. -#}
 {%- set contact = site.enterpriseContact -%}
       <section class="ent-hero">
-        {#- The opening picture (founder, 2026-11-20), above the headline: a
-            ring of TEAM, AI, AGENTS and APPS already turning, and the
+        {#- The opening (founder, 2026-11-20; laid side by side 2026-11-24 after
+            a founder's cold read: the film should show above the fold, and
+            there should be one clear next step). On a laptop the picture
+            stands to the right of the headline, so the film rises into the
+            first screen; on a phone it stays above the headline. The picture:
+            a ring of TEAM, AI, AGENTS and APPS already turning, and the
             OpenShore mark surfacing in its middle (/enterprise/orbit.js). The
             words below are the ring's letters, laid out here for the script;
-            they never show as rows. Without the script nothing shows. -#}
-        <div class="orb" data-orb aria-hidden="true">
-          <p class="orb-row"><span class="orb-x">your </span><span class="orb-w">team</span><span class="orb-x">,</span></p>
-          <p class="orb-row"><span class="orb-w">AI</span> <span class="orb-w">agents</span></p>
-          <p class="orb-row"><span class="orb-x">and </span><span class="orb-w">apps</span><span class="orb-x"> in one place.</span></p>
+            they never show as rows. Without the script nothing shows. The
+            button is the floating button's twin; the floating one steps aside
+            while this one is on screen (data-float-spot). -#}
+        <div class="ent-hero-top">
+          <div class="orb" data-orb aria-hidden="true">
+            <p class="orb-row"><span class="orb-x">your </span><span class="orb-w">team</span><span class="orb-x">,</span></p>
+            <p class="orb-row"><span class="orb-w">AI</span> <span class="orb-w">agents</span></p>
+            <p class="orb-row"><span class="orb-x">and </span><span class="orb-w">apps</span><span class="orb-x"> in one place.</span></p>
+          </div>
+          <div class="ent-hero-copy">
+            <h1 class="ent-h1--wide"><span class="ent-h1-a">The operating platform for growing startups</span><span class="ent-sr">: your team, AI agents and apps in one place.</span></h1>
+            <p class="ent-lede">Your team and AI agents share one place for chats, projects and dashboards, with one context across every app you connect. It works alongside Slack, Teams or whatever chat you already use, so nobody has to move. Use any AI model, on your own keys.</p>
+            <div class="ent-actions" data-float-spot>
+              <a class="ent-btn ent-btn--primary" href="/pricing/#design-partners">Become a design partner</a>
+            </div>
+          </div>
         </div>
-        <h1 class="ent-h1--wide"><span class="ent-h1-a">The operating platform for growing startups</span><span class="ent-sr">: your team, AI agents and apps in one place.</span></h1>
-        <p class="ent-lede">Your team and AI agents share one place for chats, projects and dashboards, with one context across every app you connect. It works alongside Slack, Teams or whatever chat you already use, so nobody has to move. Use any AI model, on your own keys.</p>
         <a class="ent-film ent-film--wide ent-film--hero" href="/enterprise/promo/" aria-label="Play the OpenShore film">
           <img src="/enterprise/promo-poster.jpg?v={{ rev.entPromoPoster }}" alt="" width="960" height="540" loading="lazy" decoding="async" />
           <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>

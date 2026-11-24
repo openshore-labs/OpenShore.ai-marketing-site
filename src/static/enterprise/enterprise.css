@@ -914,6 +914,17 @@ html { scroll-padding-top: 64px; }
 @media (min-width: 600px) { .orb { height: 276px; } }
 .orb.orb-ready { opacity: 1; }
 @media (scripting: none) { .orb { display: none; } }
+/* Side by side on a laptop (2026-11-24): the picture to the right of the
+   headline, in its compact size (orbit.js centres it in a column this
+   narrow), so the film rises into the first screen. On a phone the
+   picture stays above the headline. */
+.ent-hero-top { width: 100%; display: flex; flex-direction: column; gap: 22px; }
+.ent-hero-copy { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+@media (min-width: 900px) {
+  .ent-hero-top { display: grid; grid-template-columns: minmax(0, 1fr) 280px; column-gap: 40px; align-items: center; }
+  .ent-hero-top .orb { grid-column: 2; grid-row: 1; margin: 0; height: 214px; }
+  .ent-hero-copy { grid-column: 1; grid-row: 1; }
+}
 @media (prefers-reduced-motion: reduce) { .orb { transition: none; } }
 .orb-live { overflow: hidden; }
 @media (min-width: 600px) { .orb-live { overflow: visible; } } /* left-aligned, its ripples may fade a little past its left edge */
