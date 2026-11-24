@@ -110,8 +110,8 @@ The founder repositioned the site on 2026-11-16:
   run by AI agents. Your team focused on customers."), then the first
   paragraph, which says what it is: "AI agents built by domain experts to
   work alongside your teams in sales ops, finance, supply chain, and more.
-  They share one context across every app you use and run on any AI model,
-  on a private server in your own cloud. Your data stays yours." (The last
+  They share one context across every app you use and run on any AI model.
+  All on a private server in your own cloud. Your data stays yours." (The last
   sentence added 2026-11-24, founder: the private cloud is a separator, so
   it belongs in the opening, in the Security section's own words.) (founder, 2026-11-24: the shared context across every app is
   the point to make, not "works with Slack or Teams", which Connections
