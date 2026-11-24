@@ -186,6 +186,14 @@ Then, the same day (founder):
   "N of 15 left" only once the first is taken, and drop "free" (and the
   button's "free") once all 15 are. The main button reads "Apply for a free
   pilot". Update the Design Partner Program doc and business plan to match.
+- **The program as a PDF.** The offer at the foot of Pricing keeps the
+  summary (who it is for, four lines, how to apply) and links to
+  `/enterprise/openshore-design-partner-program.pdf`, four branded pages:
+  the agents, how the pilot runs, you get / we ask / guardrails, the costs
+  and the founder. Its words live in `src/_data/partnerProgram.js`;
+  `npm run pdf:partners` renders it in the site's own fonts and colours
+  (needs Playwright with Chromium). Re-render and commit it whenever the
+  program, the prices or `pilot.js` change.
 
 ## Build
 

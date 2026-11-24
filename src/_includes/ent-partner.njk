@@ -1,16 +1,12 @@
-      {#- The design partner offer (founder, 2026-11-18, revised the same
-          evening; spelled out on 2026-11-19: when the setup is paid and what
-          happens to it at day 90, that the founding price is today's list
-          price held, and who the technical contact can be): a 90-day pilot with no OpenShore fee, a $5,000 setup
-          credited against the first year if they stay, then a founding price
-          of $500 a bot per month locked for two years, or they leave. The
-          same terms as the Design Partner Program doc and the business plan.
-          Model and cloud usage is always billed by the provider at cost.
-          Since 2026-11-20 (founder) it lives only at the foot of Pricing,
-          where the floating Become a design partner button on every page
-          lands (/pricing/#design-partners). Who it is for, and building a
-          bot a partner needs that the six don't cover, added 2026-11-20
-          (founder). -#}
+      {#- The design partner offer, at the foot of Pricing, where the floating
+          button on every page lands (/pricing/#design-partners). Since
+          2026-11-24 (founder) the page keeps the summary: who it is for and
+          four lines (the 90-day pilot with no monthly fee, the setup, free
+          for the first 15 per src/_data/pilot.js, the day-90 choice of
+          today's price locked for two years, and helping shape it), then the
+          full program as a PDF and the email to apply. The terms match the
+          Design Partner Program doc and the business plan; change them
+          together. -#}
       <section class="ent-cta ent-partner" id="design-partners" aria-labelledby="cta-h" data-float-spot>
         <p class="ent-badge"><span class="ent-dot" aria-hidden="true"></span>Design partner pilots open</p>
         <h2 id="cta-h">Build the future of your business with us.</h2>
@@ -21,38 +17,12 @@
           <li><b>At day 90,</b> lock today’s price for two years, or walk away</li>
           <li><b>In return,</b> you help us shape it</li>
         </ul>
-        <div class="ent-deal">
-          <div>
-            <h3>You get</h3>
-            <ul role="list">
-              <li>A 90-day pilot with no monthly OpenShore fee. You pay your own cloud and model bills, at cost</li>
-              <li>Today’s price of $500 an agent per month, locked for two years, even if our list price goes up</li>
-              {% if pilot.open %}<li>No setup fee if you are one of the first {{ pilot.spots }} design partners, whether you stay or leave. After that, the {{ pilot.setupFee }} setup is paid when we install and credited against your first year if you stay</li>{% else %}<li>Your {{ pilot.setupFee }} setup, paid when we install, credited against your first year if you stay. If you leave at day 90, it covers the setup work</li>{% endif %}
-              <li>A real say in the roadmap: need an agent we don’t have yet? We build it with you</li>
-              <li>First access to every new agent</li>
-            </ul>
-          </div>
-          <div>
-            <h3>We ask</h3>
-            <ul role="list">
-              <li>A short signed agreement, with your success measures and the day-90 decision, before anything is installed</li>
-              <li>A sponsor who owns the budget, a named owner and a technical contact: whoever holds your cloud and admin accounts, not necessarily an engineer</li>
-              <li>A dedicated cloud account for OpenShore, on your keys. We set it up with you</li>
-              <li>Three months of past commission statements or month-end closes, so we can test against numbers you trust</li>
-              <li>A structured review every two weeks, plus quick feedback whenever something comes up</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Guardrails</h3>
-            <ul role="list">
-              <li>Read-only until you approve each workflow</li>
-              <li>A person on your team signs off on every change</li>
-              <li>By default we see service telemetry, like errors, uptime and versions, with no customer content. Anything deeper is with your permission, limited to that task, and logged</li>
-              <li>Turn our access off, or leave, any time. Your data stays in your cloud</li>
-            </ul>
-          </div>
+        {#- The details live in the PDF (founder, 2026-11-24: the section read as
+            too long): the agents, how the pilot runs, what you get, what we
+            ask, the guardrails, the costs and who is behind it. Its source is
+            src/_data/partnerProgram.js; `npm run pdf:partners` renders it. -#}
+        <div class="ent-actions">
+          <a class="ent-btn ent-btn--light" href="/enterprise/openshore-design-partner-program.pdf?v={{ rev.entPartnerPdf }}" download="OpenShore Design Partner Program.pdf">Download the full program <span class="ent-btn-meta">PDF</span></a>
         </div>
-        <p class="ent-cfo"><b>A cost your CFO can approve.</b> We walk your CFO through the numbers before you start, and you can leave any time.</p>
-        <p class="ent-founder-line">Built by <a href="/about/">Jack Bigelow</a>, who spent more than 15 years in operations, the last 10 building the revenue operations, planning and AI systems behind businesses as large as $200B at Amazon, AWS and Microsoft.</p>
         <p class="ent-lede ent-partner-ask">To apply, email <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'OpenShore design partner' | urlencode }}">{{ site.enterpriseContact }}</a>. Jack reads every message and replies personally.</p>
       </section>

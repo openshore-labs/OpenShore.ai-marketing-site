@@ -36,6 +36,7 @@ export default {
   // The enterprise page (/enterprise/): its stylesheet and the two film posters.
   entCss: rev("src/static/enterprise/enterprise.css"),
   entPromoPoster: rev("src/static/enterprise/promo-poster.jpg"),
+  entPartnerPdf: rev("src/static/enterprise/openshore-design-partner-program.pdf"),
   entTourPoster: rev("src/static/enterprise/tour-poster.jpg"),
   // The link-preview image for the Enterprise pages (2026-11-17): the film's
   // title frame without "for Startups".

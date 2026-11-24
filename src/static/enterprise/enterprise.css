@@ -701,6 +701,10 @@ main, .ent-top, .ent-foot {
 .cd-tabs--left { -webkit-mask-image: linear-gradient(90deg, transparent, #000 40px); mask-image: linear-gradient(90deg, transparent, #000 40px); }
 .cd-tabs--left.cd-tabs--right { -webkit-mask-image: linear-gradient(90deg, transparent, #000 40px, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(90deg, transparent, #000 40px, #000 calc(100% - 40px), transparent); }
 .ent-partner-ask { margin-top: 4px; }
+/* The download on the dark offer card (2026-11-24): a light button. */
+.ent-cta .ent-btn--light { background: var(--paper); color: var(--ink); gap: 10px; }
+@media (hover: hover) { .ent-cta .ent-btn--light:hover { background: #ffffff; } }
+.ent-btn-meta { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 7px; border-radius: 6px; background: var(--sea-soft); color: var(--sea); }
 
 /* ---- Connections and setup, the CFO and founder lines (2026-11-18) ---- */
 .ent-setup { margin-top: 8px; border-radius: 18px; padding: 22px 24px; background: var(--ink); color: var(--paper); display: flex; flex-direction: column; gap: 6px; max-width: 760px; }

@@ -3,7 +3,8 @@
 // $5,000 setup applies as before (paid at install, credited against the
 // first year if they stay, kept for the setup work if they leave at day 90).
 //
-// When a design partner signs, raise `taken` by one and redeploy. The pages
+// When a design partner signs, raise `taken` by one, run
+// `npm run pdf:partners` (the program PDF reads these terms), and redeploy. The pages
 // show how many free spots are left only once the first one is taken
 // (founder: "show spots left after the first one"). Once all are taken, the
 // pages go back to the $5,000 terms and the button drops "free".
