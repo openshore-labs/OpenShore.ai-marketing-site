@@ -112,10 +112,9 @@ The founder repositioned the site on 2026-11-16:
   every page. It stands still (no
   ticker) and is never cut off: on a narrow phone each sentence takes its
   own line.
-- The home page plays one worked example, the commission fix (the job the
-  pilot starts with), with no tab row, then "More bots, one per part of the
-  business", one line each (`more` in `src/_data/entDemos.js`). All five
-  examples play, behind tabs, in the product tour's Workers section.
+- The home page plays all five worked examples behind tabs, Sales ops first,
+  under "AI agents that run your operations" (2026-11-24). The product tour
+  no longer repeats them: its Agents section links to them (`/#bots-h`).
   `ent-demos.njk` takes `demoIds` to choose.
 - The setup box keeps the title "No CTO or CIO needed" and names the
   technical contact: whoever holds the cloud and admin accounts today, often
