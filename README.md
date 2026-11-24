@@ -224,9 +224,10 @@ Then, the same day (founder):
 - **Free setup for the first 5 design partners** (15 until the founder cut it
   on 2026-11-24), stay or leave; from the 6th, the $5,000 terms above apply. The count lives in
   `src/_data/pilot.js`: raise `taken` when a partner signs. Pages show
-  "N of 5 left" only once the first is taken, and drop "free" (and the
-  button's "free") once all 5 are. The main button reads "Apply for a free
-  pilot". Update the Design Partner Program doc and business plan to match.
+  "N of 5 left" only once the first is taken, and drop "free" once all 5
+  are. The main button reads "Become a design partner. Book a demo." and
+  opens an email to the founder with a few lines to fill in (2026-11-24;
+  before that "Apply for a free pilot", linking to the offer on Pricing). Update the Design Partner Program doc and business plan to match.
 - **The program as a PDF.** The offer at the foot of Pricing keeps the
   summary (who it is for, four lines, how to apply) and links to
   `/enterprise/openshore-design-partner-program.pdf`, four branded pages:

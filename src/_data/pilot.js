@@ -8,9 +8,25 @@
 // `npm run pdf:partners` (the program PDF reads these terms), and redeploy. The pages
 // show how many free spots are left only once the first one is taken
 // (founder: "show spots left after the first one"). Once all are taken, the
-// pages go back to the $5,000 terms and the button drops "free".
+// pages go back to the $5,000 terms.
+import site from "./site.js";
+
 const spots = 5;
 const taken = 0;
+
+// The main button opens an email to the founder (2026-11-24), with a few
+// lines to fill in. It used to go to the offer at the foot of Pricing.
+const subject = "Design partner: OpenShore demo";
+const body = [
+  "Hi Jack,",
+  "",
+  "We'd like to become a design partner and book a demo of OpenShore.",
+  "",
+  "Company:",
+  "Team size:",
+  "The first job we'd hand an agent:",
+  "",
+].join("\n");
 
 export default {
   spots,
@@ -19,6 +35,8 @@ export default {
   open: taken < spots,
   showCount: taken >= 1 && taken < spots,
   setupFee: "$5,000",
-  // The main button, on the home page hero and floating on every page.
-  button: taken < spots ? "Apply for a free pilot" : "Apply for a pilot",
+  // The main button, on the home page hero and floating on every page
+  // (founder, 2026-11-24; "Apply for a free pilot" before that).
+  button: "Become a design partner. Book a demo.",
+  buttonHref: `mailto:${site.enterpriseContact}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
 };
