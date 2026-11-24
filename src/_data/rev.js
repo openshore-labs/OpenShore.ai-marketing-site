@@ -53,7 +53,6 @@ export default {
   entNav: rev("src/static/enterprise/nav.js"),
   // The illustrations on Pricing, Security and About.
   entIllus: rev("src/static/enterprise/illus.js"),
-  entFloat: rev("src/static/enterprise/float.js"),
   // The price calculator on Pricing.
   entOrbit: rev("src/static/enterprise/orbit.js"),
   entFilmEmbed: rev("src/static/enterprise/film-embed.js"),

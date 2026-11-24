@@ -14,13 +14,13 @@ import site from "./site.js";
 const spots = 5;
 const taken = 0;
 
-// The main button opens an email to the founder (2026-11-24), with a few
-// lines to fill in. It used to go to the offer at the foot of Pricing.
-const subject = "Design partner: OpenShore demo";
+// The main button, Book a demo, opens an email to the founder (2026-11-24),
+// with a few lines to fill in. It used to go to the offer on Pricing.
+const subject = "OpenShore demo";
 const body = [
   "Hi Jack,",
   "",
-  "We'd like to become a design partner and book a demo of OpenShore.",
+  "We'd like to book a demo of OpenShore and hear about the design partner program.",
   "",
   "Company:",
   "Team size:",
@@ -35,8 +35,9 @@ export default {
   open: taken < spots,
   showCount: taken >= 1 && taken < spots,
   setupFee: "$5,000",
-  // The main button, on the home page hero and floating on every page
-  // (founder, 2026-11-24; "Apply for a free pilot" before that).
-  button: "Become a design partner. Book a demo.",
+  // The main button (founder, 2026-11-24): under the home page headline, at
+  // the end of the tab row on a desktop, and floating on a phone. Before that
+  // "Become a design partner. Book a demo.", and "Apply for a free pilot".
+  button: "Book a demo",
   buttonHref: `mailto:${site.enterpriseContact}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
 };

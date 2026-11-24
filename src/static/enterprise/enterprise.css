@@ -883,18 +883,16 @@ html { scroll-padding-top: 64px; }
   .ill-wire i, .ill-wheel-spin { display: none; }
 }
 
-/* ---- The floating design partner button (founder, 2026-11-20) ------------ */
-/* Bottom centre on every page, over the content, in reach of a thumb. It
-   steps aside (is-off) while its spot is on screen (float.js); the footer
-   and the sign-in page leave room under their last line for it. */
+/* ---- The floating Book a demo button (founder, 2026-11-20; 2026-11-24) ---- */
+/* Bottom centre on every page on a phone or tablet, over the content, in
+   reach of a thumb, and always on screen. The footer and the sign-in page
+   leave room under their last line for it. On a desktop the tab row's
+   button takes its place (below). */
 .ent-float { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 40; transform: translateX(-50%); white-space: nowrap; box-shadow: 0 2px 6px rgba(28, 42, 51, 0.12), 0 14px 34px -12px rgba(28, 42, 51, 0.5); transition: opacity 280ms cubic-bezier(0.22, 1, 0.36, 1), transform 280ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s, background-color 180ms ease; }
-.ent-float.is-off { opacity: 0; transform: translate(-50%, 16px); visibility: hidden; pointer-events: none; transition: opacity 220ms ease, transform 220ms ease, visibility 0s linear 220ms; }
 .ent-float:active { transform: translateX(-50%) scale(0.97); }
-/* "Become a design partner. Book a demo." keeps clear of the edges on the smallest phones. */
-@media (max-width: 360px) { .ent-float { font-size: 14px; padding: 0 14px; } }
 .ent-foot { padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px)); }
 .ent-locked .ent-lock { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
-@media (prefers-reduced-motion: reduce) { .ent-float, .ent-float.is-off { transition-duration: 1ms; transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ent-float { transition-duration: 1ms; transform: translateX(-50%); } }
 
 /* The home headline (founder, 2026-11-20) is a longer sentence: it gets the
    width to sit on two lines on a laptop. */
@@ -1011,3 +1009,18 @@ html { scroll-padding-top: 64px; }
 .ent-film-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; opacity: 0; transition: opacity 400ms ease; }
 .ent-film--live.is-ready .ent-film-frame iframe { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .ent-film-frame iframe { transition: none; } }
+
+/* ---- Book a demo in the tab row (founder, 2026-11-24) -------------------- */
+/* On a desktop the button sits at the end of the sticky tab row, so it is on
+   screen on every page however far down the reader is. The rule under the
+   row runs under the button too. Phones and tablets keep the floating one. */
+.ent-tabs a.ent-tabs-cta { display: none; }
+@media (min-width: 760px) {
+  .ent-tabs-bar { display: flex; align-items: center; gap: 24px; box-shadow: inset 0 -1px 0 var(--rule); }
+  .ent-tabs-bar .ent-tabs-row { flex: 1 1 auto; min-width: 0; box-shadow: none; }
+  .ent-tabs a.ent-tabs-cta { display: inline-flex; flex: none; min-height: 36px; padding: 0 16px; font-size: 14px; font-weight: 600; color: var(--paper); }
+  @media (hover: hover) { .ent-tabs a.ent-tabs-cta:hover { color: var(--paper); background: var(--ink); } }
+  .ent-tabs a.ent-tabs-cta:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+  .ent-float { display: none; }
+  .ent-foot { padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px)); }
+}

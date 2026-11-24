@@ -49,22 +49,26 @@
       </a>
       <a class="ent-badge ent-badge--top" href="/pricing/#design-partners"><span class="ent-dot" aria-hidden="true"></span><span class="ent-pill-t"><span>Piloting now.</span> <span>Design with us.</span></span></a>
     </header>
-    <nav class="ent-tabs" aria-label="OpenShore"><div class="ent-tabs-row">
+    <nav class="ent-tabs" aria-label="OpenShore"><div class="ent-tabs-bar"><div class="ent-tabs-row">
 {%- for t in entTabs %}
       <a href="{{ t.href }}"{% if page.url == t.href %} aria-current="page"{% endif %}>{{ t.label }}{% if t.locked %}<svg class="ent-tab-lock" viewBox="0 0 12 14" width="11" height="13" aria-label="sign-in needed" role="img"><rect x="1" y="6" width="10" height="7.5" rx="2" fill="currentColor"/><path d="M3.5 6V4.2a2.5 2.5 0 0 1 5 0V6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>{% endif %}</a>
 {%- endfor %}
+    </div>
+      {#- Book a demo (founder, 2026-11-24): always in reach. On a desktop it
+          sits at the end of the sticky tab row; on a phone or tablet the
+          floating button below is the same link. -#}
+      <a class="ent-btn ent-btn--primary ent-tabs-cta" href="{{ pilot.buttonHref }}">{{ pilot.button }}</a>
     </div></nav>
 
     <main>
 {{ content | safe }}
     </main>
 
-    {#- The floating design partner button (founder, 2026-11-20), on every
-        page: it lands on the offer at the foot of Pricing and steps aside
-        while the offer, or the home page's hero button (back since
-        2026-11-24, the same words and link), is on screen
-        (/enterprise/float.js). -#}
-    <a class="ent-btn ent-btn--primary ent-float" href="{{ pilot.buttonHref }}" data-float>{{ pilot.button }}</a>
+    {#- The floating button (founder, 2026-11-20; "Book a demo" and always on
+        screen since 2026-11-24): on a phone or tablet it stays at the foot of
+        the screen on every page. On a desktop the tab row's button takes its
+        place. -#}
+    <a class="ent-btn ent-btn--primary ent-float" href="{{ pilot.buttonHref }}">{{ pilot.button }}</a>
 
     <footer class="ent-foot">
       <nav class="ent-foot-site" aria-label="OpenShore pages">{% for t in entTabs %}{% if not loop.first %} · {% endif %}<a href="{{ t.href }}"{% if page.url == t.href %} aria-current="page"{% endif %}>{{ t.label }}</a>{% endfor %}</nav>
@@ -73,6 +77,5 @@
     </footer>
     <script src="/enterprise/nav.js?v={{ rev.entNav }}" defer></script>
     <script src="/enterprise/illus.js?v={{ rev.entIllus }}" defer></script>
-    <script src="/enterprise/float.js?v={{ rev.entFloat }}" defer></script>
   </body>
 </html>

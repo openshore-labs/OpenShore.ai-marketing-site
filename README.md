@@ -186,12 +186,12 @@ From a startup founder's recorded first visit:
   Escape leaves (to the page that opened it, else the platform page or `/`),
   and the cursor hides only while the film plays and the mouse is still. These
   are hand patches to the exported film pages: if a film is re-exported,
-  re-apply them (search for "The way out").
+  re-apply them (search for "The way out", and for "Embedded" for the
+  desktop window mode).
 - **The hero.** On a laptop the turning ring stands to the right of the
   headline (`.ent-hero-top`), so the film shows in the first screen; on a
-  phone it stays above. A "Become a design partner" button is back under the
-  first paragraph, the floating button's twin; the floating one steps aside
-  while it is on screen.
+  phone it stays above. A button is back under the first paragraph (now
+  "Book a demo", the same link as the tab row's and the floating one).
 - **The offer** at the foot of Pricing opens with four short checked lines
   instead of a paragraph, and the CFO line no longer repeats the terms.
 
@@ -225,9 +225,12 @@ Then, the same day (founder):
   on 2026-11-24), stay or leave; from the 6th, the $5,000 terms above apply. The count lives in
   `src/_data/pilot.js`: raise `taken` when a partner signs. Pages show
   "N of 5 left" only once the first is taken, and drop "free" once all 5
-  are. The main button reads "Become a design partner. Book a demo." and
-  opens an email to the founder with a few lines to fill in (2026-11-24;
-  before that "Apply for a free pilot", linking to the offer on Pricing). Update the Design Partner Program doc and business plan to match.
+  are. The main button reads "Book a demo" and opens an email to the
+  founder with a few lines to fill in (2026-11-24; briefly "Become a design
+  partner. Book a demo.", and before that "Apply for a free pilot", linking
+  to the offer on Pricing). It is under the home page headline, at the end
+  of the sticky tab row on a desktop (760px and wider), and floating at the
+  foot of the screen on a phone or tablet, always on screen.
 - **The program as a PDF.** The offer at the foot of Pricing keeps the
   summary (who it is for, four lines, how to apply) and links to
   `/enterprise/openshore-design-partner-program.pdf`, four branded pages:
