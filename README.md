@@ -77,7 +77,7 @@ The founder repositioned the site on 2026-11-16:
 - **Data Foundations is not an agent** (founder, 2026-11-24). It is the layer
   every agent works from; the tour lists the five agents and names Data
   Foundations beside them, never as a sixth.
-- **The pricing row names the agents**: "Each operations agent", with the five
+- **The pricing row names the agents**: "Each Expert Agent" (capitalized), with the five
   listed, on Pricing and in the program PDF (founder, 2026-11-24).
 - The home page carries a **Security and privacy** section
   (`_includes/ent-security.njk`) right after the commission demo, and a
