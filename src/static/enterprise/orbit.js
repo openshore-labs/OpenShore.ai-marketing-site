@@ -145,13 +145,16 @@
   function measure() {
     var W = stage.clientWidth;
     var phone = W < 560;
-    var s = phone ? 88 : 116;
+    // The page can draw the ring larger (--orb-scale, founder 2026-11-24:
+    // a fifth larger beside the headline on a laptop); every size scales.
+    var k = parseFloat(getComputedStyle(stage).getPropertyValue('--orb-scale')) || 1;
+    var s = (phone ? 88 : 116) * k;
     // The mark's rounded corners reach 0.61 of its side from the centre,
     // and the letters' inner edge clears them by a small gap; a letter's
     // half height is about 0.077 of the radius, so solve for the radius.
-    var R = Math.round((0.61 * s + (phone ? 19 : 24)) / 0.923);
-    var font = Math.round(Math.min(24, 0.72 * 2 * Math.PI * R / UNITS));
-    var outer = R + font * 0.62, reach = Math.round(outer + (phone ? 18 : 22));
+    var R = Math.round((0.61 * s + (phone ? 19 : 24) * k) / 0.923);
+    var font = Math.round(Math.min(24 * k, 0.72 * 2 * Math.PI * R / UNITS));
+    var outer = R + font * 0.62, reach = Math.round(outer + (phone ? 18 : 22) * k);
     stage.style.height = 2 * reach + 'px';
     var H = 2 * reach, cy = reach;
     // On a phone the picture is centred; wider, it lines up with the

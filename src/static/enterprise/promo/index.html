@@ -386,6 +386,16 @@ body.sound-ui #soundbtn:active { transform: scale(0.94); }
 #soundbtn.is-muted .off { display: block; }
 body.script .fc-btn, body.blanked .fc-btn { display: none; }
 @media (prefers-reduced-motion: reduce) { .fc-btn { transition-duration: 1ms; } }
+/* Embedded (?embed): the film in a page's window. Only Mute and Full screen;
+   in full screen the pause bar comes back for P. */
+#fullbtn { display: none; right: calc(70px + env(safe-area-inset-right, 0px)); }
+#fullbtn .back, #fullbtn.is-full .go { display: none; }
+#fullbtn.is-full .back { display: block; }
+#fullbtn:active { transform: scale(0.94); }
+body.embed #fullbtn { display: flex; }
+body.embed #backbtn, body.embed #exit, body.embed #hint, body.embed #tourlink, body.embed #playbtn { display: none; }
+body.embed:not(.is-full) #pausebar { display: none; }
+body.embed #soundbtn { opacity: 1; transform: none; pointer-events: auto; }
 </style>
 
 <div id="viewport">
@@ -735,6 +745,7 @@ body.script .fc-btn, body.blanked .fc-btn { display: none; }
 <a id="tourlink" href="/enterprise/platform/" target="_blank" rel="noopener">Want more detail? Take the product tour<svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M1 7h13M9 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 <button type="button" id="playbtn"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor"/></svg><span data-k="label">Play the film</span></button>
 <div id="pausebar" role="group" aria-label="Film controls"><input type="range" id="scrub" min="0" max="235.2" step="0.1" value="0" aria-label="Film position"><button type="button" data-a="prev" aria-label="Previous segment">&lsaquo; Back</button><button type="button" class="go" data-a="play">Resume</button><button type="button" data-a="next" aria-label="Next segment">Next &rsaquo;</button><button type="button" data-a="speed" aria-label="Playback speed, 1x">1x</button><span class="seg" data-k="seg"></span></div>
+<button type="button" id="fullbtn" class="fc-btn" aria-label="Full screen"><svg class="go" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5V3h4.5M12.5 3H17v4.5M17 12.5V17h-4.5M7.5 17H3v-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="back" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 3v4.5H3M17 7.5h-4.5V3M12.5 17v-4.5H17M3 12.5h4.5V17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <a id="backbtn" class="fc-btn" href="/" aria-label="Leave the film"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H4.5M9.5 4.5L4 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 <button type="button" id="soundbtn" class="fc-btn" aria-label="Mute" tabindex="-1"><svg class="on" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3.5 8.5h3l4.5-4v13l-4.5-4h-3z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M14.5 8a4 4 0 0 1 0 6M17 5.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="off" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3.5 8.5h3l4.5-4v13l-4.5-4h-3z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M14.5 8.5l5 5M19.5 8.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
 <div id="speedbadge" aria-live="polite"></div>
@@ -751,6 +762,13 @@ body.script .fc-btn, body.blanked .fc-btn { display: none; }
   var SPLASH_AT = 154.780 + 0.7;
   var stage = document.getElementById('stage');
   var body = document.body;
+  // Embedded (2026-11-24, founder): on a desktop the home page and the
+  // platform page play the film in its window, from ?embed. It starts by
+  // itself, muted, loops, and shows only Mute and Full screen; the page
+  // holds it while it is scrolled out of sight. Without ?embed nothing here
+  // changes.
+  var EMBED = /[?&]embed(=|&|$)/.test(location.search);
+  if (EMBED) body.classList.add('embed');
   var standby = document.getElementById('standby');
   var film = document.getElementById('film');
   var deck = document.getElementById('deck');
@@ -2006,12 +2024,14 @@ body.script .fc-btn, body.blanked .fc-btn { display: none; }
         music.follow(t);
         sfx.tick(t);
         if (bus && now - lastPost > 500) { lastPost = now; try { bus.postMessage({ mode: 'film', t: t, rate: music.rate(), end: FILM_END, paused: false }); } catch (e) {} }
+        if (t >= FILM_END && EMBED) { playFilm(); return; }
         if (t >= FILM_END) { music.stop(200); lockUntil = performance.now() + 1500; toSlides(0); return; }
         raf = requestAnimationFrame(tick);
       };
       filmTick(performance.now());
     }
-    music.start(0, go, go);
+    if (EMBED && music.muted()) { music.halt(); go(); }
+    else music.start(0, go, go);
     setTimeout(go, 1500); // if the music cannot start, the film still runs
   }
 
@@ -2026,8 +2046,10 @@ body.script .fc-btn, body.blanked .fc-btn { display: none; }
       music.pause();
     } else {
       t0 = performance.now() - pausedAt * 1000 / music.rate();
+      var heldAt = pausedAt;
       pausedAt = null;
-      music.resume();
+      if (EMBED) { if (!music.muted()) music.start(heldAt); }
+      else music.resume();
       raf = requestAnimationFrame(filmTick);
     }
     announce();
@@ -2488,7 +2510,11 @@ body.script .fc-btn, body.blanked .fc-btn { display: none; }
   }
   (function () {
     var b = document.getElementById('soundbtn');
-    if (b) b.addEventListener('click', function (e) { music.toggleMute(); updateSoundBtn(); if (e.detail) b.blur(); });
+    if (b) b.addEventListener('click', function (e) {
+      music.toggleMute(); updateSoundBtn();
+      if (EMBED && !music.muted() && mode === 'film' && pausedAt == null && music.clock() == null) music.start(filmNow());
+      if (e.detail) b.blur();
+    });
     document.addEventListener('keydown', function (e) { if (e.key === 'm' || e.key === 'M') setTimeout(updateSoundBtn, 0); });
     updateSoundBtn();
   })();
@@ -2516,7 +2542,7 @@ body.script .fc-btn, body.blanked .fc-btn { display: none; }
   // still, and come back on any move or touch.
   (function () {
     var exit = document.getElementById('exit');
-    if (!exit) return;
+    if (!exit || EMBED) return;
     function leave(e) {
       if (e) e.preventDefault();
       var r = document.referrer;
@@ -2540,6 +2566,35 @@ body.script .fc-btn, body.blanked .fc-btn { display: none; }
 
   toStandby();
   route();
+  if (EMBED) {
+    if (!music.muted()) music.toggleMute();
+    updateSoundBtn();
+    playFilm();
+    var fb = document.getElementById('fullbtn');
+    var setFull = function () {
+      var on = !!document.fullscreenElement;
+      body.classList.toggle('is-full', on);
+      if (fb) { fb.classList.toggle('is-full', on); fb.setAttribute('aria-label', on ? 'Exit full screen' : 'Full screen'); }
+    };
+    if (fb) {
+      fb.addEventListener('click', function (e) { toggleFull(); if (e.detail) fb.blur(); });
+      fb.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') e.stopPropagation(); });
+    }
+    document.addEventListener('fullscreenchange', setFull);
+    // M turns the music on where the film is, the same as the switch.
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'm' && e.key !== 'M') return;
+      setTimeout(function () { if (!music.muted() && mode === 'film' && pausedAt == null && music.clock() == null) music.start(filmNow()); }, 0);
+    });
+    // The page holds the film while it is out of sight, and lets it go on
+    // when it comes back; a pause the viewer made stays a pause.
+    var heldByPage = false;
+    window.addEventListener('message', function (e) {
+      if (e.origin !== location.origin || !e.data || !e.data.osFilm) return;
+      if (e.data.osFilm === 'hold' && mode === 'film' && pausedAt == null) { heldByPage = true; togglePause(); }
+      else if (e.data.osFilm === 'go' && heldByPage) { heldByPage = false; if (mode === 'film' && pausedAt != null) togglePause(); }
+    });
+  }
 })();
 </script>
 

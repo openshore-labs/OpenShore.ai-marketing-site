@@ -15,12 +15,12 @@ pageOgImage: "/enterprise/tour-poster.jpg"
       </section>
 
       <section class="ent-films" aria-label="Product tour">
-        <a class="ent-film ent-film--wide" href="/enterprise/tour/">
+        <a class="ent-film ent-film--wide" href="/enterprise/tour/" data-film-embed data-film-title="The OpenShore product tour">
           <img src="/enterprise/tour-poster.jpg?v={{ rev.entTourPoster }}" alt="" width="960" height="540" />
           <span class="ent-film-meta"><b>The product tour</b><span>Connections, chats, projects, tasks, reports, the owner’s view and agents</span></span>
           <span class="ent-play" aria-hidden="true"><svg viewBox="0 0 14 16" width="14" height="16"><path d="M1.5 1.2v13.6L13 8z" fill="currentColor" /></svg></span>
         </a>
-        <p class="ent-note">Opens full screen, with sound. Press P to pause, and Next to move between parts.</p>
+        <p class="ent-note" data-film-note>Opens full screen, with sound. Press P to pause, and Next to move between parts.</p>
       </section>
 
       {#- Any AI model (founder, 2026-11-24), in place of "One chat", which the
@@ -66,3 +66,5 @@ pageOgImage: "/enterprise/tour-poster.jpg"
         <h2 id="walk-h">See it on your own numbers.</h2>
         <p class="ent-lede">Want to see an agent work on a problem from your business? Email <a href="mailto:{{ contact }}?subject={{ 'OpenShore walkthrough' | urlencode }}">{{ contact }}</a> for a 30-minute walkthrough with Jack.</p>
       </section>
+
+      <script src="/enterprise/film-embed.js?v={{ rev.entFilmEmbed }}" defer></script>

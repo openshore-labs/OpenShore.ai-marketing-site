@@ -923,10 +923,18 @@ html { scroll-padding-top: 64px; }
    picture stays above the headline. */
 .ent-hero-top { width: 100%; display: flex; flex-direction: column; gap: 22px; }
 .ent-hero-copy { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+.ent-hero-text { display: flex; flex-direction: column; gap: 22px; }
+/* On a laptop (founder, 2026-11-24) the ring is a fifth larger and sits
+   level with the middle of the headline and its paragraph, not counting the
+   button under them. The ring's big negative margins take it out of the
+   row's height, so the row is as tall as the words and the ring stays
+   centred on them, reaching a little above and below. */
 @media (min-width: 900px) {
-  .ent-hero-top { display: grid; grid-template-columns: minmax(0, 1fr) 280px; column-gap: 40px; align-items: center; }
-  .ent-hero-top .orb { grid-column: 2; grid-row: 1; margin: 0; height: 214px; }
-  .ent-hero-copy { grid-column: 1; grid-row: 1; }
+  .ent-hero-top { display: grid; grid-template-columns: minmax(0, 1fr) 300px; column-gap: 40px; row-gap: 22px; align-items: start; }
+  .ent-hero-copy { display: contents; }
+  .ent-hero-text { grid-column: 1; grid-row: 1; }
+  .ent-hero-copy > .ent-actions { grid-column: 1; grid-row: 2; }
+  .ent-hero-top .orb { --orb-scale: 1.2; grid-column: 2; grid-row: 1; align-self: center; margin: -999px 0; height: 254px; }
 }
 @media (prefers-reduced-motion: reduce) { .orb { transition: none; } }
 .orb-live { overflow: hidden; }
@@ -991,3 +999,13 @@ html { scroll-padding-top: 64px; }
 .ill-bot svg { box-shadow: 0 0 0 2px var(--raised); border-radius: 9px; }
 .ill-bill-once { display: flex; justify-content: space-between; align-items: baseline; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 13.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .ill-bill.is-live .ill-people i, .ill-bill.is-live .ill-bill-row--bot, .ill-bill.is-live .ill-bill-total, .ill-bill.is-live .ill-bill-v { animation: none; opacity: 1; transform: none; }
+
+/* The films in their windows on a desktop (founder, 2026-11-24;
+   /enterprise/film-embed.js): the poster holds the place until the film has
+   loaded, then the film fades in over it. */
+.ent-film--live { transform: none; }
+@media (hover: hover) { .ent-film--live:hover { transform: none; } }
+.ent-film-frame { position: relative; }
+.ent-film-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; opacity: 0; transition: opacity 400ms ease; }
+.ent-film--live.is-ready .ent-film-frame iframe { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .ent-film-frame iframe { transition: none; } }
