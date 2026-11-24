@@ -42,7 +42,7 @@
 {%- set demos = [] -%}
 {%- for d in entDemos -%}{%- if not demoIds or (d.id in demoIds) -%}{%- set _ = demos.push(d) -%}{%- endif -%}{%- endfor -%}
       <section class="ent-sec cd-demos" aria-labelledby="bots-h">
-        <h2 class="ent-eyebrow" id="bots-h">{{ demosTitle or "Expert AI bots" }}</h2>
+        <h2 class="ent-eyebrow" id="bots-h">{{ demosTitle or "AI agents, one per part of the business" }}</h2>
 {%- if demos.length > 1 %}
         <div class="cd-tabs" role="tablist" aria-label="Pick an example" data-cd-tabs hidden>
 {%- for d in demos %}
@@ -78,8 +78,10 @@
                     </ul>
                     <p class="cd-nav-k">Channels</p>
                     <ul class="cd-nav cd-nav--ch">
-{%- for c in [d.channel, "ops", "finance", "leadership"] %}
-                      <li{% if loop.first %} class="is-on"{% endif %}><i>#</i>{{ c }}</li>
+{#- The same four channels in every example, with the example's own lit
+    (2026-11-24: listing it first doubled it for every channel but sales). -#}
+{%- for c in ["sales", "ops", "finance", "leadership"] %}
+                      <li{% if c == d.channel %} class="is-on"{% endif %}><i>#</i>{{ c }}</li>
 {%- endfor %}
                     </ul>
                     <ul class="cd-nav cd-nav--foot">
@@ -110,7 +112,7 @@
 {%- if m.name %}
                     <p class="cd-who">{{ m.name }} <span>{{ m.role }} · {{ m.time }}</span></p>
 {%- else %}
-                    <p class="cd-who">{{ d.bot }} <span class="cd-badge">Bot</span> <span>{{ m.time }}</span></p>
+                    <p class="cd-who">{{ d.bot }} <span class="cd-badge">Agent</span> <span>{{ m.time }}</span></p>
 {%- endif %}
                     <p class="cd-txt">{{ m.text | safe }}</p>
 {%- if m.chip %}
@@ -158,7 +160,7 @@
                   <span class="cd-return cd-beat" data-at="3200" aria-hidden="true"></span>
                   <ol class="cd-steps" aria-label="The loop">
                     <li class="cd-step" data-at="1300"><span class="cd-pill">Someone asks</span></li>
-                    <li class="cd-step" data-at="1750">{{ arrow | safe }}<span class="cd-pill">A bot proposes</span></li>
+                    <li class="cd-step" data-at="1750">{{ arrow | safe }}<span class="cd-pill">An agent proposes</span></li>
                     <li class="cd-step" data-at="2200">{{ arrow | safe }}<span class="cd-pill">An admin approves</span></li>
                     <li class="cd-step cd-step--rule" data-at="2650">{{ arrow | safe }}<span class="cd-pill"><span class="ent-dot" aria-hidden="true"></span>A new rule</span></li>
                   </ol>
@@ -178,7 +180,7 @@
         <p class="ent-source cd-why"><b>Why this example.</b> {{ d.why }}</p>
 {%- endif %}
 {%- if d.also %}
-        <p class="ent-source cd-why"><b>Also from this bot.</b> {{ d.also }}</p>
+        <p class="ent-source cd-why"><b>Also from this agent.</b> {{ d.also }}</p>
 {%- endif %}
       </div>
 {%- endfor %}

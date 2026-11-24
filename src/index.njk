@@ -37,7 +37,7 @@ pageDescription: "OpenShore is the workspace where your team and AI agents run t
             <h1 class="ent-h1--wide"><span class="ent-h1-a">The operating platform for growing startups</span><span class="ent-sr">: your team, AI agents and apps in one place.</span></h1>
             <p class="ent-lede">Your team and AI agents share one place for chats, projects and dashboards, with one context across every app you connect. It works alongside Slack, Teams or whatever chat you already use, so nobody has to move. Use any AI model, on your own keys.</p>
             <div class="ent-actions" data-float-spot>
-              <a class="ent-btn ent-btn--primary" href="/pricing/#design-partners">Become a design partner</a>
+              <a class="ent-btn ent-btn--primary" href="/pricing/#design-partners">{{ pilot.button }}</a>
             </div>
           </div>
         </div>
@@ -48,22 +48,16 @@ pageDescription: "OpenShore is the workspace where your team and AI agents run t
         <p class="ent-body ent-hero-why">Every startup is sailing for an open shore. We build the instruments and the crew to get them there.</p>
       </section>
 
-{#- One worked example on the home page (2026-11-19): the commission fix,
-    the job the design partner pilot starts with. The rest play in the
-    product tour; here they get one line each. -#}
-{%- set demoIds = ["rev"] -%}
-{#- Played inside the desktop app (founder, 2026-11-22): the whole window,
-    a zoom into the chat, the conversation, a zoom back out. -#}
+{#- Every agent on the home page, behind tabs (founder, 2026-11-24, after a
+    cold read took the commission example alone to mean OpenShore is only
+    for sales teams). Sales ops plays first: it is the job the design
+    partner pilot starts with. Played inside the desktop app (founder,
+    2026-11-22): the whole window, a zoom into the chat, the conversation,
+    a zoom back out. -#}
 {%- set demoApp = true -%}
 {% include "ent-demos.njk" %}
-      <section class="ent-sec ent-more" aria-labelledby="more-h">
-        <h2 class="ent-eyebrow" id="more-h">More bots, one per part of the business</h2>
-        <ul class="ent-more-list" role="list">
-{%- for d in entDemos %}{% if d.id != "rev" %}
-          <li><b>{{ d.bot }}.</b> {{ d.more }}</li>
-{%- endif %}{% endfor %}
-        </ul>
-        <p class="ent-body">Each one works the same way: it finds the cause, proposes the fix, waits for a person to approve, and turns the approval into a rule. Watch them work in the <a href="/enterprise/platform/">product tour</a>.</p>
+      <section class="ent-sec ent-more" aria-label="How every agent works">
+        <p class="ent-body">Each agent works the same way: it finds the cause, proposes the fix, waits for a person to approve, and turns the approval into a rule. See the whole platform in the <a href="/enterprise/platform/">product tour</a>.</p>
       </section>
 
 {% include "ent-connections.njk" %}

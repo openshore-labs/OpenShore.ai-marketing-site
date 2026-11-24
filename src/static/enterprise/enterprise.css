@@ -979,20 +979,8 @@ html { scroll-padding-top: 64px; }
 .ent-price-v { flex: none; text-align: right; font-size: 20px; font-weight: 650; color: var(--ink); white-space: nowrap; display: flex; flex-direction: column; align-items: flex-end; line-height: 1.2; }
 .ent-price-v small { font-size: 12.5px; font-weight: 500; color: var(--muted); }
 
-/* The bill as a calculator (2026-11-21): a slider for team size and a bot
-   count, revealed by /enterprise/pricing.js. */
-@media (min-width: 900px) { .ent-split--calc { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
-.ent-calc { display: flex; flex-direction: column; gap: 16px; max-width: 440px; width: 100%; }
-.ent-calc .ill { margin: 0; }
-.ent-calc-ctl { display: flex; flex-direction: column; gap: 12px; }
-.ent-calc-ctl[hidden] { display: none; }
-.ent-calc-field { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 15px; font-weight: 600; color: var(--ink); }
-.ent-calc-field output { font-variant-numeric: tabular-nums; color: var(--sea); }
-.ent-calc input[type="range"] { width: 100%; height: 28px; margin: -4px 0 4px; accent-color: var(--sea); cursor: pointer; }
-.ent-calc-bots { display: inline-flex; gap: 6px; }
-.ent-calc-bots button { min-width: 40px; height: 36px; border: 0; border-radius: 10px; background: var(--sea-soft); color: var(--sea); font: inherit; font-weight: 600; font-variant-numeric: tabular-nums; cursor: pointer; }
-.ent-calc-bots button[aria-pressed="true"] { background: var(--sea); color: var(--paper); }
-.ent-calc-bots button:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+/* The price list stands alone (2026-11-24), at a readable width. */
+.ent-price-wrap { width: 100%; max-width: 680px; }
 .ill-people--scaled i { background: var(--sea); }
 .ill-bot { display: flex; }
 .ill-bot svg + svg { margin-left: -26px; }

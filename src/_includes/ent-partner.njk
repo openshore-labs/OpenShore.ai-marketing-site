@@ -17,7 +17,7 @@
         <p class="ent-lede">For startups of 2 to 300 people that are funded or earning revenue.</p>
         <ul class="ent-points" role="list">
           <li><b>90-day pilot,</b> no monthly fee</li>
-          <li><b>$5,000 setup, once,</b> credited back if you stay</li>
+          {% if pilot.open %}<li><b>No setup fee</b> for the first {{ pilot.spots }} design partners{% if pilot.showCount %} ({{ pilot.left }} of {{ pilot.spots }} left){% endif %}</li>{% else %}<li><b>{{ pilot.setupFee }} setup, once,</b> credited back if you stay</li>{% endif %}
           <li><b>At day 90,</b> lock today’s price for two years, or walk away</li>
           <li><b>In return,</b> you help us shape it</li>
         </ul>
@@ -25,11 +25,11 @@
           <div>
             <h3>You get</h3>
             <ul role="list">
-              <li>A 90-day pilot with no OpenShore fee beyond the one-time $5,000 setup. You pay your own cloud and model bills, at cost</li>
-              <li>Today’s price of $500 a bot per month, locked for two years, even if our list price goes up</li>
-              <li>Your $5,000 setup, paid when we install, credited against your first year if you stay. If you leave at day 90, it covers the setup work</li>
-              <li>A real say in the roadmap: need a bot we don’t have yet? We build it with you</li>
-              <li>First access to every new bot</li>
+              <li>A 90-day pilot with no monthly OpenShore fee. You pay your own cloud and model bills, at cost</li>
+              <li>Today’s price of $500 an agent per month, locked for two years, even if our list price goes up</li>
+              {% if pilot.open %}<li>No setup fee if you are one of the first {{ pilot.spots }} design partners, whether you stay or leave. After that, the {{ pilot.setupFee }} setup is paid when we install and credited against your first year if you stay</li>{% else %}<li>Your {{ pilot.setupFee }} setup, paid when we install, credited against your first year if you stay. If you leave at day 90, it covers the setup work</li>{% endif %}
+              <li>A real say in the roadmap: need an agent we don’t have yet? We build it with you</li>
+              <li>First access to every new agent</li>
             </ul>
           </div>
           <div>

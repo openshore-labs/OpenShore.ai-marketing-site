@@ -44,12 +44,12 @@ export default [
   // operations and a commission analyst who works the dispute queue.
   {
     id: "rev",
-    tab: "Revenue ops",
-    eyebrow: "Let’s say a rep’s commission comes up short.",
+    tab: "Sales ops",
+    eyebrow: "Let’s say a salesperson’s commission comes up short.",
     channel: "sales",
-    bot: "RevOps bot",
+    bot: "Sales ops agent",
     messages: [
-      { name: "Maya Chen", initials: "MC", role: "Account rep", time: "10:02", text: `My October commission looks $2,140 short. ${at("RevOps")} can you check?` },
+      { name: "Maya Chen", initials: "MC", role: "Salesperson", time: "10:02", text: `My October commission looks $2,140 short. ${at("Sales ops")} can you check?` },
       { time: "10:03", text: `Found it. The deal is in your territory but booked to someone else. Moving it needs ${at("Dana Reyes")} to approve.` },
       { name: "Dana Reyes", initials: "DR", role: "Head of Revenue", time: "10:04", text: "Approved.", chip: "Rebook the deal to Maya" },
       { time: "10:04", text: "Done. Your October statement is up $2,140.", stmt: { label: "October statement", from: 0, to: 2140, text: "+$2,140" } },
@@ -57,7 +57,7 @@ export default [
     stamp: "Asked at 10:02. Fixed at 10:04.",
     lead: "And that approval did more than fix one statement.",
     ruleFrom: "Rule saved · from Dana’s approval",
-    rule: "Deals count toward the rep who owns the territory.",
+    rule: "A deal counts toward the salesperson who owns its territory.",
     runs: "Runs before any pay change",
     why: "56% of companies have error-prone commission calculations (Palette, The State of Sales Compensation, 2023). Catching them usually takes sales operations and a commission analyst.",
   },
@@ -74,7 +74,7 @@ export default [
     tab: "Supply chain",
     eyebrow: "Let’s say a best seller is about to run out.",
     channel: "ops",
-    bot: "Supply chain bot",
+    bot: "Supply chain agent",
     messages: [
       { name: "Priya Shah", initials: "PS", role: "Operations lead", time: "2:14", text: `Reno is down to 40 Trail Packs with four days of orders waiting. The PO for 600 says received. ${at("Supply chain")} where did they go?` },
       { time: "2:15", text: `Found them. The PO was for Reno, but the 600 were received at Dallas, so Reno’s count never went up. Moving 400 to Reno needs ${at("Marcus Lee")} to approve.` },
@@ -101,7 +101,7 @@ export default [
     tab: "Finance",
     eyebrow: "Let’s say a retailer pays an invoice short.",
     channel: "finance",
-    bot: "Finance bot",
+    bot: "Finance agent",
     messages: [
       { name: "Jordan Kim", initials: "JK", role: "Accounts receivable", time: "9:41", text: `Cedar Grove paid invoice 1182 short by $3,600 and called it a promo deduction. ${at("Finance")} is that right?` },
       { time: "9:42", text: `It isn’t. The trade promotions sheet has no Cedar Grove promo in October, so nothing backs the deduction. Disputing it needs ${at("Nia Brooks")} to approve.` },
@@ -128,7 +128,7 @@ export default [
     tab: "Planning",
     eyebrow: "Let’s say marketing is running over budget.",
     channel: "leadership",
-    bot: "Planning bot",
+    bot: "Planning agent",
     messages: [
       { name: "Ava Morgan", initials: "AM", role: "Founder", time: "4:02", text: `Marketing feels heavy this quarter. ${at("Planning")} are we still on plan?` },
       { time: "4:03", text: `Not quite. Marketing is $12,000 over its Q4 budget after October’s holiday ads. Trimming November’s ads by that much keeps the quarter on plan. The new plan needs ${at("Sam Okafor")} to approve.` },
@@ -156,9 +156,9 @@ export default [
     tab: "Analytics",
     eyebrow: "Let’s say margin dips and nobody knows why.",
     channel: "leadership",
-    bot: "Performance Analytics bot",
+    bot: "Analytics agent",
     messages: [
-      { name: "Dana Reyes", initials: "DR", role: "Head of Revenue", time: "8:30", text: `Gross margin dipped last week. ${at("Performance")} do we know why?` },
+      { name: "Dana Reyes", initials: "DR", role: "Head of Revenue", time: "8:30", text: `Gross margin dipped last week. ${at("Analytics")} do we know why?` },
       { time: "8:31", text: `Freight. Our carriers’ holiday surcharges are on every home delivery until mid-January, which took margin from 42% to 41%. It’s in this week’s business review, which needs ${at("Ava Morgan")} to approve.` },
       { name: "Ava Morgan", initials: "AM", role: "Founder", time: "8:33", text: "Approved.", chip: "Week 46 business review" },
       { time: "8:33", text: "Done. The review is in #leadership, and every number in it links to its source.", stmt: { label: "Numbers traced to their source", from: 0, to: 24, format: "{n} of 24", text: "24 of 24" } },

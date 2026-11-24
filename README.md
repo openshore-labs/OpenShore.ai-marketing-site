@@ -165,6 +165,25 @@ From a startup founder's recorded first visit:
 - **The offer** at the foot of Pricing opens with four short checked lines
   instead of a paragraph, and the CFO line no longer repeats the terms.
 
+Then, the same day (founder):
+
+- **Agents, not bots.** One word everywhere: "agent" (no "bot", no
+  "worker"). Each is named for its job in plain words: Sales ops agent (not
+  "Sales agent", which reads as a person), Finance agent, Planning agent,
+  Supply chain agent, Analytics agent. The two films still say "bot" until
+  they are re-cut.
+- **All five agents on the home page**, behind tabs, Sales ops first (the job
+  the pilot starts with). The one-line "More bots" list is gone. In the app
+  frame every example shows the same four channels with its own lit.
+- **Pricing is the price list alone.** The calculator (`ill-pricing.njk`,
+  `pricing.js`) is removed.
+- **Free setup for the first 15 design partners**, stay or leave; from the
+  16th, the $5,000 terms above apply. The count lives in
+  `src/_data/pilot.js`: raise `taken` when a partner signs. Pages show
+  "N of 15 left" only once the first is taken, and drop "free" (and the
+  button's "free") once all 15 are. The main button reads "Apply for a free
+  pilot". Update the Design Partner Program doc and business plan to match.
+
 ## Build
 
 ```

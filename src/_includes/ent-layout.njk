@@ -64,7 +64,7 @@
         while the offer, or the home page's hero button (back since
         2026-11-24, the same words and link), is on screen
         (/enterprise/float.js). -#}
-    <a class="ent-btn ent-btn--primary ent-float" href="/pricing/#design-partners" data-float>Become a design partner</a>
+    <a class="ent-btn ent-btn--primary ent-float" href="/pricing/#design-partners" data-float>{{ pilot.button }}</a>
 
     <footer class="ent-foot">
       <nav class="ent-foot-site" aria-label="OpenShore pages">{% for t in entTabs %}{% if not loop.first %} · {% endif %}<a href="{{ t.href }}"{% if page.url == t.href %} aria-current="page"{% endif %}>{{ t.label }}</a>{% endfor %}</nav>

@@ -2,7 +2,7 @@
 layout: ent-layout.njk
 permalink: /pricing/
 pageTitle: "Pricing · OpenShore"
-pageDescription: "Simple pricing, sized to your team: the workspace per person, each bot per month, a one-time setup, and your AI on your own model keys at cost."
+pageDescription: "Simple pricing, sized to your team: the workspace per person, each AI agent per month, a one-time setup, and your AI on your own model keys at cost."
 ---
 {#- Pricing (founder, 2026-11-19): its own tab, moved from the home page word
     for word. Business buyers name pricing as the information they need most
@@ -12,23 +12,22 @@ pageDescription: "Simple pricing, sized to your team: the workspace per person, 
       <section class="ent-sec ent-sec--first" aria-labelledby="price-h">
         <h1 class="ent-eyebrow" id="price-h">Pricing</h1>
         <h3 class="ent-h">Simple pricing, sized to your team.</h3>
-        <div class="ent-split ent-split--calc">
-{% include "ill-pricing.njk" %}
-          <div>
+        {#- The price list alone (founder, 2026-11-24): a cold read found the
+            calculator beside it confusing (a slider for people, buttons for
+            agents) and the two said the same thing twice. -#}
+        <div class="ent-price-wrap">
         <ul class="ent-price" role="list">
           <li><span class="ent-price-k"><b>Workspace</b><span>Free for up to 10 people. From 11 on, everyone is billed.</span></span><span class="ent-price-v">$8<small>a person / month</small></span></li>
-          <li><span class="ent-price-k"><b>Each bot</b><span>One per part of the business, like revenue ops or finance.</span></span><span class="ent-price-v">$500<small>a month</small></span></li>
-          <li><span class="ent-price-k"><b>Setup</b><span>Paid once.</span></span><span class="ent-price-v">$5,000<small>one time</small></span></li>
+          <li><span class="ent-price-k"><b>Each AI agent</b><span>One per part of the business, like sales ops or finance.</span></span><span class="ent-price-v">$500<small>a month</small></span></li>
+          <li><span class="ent-price-k"><b>Setup</b><span>Paid once.{% if pilot.open %} <a href="#design-partners">Free for the first {{ pilot.spots }} design partners</a>{% if pilot.showCount %} ({{ pilot.left }} of {{ pilot.spots }} left){% endif %}.{% endif %}</span></span><span class="ent-price-v">{{ pilot.setupFee }}<small>one time</small></span></li>
           <li><span class="ent-price-k"><b>Your AI</b><span>Runs on your own model keys, billed by your provider. We never mark it up.</span></span><span class="ent-price-v">At cost</span></li>
           <li><span class="ent-price-k"><b>Some services</b><span>Like ticket triage.</span></span><span class="ent-price-v">By the work done</span></li>
         </ul>
-        <p class="ent-note"><a href="#design-partners">Design partners</a> start with a 90-day pilot with no OpenShore fee beyond the one-time $5,000 setup, and lock the bot price for two years.</p>
+        <p class="ent-note"><a href="#design-partners">Design partners</a> start with a 90-day pilot with no monthly fee{% if pilot.open %} and, for the first {{ pilot.spots }}, no setup fee{% endif %}, and lock the agent price for two years.</p>
         <div class="ent-actions">
           <a class="ent-btn" href="mailto:{{ site.enterpriseContact }}?subject={{ 'Pricing: OpenShore' | urlencode }}">Ask about pricing <span aria-hidden="true">&rarr;</span></a>
         </div>
-          </div>
         </div>
       </section>
-      <script src="/enterprise/pricing.js?v={{ rev.entPricing }}" defer></script>
 
 {% include "ent-partner.njk" %}
