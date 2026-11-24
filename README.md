@@ -94,20 +94,20 @@ The founder repositioned the site on 2026-11-16:
 ## Home page focus (2026-11-19, settled 2026-11-20)
 
 - The hero: the turning ring of TEAM, AI, AGENTS and APPS with the mark
-  surfacing in it (`static/enterprise/orbit.js`), the headline
-  "Operations run by AI agents. Your team focused on customers." (founder,
-  2026-11-24; until then "The operating platform for growing startups"),
-  one sentence per line, then the first
-  paragraph, two short sentences (founder, 2026-11-24: say exactly what the
-  platform is, without a run-on, and without repeating the headline): "One
-  workspace for your team and expert-built AI agents, with one context
-  across every app you use. Works alongside Slack or Teams, on any AI
-  model." The home
-  page's description, the site's default description and the program PDF
-  (`partnerProgram.js`) carry the fuller sentence, since they stand without
-  the headline: "OpenShore is one workspace where your team and
-  expert-built AI agents run your operations, with one context across
-  every app you use." Keep them in step. No visible subhead.
+  surfacing in it (`static/enterprise/orbit.js`), the headline "AI agents
+  working alongside your team." (founder, 2026-11-24; before that "The
+  operating platform for growing startups", then briefly "Operations run by
+  AI agents. Your team focused on customers."), then the first paragraph:
+  "Agents built by domain experts for sales ops, finance, planning and more,
+  with one context across every app you use. Works with Slack or Teams, on
+  any AI model." The founder's bet: the hook is the agents running
+  operations, and the one workspace wins people over once they use it, so
+  the hero sells the agents and does not pitch the platform; the demos show
+  it. The home page's description, the site's default description and the
+  program PDF (`partnerProgram.js`) carry the same idea as a full sentence:
+  "OpenShore gives your team AI agents built by domain experts for sales
+  ops, finance, planning and more, with one context across every app you
+  use." Keep them in step. No visible subhead.
 - The status pill in the header reads "Piloting now. Design with us." on
   every page. It stands still (no
   ticker) and is never cut off: on a narrow phone each sentence takes its
