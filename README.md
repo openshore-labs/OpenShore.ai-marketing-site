@@ -187,7 +187,11 @@ Then, the same day (founder):
   OpenShore's own layer between the model and the team, which makes any
   capable large model work the same way: the same chats, agents and
   approvals. Describe only what the harness does; the founder confirms
-  anything new. The tour's poster (`tour-poster.jpg`) was recaptured from
+  anything new. Each agent is its own harness inside the OpenShore Harness,
+  contained and held to OpenShore's standards of quality and security,
+  whatever the model (the Agents section); "Built to be trusted" opens with
+  any model, no lock-in, and the harnesses lessening each model's
+  volatility so agents stay steady (founder, 2026-11-24). The tour's poster (`tour-poster.jpg`) was recaptured from
   the film's title card (at 8 s, 1280 by 720 at 1.5x) so its chips say
   Agents.
 - **All five agents on the home page**, behind tabs, Sales ops first (the job
