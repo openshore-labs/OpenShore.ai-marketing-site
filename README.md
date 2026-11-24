@@ -123,6 +123,15 @@ The founder repositioned the site on 2026-11-16:
   "OpenShore gives your team AI agents built by domain experts for sales
   ops, finance, supply chain, and more, with one context across every app
   you use, so you grow your business, not your headcount." Keep them in step. No visible subhead.
+- On a desktop (900px and wider, with a mouse; founder, 2026-11-24) the ring
+  beside the headline is a fifth larger (`--orb-scale` in enterprise.css,
+  read by orbit.js) and centred on the headline and paragraph, not the
+  button. Both films, the home page's and the platform page's product tour,
+  play in their windows as the page opens: muted, on a loop, with only Mute
+  and Full screen (`static/enterprise/film-embed.js` loads each film with
+  `?embed`, which the film pages handle; the page holds a film while it is
+  scrolled out of sight). Phones, tablets and reduced motion keep the
+  poster that opens the film full page.
 - The status pill in the header reads "Piloting now. Design with us." on
   every page. It stands still (no
   ticker) and is never cut off: on a narrow phone each sentence takes its
