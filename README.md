@@ -190,9 +190,8 @@ From a startup founder's recorded first visit:
   desktop window mode).
 - **The hero.** On a laptop the turning ring stands to the right of the
   headline (`.ent-hero-top`), so the film shows in the first screen; on a
-  phone it stays above. Under the first paragraph, above the film, a
-  static "Become a design partner" button goes to the offer at the foot of
-  Pricing (founder, 2026-11-24).
+  phone it stays above. Under the film, a static "Become a design partner"
+  button goes to the offer at the foot of Pricing (founder, 2026-11-24).
 - **The offer** at the foot of Pricing opens with four short checked lines
   instead of a paragraph, and the CFO line no longer repeats the terms.
 
