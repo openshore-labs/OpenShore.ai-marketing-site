@@ -176,8 +176,10 @@ Then, the same day (founder):
 - **Agents, not bots.** One word everywhere: "agent" (no "bot", no
   "worker"). Each is named for its job in plain words: Sales ops agent (not
   "Sales agent", which reads as a person), Finance agent, Planning agent,
-  Supply chain agent, Analytics agent. The two films still say "bot" until
-  they are re-cut.
+  Supply chain agent, Analytics agent. The two films carry the same words
+  (hand patches to their visible text, like "The way out" above: re-apply
+  them if a film is re-exported), and the sales example says
+  "salesperson", not "rep".
 - **All five agents on the home page**, behind tabs, Sales ops first (the job
   the pilot starts with). The one-line "More bots" list is gone. In the app
   frame every example shows the same four channels with its own lit.
