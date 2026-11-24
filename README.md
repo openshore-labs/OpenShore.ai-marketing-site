@@ -71,8 +71,14 @@ The founder repositioned the site on 2026-11-16:
 ## Design partners, security and the call link (2026-11-18)
 
 - The product is just **OpenShore** (founder, 2026-11-18): no "for
-  Enterprise" in titles, labels or copy. The two films keep their animated
-  "for Enterprise, then for Startups" beat until they are re-cut.
+  Enterprise" in titles, labels or copy. On 2026-11-24 the founder took the
+  animated "for Enterprise, then for Startups" beat out of both films too:
+  their title cards read just "OpenShore" (hand patches, like "The way out").
+- **Data Foundations is not an agent** (founder, 2026-11-24). It is the layer
+  every agent works from; the tour lists the five agents and names Data
+  Foundations beside them, never as a sixth.
+- **The pricing row names the agents**: "Each operations agent", with the five
+  listed, on Pricing and in the program PDF (founder, 2026-11-24).
 - The home page carries a **Security and privacy** section
   (`_includes/ent-security.njk`) right after the commission demo, and a
   trust line under the hero buttons. Each card states a rule from the
@@ -199,11 +205,11 @@ Then, the same day (founder):
   frame every example shows the same four channels with its own lit.
 - **Pricing is the price list alone.** The calculator (`ill-pricing.njk`,
   `pricing.js`) is removed.
-- **Free setup for the first 15 design partners**, stay or leave; from the
-  16th, the $5,000 terms above apply. The count lives in
+- **Free setup for the first 5 design partners** (15 until the founder cut it
+  on 2026-11-24), stay or leave; from the 6th, the $5,000 terms above apply. The count lives in
   `src/_data/pilot.js`: raise `taken` when a partner signs. Pages show
-  "N of 15 left" only once the first is taken, and drop "free" (and the
-  button's "free") once all 15 are. The main button reads "Apply for a free
+  "N of 5 left" only once the first is taken, and drop "free" (and the
+  button's "free") once all 5 are. The main button reads "Apply for a free
   pilot". Update the Design Partner Program doc and business plan to match.
 - **The program as a PDF.** The offer at the foot of Pricing keeps the
   summary (who it is for, four lines, how to apply) and links to

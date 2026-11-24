@@ -67,7 +67,7 @@ export default {
   // After the pilot: the list prices from Pricing.
   prices: [
     ["Workspace", "Free for up to 10 people. From 11 on, everyone is billed.", "$8 a person / month"],
-    ["Each AI agent", "One per part of the business, like sales ops or finance. Locked for two years for design partners.", "$500 a month"],
+    ["Each operations agent", "Sales ops, Finance, Planning, Supply chain or Analytics, one per part of the business. Locked for two years for design partners.", "$500 a month"],
     ["Setup", pilot.open ? `Paid once. Free for the first ${pilot.spots} design partners.` : "Paid once, credited against the first year.", `${pilot.setupFee} one time`],
     ["Your AI", "Runs on your own model keys, billed by your provider. We never mark it up.", "At cost"],
     ["Some services", "Like ticket triage.", "By the work done"],
