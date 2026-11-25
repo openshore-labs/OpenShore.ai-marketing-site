@@ -768,6 +768,8 @@ body.embed #soundbtn { opacity: 1; transform: none; pointer-events: auto; }
   // holds it while it is scrolled out of sight. Without ?embed nothing here
   // changes.
   var EMBED = /[?&]embed(=|&|$)/.test(location.search);
+  // ?embed&sound: the viewer clicked play in the window, so it starts with sound.
+  var EMBED_SOUND = /[?&]sound(=|&|$)/.test(location.search);
   if (EMBED) body.classList.add('embed');
   var standby = document.getElementById('standby');
   var film = document.getElementById('film');
@@ -2567,7 +2569,7 @@ body.embed #soundbtn { opacity: 1; transform: none; pointer-events: auto; }
   toStandby();
   route();
   if (EMBED) {
-    if (!music.muted()) music.toggleMute();
+    if (!EMBED_SOUND && !music.muted()) music.toggleMute();
     updateSoundBtn();
     playFilm();
     var fb = document.getElementById('fullbtn');
