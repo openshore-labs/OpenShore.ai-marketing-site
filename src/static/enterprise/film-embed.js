@@ -4,15 +4,19 @@
 // Full screen (the film's own ?embed mode). The poster shows until the film
 // has loaded. The page holds a film while it is scrolled out of sight.
 //
-// Phones, tablets and anyone who asks for reduced motion keep the poster,
-// which opens the film full page, as before. So does a page without scripts.
+// Phones, tablets and anyone who asks for reduced motion keep the poster;
+// a click plays the film in its window, with sound. A page without scripts
+// still opens the film full page.
 (function () {
   'use strict';
   var mq = window.matchMedia;
-  if (!mq || !mq('(min-width: 900px) and (hover: hover) and (pointer: fine)').matches) return;
-  if (mq('(prefers-reduced-motion: reduce)').matches) return;
+  // A desktop plays the film by itself, muted. Everywhere else the poster
+  // waits, and a click plays the film in the same window, with sound, with
+  // Full screen as an option (founder, 2026-11-25).
+  var auto = !!mq && mq('(min-width: 900px) and (hover: hover) and (pointer: fine)').matches &&
+    !mq('(prefers-reduced-motion: reduce)').matches;
 
-  function embed(a) {
+  function embed(a, withSound) {
     var href = a.getAttribute('href');
     var box = document.createElement('div');
     box.className = a.className + ' ent-film--live';
@@ -21,7 +25,7 @@
     var img = a.querySelector('img');
     if (img) frame.appendChild(img.cloneNode(true));
     var ifr = document.createElement('iframe');
-    ifr.src = href + (href.indexOf('?') < 0 ? '?' : '&') + 'embed';
+    ifr.src = href + (href.indexOf('?') < 0 ? '?' : '&') + 'embed' + (withSound ? '&sound' : '');
     ifr.title = a.getAttribute('data-film-title') || 'The OpenShore film';
     ifr.allow = 'autoplay; fullscreen';
     ifr.setAttribute('allowfullscreen', '');
@@ -49,7 +53,14 @@
   }
 
   function start() {
-    Array.prototype.forEach.call(document.querySelectorAll('a.ent-film[data-film-embed]'), embed);
+    Array.prototype.forEach.call(document.querySelectorAll('a.ent-film[data-film-embed]'), function (a) {
+      if (auto) { embed(a, false); return; }
+      a.addEventListener('click', function (e) {
+        if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+        e.preventDefault();
+        embed(a, true);
+      });
+    });
   }
   // After the page itself has loaded, so the film never slows its first paint.
   if (document.readyState === 'complete') start();
