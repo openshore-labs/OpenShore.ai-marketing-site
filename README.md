@@ -269,6 +269,12 @@ deploy key), DNS + TLS + cache live in one pane.
    `Strict-Transport-Security: max-age=31536000; includeSubDomains`.
    (Fetchable CSP directives are also set as a `<meta>` in `base.njk`;
    framing/transport directives only work as real headers.)
+   Exception (2026-11-25): the two films play in a frame on the home and
+   platform pages (`/enterprise/film-embed.js`), so `/enterprise/promo/` and
+   `/enterprise/tour/` (with and without the trailing slash) get
+   `frame-ancestors 'self'` from a second rule in the same ruleset, with the
+   same other two headers. Every other page stays `'none'`. If a film shows its
+   poster and never plays, check that rule first.
 5. `openshore.ai` (and `www`) must first be **removed as a custom domain from
    the `Open-Shore-LLC-Homepage` Pages project** — a domain can only be
    attached to one Pages project at a time.
