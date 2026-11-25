@@ -1040,6 +1040,6 @@ html { scroll-padding-top: 64px; }
 .ent-callout { margin: 0; max-width: 64ch; padding: 14px 18px; border-radius: 14px; background: var(--sea-soft); box-shadow: 0 0 0 1px var(--rule); font-size: 17px; color: var(--ink); }
 .ent-callout b { color: var(--sea); }
 
-/* The optional pricing line is grayed until someone opts in. */
+/* The optional pricing line is grayed until it is active. */
 .ent-price .ent-price-opt { opacity: 0.62; }
 .ent-price-fn { margin: 14px 0 10px; }
