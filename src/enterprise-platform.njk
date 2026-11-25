@@ -2,7 +2,7 @@
 layout: ent-layout.njk
 permalink: /enterprise/platform/
 pageTitle: "How the Platform Works · OpenShore"
-pageDescription: "The OpenShore product tour: any AI model, working the same way through the OpenShore Harness, three phases for every piece of work, and an agent for each corporate function."
+pageDescription: "The OpenShore product tour: any AI model, working the same way through the OpenShore Harness, chat, projects, tasks, workflows, reports and dashboards in one place, outcome-based services in development, and an agent for each corporate function."
 pageOgImage: "/enterprise/tour-poster.jpg"
 ---
 {#- The platform page (founder, 2026-11-10): the product tour leads, and the
@@ -32,13 +32,42 @@ pageOgImage: "/enterprise/tour-poster.jpg"
         <p class="ent-body">Bring the model you trust, cloud or local, on your own keys. Our own OpenShore Harness sits between the model and your team, so any capable large model works the same way here: the same chats, the same agents, the same approvals. Switch models whenever you like, and nobody has to relearn a thing.</p>
       </section>
 
-      <section class="ent-sec" aria-labelledby="loop-h">
-        <h2 class="ent-eyebrow" id="loop-h">Three phases</h2>
-        <ol class="ent-phases ent-phases--light">
-          <li><span class="ent-step">Plan and build</span><h4>A chat becomes a project. A person approves before anything moves.</h4></li>
-          <li><span class="ent-step">Execute</span><h4>Every task has an owner. Repeat work becomes a workflow, with a check.</h4></li>
-          <li><span class="ent-step">Review and report</span><h4>Dashboards track the business. Reports answer one question.</h4></li>
+      {#- One flow in place of "Three phases" (founder, 2026-11-25): chat,
+          collaborate, build and review across all the connected data sources
+          without leaving the platform, shown with frames of the product tour
+          (example data, Alder & Pine) so the flow of work can be seen. Then
+          outcome-based services, which are NOT built yet: say so plainly. -#}
+      <section class="ent-sec" aria-labelledby="flow-h">
+        <h2 class="ent-eyebrow" id="flow-h">One workspace</h2>
+        <h3 class="ent-h">Chat, collaborate, build and review, across all your data sources, without leaving OpenShore.</h3>
+        <p class="ent-body">Work starts as a conversation and stays in one place from the first question to the finished report. Everything draws on the apps you have connected, and a person approves before anything moves.</p>
+        <ol class="ent-flow" role="list">
+          <li>
+            <div class="ent-flow-t"><span class="ent-step">Chat to project</span><h4>A chat becomes a project.</h4><p>Chat with the model, bring in a teammate or an agent, then turn the chat into a project. It sets up the members, milestones, tasks and sources from what the chat already knows.</p></div>
+            <img src="/enterprise/flow/chat-to-project.jpg" alt="A chat called Shelf reset plan beside the new project it sets up, Cedar Grove retail launch, with its name, members, milestones, tasks and sources filled in." width="1600" height="805" loading="lazy" decoding="async" />
+          </li>
+          <li>
+            <div class="ent-flow-t"><span class="ent-step">Task to workflow</span><h4>A task becomes a workflow.</h4><p>The plan becomes tasks with owners and dates. Put an agent on a task and watch it work. When the work repeats, the model drafts a workflow, and nothing runs until a person confirms it.</p></div>
+            <img src="/enterprise/flow/task-to-workflow.jpg" alt="A project's task list with owners and weeks, beside a drafted weekly restock workflow that waits for a person to confirm it." width="1600" height="758" loading="lazy" decoding="async" />
+          </li>
+          <li>
+            <div class="ent-flow-t"><span class="ent-step">Report to dashboard</span><h4>A report becomes a dashboard.</h4><p>Each run feeds a report. When a report keeps coming, the model offers a dashboard that stays current, and every number opens to its source.</p></div>
+            <img src="/enterprise/flow/report.jpg" alt="A weekly restock report with a summary and a sell-through chart, and an offer to make it a dashboard." width="1600" height="839" loading="lazy" decoding="async" />
+            <img src="/enterprise/flow/dashboard.jpg" alt="The dashboard it becomes, with sell-through, units on shelf, weeks of stock, order value, approved reorders and quota attainment." width="1600" height="819" loading="lazy" decoding="async" />
+          </li>
         </ol>
+        <p class="ent-note">Screens from the product tour above, with example data.</p>
+      </section>
+
+      {#- Outcome-based services (founder, 2026-11-25). Ticketing is the first
+          and it is under construction with design partners: never describe it
+          as shipped, and give no prices until the founder sets them. -#}
+      <section class="ent-sec" aria-labelledby="outcome-h">
+        <h2 class="ent-eyebrow" id="outcome-h">Outcome-based services</h2>
+        <h3 class="ent-h">Some work is better paid for by the result.</h3>
+        <p class="ent-body">With an outcome-based service you pay for the work done, like a ticket resolved, instead of for the agent by the month. Ticketing comes first. You assign specific agents to specific types of questions, and you can spin up a new type of question, or a whole new support process, straight from a collaborative project. The questions, the agents, the approvals and the reporting all live in one place.</p>
+        <p class="ent-callout"><b>Under construction.</b> We are building outcome-based services with design partners and they are not generally available yet. Ticketing is first, and other support and back-office processes will follow the same way.</p>
+        <p class="ent-body">Want to see if an outcome-based setup fits your team? Email <a href="mailto:{{ contact }}?subject={{ 'Outcome-based services: OpenShore' | urlencode }}">{{ contact }}</a> and we will work out whether we can set one up with you. <a href="/pricing/">How it is priced</a>.</p>
       </section>
 
       <section class="ent-sec" aria-labelledby="workers-h">

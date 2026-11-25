@@ -1026,3 +1026,20 @@ html { scroll-padding-top: 64px; }
   .ent-float { display: none; }
   .ent-foot { padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px)); }
 }
+
+/* One workspace (platform page, founder 2026-11-25): the flow of work in three
+   steps, each beside frames of the product. Frames are example data. */
+.ent-flow { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 40px; counter-reset: flow; }
+.ent-flow > li { display: flex; flex-direction: column; gap: 16px; max-width: 880px; }
+.ent-flow-t { display: flex; flex-direction: column; gap: 8px; }
+.ent-flow-t h4 { font-size: 20px; line-height: 1.3; font-weight: 650; letter-spacing: -0.01em; }
+.ent-flow-t p { margin: 0; font-size: 17px; color: var(--ink-soft); max-width: 64ch; }
+.ent-flow img { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: var(--shadow), 0 0 0 1px var(--rule); background: var(--raised); }
+
+/* Outcome-based services: a plain notice that it is not built yet. */
+.ent-callout { margin: 0; max-width: 64ch; padding: 14px 18px; border-radius: 14px; background: var(--sea-soft); box-shadow: 0 0 0 1px var(--rule); font-size: 17px; color: var(--ink); }
+.ent-callout b { color: var(--sea); }
+
+/* The optional pricing line is grayed until someone opts in. */
+.ent-price .ent-price-opt { opacity: 0.62; }
+.ent-price-fn { margin: 14px 0 10px; }

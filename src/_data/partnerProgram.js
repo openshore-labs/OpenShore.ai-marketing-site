@@ -70,7 +70,7 @@ export default {
     ["Each Expert Agent", "Sales ops, Finance, Planning, Supply chain or Analytics, one per part of the business. Locked for two years for design partners.", "$500 a month"],
     ["Setup", pilot.open ? `Paid once. Free for the first ${pilot.spots} design partners.` : "Paid once, credited against the first year.", `${pilot.setupFee} one time`],
     ["Your AI", "Runs on your own model keys, billed by your provider. We never mark it up.", "At cost"],
-    ["Some services", "Like ticket triage.", "By the work done"],
+    ["Outcome-based services*", "Optional, in development with design partners. Ticketing first, priced by the work done.", "Variable"],
   ],
 
   founder: "Built by Jack Bigelow, who spent more than 15 years in operations, the last 10 building the revenue operations, planning and AI systems behind businesses as large as $200B at Amazon, AWS and Microsoft.",
