@@ -393,7 +393,8 @@ body.script .fc-btn, body.blanked .fc-btn { display: none; }
 #fullbtn.is-full .back { display: block; }
 #fullbtn:active { transform: scale(0.94); }
 body.embed #fullbtn { display: flex; }
-body.embed #backbtn, body.embed #exit, body.embed #hint, body.embed #tourlink, body.embed #playbtn { display: none; }
+body.embed #backbtn, body.embed #exit, body.embed #hint, body.embed #tourlink { display: none; }
+body.embed:not(.can-play) #playbtn { display: none; }
 body.embed:not(.is-full) #pausebar { display: none; }
 body.embed #soundbtn { opacity: 1; transform: none; pointer-events: auto; }
 </style>
@@ -1995,6 +1996,7 @@ body.embed #soundbtn { opacity: 1; transform: none; pointer-events: auto; }
     cancelAnimationFrame(raf);
     mode = 'film';
     pausedAt = null;
+    if (EMBED) updatePlayBtn();
     body.classList.remove('paused');
     body.classList.add('hide-hint');
     show(standby, false); show(film, true);
@@ -2026,6 +2028,8 @@ body.embed #soundbtn { opacity: 1; transform: none; pointer-events: auto; }
         music.follow(t);
         sfx.tick(t);
         if (bus && now - lastPost > 500) { lastPost = now; try { bus.postMessage({ mode: 'film', t: t, rate: music.rate(), end: FILM_END, paused: false }); } catch (e) {} }
+        // On a desktop the film plays by itself once, then settles on its last frame and waits for a click on Play (founder, 2026-11-25). A film the viewer started with a click still loops.
+        if (t >= FILM_END && EMBED && !EMBED_SOUND) { toStandby(); return; }
         if (t >= FILM_END && EMBED) { playFilm(); return; }
         if (t >= FILM_END) { music.stop(200); lockUntil = performance.now() + 1500; toSlides(0); return; }
         raf = requestAnimationFrame(tick);
