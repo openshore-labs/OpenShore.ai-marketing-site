@@ -901,6 +901,13 @@ html { scroll-padding-top: 64px; }
 @supports (-webkit-touch-callout: none) and (height: 100svh) {
   .ent-float { bottom: auto; top: calc(100svh - 46px - 18px); height: 46px; }
 }
+/* Mail glyph (founder, 2026-11-25): same row as the floating button, right. */
+.ent-float-mail { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 40; display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; background: var(--paper); color: var(--ink); box-shadow: 0 2px 6px rgba(28, 42, 51, 0.12), 0 14px 34px -12px rgba(28, 42, 51, 0.5); }
+@supports (-webkit-touch-callout: none) and (height: 100svh) {
+  .ent-float-mail { bottom: auto; top: calc(100svh - 46px - 18px); }
+}
+/* Home page, phone: the Become a design partner button sits centred. */
+@media (max-width: 759px) { .ent-film--hero + .ent-actions { justify-content: center; } }
 .ent-foot { padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px)); }
 .ent-locked .ent-lock { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
 @media (prefers-reduced-motion: reduce) { .ent-float { transition-duration: 1ms; transform: translateX(-50%); } }
@@ -1023,7 +1030,7 @@ html { scroll-padding-top: 64px; }
   .ent-tabs a.ent-tabs-cta { display: inline-flex; flex: none; min-height: 36px; padding: 0 16px; font-size: 14px; font-weight: 600; color: var(--paper); }
   @media (hover: hover) { .ent-tabs a.ent-tabs-cta:hover { color: var(--paper); background: var(--ink); } }
   .ent-tabs a.ent-tabs-cta:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
-  .ent-float { display: none; }
+  .ent-float, .ent-float-mail { display: none; }
   .ent-foot { padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px)); }
 }
 
