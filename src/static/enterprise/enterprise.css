@@ -1031,6 +1031,8 @@ html { scroll-padding-top: 64px; }
   @media (hover: hover) { .ent-tabs a.ent-tabs-cta:hover { color: var(--paper); background: var(--ink); } }
   .ent-tabs a.ent-tabs-cta:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
   .ent-float, .ent-float-mail { display: none; }
+  /* Desktop: the tab row's Book a demo is enough (founder, 2026-11-25). */
+  .ent-film--hero + .ent-actions { display: none; }
   .ent-foot { padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px)); }
 }
 
