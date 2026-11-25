@@ -1026,3 +1026,7 @@ html { scroll-padding-top: 64px; }
   .ent-float { display: none; }
   .ent-foot { padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px)); }
 }
+
+/* The optional pricing line is grayed until it is active. */
+.ent-price .ent-price-opt { opacity: 0.62; }
+.ent-price-fn { margin: 14px 0 10px; }
