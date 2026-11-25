@@ -2549,10 +2549,18 @@ body.embed:not(.is-full) #pausebar { display: none; }
     if (mode !== 'slides') return;
     if (idx > 0) toSlides(idx - 1, true);
   }
+  // Full screen. Where the browser cannot take an element full screen (an
+  // iPhone), the film in a page's window asks the page to fill the screen
+  // with it instead (/enterprise/film-embed.js), and the page says when it has.
+  var pseudoFull = false;
+  function askParent(on) { try { parent.postMessage({ osFilmFull: on }, location.origin); } catch (err) {} }
   function toggleFull() {
     try {
-      if (document.fullscreenElement) document.exitFullscreen();
-      else document.documentElement.requestFullscreen().catch(function () {});
+      if (document.fullscreenElement) { document.exitFullscreen(); return; }
+      if (pseudoFull) { askParent(false); return; }
+      var el = document.documentElement;
+      if (el.requestFullscreen) el.requestFullscreen().catch(function () { if (EMBED) askParent(true); });
+      else if (EMBED) askParent(true);
     } catch (err) {}
   }
 
@@ -2846,9 +2854,19 @@ body.embed:not(.is-full) #pausebar { display: none; }
     }
     setSound();
     playFilm();
+    // Tell the page the film is up, so it can take its poster away.
+    try { parent.postMessage({ osFilmReady: 1 }, location.origin); } catch (err) {}
+    // Played by a tap in the page, not in here: some phones then keep the
+    // sound back. If nothing is playing a moment later, offer the sound switch.
+    if (EMBED_SOUND) setTimeout(function () {
+      if (!music.muted() && mode === 'film' && pausedAt == null && music.clock() == null) {
+        music.toggleMute(); updateSoundBtn();
+        if (typeof setSound === 'function') setSound();
+      }
+    }, 2500);
     var fb = document.getElementById('fullbtn');
     var setFull = function () {
-      var on = !!document.fullscreenElement;
+      var on = !!document.fullscreenElement || pseudoFull;
       body.classList.toggle('is-full', on);
       if (fb) { fb.classList.toggle('is-full', on); fb.setAttribute('aria-label', on ? 'Exit full screen' : 'Full screen'); }
     };
@@ -2867,7 +2885,8 @@ body.embed:not(.is-full) #pausebar { display: none; }
     var heldByPage = false;
     window.addEventListener('message', function (e) {
       if (e.origin !== location.origin || !e.data || !e.data.osFilm) return;
-      if (e.data.osFilm === 'hold' && mode === 'film' && pausedAt == null) { heldByPage = true; togglePause(); }
+      if (e.data.osFilm === 'full') { pseudoFull = !!e.data.on; setFull(); }
+      else if (e.data.osFilm === 'hold' && mode === 'film' && pausedAt == null) { heldByPage = true; togglePause(); }
       else if (e.data.osFilm === 'go' && heldByPage) { heldByPage = false; if (mode === 'film' && pausedAt != null) togglePause(); }
     });
   }

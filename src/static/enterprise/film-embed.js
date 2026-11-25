@@ -34,6 +34,21 @@
       try { ifr.contentWindow.postMessage({ osFilm: seen ? 'go' : 'hold' }, location.origin); } catch (err) {}
     }
     ifr.addEventListener('load', function () { box.classList.add('is-ready'); tell(); });
+    // The film says when it is up, which can be well before the frame's load
+    // event on a phone. It also asks for the page to fill the screen where the
+    // browser cannot take it full screen (an iPhone).
+    function onKey(e) { if (e.key === 'Escape') setPFull(false); }
+    function setPFull(on) {
+      box.classList.toggle('is-pfull', on);
+      document.documentElement.classList.toggle('ent-pfull', on);
+      if (on) document.addEventListener('keydown', onKey); else document.removeEventListener('keydown', onKey);
+      try { ifr.contentWindow.postMessage({ osFilm: 'full', on: on }, location.origin); } catch (err) {}
+    }
+    window.addEventListener('message', function (e) {
+      if (e.origin !== location.origin || e.source !== ifr.contentWindow || !e.data) return;
+      if (e.data.osFilmReady) { box.classList.add('is-ready'); tell(); }
+      if (typeof e.data.osFilmFull === 'boolean') setPFull(e.data.osFilmFull);
+    });
     frame.appendChild(ifr);
     box.appendChild(frame);
     var meta = a.querySelector('.ent-film-meta');
