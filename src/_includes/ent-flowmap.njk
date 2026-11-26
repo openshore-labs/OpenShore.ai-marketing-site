@@ -6,17 +6,19 @@
     line and loops back into it. The steps under the map explain each one;
     keep the two in step. Outcome Services is NOT built yet: the box says so. -#}
 {%- macro ico(d) -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ d }}"/></svg>{%- endmacro -%}
-<figure class="ent-map" aria-label="The workspace flows from chat to project, to tasks and workflows, to reports and dashboards. Outcome Services is its own environment that contains all of them, and loops back into the flow.">
+<figure class="ent-map" aria-label="The workspace flows from chat to project, then to tasks and workflows, then to reports and dashboards. Outcome Services is its own environment that contains all of them, and loops back into the flow.">
   <i class="ent-rail rt"></i><i class="ent-rail rm"></i><i class="ent-rail rb"></i>
   <i class="ent-rail lt"></i><i class="ent-rail lm"></i><i class="ent-rail lb"></i>
   <ol class="ent-map-row" role="list">
     <li><span class="ent-map-k">1</span><span class="ent-map-i">{{ ico("M4 5h16v11H9l-5 4z") }}</span><b>Chat</b></li>
     <li><span class="ent-map-k">2</span><span class="ent-map-i">{{ ico("M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z") }}</span><b>Project</b></li>
-    <li><span class="ent-map-k">3</span><span class="ent-map-i">{{ ico("m4 7 2 2 3-3M4 17l2 2 3-3M13 8h7M13 18h7") }}</span><b>Tasks and workflows</b></li>
-    <li><span class="ent-map-k">4</span><span class="ent-map-i">{{ ico("M4 20V10M10 20V4M16 20v-7M22 20H2") }}</span><b>Reports and dashboards</b></li>
+    <li><span class="ent-map-k ent-map-k--pair">3</span><span class="ent-map-i">{{ ico("m4 7 2 2 3-3M4 17l2 2 3-3M13 8h7M13 18h7") }}</span><b>Tasks</b></li>
+    <li><span class="ent-map-i">{{ ico("M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3M18 3v4h-4M6 21v-4h4") }}</span><b>Workflows</b></li>
+    <li><span class="ent-map-k ent-map-k--pair">4</span><span class="ent-map-i">{{ ico("M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h5") }}</span><b>Reports</b></li>
+    <li><span class="ent-map-i">{{ ico("M4 20V10M10 20V4M16 20v-7M22 20H2") }}</span><b>Dashboards</b></li>
   </ol>
   <div class="ent-map-os">
     <div class="ent-map-oh"><span class="ent-map-k">5</span><b>Outcome Services</b><span class="ent-map-sub">Its own environment</span><em>Under construction</em></div>
-    <ul class="ent-map-chips" role="list"><li>Chat</li><li>Project</li><li>Tasks and workflows</li><li>Reports and dashboards</li></ul>
+    <ul class="ent-map-chips" role="list"><li>Chat</li><li>Project</li><li>Tasks</li><li>Workflows</li><li>Reports</li><li>Dashboards</li></ul>
   </div>
 </figure>
