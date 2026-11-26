@@ -11,7 +11,7 @@ pageDescription: "Simple pricing, sized to your team: the workspace per person, 
     the foot, and nowhere else. -#}
       <section class="ent-sec ent-sec--first" aria-labelledby="price-h">
         <h1 class="ent-eyebrow" id="price-h">Pricing</h1>
-        <h3 class="ent-h">Simple pricing, sized to your team.</h3>
+        <h3 class="ent-h">$8 a person. $500 an agent.</h3>
         {#- The price list alone (founder, 2026-11-24): a cold read found the
             calculator beside it confusing (a slider for people, buttons for
             agents) and the two said the same thing twice. -#}
@@ -21,7 +21,7 @@ pageDescription: "Simple pricing, sized to your team: the workspace per person, 
           <li><span class="ent-price-k"><b>Each Expert Agent</b><span>Sales ops, Finance, Planning, Supply chain or Analytics. One per part of the business.</span></span><span class="ent-price-v">$500<small>a month</small></span></li>
           <li><span class="ent-price-k"><b>Setup</b><span>Paid once.{% if pilot.open %} <a href="#design-partners">Free for the first {{ pilot.spots }} design partners</a>{% if pilot.showCount %} ({{ pilot.left }} of {{ pilot.spots }} left){% endif %}.{% endif %}</span></span><span class="ent-price-v">{{ pilot.setupFee }}<small>one time</small></span></li>
           <li><span class="ent-price-k"><b>Your AI</b><span>Runs on your own model keys, billed by your provider. We never mark it up.</span></span><span class="ent-price-v">At cost</span></li>
-          <li class="ent-price-opt"><span class="ent-price-k"><b>Outcome Services*</b><span>Ticketing, triage and more.</span></span><span class="ent-price-v">Variable<small>not active yet</small></span></li>
+          <li class="ent-price-opt"><span class="ent-price-k"><b>Outcome Services*</b><span>Ticketing and triage.</span></span><span class="ent-price-v">Variable<small>not active yet</small></span></li>
         </ul>
         <p class="ent-note ent-price-fn">*Outcome Services are not active yet. We are building them with design partners, and there is no price to pay today. If you opt in once they open, you will pay for each outcome, like a resolved ticket, on top of the lines above. <a href="mailto:{{ site.enterpriseContact }}?subject={{ 'Outcome Services: OpenShore' | urlencode }}">Ask if we can set one up for you</a>.</p>
         <p class="ent-note"><a href="#design-partners">Design partners</a> start with a 90-day pilot with no monthly fee{% if pilot.open %} and, for the first {{ pilot.spots }}, no setup fee{% endif %}, and lock the agent price for two years.</p>
