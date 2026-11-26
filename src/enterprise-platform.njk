@@ -46,17 +46,18 @@ pageOgImage: "/enterprise/tour-poster.jpg"
         <h2 class="ent-eyebrow" id="flow-h">One workspace</h2>
         <h3 class="ent-h">Chat, collaborate, build and review, without leaving OpenShore.</h3>
         <p class="ent-body">Drawing on every app you connect. A person approves before anything moves.</p>
+        {% include "ent-flowmap.njk" %}
         <ol class="ent-flow" role="list">
           <li>
-            <div class="ent-flow-t"><span class="ent-step">Chat to project</span><h4>A chat becomes a project.</h4><p>Members, milestones, tasks and sources, set up from what the chat already knows.</p></div>
+            <div class="ent-flow-t"><span class="ent-step">1 and 2 · Chat, then project</span><h4>A chat becomes a project.</h4><p>Chat with the model, your team or both, then spin up a project with its members, milestones and sources already set.</p></div>
             <img src="/enterprise/flow/chat-to-project.jpg" alt="A chat called Shelf reset plan beside the new project it sets up, Cedar Grove retail launch, with its name, members, milestones, tasks and sources filled in." width="1600" height="805" loading="lazy" decoding="async" />
           </li>
           <li>
-            <div class="ent-flow-t"><span class="ent-step">Task to workflow</span><h4>A task becomes a workflow.</h4><p>When work repeats, the model drafts a workflow. Nothing runs until a person confirms it.</p></div>
+            <div class="ent-flow-t"><span class="ent-step">3 · Tasks and workflows</span><h4>Tasks and workflows, from a chat or a project.</h4><p>Tasks get owners and dates. Work that repeats becomes a workflow, and nothing runs until a person confirms it.</p></div>
             <img src="/enterprise/flow/task-to-workflow.jpg" alt="A project's task list with owners and weeks, beside a drafted weekly restock workflow that waits for a person to confirm it." width="1600" height="758" loading="lazy" decoding="async" />
           </li>
           <li>
-            <div class="ent-flow-t"><span class="ent-step">Report to dashboard</span><h4>A report becomes a dashboard.</h4><p>A report that keeps coming becomes a live dashboard. Every number opens to its source.</p></div>
+            <div class="ent-flow-t"><span class="ent-step">4 · Reports and dashboards</span><h4>Reports and dashboards, tied to the work or standalone.</h4><p>Start one from a chat or a project, linked to your tasks and workflows or on its own. Every number opens to its source.</p></div>
             <img src="/enterprise/flow/report.jpg" alt="A one-page weekly restock report: a short summary, four key numbers, and four blocks that each pair a plain sentence with a chart or table, with an offer to make it a dashboard." width="1600" height="1646" loading="lazy" decoding="async" />
             <img src="/enterprise/flow/dashboard.jpg" alt="The dashboard it becomes: a strip of six key numbers with trend lines, a sell-through trend against target, regional bars, a store heat map, a product table and the week's run." width="1600" height="1333" loading="lazy" decoding="async" />
           </li>
@@ -73,9 +74,9 @@ pageOgImage: "/enterprise/tour-poster.jpg"
         <p class="ent-body">You pay when a ticket is resolved, not for the agent by the month.</p>
         <ul class="ent-checks" role="list">
           <li>Ticketing support</li>
+          <li>Its own environment: chats, projects, tasks and workflows act directly on the systems built and the outcomes delivered</li>
           <li>Assign specific agents to specific types of questions</li>
-          <li>Spin up a new question type, or a whole support process, from a collaborative project</li>
-          <li>Questions, agents, approvals and reporting in one place</li>
+          <li>Spin up a new question type, or a whole support process, from a project</li>
         </ul>
         <p class="ent-callout"><b>Under construction.</b> Built with design partners, not generally available yet.</p>
         <p class="ent-body">Want this for your team? <a href="mailto:{{ contact }}?subject={{ 'Outcome Services: OpenShore' | urlencode }}">Email us</a> · <a href="/pricing/">See pricing</a></p>
