@@ -1045,7 +1045,7 @@ html { scroll-padding-top: 64px; }
 .ent-flow-t p { margin: 0; font-size: 17px; color: var(--ink-soft); max-width: 64ch; }
 .ent-flow img { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: var(--shadow), 0 0 0 1px var(--rule); background: var(--raised); }
 
-/* Outcome-based services: a plain notice that it is not built yet. */
+/* Outcome Services: a plain notice that it is not built yet. */
 .ent-callout { margin: 0; max-width: 64ch; padding: 14px 18px; border-radius: 14px; background: var(--sea-soft); box-shadow: 0 0 0 1px var(--rule); font-size: 17px; color: var(--ink); }
 .ent-callout b { color: var(--sea); }
 
