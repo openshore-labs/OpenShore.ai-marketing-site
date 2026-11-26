@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Dashboard screen</title>
+<link rel="stylesheet" href="app.css"><script src="charts.js"></script>
+<style>
+.pad{padding:30px 40px 34px;display:flex;flex-direction:column;gap:20px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:16px;border-bottom:2px solid var(--rule)}
+.crumb{font-size:19px;color:var(--muted)}.title{font-size:34px;font-weight:600;letter-spacing:-.015em;margin-top:2px}
+.filters{display:flex;gap:10px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:17px;padding:9px 16px;border-radius:999px;background:var(--raised);box-shadow:0 0 0 1px var(--rule);color:var(--ink-soft)}
+.chip b{font-weight:600;color:var(--ink)}.chip svg{opacity:.55}
+.upd{font-size:16px;color:var(--muted);margin-left:10px;text-align:right;line-height:1.35}
+.live{display:inline-block;width:9px;height:9px;border-radius:50%;background:#3d9a6b;margin-right:7px;box-shadow:0 0 0 4px rgba(61,154,107,.18)}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);padding:6px 0}
+.kpi{padding:16px 22px 14px;display:flex;flex-direction:column;gap:2px;position:relative}
+.kpi+.kpi:before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:1px;background:var(--rule)}
+.kpi .v{font-size:44px;font-weight:700;letter-spacing:-.03em;color:var(--sea);line-height:1.1;margin-top:6px}
+.kpi .v small{font-size:22px;font-weight:600;letter-spacing:0}
+.kpi .d{font-size:16px;color:var(--muted);margin-top:2px}.kpi .sp{margin-top:8px;height:34px}
+.row2{display:grid;grid-template-columns:minmax(0,1.52fr) minmax(0,1fr);gap:20px}.row2>.card,.row3>.card{min-width:0}
+.row3{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr) minmax(0,350px);gap:20px}
+.pn{padding:22px 26px 22px;display:flex;flex-direction:column;gap:14px}
+.ph{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.leg{display:flex;gap:18px;font-size:15px;color:var(--muted);align-items:center}
+.leg i{display:inline-block;width:22px;height:0;border-top:4px solid var(--sea);margin-right:7px;vertical-align:3px;border-radius:2px}
+.leg i.f{border-top:4px dotted var(--wave)}.leg i.t{border-top:3px dashed var(--amber)}
+.take{font-size:18px;line-height:1.45;color:var(--ink-soft)}.take b{color:var(--ink)}
+.heat{display:flex;flex-direction:column;gap:9px}
+.hr{display:flex;align-items:center;gap:12px}.hr .rn{flex:none;width:92px;font-size:17px;font-weight:600}.hr .rn span{display:block;font-weight:400;font-size:14px;color:var(--muted)}
+.tiles{display:flex;gap:3px}.tiles i{width:16px;height:34px;border-radius:5px;display:block}
+.scale{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--muted);margin-top:2px}
+.scale .g{flex:1;height:12px;border-radius:6px;background:linear-gradient(90deg,#a35f0a 0%,#e6c9a0 38%,#e8ecea 50%,#8fb8c3 68%,#2f5a66 100%)}
+table{width:100%;border-collapse:collapse}th{padding-right:14px;text-align:left;white-space:nowrap;font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 0 10px}
+td{padding:11px 8px 11px 0;white-space:nowrap;border-top:1px solid var(--rule-soft);font-size:18px}
+td.n{font-weight:600}.ub{display:flex;align-items:center;gap:10px}.ub i{display:block;height:12px;border-radius:4px;background:var(--wave-soft)}
+.pill{font-size:15px;font-weight:600;padding:3px 10px;border-radius:999px}.pill.a{background:var(--amber-soft);color:var(--amber)}.pill.s{background:var(--sea-soft);color:var(--sea)}
+.tl{display:flex;flex-direction:column;gap:0;position:relative}
+.ev{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:0 0 15px;position:relative;font-size:17px;line-height:1.35}
+.ev .t{font-size:15px;color:var(--muted);padding-top:2px}.ev .x{position:relative;padding-left:22px}
+.ev .x:before{content:"";position:absolute;left:0;top:7px;width:10px;height:10px;border-radius:50%;background:var(--wave)}
+.ev.k .x:before{background:var(--sea);box-shadow:0 0 0 4px var(--sea-soft)}
+.ev .x:after{content:"";position:absolute;left:4.5px;top:20px;bottom:-17px;width:1px;background:var(--rule)}.ev:last-child .x:after{display:none}
+.sum{padding:20px 28px;display:flex;flex-direction:column;gap:8px}.sum p{font-size:23px;line-height:1.6}
+</style></head><body>
+<div class="win" id="shot">
+ <aside class="side"><div class="dots"><i></i><i></i><i></i></div><div class="brand">OpenShore</div><div class="org">Alder &amp; Pine</div>
+  <div class="nav">Chats</div><div class="nav">Projects</div><div class="nav">Tasks</div><div class="nav">Workflows</div><div class="nav">Reports</div><div class="nav on">Dashboards</div><div class="nav">Agents</div>
+  <div class="nav-sep"></div><div class="nav">Settings</div><div class="nav">Profile</div><div class="nav">Enterprise Configuration</div></aside>
+ <main class="main"><div class="pad">
+  <div class="hd"><div><div class="crumb">Dashboards</div><div class="title">Cedar Grove launch</div></div>
+   <div class="filters"><span class="chip">Week <b>46</b><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#1c2a33" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+    <span class="chip">Region <b>All</b><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#1c2a33" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+    <span class="chip">Retailer <b>Cedar Grove</b><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#1c2a33" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+    <div class="upd"><span class="live"></span>Updated 7:58, after the<br>Shopify and HubSpot sync</div></div></div>
+
+  <div class="card kpis" id="kpis"></div>
+
+  <div class="row2">
+   <div class="card pn"><div class="ph"><div class="cap">Sell-through by week</div><div class="leg"><span><i></i>Actual</span><span><i class="f"></i>Forecast</span><span><i class="t"></i>Target</span><span class="src"><b>Shopify</b> ↗</span></div></div>
+    <div id="trend"></div></div>
+   <div class="card pn"><div class="ph"><div class="cap">Sell-through by region</div><span class="src"><b>Shopify</b> ↗</span></div>
+    <div id="reg"></div>
+    <div class="take"><b>South is 10 pts under target</b> across 7 stores. West and Mountain are carrying the launch.</div></div>
+  </div>
+
+  <div class="row3">
+   <div class="card pn"><div class="ph"><div class="cap">Stores, week 46</div><span class="src"><b>Shopify</b> ↗</span></div>
+    <div class="heat" id="heat"></div>
+    <div class="scale"><span>40%</span><div class="g"></div><span>80%</span></div><div class="take"><b>Below 60% is amber.</b> 9 of 38 stores sit under target, most in the South.</div></div>
+   <div class="card pn"><div class="ph"><div class="cap">Products on shelf</div><span class="src"><b>Shopify</b> ↗</span></div>
+    <table><thead><tr><th>Product</th><th>Units</th><th>Sold</th><th>Weeks</th></tr></thead><tbody id="prod"></tbody></table><div class="take" style="margin-top:auto"><b>Alder Throw is the 2-pallet reorder.</b> Trail Tote has 4.4 weeks of stock but sells slowest, so it is not on the order.</div></div>
+   <div class="card pn"><div class="ph"><div class="cap">This week’s run</div></div>
+    <div class="tl">
+     <div class="ev"><div class="t">7:58</div><div class="x">Shopify and HubSpot synced</div></div>
+     <div class="ev"><div class="t">8:00</div><div class="x">Weekly restock ran</div></div>
+     <div class="ev"><div class="t">8:04</div><div class="x">Alder Throw flagged, 2.2 weeks left</div></div><div class="ev k"><div class="t">8:06</div><div class="x"><b>Lena Park approved</b> a reorder of 2 pallets</div></div>
+     <div class="ev"><div class="t">8:07</div><div class="x">Reorder sent to the supplier</div></div></div></div>
+  </div>
+
+  <div class="card sum"><div class="cap">Summary</div>
+   <p>Sell-through at Cedar Grove reached <span class="num">64%</span> in week 46, up from <span class="num">52%</span>. <span class="num">1,920</span> units are on shelf across <span class="num">38</span> stores, about <span class="num">3.2</span> weeks of stock. The reorder of <span class="num">2 pallets</span> was approved by Lena Park and sent.</p></div>
+ </div></main></div>
+<script>
+const K=[
+ {l:"Sell-through",v:"64<small>%</small>",d:'<span class="up">▲ 12 pts</span> on week 45',s:[21,38,52,64]},
+ {l:"Units on shelf",v:"1,920",d:"▼ 13% on week 45",s:[3100,2650,2207,1920]},
+ {l:"Weeks of stock",v:"3.2",d:'<span class="up">Above</span> the 3.0 floor',s:[5.1,4.4,3.8,3.2]},
+ {l:"Q4 order",v:"$86,400",d:"HubSpot deal 4471",s:[40200,40200,86400,86400]},
+ {l:"Reorders",v:"3",d:"Approved this quarter",s:[0,1,1,3]},
+ {l:"Quota, Q4",v:"88<small>%</small>",d:'<span class="warn">12 pts</span> to quota',s:[61,70,79,88]}];
+document.getElementById("kpis").innerHTML=K.map(k=>`<div class="kpi"><div class="cap" style="letter-spacing:.1em">${k.l}</div><div class="v">${k.v}</div><div class="d">${k.d}</div><div class="sp">${spark(k.s,{w:150,h:34})}</div></div>`).join("");
+document.getElementById("trend").innerHTML=trend({w:714,h:300});
+document.getElementById("reg").innerHTML=bars(REGIONS,{w:430,rowH:62,label:96,sub:r=>r.s+" stores"});
+// store tiles: deterministic spread around each region's mean, diverging on the 60% target
+let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const mix=(a,b,t)=>a.map((c,i)=>Math.round(c+(b[i]-c)*t));
+const neutral=[232,236,234],hi=[47,90,102],lo=[163,95,10];
+const col=v=>{const t=(v-60)/20;return t>=0?mix(neutral,hi,Math.min(1,t)):mix(neutral,lo,Math.min(1,-t*1.1))};
+document.getElementById("heat").innerHTML=REGIONS.map(r=>{
+  let vals=Array.from({length:r.s},()=>r.v+(rnd()-.5)*22);
+  const m=vals.reduce((a,b)=>a+b,0)/r.s;vals=vals.map(v=>v+(r.v-m)).sort((a,b)=>b-a);
+  return `<div class="hr"><div class="rn">${r.n}<span>${r.v}% avg</span></div><div class="tiles">${vals.map(v=>`<i style="background:rgb(${col(v)})"></i>`).join("")}</div></div>`}).join("");
+document.getElementById("prod").innerHTML=PRODUCTS.map(p=>{
+  const low=p.wk<2.5, slow=p.st<50;
+  return `<tr><td class="n">${p.n}</td><td><div class="ub"><i style="width:${p.u/610*28}px"></i>${p.u}</div></td><td style="font-weight:700;color:${slow?"var(--amber)":"var(--sea)"}">${p.st}%</td><td>${low?''+p.wk+' <span class="pill a">Reorder</span>':slow?''+p.wk+' <span class="pill a">Slow</span>':p.wk}</td></tr>`}).join("");
+</script></body></html>

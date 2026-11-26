@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Report screen</title>
+<link rel="stylesheet" href="app.css"><script src="charts.js"></script>
+<style>
+.stage{padding:26px 40px 40px;background:var(--paper-deep);display:flex;flex-direction:column;gap:18px;align-items:center}
+.bar{width:100%;display:flex;justify-content:space-between;align-items:center}
+.bar .crumb{font-size:19px;color:var(--muted)}
+.acts{display:flex;gap:10px;align-items:center}
+.btn{font-size:18px;font-weight:600;padding:0 20px;height:46px;display:inline-flex;align-items:center;border-radius:12px;background:var(--raised);box-shadow:0 0 0 1px var(--rule);color:var(--ink-soft)}
+.btn.p{background:var(--sea);color:#fff;box-shadow:0 0 0 4px rgba(75,144,163,.35)}
+.sheet{width:1060px;background:var(--sheet);border-radius:6px;box-shadow:0 1px 2px rgba(28,42,51,.08),0 30px 60px -30px rgba(28,42,51,.45),0 0 0 1px var(--rule-soft);padding:46px 52px 34px;display:flex;flex-direction:column;gap:26px}
+.mast{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:20px;border-bottom:3px solid var(--ink)}
+.eyebrow{font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sea)}
+.h1{font-family:var(--brand);font-size:50px;line-height:1.08;letter-spacing:-.015em;margin-top:8px;font-weight:500}
+.meta{font-size:16px;color:var(--muted);text-align:right;line-height:1.5}
+.lead{display:grid;grid-template-columns:1fr;gap:0;background:linear-gradient(90deg,var(--sea-soft),rgba(47,90,102,.04));border-left:6px solid var(--sea);border-radius:4px 14px 14px 4px;padding:20px 26px}
+.lead .cap{color:var(--sea);margin-bottom:6px}
+.lead p{font-size:26px;line-height:1.4;font-weight:500;letter-spacing:-.01em}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.k{padding:16px 20px;position:relative}.k+.k{border-left:1px solid var(--rule)}.k:first-child{padding-left:0}
+.k .v{font-size:44px;font-weight:700;letter-spacing:-.03em;color:var(--sea);line-height:1.1;margin-top:4px}.k .v small{font-size:22px;font-weight:600}
+.k .d{font-size:16px;color:var(--muted);margin-top:2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px}.sec{display:flex;flex-direction:column;gap:16px;min-width:0;padding-top:22px;border-top:1px solid var(--rule)}
+.nt .n{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--sea);color:#fff;font-weight:700;font-size:17px}
+.nt{display:grid;grid-template-columns:38px 1fr;column-gap:14px}.nt h3{font-size:23px;line-height:1.25;letter-spacing:-.015em;margin:0 0 6px;font-weight:650}.nt p{grid-column:2}
+.nt p{font-size:18px;line-height:1.45;color:var(--ink-soft)}
+.viz{display:flex;flex-direction:column;gap:10px}.viz .cap{display:flex;justify-content:space-between;align-items:center}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.run{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;padding-top:6px}
+.run:before{content:"";position:absolute;left:12.5%;right:12.5%;top:26px;height:3px;background:var(--wave-soft);border-radius:2px}
+.st{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;position:relative;font-size:17px;line-height:1.35}.st div{min-height:46px}
+.st i{width:40px;height:40px;border-radius:50%;background:var(--sheet);border:3px solid var(--wave);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:15px;font-weight:700;color:var(--sea)}
+.st.key i{background:var(--sea);border-color:var(--sea);color:#fff}
+.st b{display:block;font-weight:600}.st span{color:var(--muted);font-size:15px}
+.callout{margin-top:14px;font-size:17px;color:var(--ink-soft);background:var(--sea-soft);border-radius:12px;padding:12px 16px}.callout b{color:var(--sea);margin-right:8px}
+.foot{display:flex;justify-content:space-between;gap:20px;font-size:15px;color:var(--muted);padding-top:16px;border-top:3px solid var(--ink)}
+.mini{width:100%;border-collapse:collapse}.mini th{text-align:left;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:0 10px 8px 0}.mini td{padding:9px 10px 9px 0;border-top:1px solid var(--rule-soft);font-size:18px;white-space:nowrap}.mini td:first-child{font-weight:600}
+.pill{font-size:15px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--amber-soft);color:var(--amber)}
+</style></head><body>
+<div class="win" id="shot">
+ <aside class="side"><div class="dots"><i></i><i></i><i></i></div><div class="brand">OpenShore</div><div class="org">Alder &amp; Pine</div>
+  <div class="nav">Chats</div><div class="nav">Projects</div><div class="nav">Tasks</div><div class="nav">Workflows</div><div class="nav on">Reports</div><div class="nav">Dashboards</div><div class="nav">Agents</div>
+  <div class="nav-sep"></div><div class="nav">Settings</div><div class="nav">Profile</div><div class="nav">Enterprise Configuration</div></aside>
+ <main class="main stage">
+  <div class="bar"><div class="crumb">Reports</div><div class="acts"><span class="btn">Share</span><span class="btn">Export PDF</span><span class="btn p">Make it a dashboard</span></div></div>
+  <article class="sheet">
+   <header class="mast"><div><div class="eyebrow">Weekly restock report</div><h1 class="h1">Cedar Grove restock,<br>week 46</h1></div>
+    <div class="meta">From Monday’s run of<br>Cedar Grove weekly restock<br>Alder &amp; Pine</div></header>
+
+   <section class="lead"><div class="cap">The short version</div>
+    <p>Sell-through reached <span class="num">64%</span>, up <span class="num">12 pts</span> on last week and above the 60% target. Stock is healthy at <span class="num">3.2</span> weeks, and the reorder of <span class="num">2 pallets</span> is approved and sent.</p></section>
+
+   <section class="kp" id="kp"></section>
+
+   <div class="grid2">
+<section class="sec"><div class="nt"><span class="n">1</span><h3>It sold through faster every week.</h3><p>Sell-through crossed the 60% target in week 46. At this pace it lands near 71% next week.</p></div>
+    <div class="viz"><div class="cap"><span class="cap">Sell-through by week</span><span class="src"><b>Shopify</b> ↗</span></div><div id="trend"></div></div></section>
+
+   <section class="sec"><div class="nt"><span class="n">2</span><h3>West and Mountain carried it. South is behind.</h3><p>Two regions are above target. The South is 10 pts under, across 7 stores.</p></div>
+    <div class="viz"><div class="cap"><span class="cap">Sell-through by region</span><span class="src"><b>Shopify</b> ↗</span></div><div id="reg"></div></div></section>
+
+   <section class="sec"><div class="nt"><span class="n">3</span><h3>One product needed stock. We reordered it.</h3><p>Alder Throw had the least stock left. A person approved the reorder before it was sent.</p></div>
+    <div class="viz"><div class="cap"><span class="cap">Products on shelf</span><span class="src"><b>Shopify</b> ↗</span></div>
+     <table class="mini"><thead><tr><th>Product</th><th>Units</th><th>Sold</th><th>Weeks</th></tr></thead><tbody id="prod"></tbody></table></div></section>
+
+   <section class="sec"><div class="nt"><span class="n">4</span><h3>Monday’s run, start to finish.</h3><p>Nine minutes, with one human decision in the middle.</p></div>
+    <div class="viz"><div class="cap"><span class="cap">Monday, 7:58 to 8:07</span></div>
+     <div class="run">
+      <div class="st"><i>1</i><div><b>Synced</b><span>7:58</span></div></div>
+      <div class="st"><i>2</i><div><b>Flagged</b><span>8:04</span></div></div>
+      <div class="st key"><i>3</i><div><b>Lena approved</b><span>8:06</span></div></div>
+      <div class="st"><i>4</i><div><b>Sent</b><span>8:07</span></div></div></div>
+     <div class="callout"><b>Next run</b> Monday, 8:00. A person approves.</div></div></section>
+</div>
+
+   <footer class="foot"><span>Sources: Shopify orders and stock · HubSpot deal 4471 · Monday’s run. Every number opens to its source.</span><span>Example data</span></footer>
+  </article>
+ </main></div>
+<script>
+document.getElementById("kp").innerHTML=[
+ {l:"Sell-through",v:"64<small>%</small>",d:'<span class="up">▲ 12 pts</span> on week 45'},
+ {l:"Units on shelf",v:"1,920",d:"across 38 stores"},
+ {l:"Weeks of stock",v:"3.2",d:'<span class="up">Above</span> the 3.0 floor'},
+ {l:"Reorder",v:"2<small> pallets</small>",d:"Approved by Lena Park"}].map(k=>`<div class="k"><div class="cap">${k.l}</div><div class="v">${k.v}</div><div class="d">${k.d}</div></div>`).join("");
+document.getElementById("trend").innerHTML=trend({w:446,h:240,labels:true});
+document.getElementById("reg").innerHTML=bars(REGIONS,{w:446,rowH:58,label:100,sub:r=>r.s+" stores"});
+document.getElementById("prod").innerHTML=PRODUCTS.map(p=>`<tr><td>${p.n}</td><td>${p.u}</td><td style="font-weight:700;color:${p.st<50?"var(--amber)":"var(--sea)"}">${p.st}%</td><td>${p.wk} ${p.wk<2.5?'<span class="pill">Reordered</span>':p.st<50?'<span class="pill">Slow</span>':""}</td></tr>`).join("");
+</script></body></html>
