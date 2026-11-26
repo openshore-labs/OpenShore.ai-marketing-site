@@ -1080,7 +1080,7 @@ html { scroll-padding-top: 64px; }
 .ent-map-oh { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .ent-map-os b { font-size: 18px; font-weight: 650; letter-spacing: -0.01em; }
 .ent-map-os em { margin-left: auto; font-style: normal; font-size: 13px; font-weight: 600; color: var(--sea); padding: 3px 11px; border-radius: 999px; background: var(--raised); box-shadow: 0 0 0 1px var(--rule); white-space: nowrap; }
-.ent-map-os p { margin: 0; font-size: 15px; line-height: 1.45; color: var(--ink-soft); }
+.ent-map-sub { font-size: 15px; color: var(--muted); }
 .ent-map-chips { list-style: none; margin: 2px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .ent-map-chips li { padding: 5px 12px; border-radius: 999px; background: var(--raised); box-shadow: 0 0 0 1px var(--rule); font-size: 14px; font-weight: 600; color: var(--ink); }
 /* The loop. Right: out of step 4, down, into the box. Left: out of the box, up, into step 1. */
@@ -1108,5 +1108,12 @@ html { scroll-padding-top: 64px; }
   .ent-map-i svg { width: 20px; height: 20px; }
   .ent-map-row .ent-map-k { top: 5px; left: 50%; margin-left: -9px; width: 18px; height: 18px; font-size: 11px; }
   .ent-map-row b { font-size: clamp(11px, 3.2vw, 14px); letter-spacing: -0.02em; }
-  .ent-map-os { margin-inline: 4px; }
+  .ent-map-os { margin-inline: 4px; padding: 14px 14px 16px; }
+  .ent-map-os b { font-size: 16px; }
+  .ent-map-sub { font-size: 12px; }
+  .ent-map-os em { font-size: 11px; padding: 2px 8px; margin-left: 0; }
+  .ent-map-oh { row-gap: 6px; column-gap: 8px; }
+  .ent-map-oh b { flex-basis: calc(100% - 34px); }
+  .ent-map-chips { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .ent-map-chips li { display: flex; align-items: center; justify-content: center; text-align: center; font-size: clamp(10px, 2.9vw, 13px); line-height: 1.2; letter-spacing: -0.02em; padding: 6px 3px; border-radius: 10px; }
 }
