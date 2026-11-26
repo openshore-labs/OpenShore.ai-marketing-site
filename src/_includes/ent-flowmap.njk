@@ -1,14 +1,14 @@
 {#- The one-workspace flow, drawn simply (founder, 2026-11-26): chat with the
     model and/or the team; spin up a project; tasks and workflows (from a chat
     or a project); reports and dashboards (from a chat or a project, tied to
-    the tasks and workflows or standalone). Outcome Services is its own
-    environment that contains all of those components, so it sits below the
-    line and loops back into it. The steps under the map explain each one;
-    keep the two in step. Outcome Services is NOT built yet: the box says so. -#}
+    the tasks and workflows or standalone). Outcome Services is a separate
+    layer with its own environment and its own flow of the same components:
+    the main workspace can work with it, but it does not feed back into the
+    line, so the map draws no arrows to or from it (founder, 2026-11-26). The
+    steps under the map explain each one; keep the two in step. Outcome
+    Services is NOT built yet: the box says so. -#}
 {%- macro ico(d) -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ d }}"/></svg>{%- endmacro -%}
-<figure class="ent-map" aria-label="The workspace flows from chat to project, then to tasks and workflows, then to reports and dashboards. Outcome Services is its own environment that contains all of them, and loops back into the flow.">
-  <i class="ent-rail rt"></i><i class="ent-rail rm"></i><i class="ent-rail rb"></i>
-  <i class="ent-rail lt"></i><i class="ent-rail lm"></i><i class="ent-rail lb"></i>
+<figure class="ent-map" aria-label="The workspace flows from chat to project, then to tasks and workflows, then to reports and dashboards. Outcome Services is a separate layer with its own chats, projects, tasks, workflows, reports and dashboards.">
   <ol class="ent-map-row" role="list">
     <li><span class="ent-map-k">1</span><span class="ent-map-i">{{ ico("M4 5h16v11H9l-5 4z") }}</span><b>Chat</b></li>
     <li><span class="ent-map-k">2</span><span class="ent-map-i">{{ ico("M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z") }}</span><b>Project</b></li>
