@@ -29,7 +29,12 @@ pageOgImage: "/enterprise/tour-poster.jpg"
       <section class="ent-sec" aria-labelledby="model-h">
         <h2 class="ent-eyebrow" id="model-h">Any AI model</h2>
         <h3 class="ent-h">Any model. The same OpenShore.</h3>
-        <p class="ent-body">Bring the model you trust, cloud or local, on your own keys. Our own OpenShore Harness sits between the model and your team, so any capable large model works the same way here: the same chats, the same agents, the same approvals. Switch models whenever you like, and nobody has to relearn a thing.</p>
+        <p class="ent-body">Cloud or local, on your own keys.</p>
+        <ul class="ent-checks" role="list">
+          <li>The same chats, agents and approvals on every model</li>
+          <li>Switch whenever you like, with nothing to relearn</li>
+          <li>Our OpenShore Harness sits between the model and your team</li>
+        </ul>
       </section>
 
       {#- One flow in place of "Three phases" (founder, 2026-11-25): chat,
@@ -39,19 +44,19 @@ pageOgImage: "/enterprise/tour-poster.jpg"
           outcome-based services, which are NOT built yet: say so plainly. -#}
       <section class="ent-sec" aria-labelledby="flow-h">
         <h2 class="ent-eyebrow" id="flow-h">One workspace</h2>
-        <h3 class="ent-h">Chat, collaborate, build and review, across all your data sources, without leaving OpenShore.</h3>
-        <p class="ent-body">Work starts as a conversation and stays in one place from the first question to the finished report. Everything draws on the apps you have connected, and a person approves before anything moves.</p>
+        <h3 class="ent-h">Chat, collaborate, build and review, without leaving OpenShore.</h3>
+        <p class="ent-body">Drawing on every app you connect. A person approves before anything moves.</p>
         <ol class="ent-flow" role="list">
           <li>
-            <div class="ent-flow-t"><span class="ent-step">Chat to project</span><h4>A chat becomes a project.</h4><p>Chat with the model, bring in a teammate or an agent, then turn the chat into a project. It sets up the members, milestones, tasks and sources from what the chat already knows.</p></div>
+            <div class="ent-flow-t"><span class="ent-step">Chat to project</span><h4>A chat becomes a project.</h4><p>Members, milestones, tasks and sources, set up from what the chat already knows.</p></div>
             <img src="/enterprise/flow/chat-to-project.jpg" alt="A chat called Shelf reset plan beside the new project it sets up, Cedar Grove retail launch, with its name, members, milestones, tasks and sources filled in." width="1600" height="805" loading="lazy" decoding="async" />
           </li>
           <li>
-            <div class="ent-flow-t"><span class="ent-step">Task to workflow</span><h4>A task becomes a workflow.</h4><p>The plan becomes tasks with owners and dates. Put an agent on a task and watch it work. When the work repeats, the model drafts a workflow, and nothing runs until a person confirms it.</p></div>
+            <div class="ent-flow-t"><span class="ent-step">Task to workflow</span><h4>A task becomes a workflow.</h4><p>When work repeats, the model drafts a workflow. Nothing runs until a person confirms it.</p></div>
             <img src="/enterprise/flow/task-to-workflow.jpg" alt="A project's task list with owners and weeks, beside a drafted weekly restock workflow that waits for a person to confirm it." width="1600" height="758" loading="lazy" decoding="async" />
           </li>
           <li>
-            <div class="ent-flow-t"><span class="ent-step">Report to dashboard</span><h4>A report becomes a dashboard.</h4><p>Each run feeds a report. When a report keeps coming, the model offers a dashboard that stays current, and every number opens to its source.</p></div>
+            <div class="ent-flow-t"><span class="ent-step">Report to dashboard</span><h4>A report becomes a dashboard.</h4><p>A report that keeps coming becomes a live dashboard. Every number opens to its source.</p></div>
             <img src="/enterprise/flow/report.jpg" alt="A one-page weekly restock report: a short summary, four key numbers, and four blocks that each pair a plain sentence with a chart or table, with an offer to make it a dashboard." width="1600" height="1646" loading="lazy" decoding="async" />
             <img src="/enterprise/flow/dashboard.jpg" alt="The dashboard it becomes: a strip of six key numbers with trend lines, a sell-through trend against target, regional bars, a store heat map, a product table and the week's run." width="1600" height="1333" loading="lazy" decoding="async" />
           </li>
@@ -65,15 +70,29 @@ pageOgImage: "/enterprise/tour-poster.jpg"
       <section class="ent-sec" aria-labelledby="outcome-h">
         <h2 class="ent-eyebrow" id="outcome-h">Outcome-based services</h2>
         <h3 class="ent-h">Some work is better paid for by the result.</h3>
-        <p class="ent-body">With an outcome-based service you pay for the work done, like a ticket resolved, instead of for the agent by the month. Ticketing comes first. You assign specific agents to specific types of questions, and you can spin up a new type of question, or a whole new support process, straight from a collaborative project. The questions, the agents, the approvals and the reporting all live in one place.</p>
-        <p class="ent-callout"><b>Under construction.</b> We are building outcome-based services with design partners and they are not generally available yet. Ticketing is first, and other support and back-office processes will follow the same way.</p>
-        <p class="ent-body">Want to see if an outcome-based setup fits your team? Email <a href="mailto:{{ contact }}?subject={{ 'Outcome-based services: OpenShore' | urlencode }}">{{ contact }}</a> and we will work out whether we can set one up with you. <a href="/pricing/">How it is priced</a>.</p>
+        <p class="ent-body">Pay for the work done, like a ticket resolved, not for the agent by the month.</p>
+        <ul class="ent-checks" role="list">
+          <li>Ticketing comes first</li>
+          <li>Assign specific agents to specific types of questions</li>
+          <li>Spin up a new question type, or a whole support process, from a collaborative project</li>
+          <li>Questions, agents, approvals and reporting in one place</li>
+        </ul>
+        <p class="ent-callout"><b>Under construction.</b> Built with design partners, not generally available yet.</p>
+        <p class="ent-body">Might it fit your team? <a href="mailto:{{ contact }}?subject={{ 'Outcome-based services: OpenShore' | urlencode }}">Email us</a> · <a href="/pricing/">How it is priced</a></p>
       </section>
 
       <section class="ent-sec" aria-labelledby="workers-h">
         <h2 class="ent-eyebrow" id="workers-h">Agents</h2>
-        <p class="ent-body"><b>Agents</b> are built by domain experts and run whole corporate functions. Each one is its own harness inside the OpenShore Harness, so it stays contained and works to the standards of quality and security OpenShore holds every agent to, whatever model runs it. Each agent is assigned an admin on your team who approves what matters. The Finance agent, for one, drafts your monthly board pack and investor update from your own numbers. Pick from the five, or we build the one you need. All of them work from Data Foundations, the layer that brings your connected apps into one set of numbers. <a href="/#bots-h">Watch each one work</a>.</p>
+        <h3 class="ent-h">An agent for each corporate function.</h3>
+        <p class="ent-body">Built by domain experts. Pick from the five, or we build the one you need.</p>
         <ul class="ent-pills ent-pills--workers" role="list"><li>Sales ops</li><li>Finance</li><li>Planning</li><li>Supply chain</li><li>Analytics</li></ul>
+        <ul class="ent-checks" role="list">
+          <li>Each agent is its own harness inside the OpenShore Harness, held to our quality and security standards, whatever model runs it</li>
+          <li>Each has an admin on your team who approves what matters</li>
+          <li>All work from Data Foundations, one set of numbers across your connected apps</li>
+          <li>Finance, for one, drafts your monthly board pack and investor update from your own numbers</li>
+        </ul>
+        <p class="ent-body"><a href="/#bots-h">Watch each one work</a></p>
       </section>
 
 {#- The worked examples play on the home page only (founder, 2026-11-24:
@@ -81,15 +100,18 @@ pageOgImage: "/enterprise/tour-poster.jpg"
       <section class="ent-sec" aria-labelledby="trust-h">
         <h2 class="ent-eyebrow" id="trust-h">Built to be trusted</h2>
         <ul class="ent-checks" role="list">
-          <li>Any model, cloud or local, on your keys, in your cloud or on your own servers, with no lock-in. Our harnesses lessen each model’s volatility, so agents stay steady whichever you run.</li>
-          <li>Agents propose. People approve anything that touches money, records or outbound messages.</li>
-          <li>Privacy first: we never sell your data or use it to train AI models. By default we see service telemetry, like errors and uptime, with no customer content; anything deeper is with your permission, limited to that task, and logged.</li>
+          <li>Any model, cloud or local, on your keys, in your cloud or on your own servers. No lock-in</li>
+          <li>Our harnesses steady each model’s volatility, so agents behave the same whichever you run</li>
+          <li>Agents propose. People approve anything that touches money, records or outbound messages</li>
+          <li>We never sell your data or use it to train AI models</li>
+          <li>By default we see only service telemetry, like errors and uptime, never customer content</li>
+          <li>Anything deeper needs your permission, is limited to that task, and is logged</li>
         </ul>
       </section>
 
       <section class="ent-cta" aria-labelledby="walk-h">
         <h2 id="walk-h">See it on your own numbers.</h2>
-        <p class="ent-lede">Want to see an agent work on a problem from your business? Email <a href="mailto:{{ contact }}?subject={{ 'OpenShore walkthrough' | urlencode }}">{{ contact }}</a> for a 30-minute walkthrough with Jack.</p>
+        <p class="ent-lede">A 30-minute walkthrough with Jack, on a problem from your business. Email <a href="mailto:{{ contact }}?subject={{ 'OpenShore walkthrough' | urlencode }}">{{ contact }}</a>.</p>
       </section>
 
       <script src="/enterprise/film-embed.js?v={{ rev.entFilmEmbed }}" defer></script>
